@@ -1,4 +1,4 @@
---ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
+--ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
 if CarNameCurrent=='SPECTER2' then
 	 local Mass = 550
 	 local Drag = 0
@@ -20,7 +20,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local Coll=10
 	 local Eng=10
 	 local DF=-1.75
-     ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
+     ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
  elseif CarNameCurrent=='COQUETTE4' then
 	 local Mass = -600
 	 local Drag = 0
@@ -42,7 +42,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local Coll=10
 	 local Eng=10
 	 local DF=-350
-     ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
+     ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
  elseif CarNameCurrent=='ITALIGTO' then
 	 local Mass = -600
 	 local Drag = 0
@@ -64,8 +64,8 @@ if CarNameCurrent=='SPECTER2' then
 	 local Coll=10
 	 local Eng=10
 	 local DF=-350
-     ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
- elseif CarNameCurrent=='comets2' then
+     ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
+ elseif CarNameCurrent=='COMET6' then
 	 local Mass = -600
 	 local Drag = 0
 	 local FWD = -1
@@ -86,7 +86,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local Coll=10
 	 local Eng=10
 	 local DF=-350
-     ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
+     ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
  elseif CarNameCurrent=='CYPHER' then
 	 local Mass = -600
 	 local Drag = 0
@@ -108,7 +108,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local Coll=10
 	 local Eng=10
 	 local DF=-350
-     ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
+     ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
 
 end
 
