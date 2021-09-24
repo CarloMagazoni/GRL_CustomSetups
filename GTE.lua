@@ -72,7 +72,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local RWD = 0
 	 local UpShift = -1
 	 local DownShift = -1
-	 local Drive = -0.6
+	 local Drive = -0.06
 	 local MaxFlat = 0
 	 local InitMaxFlat = 0
 	 local Brake = 0
