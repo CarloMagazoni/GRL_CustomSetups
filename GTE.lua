@@ -72,7 +72,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local RWD = 0
 	 local UpShift = -1
 	 local DownShift = -1
-	 local Drive = -0.06
+	 local Drive = -0.055
 	 local MaxFlat = 0
 	 local InitMaxFlat = 0
 	 local Brake = 0
@@ -82,7 +82,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local CurveMin = -0.005 --2.5
 	 local CurveMinR = -0.8 --8.33
 	 local CurveLat = 0 --0.3926
-	 local CurveLatR = 0 --2.5464
+	 local CurveLatR = -0.1 --2.5464
 	 local Coll=10
 	 local Eng=10
 	 local DF=0
