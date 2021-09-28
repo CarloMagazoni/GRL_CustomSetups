@@ -1,4 +1,4 @@
---ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia)
+--ApplyHSMod(IntoHS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
 if CarNameCurrent=='VAGNER' then
 	 local Mass = 0
 	 local Drag = 0
@@ -20,11 +20,13 @@ if CarNameCurrent=='VAGNER' then
 	 local Coll = 10
 	 local Eng = 10
 	 local DF = 0
-	 local Flag = 4
+	 local Flag = 0
 	 local Front = 0
 	 local Rear = 0
 	 local Inertia = 0
-     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia)
+	 local Model = 128
+	 local ADV = 67108864
+     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='KRIEGER' then
 	 local Mass = 0
 	 local Drag = 0
@@ -46,11 +48,13 @@ if CarNameCurrent=='VAGNER' then
 	 local Coll = 10
 	 local Eng = 10
 	 local DF = 0
-	 local Flag = 4
+	 local Flag = 0
 	 local Front = 0
 	 local Rear = 0
 	 local Inertia = 0
-     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia)
+	 local Model = 128
+	 local ADV = 67108864
+     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='VISIONE' then
 	 local Mass = 0
 	 local Drag = 0
@@ -72,11 +76,13 @@ if CarNameCurrent=='VAGNER' then
 	 local Coll = 10
 	 local Eng = 10
 	 local DF = 0
-	 local Flag = 4
+	 local Flag = 0
 	 local Front = 0
 	 local Rear = 0
 	 local Inertia = 0
-     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia)
+	 local Model = 128
+	 local ADV = 67108864
+     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='EMERUS' then
 	 local Mass = 500
 	 local Drag = 0.0002
@@ -98,11 +104,12 @@ if CarNameCurrent=='VAGNER' then
 	 local Coll = 10
 	 local Eng = 10
 	 local DF = 0
-	 local Flag = 4
 	 local Front = -0.06
 	 local Rear = 0.06
 	 local Inertia = -0.35
-     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia)
+	 local Model = 128
+	 local ADV = 67108864
+     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='TIGON' then
 	 local Mass = 0
 	 local Drag = 0
@@ -124,11 +131,13 @@ if CarNameCurrent=='VAGNER' then
 	 local Coll = 10
 	 local Eng = 10
 	 local DF = 0
-	 local Flag = 4
+	 local Flag = 0
 	 local Front = 0
 	 local Rear = 0
 	 local Inertia = 0
-     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia)
+	 local Model = 128
+	 local ADV = 67108864
+     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='TYRANT' then
 	 local Mass = 0
 	 local Drag = 0
@@ -150,10 +159,12 @@ if CarNameCurrent=='VAGNER' then
 	 local Coll = 10
 	 local Eng = 10
 	 local DF = 0
-	 local Flag = 4
+	 local Flag = 0
 	 local Front = 0
 	 local Rear = 0
 	 local Inertia = 0
-     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia)
+	 local Model = 128
+	 local ADV = 67108864
+     ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
 
 end
