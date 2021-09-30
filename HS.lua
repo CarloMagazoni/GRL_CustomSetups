@@ -27,7 +27,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Model = 128
 	 local ADV = 4194304
      ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
- elseif CarNameCurrent=='KRIEGER' then
+ elseif CarNameCurrent=='krieger' then
 	 local Mass = 0
 	 local Drag = 0.0001
 	 local FWD = 0
