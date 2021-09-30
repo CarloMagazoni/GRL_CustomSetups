@@ -25,7 +25,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Rear = 0
 	 local Inertia = 0
 	 local Model = 128
-	 local ADV = 67108864
+	 local ADV = 4194304
      ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='KRIEGER' then
 	 local Mass = 0
@@ -53,7 +53,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Rear = -0.02
 	 local Inertia = -0.04
 	 local Model = 128
-	 local ADV = 67108864
+	 local ADV = 4194304
      ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='VISIONE' then
 	 local Mass = 0
@@ -81,7 +81,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Rear = -0.05
 	 local Inertia = 0
 	 local Model = 128
-	 local ADV = 67108864
+	 local ADV = 4194304
      ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='EMERUS' then
 	 local Mass = 500
@@ -109,7 +109,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Rear = 0.06
 	 local Inertia = -0.35
 	 local Model = 128
-	 local ADV = 67108864
+	 local ADV = 4194304
      ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='TIGON' then
 	 local Mass = 0
@@ -137,7 +137,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Rear = 0
 	 local Inertia = 0
 	 local Model = 128
-	 local ADV = 67108864
+	 local ADV = 4194304
      ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
  elseif CarNameCurrent=='TYRANT' then
 	 local Mass = 0
@@ -165,6 +165,6 @@ if CarNameCurrent=='VAGNER' then
 	 local Rear = 0
 	 local Inertia = 0
 	 local Model = 128
-	 local ADV = 67108864
+	 local ADV = 4194304
      ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model)
 end
