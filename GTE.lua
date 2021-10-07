@@ -65,27 +65,27 @@ if CarNameCurrent=='SPECTER2' then
 	 local Eng=10
 	 local DF=-120
      ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
- elseif CarNameCurrent=='ITALIGTO' then
-	 local Mass = 0
+ elseif CarNameCurrent=='ITALIRSX' then
+	 local Mass = -600
 	 local Drag = 0
 	 local FWD = -1
 	 local RWD = 0
 	 local UpShift = -1
 	 local DownShift = -1
-	 local Drive = -0.055
-	 local MaxFlat = 0
-	 local InitMaxFlat = 0
-	 local Brake = 0
-	 local Steering = 0
-	 local CurveMax = -0.08 --2.62
-	 local CurveMaxR = 0 --0.3816
-	 local CurveMin = -0.005 --2.5
-	 local CurveMinR = -0.8 --8.33
-	 local CurveLat = 0 --0.3926
-	 local CurveLatR = -0.1 --2.5464
+	 local Drive = -0.0292
+	 local MaxFlat = -1.023
+	 local InitMaxFlat = -1.4394
+	 local Brake = -0.3
+	 local Steering = -0.05
+	 local CurveMax = -0.057
+	 local CurveMaxR = 0.0268
+	 local CurveMin = -0.1
+	 local CurveMinR = -2.1667
+	 local CurveLat = -0.0262
+	 local CurveLatR = 0.1367
 	 local Coll=10
 	 local Eng=10
-	 local DF=0
+	 local DF=-350
      ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
  elseif CarNameCurrent=='CYPHER' then
 	 local Mass = 0

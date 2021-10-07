@@ -65,27 +65,27 @@ if CarNameCurrent=='PARAGON' then
 	 local Eng=10
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
-  elseif CarNameCurrent=='ITALIRSX' then
-	 local Mass = -600
+  elseif CarNameCurrent=='CARBONIZZARE' then
+	 local Mass = 0
 	 local Drag = 0
-	 local FWD = -1
+	 local FWD = 0
 	 local RWD = 0
-	 local UpShift = -5
-	 local DownShift = -5
-	 local Drive = -0.0492
-	 local MaxFlat = -1.723
-	 local InitMaxFlat = -1.4394
-	 local Brake = -0.4
-	 local Steering = -0.1
-	 local CurveMax = -0.067
-	 local CurveMaxR = 0.0268
-	 local CurveMin = -0.1
-	 local CurveMinR = -2.1667
-	 local CurveLat = -0.0262
-	 local CurveLatR = 0.1367
+	 local UpShift = 0
+	 local DownShift = 0
+	 local Drive = 0.03
+	 local MaxFlat = 1
+	 local InitMaxFlat = 0
+	 local Brake = 0
+	 local Steering = 0.1
+	 local CurveMax = 0.037
+	 local CurveMaxR = 0.0168
+	 local CurveMin = -0.02
+	 local CurveMinR = 0.0667
+	 local CurveLat = 0
+	 local CurveLatR = 0
 	 local Coll=10
 	 local Eng=10
-	 local DF=-350
+	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
   elseif CarNameCurrent=='ELEGY2' then
 	 local Mass = 0
