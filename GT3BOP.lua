@@ -65,7 +65,7 @@ if CarNameCurrent=='PARAGON' then
 	 local Eng=10
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
-  elseif CarNameCurrent=='CARBONIZZARE' then
+  elseif CarNameCurrent=='CARBONIZ' then
 	 local Mass = 0
 	 local Drag = 0
 	 local FWD = 0
