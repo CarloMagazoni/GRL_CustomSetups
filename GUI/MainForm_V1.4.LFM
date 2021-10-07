@@ -3839,6 +3839,7 @@ object UDF1: TCEForm
       Enabled = False
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
+      OnClick = TurnF1ModeOff
       ParentFont = False
       TabOrder = 22
     end
@@ -3852,6 +3853,7 @@ object UDF1: TCEForm
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       ParentBidiMode = False
+      OnClick = TurnF1ModeOn
       ParentFont = False
       TabOrder = 23
     end
@@ -3862,13 +3864,15 @@ object UDF1: TCEForm
       Width = 170
       Alignment = taCenter
       AutoSize = False
-      Caption = 'COMING SOON'
+      Caption = 'N/D'
+      Color = 15000804
       Enabled = False
       Font.Name = 'Segoe UI'
       Font.Style = [fsBold]
       Layout = tlCenter
       ParentColor = False
       ParentFont = False
+      Transparent = False
     end
   end
   object AdvancedPanel: TCEPanel
