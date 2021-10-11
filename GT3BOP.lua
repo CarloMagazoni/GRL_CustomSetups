@@ -75,7 +75,7 @@ if CarNameCurrent=='PARAGON' then
 	 local Drive = 0.03
 	 local MaxFlat = 1
 	 local InitMaxFlat = 0
-	 local Brake = 0
+	 local Brake = -0.02
 	 local Steering = 0.1
 	 local CurveMax = 0.037
 	 local CurveMaxR = 0.0168
@@ -160,8 +160,8 @@ if CarNameCurrent=='PARAGON' then
 	 local RWD = -0.399
 	 local UpShift = -4.8
 	 local DownShift = -4.8
-	 local Drive = -0.024
-	 local MaxFlat = 3.11
+	 local Drive = -0.014
+	 local MaxFlat = 4.11
 	 local InitMaxFlat = 2.63
 	 local Brake = 0
 	 local Steering = 0
