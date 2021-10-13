@@ -198,7 +198,3 @@ if CarNameCurrent=='PARAGON' then
 	 local DF=0
      ApplyGT3Mod(GT3,0,0,0,0,-1.6,-1.6,-0.0037,0.7827,0.3189,0,0,-0.03,0.0119,-0.1449,-1.8518,-0.06,0,10,10,0)
 end
-
---[LOG: Brakes for all cars -0.4]
---[LOG: Brakes for all cars +0.4]
---[LOG: Added Vectre and Growler]
