@@ -33,11 +33,11 @@ if CarNameCurrent=='PARAGON' then
 	 local InitMaxFlat = 0
 	 local Brake = -0.1
 	 local Steering = -0.2
-	 local CurveMax = -0.05
+	 local CurveMax = -0.075
 	 local CurveMaxR = 0
 	 local CurveMin = -0.01
 	 local CurveMinR = 0
-	 local CurveLat = -0.075
+	 local CurveLat = -0.115
 	 local CurveLatR = 0
 	 local Coll=10
 	 local Eng=8
@@ -55,10 +55,10 @@ if CarNameCurrent=='PARAGON' then
 	 local InitMaxFlat = 1.188
 	 local Brake = 0
 	 local Steering = 0
-	 local CurveMax = 0.12
+	 local CurveMax = -0.01
 	 local CurveMaxR = 0.0194
-	 local CurveMin = -0.1
-	 local CurveMinR = -3.4445
+	 local CurveMin = -0.2
+	 local CurveMinR = -3.7445
 	 local CurveLat = 0
 	 local CurveLatR = 0
 	 local Coll=10
@@ -77,7 +77,7 @@ if CarNameCurrent=='PARAGON' then
 	 local InitMaxFlat = 0
 	 local Brake = -0.02
 	 local Steering = 0.1
-	 local CurveMax = 0.077
+	 local CurveMax = 0.047
 	 local CurveMaxR = 0.0168
 	 local CurveMin = 0.0
 	 local CurveMinR = 0.0667
