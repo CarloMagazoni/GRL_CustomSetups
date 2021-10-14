@@ -55,9 +55,9 @@ if CarNameCurrent=='PARAGON' then
 	 local InitMaxFlat = 1.188
 	 local Brake = 0
 	 local Steering = 0
-	 local CurveMax = 0.02
+	 local CurveMax = -0.02
 	 local CurveMaxR = 0.0194
-	 local CurveMin = -0.1
+	 local CurveMin = -0.2
 	 local CurveMinR = -3.6445
 	 local CurveLat = 0
 	 local CurveLatR = 0
