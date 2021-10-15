@@ -196,5 +196,5 @@ if CarNameCurrent=='PARAGON' then
 	 local Coll=10
 	 local Eng=10
 	 local DF=0
-     ApplyGT3Mod(GT3,0,0,0,0,-1.6,-1.6,-0.0037,0.7827,0.3189,0,0,-0.03,0.0119,-0.1449,-1.8518,-0.06,0,10,10,0)
+     ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
 end
