@@ -18,7 +18,7 @@ if CarNameCurrent=='PARAGON' then
 	 local CurveLat = 0
 	 local CurveLatR = 0.004
 	 local Coll=10
-	 local Eng=4
+	 local Eng=3
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
   elseif CarNameCurrent=='SPECTER' then
@@ -40,7 +40,7 @@ if CarNameCurrent=='PARAGON' then
 	 local CurveLat = -0.115
 	 local CurveLatR = 0
 	 local Coll=10
-	 local Eng=8
+	 local Eng=4
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
   elseif CarNameCurrent=='COQUETTE' then
@@ -62,7 +62,7 @@ if CarNameCurrent=='PARAGON' then
 	 local CurveLat = 0
 	 local CurveLatR = -0.15
 	 local Coll=10
-	 local Eng=5
+	 local Eng=2.5
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
   elseif CarNameCurrent=='CARBONIZ' then
@@ -73,7 +73,7 @@ if CarNameCurrent=='PARAGON' then
 	 local UpShift = 0
 	 local DownShift = 0
 	 local Drive = 0.029
-	 local MaxFlat = 1
+	 local MaxFlat = 0.95
 	 local InitMaxFlat = 0
 	 local Brake = -0.04
 	 local Steering = 0.1
@@ -84,7 +84,7 @@ if CarNameCurrent=='PARAGON' then
 	 local CurveLat = 0
 	 local CurveLatR = -0.06
 	 local Coll=10
-	 local Eng=8
+	 local Eng=4
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
   elseif CarNameCurrent=='ELEGY2' then
@@ -95,7 +95,7 @@ if CarNameCurrent=='PARAGON' then
 	 local UpShift = 0.8
 	 local DownShift = 0.8
 	 local Drive = 0
-	 local MaxFlat = 2
+	 local MaxFlat = 2.1
 	 local InitMaxFlat = 1.66
 	 local Brake = 0
 	 local Steering = 0
@@ -106,7 +106,7 @@ if CarNameCurrent=='PARAGON' then
 	 local CurveLat = 0
 	 local CurveLatR = -0.0225
 	 local Coll=10
-	 local Eng=8
+	 local Eng=4
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
   elseif CarNameCurrent=='DRAFTER' then
@@ -128,7 +128,7 @@ if CarNameCurrent=='PARAGON' then
 	 local CurveLat = 0
 	 local CurveLatR = 0
 	 local Coll=10
-	 local Eng=8
+	 local Eng=4
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
   elseif CarNameCurrent=='SCHLAGEN' then
@@ -150,7 +150,7 @@ if CarNameCurrent=='PARAGON' then
 	 local CurveLat = 0
 	 local CurveLatR = 0
 	 local Coll=10
-	 local Eng=8
+	 local Eng=4
 	 local DF=-150
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
   elseif CarNameCurrent=='VECTRE' then
@@ -161,7 +161,7 @@ if CarNameCurrent=='PARAGON' then
 	 local UpShift = -4.8
 	 local DownShift = -4.8
 	 local Drive = -0.004
-	 local MaxFlat = 4.11
+	 local MaxFlat = 4.15
 	 local InitMaxFlat = 2.63
 	 local Brake = 0
 	 local Steering = 0
@@ -172,7 +172,7 @@ if CarNameCurrent=='PARAGON' then
 	 local CurveLat = 0
 	 local CurveLatR = 0
 	 local Coll=10
-	 local Eng=10
+	 local Eng=5
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
   elseif CarNameCurrent=='GROWLER' then
@@ -194,7 +194,7 @@ if CarNameCurrent=='PARAGON' then
 	 local CurveLat = -0.08
 	 local CurveLatR = -0.2
 	 local Coll=10
-	 local Eng=10
+	 local Eng=5
 	 local DF=0
      ApplyGT3Mod(GT3,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
 end
