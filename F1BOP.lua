@@ -17,7 +17,7 @@ if CarNameCurrent=='OPENWHEEL1' then
 	 local DF = -4
 	 local Front = 0.5
 	 local Rear = -0.5
-	 local Lift = 0.07
+	 local SuspensionLift = 0.07
 	 local Force = 0.1
 	 local Bump = 0.20
 	 local ARB = 2
