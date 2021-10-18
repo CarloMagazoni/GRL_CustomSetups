@@ -1,5 +1,5 @@
 --ApplyF1Mod(F1info,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF)
-if CarNameCurrent=='OPENWHEEL' then
+if CarNameCurrent=='OPENWHEEL1' then
 	 local Mass = 300
 	 local Drag = -0.001
 	 local UpShift = -4
