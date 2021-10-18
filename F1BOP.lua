@@ -25,5 +25,5 @@ if CarNameCurrent=='OPENWHEEL1' then
 	 local RS = - 0.17
 	 local Travel = 0.05
 	 local Rolo = 0.03
-     ApplyF1Mod(F1info,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF)
+     ApplyF1Mod(F1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF)
 end
