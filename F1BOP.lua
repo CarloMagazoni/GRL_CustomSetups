@@ -4,10 +4,10 @@ if CarNameCurrent=='OPENWHEEL1' then
 	 local Drag = -0.001
 	 local UpShift = -4
 	 local DownShift = -2
-	 local Drive = 0.03
+	 local Drive = -0.03
 	 local MaxFlat = 15.84
-	 local InitMaxFlat = 15.84
-	 local Brake = 0.8
+	 local InitMaxFlat = 0
+	 local Brake = -0.8
 	 local CurveMax = -0.025
 	 local CurveMaxR = -0.05
 	 local CurveMin = -0.095
@@ -15,8 +15,8 @@ if CarNameCurrent=='OPENWHEEL1' then
 	 local CurveLat = 0.038
 	 local CurveLatR = -0.59 
 	 local DF = -4
-	 local Front = 0.5
-	 local Rear = -0.5
+	 local Front = 0.05
+	 local Rear = -0.05
 	 local SuspensionLift = 0.07
 	 local Force = 0.1
 	 local Bump = 0.20
