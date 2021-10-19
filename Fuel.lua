@@ -1,4 +1,4 @@
-UnclassedCarTank=50
+UnclassedCarTank=20
 UnclassedCarMix=0.000002
 GT3Tank=80
 GT3mix=0.000003
