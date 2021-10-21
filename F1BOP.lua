@@ -4,7 +4,7 @@ if CarNameCurrent=='FORMULA' then
 	 local Drag = 0
 	 local UpShift = 0
 	 local DownShift = 0
-	 local Drive = 0
+	 local Drive = -0.01
 	 local MaxFlat = 36
 	 local InitMaxFlat = 15
 	 local Brake = -0.6
