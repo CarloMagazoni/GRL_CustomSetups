@@ -8,7 +8,7 @@ if CarNameCurrent=='FORMULA' then
 	 local MaxFlat = 36
 	 local InitMaxFlat = 15
 	 local Brake = -0.6
-	 local CurveMax = 0
+	 local CurveMax = -0.085
 	 local CurveMaxR = 0
 	 local CurveMin = 0
 	 local CurveMinR = 0
