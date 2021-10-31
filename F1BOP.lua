@@ -7,7 +7,7 @@ if CarNameCurrent=='FORMULA' then
 	 local Drive = -0.01
 	 local MaxFlat = 36
 	 local InitMaxFlat = 15
-	 local Brake = -0.6
+	 local Brake = -0.65
 	 local CurveMax = -0.085
 	 local CurveMaxR = 0
 	 local CurveMin = 0
@@ -17,7 +17,7 @@ if CarNameCurrent=='FORMULA' then
 	 local DF = -4
 	 local Front = 0.06
 	 local Rear = -0.06
-	 local SuspensionLift = -0.005
+	 local SuspensionLift = 0
 	 local Force = -0.45
 	 local Bump = 0.20
 	 local ARB = 0
