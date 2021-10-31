@@ -237,7 +237,7 @@
 
   function CheckLobbyParticipants()
     local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
-    local PlayersList = ""
+    local PlayerList = ""
 
     for i=0,32,1 do
       local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
@@ -3121,7 +3121,7 @@
         RWDSetted = RWDCurrent
         FrontGripSetted = FrontGripCurrent
       end
-      EnableFireSuppressionSystem(true)    
+      EnableFireSuppressionSystem(true)
     end
   --WORK WITH PITBOXES
 
