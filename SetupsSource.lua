@@ -2616,7 +2616,7 @@
           --Suspension
       if SuspensionForceR-SuspensionForceDELTA > 0 then
         for i=1,(SuspensionForceR-SuspensionForceDELTA) do
-          SuspensionRaiseIncrease()
+          SuspensionForceIncrease()
         end
         elseif SuspensionForceR-SuspensionForceDELTA < 0 then
         for i=1,((SuspensionForceR-SuspensionForceDELTA)*(-1)) do
@@ -2642,7 +2642,7 @@
            for i=1,((SuspensionRaiseR-SuspensionRaiseDELTA)*(-1)) do
                SuspensionRaiseDecrease()
            end
-          end
+      end
 
   		if SuspensionBumpR-SuspensionBumpDELTA > 0 then
            for i=1,(SuspensionBumpR-SuspensionBumpDELTA) do
@@ -2652,7 +2652,7 @@
            for i=1,((SuspensionBumpR-SuspensionBumpDELTA)*(-1)) do
                SuspensionBumpDecrease()
            end
-          end
+      end
 
   		if SuspensionReboundR-SuspensionReboundDELTA > 0 then
            for i=1,(SuspensionReboundR-SuspensionReboundDELTA) do
@@ -2662,9 +2662,9 @@
            for i=1,((SuspensionReboundR-SuspensionReboundDELTA)*(-1)) do
                SuspensionReboundDecrease()
            end
-          end
+      end
 
-          if SuspensionTravelR-SuspensionTravelDELTA > 0 then
+      if SuspensionTravelR-SuspensionTravelDELTA > 0 then
            for i=1,(SuspensionTravelR-SuspensionTravelDELTA) do
                SuspensionTravelIncrease()
            end
@@ -2672,7 +2672,7 @@
            for i=1,((SuspensionTravelR-SuspensionTravelDELTA)*(-1)) do
                SuspensionTravelDecrease()
            end
-          end
+      end
 
   		if FrontSpringR-FrontSpringDELTA > 0 then
            for i=1,(FrontSpringR-FrontSpringDELTA) do
@@ -2682,7 +2682,7 @@
            for i=1,((FrontSpringR-FrontSpringDELTA)*(-1)) do
                FrontSpringDecrease()
            end
-          end
+      end
 
   		if FrontARBR-FrontARBDELTA > 0 then
            for i=1,(FrontARBR-FrontARBDELTA) do
@@ -2692,7 +2692,7 @@
            for i=1,((FrontARBR-FrontARBDELTA)*(-1)) do
                FrontARBDecrease()
            end
-          end
+      end
 
   		if ToeFrontR-ToeFrontDELTA > 0 then
            for i=1,(ToeFrontR-ToeFrontDELTA) do
@@ -2702,7 +2702,7 @@
            for i=1,((ToeFrontR-ToeFrontDELTA)*(-1)) do
                ToeFrontDecrease()
            end
-          end
+      end
 
   		if CamberFrontR-CamberFrontDELTA > 0 then
            for i=1,(CamberFrontR-CamberFrontDELTA) do
@@ -2712,7 +2712,7 @@
            for i=1,((CamberFrontR-CamberFrontDELTA)*(-1)) do
                CamberFrontDecrease()
            end
-          end
+      end
 
   		if RearSpringR-RearSpringDELTA > 0 then
            for i=1,(RearSpringR-RearSpringDELTA) do
@@ -2722,7 +2722,7 @@
            for i=1,((RearSpringR-RearSpringDELTA)*(-1)) do
                RearSpringDecrease()
            end
-          end
+      end
 
   		if RearARBR-RearARBDELTA > 0 then
            for i=1,(RearARBR-RearARBDELTA) do
@@ -2732,7 +2732,7 @@
            for i=1,((RearARBR-RearARBDELTA)*(-1)) do
                RearARBDecrease()
            end
-          end
+      end
 
   		if ToeRearR-ToeRearDELTA > 0 then
            for i=1,(ToeRearR-ToeRearDELTA) do
@@ -2742,7 +2742,7 @@
            for i=1,((ToeRearR-ToeRearDELTA)*(-1)) do
                ToeRearDecrease()
            end
-          end
+      end
 
   		if CamberRearR-CamberRearDELTA > 0 then
            for i=1,(CamberRearR-CamberRearDELTA) do
@@ -2752,60 +2752,61 @@
            for i=1,((CamberRearR-CamberRearDELTA)*(-1)) do
                CamberRearDecrease()
            end
-          end
-
+      end
   		--Suspension
-          --Chassis
-          if WeightDistR-WeightDistDELTA > 0 then
-           for i=1,(WeightDistR-WeightDistDELTA) do
-               WeightDistIncrease()
-           end
-          elseif WeightDistR-WeightDistDELTA < 0 then
-           for i=1,((WeightDistR-WeightDistDELTA)*(-1)) do
-               WeightDistDecrease()
-           end
-          end
 
-          if SteeringLockR-SteeringLockDELTA > 0 then
-           for i=1,(SteeringLockR-SteeringLockDELTA) do
-               SteeringLockIncrease()
-           end
-          elseif SteeringLockR-SteeringLockDELTA < 0 then
-           for i=1,((SteeringLockR-SteeringLockDELTA)*(-1)) do
-               SteeringLockDecrease()
-           end
-          end
+      --Chassis
+      if WeightDistR-WeightDistDELTA > 0 then
+         for i=1,(WeightDistR-WeightDistDELTA) do
+             WeightDistIncrease()
+         end
+        elseif WeightDistR-WeightDistDELTA < 0 then
+         for i=1,((WeightDistR-WeightDistDELTA)*(-1)) do
+             WeightDistDecrease()
+         end
+      end
 
-          if RearWingR-RearWingDELTA > 0 then
-           for i=1,(RearWingR-RearWingDELTA) do
-               RearWingIncrease()
-           end
-          elseif RearWingR-RearWingDELTA < 0 then
-           for i=1,((RearWingR-RearWingDELTA)*(-1)) do
-               RearWingDecrease()
-           end
-          end
+      if SteeringLockR-SteeringLockDELTA > 0 then
+         for i=1,(SteeringLockR-SteeringLockDELTA) do
+             SteeringLockIncrease()
+         end
+        elseif SteeringLockR-SteeringLockDELTA < 0 then
+         for i=1,((SteeringLockR-SteeringLockDELTA)*(-1)) do
+             SteeringLockDecrease()
+         end
+      end
 
-          if FrontWingR-FrontWingDELTA > 0 then
-           for i=1,(FrontWingR-FrontWingDELTA) do
-               FrontWingIncrease()
-           end
-          elseif FrontWingR-FrontWingDELTA < 0 then
-           for i=1,((FrontWingR-FrontWingDELTA)*(-1)) do
-               FrontWingDecrease()
-           end
-          end
+      if RearWingR-RearWingDELTA > 0 then
+         for i=1,(RearWingR-RearWingDELTA) do
+             RearWingIncrease()
+         end
+        elseif RearWingR-RearWingDELTA < 0 then
+         for i=1,((RearWingR-RearWingDELTA)*(-1)) do
+             RearWingDecrease()
+         end
+      end
 
-          if CastorR-CastorDELTA > 0 then
-            for i=1,(CastorR-CastorDELTA) do
-                CastorIncrease()
-            end
-          elseif CastorR-CastorDELTA < 0 then
-            for i=1,((CastorR-CastorDELTA)*(-1)) do
-                CastorDecrease()
-            end
+      if FrontWingR-FrontWingDELTA > 0 then
+         for i=1,(FrontWingR-FrontWingDELTA) do
+             FrontWingIncrease()
+         end
+        elseif FrontWingR-FrontWingDELTA < 0 then
+         for i=1,((FrontWingR-FrontWingDELTA)*(-1)) do
+             FrontWingDecrease()
+         end
+      end
+
+      if CastorR-CastorDELTA > 0 then
+          for i=1,(CastorR-CastorDELTA) do
+              CastorIncrease()
           end
-          --Chassis
+        elseif CastorR-CastorDELTA < 0 then
+          for i=1,((CastorR-CastorDELTA)*(-1)) do
+              CastorDecrease()
+          end
+      end
+      --Chassis
+
   		--Advanced
   		if BrakesSizeR-BrakesSizeDELTA > 0 then
            for i=1,(BrakesSizeR-BrakesSizeDELTA) do
@@ -2876,6 +2877,7 @@
                BrakePressureDecrease()
            end
       end
+      --Advanced
 
           --Engine
       if GearsR-GearsDELTA > 0 then
