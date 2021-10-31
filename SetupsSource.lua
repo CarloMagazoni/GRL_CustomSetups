@@ -246,7 +246,7 @@
       if not CPlayerInfo then goto continue end
       local CPed = readPointer(CPlayerInfo + pCNetPed)
       if not CPed or CPed == 0 then goto continue end
-      local PName = readPointer(CPlayerInfo + oName)
+      local PName = readString(CPlayerInfo + oName)
       PlayerList = PlayerList.." "..PName
       ::continue::
     end
