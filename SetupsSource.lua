@@ -3577,7 +3577,7 @@
             if CurrentFuelLoad==CurrentCarMaxFuel/2 then playSound(findTableFile('Half2.wav')) end
       else
         writeFloat(RWDADR,0.001)
-        timer_setEnabled(Fuel, false)
+        timer_setEnabled(FuelEatLoop, false)
       end
     end
 
