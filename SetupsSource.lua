@@ -327,7 +327,7 @@
       UDF1.CarFormulaIcon.Visible = false
       UDF1.CarNoClassIcon.Visible = false
       CurrentCarMaxFuel = GT3Tank
-      MixCurrent = GT3Mix
+      MixCurrent = GT3mix
     elseif GTEarray[CarNameCurrent]  then
       UDF1.gtevalue.Enabled = true
       UDF1.gtelabel.Enabled = true
@@ -342,7 +342,7 @@
       UDF1.CarFormulaIcon.Visible = false
       UDF1.CarNoClassIcon.Visible = false
       CurrentCarMaxFuel = GTETank
-      MixCurrent = GTEMix
+      MixCurrent = GTEmix
     elseif HSarray[CarNameCurrent]  then
       UDF1.hsvalue.Enabled = true
       UDF1.hslabel.Enabled = true
@@ -357,7 +357,7 @@
       UDF1.CarFormulaIcon.Visible = false
       UDF1.CarNoClassIcon.Visible = false
       CurrentCarMaxFuel = HSTank
-      MixCurrent = HSMix
+      MixCurrent = HSmix
     elseif F1array[CarNameCurrent]  then
       UDF1.F1Label.Enabled = true
       UDF1.F1DEC.Enabled = true
@@ -372,7 +372,7 @@
       UDF1.CarFormulaIcon.Visible = true
       UDF1.CarNoClassIcon.Visible = false
       CurrentCarMaxFuel = F1Tank
-      MixCurrent = F1Mix
+      MixCurrent = F1mix
     else
       DisableGT3Labels()
       DisableGTELabels()
@@ -3628,6 +3628,7 @@
 
   --MISC
     function FindAdr()
+      unregisterSymbol('adr')
       local results = AOBScan('02 00 00 00 ?? 0? 00 00 FF FF FF FF', '*X*C*W', 2, '0000')
       assert(results, 'aobscan failed')
       local addr = results[0]
