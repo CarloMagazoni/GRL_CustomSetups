@@ -3582,7 +3582,7 @@
     end
 
     function StartNStopRefuel()
-     if OnRefuel==false then
+     if OnRefuel==false and NearPit==true then
         if RefuelLoop then
           RefuelLoop.destroy()
         end
@@ -3610,7 +3610,7 @@
 
     function Refuel()
      if CurrentFuelLoad < CurrentCarMaxFuel then
-        CurrentFuelLoad = CurrentFuelLoad + 0.04
+        CurrentFuelLoad = CurrentFuelLoad + 0.01
         UDF1.FuelLevel.Caption=(((CurrentFuelLoad*100)//1)/100).." / "..CurrentCarMaxFuel
         UDF1.FuelBar.Position = CurrentFuelLoad*100/CurrentCarMaxFuel
         writeFloat('[PTR+8]+14E0',(CurrentFuelLoad*50/CurrentCarMaxFuel))
