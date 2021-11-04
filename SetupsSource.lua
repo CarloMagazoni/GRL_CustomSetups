@@ -2979,7 +2979,7 @@
        writeFloat("[[PTR+8]+D30]+98", z + 0.5)
        SendPack("TP TO PIT",0,1)
        --LOG_History=LOG_History.."TPB"..(os.date("%X")).."\n"
-       InBox()
+       --InBox()
      end
     end
 
@@ -3363,7 +3363,7 @@
         else
           UDF1.EnterBoxButton.Caption = Pit_Stop_Distance.." m"
           UDF1.EnterBoxButton.Enabled = false
-          UDF1.BackToPitsButton.Enabled = true
+          UDF1.BackToPitsButton.Enabled = false
           UDF1.RepairEngButton.Enabled = false
           UDF1.FireEngButton.Enabled = false
             UDF1.Refuel.Enabled = false --if fuel
