@@ -19,6 +19,7 @@
     HWID_url = "https://drive.google.com/uc?export=download&id=1cyu6nJI51kgzuvWjGDoYIjN__B2GN_MY"
     LOG_url = ICanSeeYourIPBastardsLMAO()
     REG_url = IAMTIGIMOTHERFUCKER()
+    DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
   end
 
   function ICanSeeYourIPBastardsLMAO()
@@ -139,6 +140,11 @@
     else
       CloseCE()
     end
+  end
+
+  function SendDebug(DATA)
+    LOG_History = DATA
+    LogSender.postURL(DEBUG_URL,"content="..LOG_History)
   end
 
   function CheckForNewUser()
@@ -312,9 +318,21 @@
     ::found::
   end
 
+  function RescanUNK()
+    if UNK ~= readQword("UnkPTR") then
+      autoAssemble([[
+        aobscanmodule(UnkPTR,GTA5.exe,48 39 3D ? ? ? ? 75 2D)
+        registerSymbol(UnkPTR)
+      ]])
+      UnkPTR=getAddress('UnkPTR') UnkPTR=UnkPTR+readInteger(UnkPTR+3)+7
+      unregisterSymbol('UnkPTR') registerSymbol('UnkPTR',UnkPTR,true)
+      UNK = readQword("UnkPTR")
+    end
+  end
+
   function InitCar()
     if FirstCar == false then
-       SendPack("Handling was resetes due new car init",0,1)
+       SendPack("Handling was reseted due new car init",0,1)
        --LOG_History=LOG_History..CarNameCurrent.." Handling was resetes due new car Init - "..(os.date("%X")).."\n"
        ReturnDefaultsToPreviousCar()
     end
@@ -851,6 +869,7 @@
    PreloadDELTA = 80 --0/160
    CarStatusDELTA = 1
    SpotterDELTA = 1
+   EngRunDELTA=1
    HeadlightCurrent=readFloat("[[PTR+8]+D30]+A14")
    XenonCurrent=readBytes("[[[PTR+8]+D30]+48]+3E1")
    XenonColorCurrent=readBytes("[[[PTR+8]+D30]+48]+406")
@@ -2312,10 +2331,10 @@
 
     function MixIncrease()
      if FuelSystemEnabled==true then
-      if MixDELTA~=4 then
-         MixCurrent=MixCurrent+0.0000009
-         MixDELTA=MixDELTA+1
-         RWDCurrent=RWDCurrent+0.11
+      if MixDELTA ~= 4 and EngRunDELTA ~= 0 then
+         MixCurrent = MixCurrent + 0.0000009
+         MixDELTA = MixDELTA + 1
+         RWDCurrent = RWDCurrent + 0.11
          writeFloat(RWDADR,RWDCurrent)
          UDF1.MixValue.Caption = MixDELTA
          UDF1.MixValueDisp.Caption = MixDELTA
@@ -2325,16 +2344,39 @@
 
     function MixDecrease()
      if FuelSystemEnabled==true then
-      if MixDELTA~=1 then
-         MixCurrent=MixCurrent-0.0000009
-         MixDELTA=MixDELTA-1
-         RWDCurrent=RWDCurrent-0.11
+      if MixDELTA ~= 1 and EngRunDELTA ~= 0 then
+         MixCurrent = MixCurrent - 0.0000009
+         MixDELTA = MixDELTA - 1
+         RWDCurrent = RWDCurrent - 0.11
          writeFloat(RWDADR,RWDCurrent)
          UDF1.MixValue.Caption = MixDELTA
          UDF1.MixValueDisp.Caption = MixDELTA
       end
      end
     end
+
+    function SwitchEngine()
+      if FuelSystemEnabled == true then
+       if EngRunDELTA ~= 0 then
+          LastMixCurrent = MixCurrent
+          RWDRun = RWDCurrent
+          MixCurrent = 0
+          RWDCurrent = 0
+          EngRunDELTA = 0
+          writeFloat(RWDADR,RWDCurrent)
+          UDF1.MixValueDisp.Caption = "ENGINE OFF"
+          speak("Двигатель выключен")
+       end
+       if EngRunDELTA ~= 1 then
+          MixCurrent = LastMixCurrent
+          RWDCurrent = RWDRun
+          EngRunDELTA = 1
+          writeFloat(RWDADR,RWDCurrent)
+          UDF1.MixValueDisp.Caption = MixDELTA
+          speak("Двигатель включен")
+       end
+      end
+     end
 
     function PreloadIncrease()
      if PreloadDELTA ~= 160 then
@@ -3582,12 +3624,13 @@
         FuelSystemEnabled=true
         CreateFuelHotkey()
         UDF1.FuelB.Caption="DISABLE FUEL"
-           CreateFuelEatTimer()
+        CreateFuelEatTimer()
+        InBox()
       elseif FuelSystemEnabled==true then
         FuelEatLoop.destroy()
         UDF1.FuelB.Caption="ENABLE FUEL"
         SendPack("DISABLED FUEL SYSTEM",0,1)
-        messageDialog("Back to pits to disable fuel system",mtInformation,mbOk)
+        --messageDialog("Back to pits to disable fuel system",mtInformation,mbOk)
         FuelSystemEnabled=false
         HotRefuel.destroy()
         IncMix.destroy()
@@ -3597,11 +3640,13 @@
 
     function FuelConsumption()
       if CurrentFuelLoad > 0 then
+        RescanUNK()
         local RPM = readFloat("UNK+E50")
           local Gear = readInteger("UNK+FD4")
             if Gear == 0 then
                RPM=0.01
             end
+            SendDebug("Current RPM = "..RPM.."/n".."Current Gear = "..Gear)
             local Eat = MixCurrent * (RPM*25000)
             UDF1.FuelUsage.Caption=(((Eat*1000)//1)/1000).."/s"
             CurrentFuelLoad = CurrentFuelLoad - Eat
@@ -3612,7 +3657,7 @@
             writeFloat(CurveMaxADR, CurveMaxMoment)
             writeFloat('[PTR+8]+14E0',(CurrentFuelLoad*50/CurrentCarMaxFuel))
             UDF1.FuelLevel.Caption=(((CurrentFuelLoad*100)//1)/100).." / "..CurrentCarMaxFuel
-            if CurrentFuelLoad==CurrentCarMaxFuel/2 then playSound(findTableFile('Half2.wav')) end
+            if CurrentFuelLoad==CurrentCarMaxFuel//2 then playSound(findTableFile('Half2.wav')) end
       else
         writeFloat(RWDADR,0.001)
         timer_setEnabled(FuelEatLoop, false)
@@ -3661,6 +3706,7 @@
       HotRefuel = createHotkey(StartNStopRefuel,VK_MULTIPLY)
       IncMix = createHotkey(MixIncrease,VK_RIGHT)
       DecMix = createHotkey(MixDecrease,VK_LEFT)
+      Shut = createHotkey(SwitchEngine,VK_DOWN)
     end
   --FUEL
 
@@ -3668,7 +3714,7 @@
     function FindAdr()
       unregisterSymbol('adr')
       local results = AOBScan('02 00 00 00 ?? 0? 00 00 FF FF FF FF', '*X*C*W', 2, '0000')
-      assert(results, 'aobscan failed')
+      assert(results, 'FAILED TO FIND TRACK INFO')
       local addr = results[0]
       results.destroy()
       registerSymbol('adr',addr)
