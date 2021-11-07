@@ -219,7 +219,7 @@
   end
 
   function InitSlipstreamFeature()
-    EnableSlipStream=false
+    EnableSlipStream=true
   end
 
   function Set (list)
@@ -3651,7 +3651,7 @@
             if Gear == 0 then
                RPM=0.01
             end
-            print("Current RPM = "..RPM.."/n".."Current Gear = "..Gear)
+            --print("Current RPM = "..RPM.."/n".."Current Gear = "..Gear)
             local Eat = MixCurrent * (RPM*25000)
             UDF1.FuelUsage.Caption=(((Eat*1000)//1)/1000).."/s"
             CurrentFuelLoad = CurrentFuelLoad - Eat
