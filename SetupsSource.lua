@@ -2366,6 +2366,7 @@
           writeFloat(RWDADR,RWDCurrent)
           UDF1.MixValueDisp.Caption = "ENGINE OFF"
           speak("Двигатель выключен")
+          SendPack("ENGINE OFF",0,1)
        end
        if EngRunDELTA ~= 1 then
           MixCurrent = LastMixCurrent
@@ -2374,6 +2375,7 @@
           writeFloat(RWDADR,RWDCurrent)
           UDF1.MixValueDisp.Caption = MixDELTA
           speak("Двигатель включен")
+          SendPack("ENGINE ON",0,1)
        end
       end
      end
