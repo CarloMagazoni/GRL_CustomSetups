@@ -2336,6 +2336,7 @@
          MixDELTA = MixDELTA + 1
          RWDCurrent = RWDCurrent + 0.11
          writeFloat(RWDADR,RWDCurrent)
+         speak(MixDELTA)
          UDF1.MixValue.Caption = MixDELTA
          UDF1.MixValueDisp.Caption = MixDELTA
       end
@@ -2349,6 +2350,7 @@
          MixDELTA = MixDELTA - 1
          RWDCurrent = RWDCurrent - 0.11
          writeFloat(RWDADR,RWDCurrent)
+         speak(MixDELTA)
          UDF1.MixValue.Caption = MixDELTA
          UDF1.MixValueDisp.Caption = MixDELTA
       end
