@@ -2357,7 +2357,7 @@
 
     function SwitchEngine()
       if FuelSystemEnabled == true then
-       if EngRunDELTA ~= 0 then
+       if EngRunDELTA == 1 then
           LastMixCurrent = MixCurrent
           RWDRun = RWDCurrent
           MixCurrent = 0
@@ -2367,7 +2367,8 @@
           UDF1.MixValueDisp.Caption = "ENGINE OFF"
           speak("Двигатель выключен")
           SendPack("ENGINE OFF",0,1)
-       elseif EngRunDELTA ~= 1 then
+          sleep(50)
+       elseif EngRunDELTA == 0 then
           MixCurrent = LastMixCurrent
           RWDCurrent = RWDRun
           EngRunDELTA = 1
@@ -2375,6 +2376,7 @@
           UDF1.MixValueDisp.Caption = MixDELTA
           speak("Двигатель включен")
           SendPack("ENGINE ON",0,1)
+          sleep(50)
        end
       end
      end
