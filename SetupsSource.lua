@@ -2367,8 +2367,7 @@
           UDF1.MixValueDisp.Caption = "ENGINE OFF"
           speak("Двигатель выключен")
           SendPack("ENGINE OFF",0,1)
-       end
-       if EngRunDELTA ~= 1 then
+       elseif EngRunDELTA ~= 1 then
           MixCurrent = LastMixCurrent
           RWDCurrent = RWDRun
           EngRunDELTA = 1
