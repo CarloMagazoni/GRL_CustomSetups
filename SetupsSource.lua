@@ -3298,7 +3298,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/50))*0.5
+        local ApplyForce = (1 - (Distance/50))*0.3
         return ApplyForce
       end
 
@@ -3310,7 +3310,7 @@
       function DoSlipstream(HeadX,HeadY,PlayerX,PlayerY,OpponentX,OpponentY)
         local R = (PlayerX*HeadX + PlayerY*HeadY) * (-1)
         local Side = OpponentX*HeadX + OpponentY*HeadY + R
-        local FrontSide = HeadY*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
+        local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
         if (Side < 2 and Side > -2) and (FrontSide > 3 and FrontSide < 50) then
           if Lenght < 50 then
