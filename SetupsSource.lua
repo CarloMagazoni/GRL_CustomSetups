@@ -3179,6 +3179,7 @@
             timer_onTimer(OppoCheck,CheckOppoPosition)
             timer_setInterval(OppoCheck, 500)
             timer_setEnabled(OppoCheck, true)
+            print("a")
         end
         PlaySound(findTableFile("BeepStart.wav"), true)
         PlaySound(findTableFile('RadioCheck2.wav'), true)
