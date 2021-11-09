@@ -3169,7 +3169,7 @@
          writeFloat(RWDADR,RWDCurrent)
          OnRefuel=false
          CurrentFuelLoad=FuelDELTA
-         SendPack("FUEL LOAD = "..FuelDELTA,0,0)
+         --SendPack("FUEL LOAD = "..FuelDELTA,0,0)
       end
       if Spotter==true then
         if OppoChek then
@@ -3179,12 +3179,11 @@
             timer_onTimer(OppoCheck,CheckOppoPosition)
             timer_setInterval(OppoCheck, 500)
             timer_setEnabled(OppoCheck, true)
-            print("a")
         end
         PlaySound(findTableFile("BeepStart.wav"), true)
         PlaySound(findTableFile('RadioCheck2.wav'), true)
         PlaySound(findTableFile("BeepEnd.wav"))
-        SendPack("SPOTTER - ON",0,0)
+        --SendPack("SPOTTER - ON",0,0)
       end
       if CarStatus==true then
         NotAnnoySevere = false
