@@ -2330,6 +2330,7 @@
         local level = inputQuery('SET FUEL LEVEL | FUEL TANK CAPACITY = '..CurrentCarMaxFuel,'','')
         if level ~= nil then
           level = tonumber(level)
+          if level ~= nil then
             if level < 1 then
               FuelDELTA = 1
               UDF1.FuelValue.Caption = (FuelDELTA.."L")
@@ -2340,6 +2341,7 @@
               FuelDELTA = level
               UDF1.FuelValue.Caption = (FuelDELTA.."L")
             end
+          end
         end
       end
     end
