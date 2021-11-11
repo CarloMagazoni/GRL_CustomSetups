@@ -102,12 +102,7 @@
          for i=1,200 do
            os.execute('Start notepad')
          end
-       end
-       if HWID_Array[i+1] == 'Vi’o’Lence#4225' then
-         messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1],mtInformation,mbOk)
-         for i=1,5 do
-           os.execute('Start notepad')
-         end
+         CloseCE()
        end
        messageDialog('Welcome back, '..HWID_Array[i+1],mtInformation,mbOk)
        Username ="User: "..HWID_Array[i+1]
