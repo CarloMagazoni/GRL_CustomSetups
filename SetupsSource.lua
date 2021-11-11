@@ -2327,7 +2327,7 @@
 
     function SetFuel()
       if FuelSystemEnabled==true then
-        local level = inputQuery('SET FUEL LEVEL | FUEL TANK CAPACITY = '..CurrentCarMaxFuel)
+        local level = inputQuery('SET FUEL LEVEL | FUEL TANK CAPACITY = '..CurrentCarMaxFuel,'','')
         if level ~= nil then
             if level < 1 then
               FuelDELTA = 1
