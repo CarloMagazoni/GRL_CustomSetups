@@ -2339,6 +2339,7 @@
               FuelDELTA = level
               UDF1.FuelValue.Caption = (FuelDELTA.."L")
             end
+        end
       end
     end
 
