@@ -3103,23 +3103,12 @@
       UDF1.SuspensionPageButton.Enabled = true
       UDF1.AdvancedPageButton.Enabled = true
 
-
-      UDF1.EnginePageButton.Visible = true
-      UDF1.ChassisPageButton.Visible = true
-      UDF1.SuspensionPageButton.Visible = true
-      UDF1.AdvancedPageButton.Visible = true
-
       UDF1.HintBox.Visible=false
 
       UDF1.SaveSetupButton.Enabled = true
       UDF1.LoadSetupButton.Enabled = true
       UDF1.SetDefault.Enabled = true
       UDF1.RaceButton.Enabled = true
-
-      UDF1.SaveSetupButton.Visible = true
-      UDF1.LoadSetupButton.Visible = true
-      UDF1.SetDefault.Visible = true
-      UDF1.RaceButton.Visible = true
 
       UDF1.RepairEngButton.Enabled = false
       UDF1.FireEngButton.Enabled = false
@@ -3129,10 +3118,6 @@
       UDF1.SetGarageButton.Enabled = false
       UDF1.EnterBoxButton.Enabled = false
       UDF1.BackToPitsButton.Enabled = false
-
-      UDF1.InitCar.Visible = false
-      UDF1.SetGarageButton.Visible = false
-      UDF1.EnterBoxButton.Visible = false
 
       ChangedSetup=false
       if PitMenu == 1 then
@@ -3173,20 +3158,10 @@
       UDF1.AdvancedPageButton.Enabled = false
       UDF1.BackToPitsButton.Enabled = true
 
-      UDF1.EnginePageButton.Visible = false
-      UDF1.ChassisPageButton.Visible = false
-      UDF1.SuspensionPageButton.Visible = false
-      UDF1.AdvancedPageButton.Visible = false
-
       UDF1.RaceButton.Enabled = false
       UDF1.SetDefault.Enabled = false
       UDF1.SaveSetupButton.Enabled = false
       UDF1.LoadSetupButton.Enabled = false
-
-      UDF1.SaveSetupButton.Visible = false
-      UDF1.LoadSetupButton.Visible = false
-      UDF1.SetDefault.Visible = false
-      UDF1.RaceButton.Visible = false
 
       UDF1.SuspensionPanel.Visible=false
       UDF1.SuspensionPanel.Enabled=false
