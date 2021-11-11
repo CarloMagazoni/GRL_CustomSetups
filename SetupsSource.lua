@@ -2284,7 +2284,7 @@
   --ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE
   function LoadEngineSettings()
     --Gears
-    UDF1.FuelValue.OnClick = SetFuel()
+    --UDF1.FuelValue.OnClick = SetFuel()
     function GearsIncrease()
      if GearsDELTA ~= 2 then
         DriveInertiaCurrent = DriveInertiaCurrent + 0.8
