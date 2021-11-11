@@ -172,7 +172,7 @@
          elseif pic == 2 then UDF1.Pic4.Visible=true
         end
 
-        UDF1.Caption="Custom Setups | Online v1.5.0"
+        UDF1.Caption="Custom Setups | Online v1.5.1"
 
         FirstCar = true
         PitMenu = 3
@@ -2284,6 +2284,7 @@
   --ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE ENGINE
   function LoadEngineSettings()
     --Gears
+    UDF1.FuelValue.OnClick = SetFuel()
     function GearsIncrease()
      if GearsDELTA ~= 2 then
         DriveInertiaCurrent = DriveInertiaCurrent + 0.8
@@ -2322,6 +2323,23 @@
        WriteFloat(InitialMaxFlatVelADR,InitialMaxFlatVelCurrent)
        ChangedSetup=true
      end
+    end
+
+    function SetFuel()
+      if FuelSystemEnabled==true then
+        local level = inputQuery('SET FUEL LEVEL | FUEL TANK CAPACITY = '..CurrentCarMaxFuel)
+        if level ~= nil then
+            if level < 1 then
+              FuelDELTA = 1
+              UDF1.FuelValue.Caption = (FuelDELTA.."L")
+            elseif level > CurrentCarMaxFuel then
+              FuelDELTA = CurrentCarMaxFuel
+              UDF1.FuelValue.Caption = (FuelDELTA.."L")
+            else
+              FuelDELTA = level
+              UDF1.FuelValue.Caption = (FuelDELTA.."L")
+            end
+      end
     end
 
     function FuelIncrease()
@@ -2394,7 +2412,7 @@
           sleep(50)
        end
       end
-     end
+    end
 
     function PreloadIncrease()
      if PreloadDELTA ~= 160 then
