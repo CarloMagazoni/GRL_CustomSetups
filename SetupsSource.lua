@@ -192,6 +192,7 @@
   end
 
   function InitFuelSettings()
+    UDF1.FuelB.Enabled = false
     FuelSystemEnabled=false
     MixCurrent = 0
     CurrentCarMaxFuel = 0
@@ -362,6 +363,9 @@
 
     UDF1.SetGarageButton.Enabled = true
     UDF1.FuelB.Enabled=true
+    if FuelSystemEnabled==true then
+      EnableFuel()
+    end
     FormStatus()
     UDF1.SetupNameLabel.Caption = "CURRENT SETUP: DEFAULT"
     if PositionCherer ~= nil then
@@ -443,6 +447,8 @@
       MixCurrent = UnclassedCarMix
     end
     HaveBox = false
+    InThePit = true
+    UDF1.FuelB.Enabled = false
     FuelDELTA = (CurrentCarMaxFuel/2)//1
     LoadFuel = FuelDELTA
     UDF1.FuelValue.Caption = FuelDELTA.."L"
@@ -3046,6 +3052,7 @@
        z=readFloat("[[PTR+8]+30]+58")//1
        UDF1.BackToPitsButton.Enabled = false
        UDF1.EnterBoxButton.Enabled = false
+       UDF1.FuelB.Enabled = true
        HaveBox = true
        InThePit = false
        PositionChecker = createTimer(nil, true)  -- create a Timer object and assign it to variable t
@@ -3098,6 +3105,8 @@
       UDF1.RepairEngButton.Enabled = false
       UDF1.FireEngButton.Enabled = false
       UDF1.CEButton2.Enabled = false
+      UDF1.InitCar.Enabled = false
+      UDF1.SetGarageButton.Enabled = false
       ChangedSetup=false
       if PitMenu == 1 then
          SelectEngine()
@@ -3118,7 +3127,7 @@
       if WeatherUpdate then
          timer_setEnabled(WeatherUpdate, false)
       end
-      SendPack("ENTERED BOX",0,1)
+      --SendPack("ENTERED BOX",0,1)
       EnableFireSuppressionSystem(false)
       if EnableSlipStream==true then
         if CheckSlipStreamTimer then CheckSlipStreamTimer.destroy() end
@@ -3156,9 +3165,12 @@
       UDF1.LoadSetupButton.Enabled = false
       UDF1.CEButton2.Enabled = true
 
+      UDF1.InitCar.Enabled = true
+      UDF1.SetGarageButton.Enabled = true
+
       FoundMyCurrentID()
       timer_setEnabled(PositionChecker,true)
-      SendPack("GOING ON TRACK",0,1)
+      --SendPack("GOING ON TRACK",0,1)
       CheckLobbyParticipants()
       if ChangedSetup==true then SendPack("SETUP HAS BEEN CHANGED",0,0) end
       if FuelSystemEnabled==true then
