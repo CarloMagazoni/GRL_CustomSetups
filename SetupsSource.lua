@@ -2325,7 +2325,7 @@
      end
     end
 
-    function SetFuel()
+    --[[function SetFuel()
       if FuelSystemEnabled==true then
         local level = inputQuery('SET FUEL LEVEL | FUEL TANK CAPACITY = '..CurrentCarMaxFuel)
         if level ~= nil then
@@ -2343,7 +2343,7 @@
       end
     end
 
-    UDF1.FuelValue.OnClick = SetFuel()
+    UDF1.FuelValue.OnClick = SetFuel()]]
 
     function FuelIncrease()
      if FuelSystemEnabled==true then
