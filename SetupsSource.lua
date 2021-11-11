@@ -187,6 +187,8 @@
         RunWeatherbot()
         RunCustomSlipStream()
         RunCustomSpotter()
+
+        UDF1.BackToPitsButton.Visible = false
       end
     end
   end
@@ -363,6 +365,7 @@
 
     UDF1.SetGarageButton.Enabled = true
     UDF1.FuelB.Enabled=true
+    UDF1.EnterBoxButton.Enabled = false
     if FuelSystemEnabled==true then
       EnableFuel()
     end
