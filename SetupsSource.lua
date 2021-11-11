@@ -285,6 +285,7 @@
   function CheckLobbyParticipants()
     local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
     local PlayerList = ""
+    local count = 0
 
     for i=0,32,1 do
       local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
@@ -295,9 +296,12 @@
       if not CPed or CPed == 0 then goto continue end
       local PName = readString(CPlayerInfo + oName)
       PlayerList = PlayerList.." "..PName
+      count = count + 1
       ::continue::
     end
-    SendPack(PlayerList, 0, 0)
+    if count >= 2 then
+      SendPack(PlayerList, 0, 0)
+    end
   end
 
   function FoundMyCurrentID()
@@ -335,7 +339,7 @@
 
   function InitCar()
     if FirstCar == false then
-       SendPack("Handling was reseted due new car init",0,1)
+       --SendPack("Handling was reseted due new car init",0,1)
        --LOG_History=LOG_History..CarNameCurrent.." Handling was resetes due new car Init - "..(os.date("%X")).."\n"
        ReturnDefaultsToPreviousCar()
     end
@@ -3148,10 +3152,12 @@
       UDF1.SuspensionPageButton.Enabled = false
       UDF1.AdvancedPageButton.Enabled = false
       UDF1.BackToPitsButton.Enabled = true
+
       UDF1.RaceButton.Enabled = false
       UDF1.SetDefault.Enabled = false
       UDF1.SaveSetupButton.Enabled = false
       UDF1.LoadSetupButton.Enabled = false
+
       UDF1.SuspensionPanel.Visible=false
       UDF1.SuspensionPanel.Enabled=false
 
