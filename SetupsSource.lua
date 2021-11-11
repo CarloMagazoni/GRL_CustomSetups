@@ -2343,7 +2343,7 @@
       end
     end
 
-    UDF1.FuelValue.OnClick = SetFuel
+    UDF1.FuelValue.onClick = SetFuel
 
     function FuelIncrease()
      if FuelSystemEnabled==true then
