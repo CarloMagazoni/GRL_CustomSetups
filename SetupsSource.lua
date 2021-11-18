@@ -2401,32 +2401,6 @@
      end
     end
 
-    function SwitchEngine()
-      if FuelSystemEnabled == true then
-       if EngRunDELTA == 1 then
-          LastMixCurrent = MixCurrent
-          RWDRun = RWDCurrent
-          MixCurrent = 0
-          RWDCurrent = 0
-          EngRunDELTA = 0
-          writeFloat(RWDADR,RWDCurrent)
-          UDF1.MixValueDisp.Caption = "ENGINE OFF"
-          speak("Двигатель выключен")
-          SendPack("ENGINE OFF",0,1)
-          sleep(50)
-       elseif EngRunDELTA == 0 then
-          MixCurrent = LastMixCurrent
-          RWDCurrent = RWDRun
-          EngRunDELTA = 1
-          writeFloat(RWDADR,RWDCurrent)
-          UDF1.MixValueDisp.Caption = MixDELTA
-          speak("Двигатель включен")
-          SendPack("ENGINE ON",0,1)
-          sleep(50)
-       end
-      end
-    end
-
     function PreloadIncrease()
      if PreloadDELTA ~= 160 then
         FrontGripCurrent = FrontGripCurrent - 0.002
@@ -3731,6 +3705,7 @@
         if RefuelLoop then
           RefuelLoop.destroy()
         end
+        NormalRepairRate = readFloat('adr+106230')
         RefuelLoop = createTimer(nil,true)
         timer_onTimer(RefuelLoop,Refuel)
         timer_setInterval(RefuelLoop, 10)
@@ -3739,7 +3714,7 @@
         UDF1.Refuel.Caption="STOP REFUELING"
         SendPack("REFUELING",0,1)
         OnRefuel=true
-        writeFloat('adr+F06230',0)
+        writeFloat('adr+106230',0)
         sleep(150)
      else
         timer_setEnabled(RefuelLoop, false)
@@ -3748,7 +3723,7 @@
         UDF1.Refuel.Caption="REFUEL"
         SendPack("REFUELING FINISHED",0,1)
         OnRefuel=false
-        writeFloat('adr+F06230',NormalRepairRate)
+        writeFloat('adr+106230',NormalRepairRate)
         sleep(150)
      end
     end
@@ -3768,7 +3743,6 @@
       HotRefuel = createHotkey(StartNStopRefuel,VK_MULTIPLY)
       IncMix = createHotkey(MixIncrease,VK_RIGHT)
       DecMix = createHotkey(MixDecrease,VK_LEFT)
-      Shut = createHotkey(SwitchEngine,VK_DOWN)
     end
   --FUEL
 
