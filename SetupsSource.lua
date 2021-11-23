@@ -95,18 +95,18 @@
     fh:close()
     result = string.gsub(result,'UUID',"")
     HWID = all_trim(result)
-    for i=1,#HWID_Array-1,2 do
+    for i = 1,#HWID_Array-1, 2 do
      if HWID == HWID_Array[i] then
        if HWID_Array[i+1] == 'NikLex#4033' then
-         messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1],mtInformation,mbOk)
-         for i=1,200 do
+         messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1], mtInformation,mbOk)
+         for i=1, 200 do
            os.execute('Start notepad')
          end
          CloseCE()
        end
-       messageDialog('Welcome back, '..HWID_Array[i+1],mtInformation,mbOk)
+       messageDialog('Welcome back, '..HWID_Array[i+1], mtInformation,mbOk)
        Username ="User: "..HWID_Array[i+1]
-       SendPack("Launched App",1,1)
+       SendPack("Launched App",1 ,1)
        NewUser=false
        break
      end
@@ -155,9 +155,9 @@
   end
 
   function CheckForNewUser()
-    if NewUser==true then
+    if NewUser == true then
       RegisterNewUser(HWID)
-      messageDialog("Adding you to whitelist is manual process, please be patient. Come back later",mtInformation,mbOk)
+      messageDialog("Adding you to whitelist is manual process, please be patient. Come back later", mtInformation, mbOk)
       CloseCE()
     end
   end
