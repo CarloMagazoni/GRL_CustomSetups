@@ -115,9 +115,9 @@
 
   function InitLogHTTP()
     LogSender = getInternet()
-    LOG_History=''
-    Username=''
-    ChangedSetup=false
+    LOG_History = ''
+    Username = ''
+    ChangedSetup = false
   end
 
   function SendPack(DATA,DAY,TIME)
