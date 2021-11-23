@@ -174,7 +174,7 @@
         form_show(UDF1)
         openProcess('GTA5.exe')
 
-        local pic = math.random(1,2)
+        local pic = math.random(1, 2)
         if pic == 1 then UDF1.Pic2.Visible=true
          elseif pic == 2 then UDF1.Pic4.Visible=true
         end
@@ -363,13 +363,13 @@
     ]])
 
     addr=getAddress("WorldPTR")
-    addr=addr+readInteger(addr+3)+7
+    addr=addr+readInteger(addr + 3) + 7
     unregisterSymbol("WorldPTR")
     registerSymbol("WorldPTR", addr, true)
-    UnkPTR=getAddress('UnkPTR') UnkPTR=UnkPTR+readInteger(UnkPTR+3)+7
+    UnkPTR=getAddress('UnkPTR') UnkPTR = UnkPTR + readInteger(UnkPTR + 3) + 7
     unregisterSymbol('UnkPTR') registerSymbol('UnkPTR',UnkPTR,true)
     addr=getAddress("PlayerCountPTR")
-    addr=addr+readInteger(addr+3)+7
+    addr=addr+readInteger(addr + 3) + 7
     unregisterSymbol("PlayerCountPTR")
     registerSymbol("PlayerCountPTR", addr, true)
     PlayerCountPTR = readQword("PlayerCountPTR")
@@ -466,12 +466,12 @@
     HaveBox = false
     InThePit = true
     UDF1.FuelB.Enabled = false
-    FuelDELTA = (CurrentCarMaxFuel/2)//1
+    FuelDELTA = (CurrentCarMaxFuel / 2) // 1
     LoadFuel = FuelDELTA
     UDF1.FuelValue.Caption = FuelDELTA.."L"
     UDF1.ClassValue.Caption = "-"
     UDF1.ClassValue.Font.Color = ClDefault
-    SendPack("New car init - "..CarNameCurrent,0,1)
+    SendPack("New car init - "..CarNameCurrent, 0, 1)
   end
 
   function GetDefaults()
