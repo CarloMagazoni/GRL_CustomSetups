@@ -202,7 +202,7 @@
 
   function InitFuelSettings()
     UDF1.FuelB.Enabled = false
-    FuelSystemEnabled=false
+    FuelSystemEnabled = false
     MixCurrent = 0
     CurrentCarMaxFuel = 0
     load(FuelSet)()
