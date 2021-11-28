@@ -37,7 +37,7 @@ if CarNameCurrent=='VAGNER' then
 	 local RWD = 0
 	 local UpShift = 0.5
 	 local DownShift = 0.5
-	 local Drive = 0.1
+	 local Drive = 0.25
 	 local MaxFlat = 4
 	 local InitMaxFlat = 10
 	 local Brake = -0.2
@@ -46,18 +46,18 @@ if CarNameCurrent=='VAGNER' then
 	 local CurveMaxR = 0
 	 local CurveMin = -0.05
 	 local CurveMinR = 0
-	 local CurveLat = -0.02
+	 local CurveLat = -0.03
 	 local CurveLatR = 0
 	 local Coll = 10
 	 local Eng = 10
 	 local DF = 0
 	 local Flag = 0
-	 local Front = 0.02
-	 local Rear = -0.02
-	 local Inertia = -0.45
+	 local Front = 0.01
+	 local Rear = -0.01
+	 local Inertia = -0.5
 	 local Model = 0
 	 local ADV = 4194304
-	 local Lift = 0
+	 local Lift = 0.02
      ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model,Lift)
  elseif CarNameCurrent=='VISIONE' then
 	 local Mass = 0
