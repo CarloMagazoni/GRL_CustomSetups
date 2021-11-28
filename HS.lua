@@ -33,11 +33,11 @@ if CarNameCurrent=='VAGNER' then
  elseif CarNameCurrent=='krieger' then
 	 local Mass = 0
 	 local Drag = 0.0001
-	 local FWD = -1
+	 local FWD = 0
 	 local RWD = 0
 	 local UpShift = 0.5
 	 local DownShift = 0.5
-	 local Drive = 0.5
+	 local Drive = 0.1
 	 local MaxFlat = 4
 	 local InitMaxFlat = 10
 	 local Brake = -0.2
