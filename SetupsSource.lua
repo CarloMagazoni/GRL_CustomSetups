@@ -97,13 +97,6 @@
     HWID = all_trim(result)
     for i = 1,#HWID_Array-1, 2 do
      if HWID == HWID_Array[i] then
-       if HWID_Array[i+1] == 'NikLex#4033' then
-         messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1], mtInformation,mbOk)
-         for i=1, 200 do
-           os.execute('Start notepad')
-         end
-         CloseCE()
-       end
        messageDialog('Welcome back, '..HWID_Array[i+1], mtInformation,mbOk)
        Username ="User: "..HWID_Array[i+1]
        SendPack("Launched App",1 ,1)
@@ -241,7 +234,7 @@
   function SetCustomClassesArrays()
     GT3array = Set {'PARAGON','SPECTER','ELEGY2','CARBONIZ','DRAFTER','COQUETTE','SCHLAGEN','GROWLER','VECTRE'}
     GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','ITALIGTO','CYPHER','ITALIRSX'}
-    HSarray = Set {'VAGNER','krieger','VISIONE','EMERUS','TIGON','TYRANT'}
+    HSarray = Set {'VAGNER','krieger','VISIONE','EMERUS','TIGON'}
     F1array = Set {'FORMULA'}
     --Memearray = Set {MemeCurrent)
   end
