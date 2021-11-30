@@ -233,7 +233,7 @@
 
   function SetCustomClassesArrays()
     GT3array = Set {'PARAGON','SPECTER','ELEGY2','CARBONIZ','DRAFTER','COQUETTE','SCHLAGEN','GROWLER','VECTRE'}
-    GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','ITALIGTO','CYPHER','ITALIRSX'}
+    GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','CYPHER','ITALIRSX'}
     HSarray = Set {'VAGNER','krieger','VISIONE','EMERUS','TIGON'}
     F1array = Set {'FORMULA'}
     --Memearray = Set {MemeCurrent)
