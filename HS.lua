@@ -38,7 +38,7 @@ if CarNameCurrent=='VAGNER' then
 	 local UpShift = 0.5
 	 local DownShift = 0.5
 	 local Drive = 0.26
-	 local MaxFlat = 5.2
+	 local MaxFlat = 5.9
 	 local InitMaxFlat = 10
 	 local Brake = -0.075
 	 local Steering = 0
@@ -67,7 +67,7 @@ if CarNameCurrent=='VAGNER' then
 	 local UpShift = 0
 	 local DownShift = 0
 	 local Drive = 0.29
-	 local MaxFlat = 9.5
+	 local MaxFlat = 8.5
 	 local InitMaxFlat = 10
 	 local Brake = 0.2
 	 local Steering = 0.1
@@ -124,8 +124,8 @@ if CarNameCurrent=='VAGNER' then
 	 local RWD = 0
 	 local UpShift = 3
 	 local DownShift = -1
-	 local Drive = 0.65
-	 local MaxFlat = 5.85
+	 local Drive = 0.85
+	 local MaxFlat = 9.85
 	 local InitMaxFlat = 10
 	 local Brake = -0.09
 	 local Steering = -0.02
