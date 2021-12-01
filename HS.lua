@@ -119,19 +119,19 @@ if CarNameCurrent=='VAGNER' then
      ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model,Lift)
  elseif CarNameCurrent=='TIGON' then
 	 local Mass = 0
-	 local Drag = -0.0001
+	 local Drag = -0.00005
 	 local FWD = 0
 	 local RWD = 0
-	 local UpShift = 3
+	 local UpShift = 1
 	 local DownShift = -1
 	 local Drive = 0.75
-	 local MaxFlat = 8.85
+	 local MaxFlat = 8.65
 	 local InitMaxFlat = 10
-	 local Brake = -0.09
+	 local Brake = -0.1
 	 local Steering = -0.01
 	 local CurveMax = 0
 	 local CurveMaxR = 0
-	 local CurveMin = 0.1
+	 local CurveMin = 0.05
 	 local CurveMinR = 0
 	 local CurveLat = 0.05
 	 local CurveLatR = 0
