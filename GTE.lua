@@ -18,7 +18,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local CurveLat = 0 --0.3926
 	 local CurveLatR = 0 --2.5464
 	 local Coll=10
-	 local Eng=10
+	 local Eng=5
 	 local DF=-1.75
      ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
  elseif CarNameCurrent=='COQUETTE4' then
@@ -40,7 +40,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local CurveLat = 0.0101--0.3577
 	 local CurveLatR = -0.09945--2.7949
 	 local Coll=10
-	 local Eng=10
+	 local Eng=5
 	 local DF=-205
      ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
  elseif CarNameCurrent=='COMET6' then
@@ -62,7 +62,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local CurveLat = -0.0131 --0.3839
 	 local CurveLatR = 0.09545 --2.604
 	 local Coll=10
-	 local Eng=10
+	 local Eng=5
 	 local DF=-120
      ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
  elseif CarNameCurrent=='ITALIRSX' then
@@ -84,7 +84,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local CurveLat = -0.0262
 	 local CurveLatR = 0.1367
 	 local Coll=10
-	 local Eng=10
+	 local Eng=5
 	 local DF=-350
      ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
  elseif CarNameCurrent=='CYPHER' then
@@ -95,7 +95,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local UpShift = -0.8
 	 local DownShift = -0.8
 	 local Drive = 0.04
-	 local MaxFlat = 2
+	 local MaxFlat = 3.5
 	 local InitMaxFlat = 0
 	 local Brake = 0
 	 local Steering = -0.07
@@ -106,7 +106,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local CurveLat = -0.01 --0.3926
 	 local CurveLatR = 0 --2.5464
 	 local Coll=10
-	 local Eng=10
+	 local Eng=5
 	 local DF=0
      ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
 
