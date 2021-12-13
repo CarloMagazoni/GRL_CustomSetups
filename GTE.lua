@@ -34,10 +34,10 @@ if CarNameCurrent=='SPECTER2' then
 	 local Brake = 0
 	 local Steering = 0
 	 local CurveMax = -0.05 --2.6
-	 local CurveMaxR = -0.004 --0.3846
-	 local CurveMin = -0.03 --2.34
+	 local CurveMaxR = -0.154 --0.3846
+	 local CurveMin = -0.05 --2.34
 	 local CurveMinR = 0.5037 --4
-	 local CurveLat = 0.0101--0.3577
+	 local CurveLat = 0--0.3577
 	 local CurveLatR = -0.09945--2.7949
 	 local Coll=10
 	 local Eng=2.5
@@ -77,14 +77,14 @@ if CarNameCurrent=='SPECTER2' then
 	 local InitMaxFlat = -1.4394
 	 local Brake = -0.3
 	 local Steering = -0.05
-	 local CurveMax = -0.027
+	 local CurveMax = -0.127
 	 local CurveMaxR = 0.0268
-	 local CurveMin = -0.09
+	 local CurveMin = 0.99
 	 local CurveMinR = -2.1667
 	 local CurveLat = -0.0262
 	 local CurveLatR = 0.1367
 	 local Coll=10
-	 local Eng=5
+	 local Eng=2.5
 	 local DF=-350
      ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
  elseif CarNameCurrent=='CYPHER' then
@@ -94,19 +94,19 @@ if CarNameCurrent=='SPECTER2' then
 	 local RWD = 0
 	 local UpShift = -0.8
 	 local DownShift = -0.8
-	 local Drive = 0.04
-	 local MaxFlat = 3.5
+	 local Drive = 0.1
+	 local MaxFlat = 3
 	 local InitMaxFlat = 0
 	 local Brake = 0
-	 local Steering = -0.07
-	 local CurveMax = 0 --2.59
+	 local Steering = -0.04
+	 local CurveMax = -0.09 --2.59
 	 local CurveMaxR = -0.01 --0.3861
-	 local CurveMin = 0 --2.46
+	 local CurveMin = -0.02 --2.46
 	 local CurveMinR = -0.1 --7.6923
 	 local CurveLat = -0.01 --0.3926
 	 local CurveLatR = 0 --2.5464
 	 local Coll=10
-	 local Eng=5
+	 local Eng=2.5
 	 local DF=0
      ApplyGTEMod(GTE,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
 
