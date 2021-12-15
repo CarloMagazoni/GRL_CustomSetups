@@ -234,7 +234,7 @@
   function SetCustomClassesArrays()
     GT3array = Set {'PARAGON','SPECTER','ELEGY2','CARBONIZ','DRAFTER','COQUETTE','SCHLAGEN','GROWLER','VECTRE'}
     GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','CYPHER','ITALIRSX'}
-    HSarray = Set {'VAGNER','krieger','VISIONE','EMERUS','TIGON'}
+    HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON'}
     F1array = Set {'FORMULA'}
     --Memearray = Set {MemeCurrent)
   end
@@ -3701,7 +3701,7 @@
         if RefuelLoop then
           RefuelLoop.destroy()
         end
-        NormalRepairRate = readFloat('adr+106230')
+        NormalRepairRate = readFloat('adr+10E348')
         RefuelLoop = createTimer(nil,true)
         timer_onTimer(RefuelLoop,Refuel)
         timer_setInterval(RefuelLoop, 10)
@@ -3710,7 +3710,7 @@
         UDF1.Refuel.Caption="STOP REFUELING"
         SendPack("REFUELING",0,1)
         OnRefuel=true
-        writeFloat('adr+106230',0)
+        writeFloat('adr+10E348',0)
         sleep(150)
      else
         timer_setEnabled(RefuelLoop, false)
@@ -3719,7 +3719,7 @@
         UDF1.Refuel.Caption="REFUEL"
         SendPack("REFUELING FINISHED",0,1)
         OnRefuel=false
-        writeFloat('adr+106230',NormalRepairRate)
+        writeFloat('adr+10E348',NormalRepairRate)
         sleep(150)
      end
     end
