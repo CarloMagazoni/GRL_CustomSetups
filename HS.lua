@@ -41,10 +41,10 @@ if CarNameCurrent=='VAGNER' then
 	 local MaxFlat = 6
 	 local InitMaxFlat = 4
 	 local Brake = 0.4
-	 local Steering = 0
-	 local CurveMax = 0.052
-	 local CurveMaxR = 0
-	 local CurveMin = 0.02
+	 local Steering = 0.05
+	 local CurveMax = 0.062
+	 local CurveMaxR = 0.02
+	 local CurveMin = 0.03
 	 local CurveMinR = 0
 	 local CurveLat = 0
 	 local CurveLatR = 0
