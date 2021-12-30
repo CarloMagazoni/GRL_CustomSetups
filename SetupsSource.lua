@@ -3003,53 +3003,55 @@
   end
 
   function SaveSetup()
-   local save_dialog = createSaveDialog(self)
-   save_dialog.InitalDir = os.getenv('%USERPROFILE%')
-   if save_dialog.execute() then
-       local s=(save_dialog.FileName..".lua")
-      file = io.open(s, "w+")
+   if SpecialMode == false then
+     local save_dialog = createSaveDialog(self)
+     save_dialog.InitalDir = os.getenv('%USERPROFILE%')
+     if save_dialog.execute() then
+         local s=(save_dialog.FileName..".lua")
+        file = io.open(s, "w+")
 
-      --Suspension
-      file:write("CarNameR = "..CarNameCurrent,"\n")
-      file:write("SuspensionForceR = "..SuspensionForceDELTA,"\n")
-      file:write("ARBForceR = "..ARBForceDELTA,"\n")
-      file:write("SuspensionRaiseR = "..SuspensionRaiseDELTA,"\n")
-      file:write("SuspensionBumpR = "..SuspensionBumpDELTA,"\n")
-      file:write("SuspensionReboundR = "..SuspensionReboundDELTA,"\n")
-      file:write("SuspensionTravelR = "..SuspensionTravelDELTA,"\n")
-      file:write("FrontSpringR = "..FrontSpringDELTA,"\n")
-      file:write("FrontARBR = "..FrontARBDELTA,"\n")
-      file:write("ToeFrontR = "..ToeFrontDELTA,"\n")
-      file:write("CamberFrontR = "..CamberFrontDELTA,"\n")
-      file:write("RearSpringR = "..RearSpringDELTA,"\n")
-      file:write("RearARBR = "..RearARBDELTA,"\n")
-      file:write("ToeRearR = "..ToeRearDELTA,"\n")
-      file:write("CamberRearR = "..CamberRearDELTA,"\n")
+        --Suspension
+        file:write("CarNameR = "..CarNameCurrent,"\n")
+        file:write("SuspensionForceR = "..SuspensionForceDELTA,"\n")
+        file:write("ARBForceR = "..ARBForceDELTA,"\n")
+        file:write("SuspensionRaiseR = "..SuspensionRaiseDELTA,"\n")
+        file:write("SuspensionBumpR = "..SuspensionBumpDELTA,"\n")
+        file:write("SuspensionReboundR = "..SuspensionReboundDELTA,"\n")
+        file:write("SuspensionTravelR = "..SuspensionTravelDELTA,"\n")
+        file:write("FrontSpringR = "..FrontSpringDELTA,"\n")
+        file:write("FrontARBR = "..FrontARBDELTA,"\n")
+        file:write("ToeFrontR = "..ToeFrontDELTA,"\n")
+        file:write("CamberFrontR = "..CamberFrontDELTA,"\n")
+        file:write("RearSpringR = "..RearSpringDELTA,"\n")
+        file:write("RearARBR = "..RearARBDELTA,"\n")
+        file:write("ToeRearR = "..ToeRearDELTA,"\n")
+        file:write("CamberRearR = "..CamberRearDELTA,"\n")
 
-      --Chassis
-      file:write("FrontWingR = "..FrontWingDELTA,"\n")
-      file:write("RearWingR = "..RearWingDELTA,"\n")
-      file:write("SteeringLockR = "..SteeringLockDELTA,"\n")
-      file:write("CastorR = "..CastorDELTA,"\n")
-      file:write("WeightDistR = "..WeightDistDELTA,"\n")
+        --Chassis
+        file:write("FrontWingR = "..FrontWingDELTA,"\n")
+        file:write("RearWingR = "..RearWingDELTA,"\n")
+        file:write("SteeringLockR = "..SteeringLockDELTA,"\n")
+        file:write("CastorR = "..CastorDELTA,"\n")
+        file:write("WeightDistR = "..WeightDistDELTA,"\n")
 
-      --Advanced
-      file:write("BrakesSizeR = "..BrakesSizeDELTA,"\n")
-      file:write("BrakePressureR = "..BrakePressureDELTA,"\n")
-      file:write("BrakeBiasR = "..BrakeBiasDELTA,"\n")
-      file:write("TPR = "..TPDELTA,"\n")
-      file:write("TCR = "..TCDELTA,"\n")
-      file:write("HeadlightR = "..HeadlightDELTA,"\n")
-      file:write("XenonColorR = "..XenonColorDELTA,"\n")
+        --Advanced
+        file:write("BrakesSizeR = "..BrakesSizeDELTA,"\n")
+        file:write("BrakePressureR = "..BrakePressureDELTA,"\n")
+        file:write("BrakeBiasR = "..BrakeBiasDELTA,"\n")
+        file:write("TPR = "..TPDELTA,"\n")
+        file:write("TCR = "..TCDELTA,"\n")
+        file:write("HeadlightR = "..HeadlightDELTA,"\n")
+        file:write("XenonColorR = "..XenonColorDELTA,"\n")
 
-      --Drivetrain
-      file:write("GearsR = "..GearsDELTA,"\n")
-      file:write("PreloadR = "..PreloadDELTA,"\n")
+        --Drivetrain
+        file:write("GearsR = "..GearsDELTA,"\n")
+        file:write("PreloadR = "..PreloadDELTA,"\n")
 
-      UDF1.SetupNameLabel.Caption = (save_dialog.FileName)
-      SendPack("SETUP-S",0,0)
-      --LOG_History=LOG_History.."SETUP-S"..(os.date("%X")).."\n"
-      file:close()
+        UDF1.SetupNameLabel.Caption = (save_dialog.FileName)
+        SendPack("SETUP-S",0,0)
+        --LOG_History=LOG_History.."SETUP-S"..(os.date("%X")).."\n"
+        file:close()
+     end
    end
   end
 
