@@ -2514,492 +2514,494 @@
   end
 
   function LoadSetup()
-   load_dialog = createOpenDialog(self)
-   load_dialog.InitalDir = os.getenv('%USERPROFILE%')
-   if load_dialog.execute() then
-   -- Opens a file in read mode
-   file = io.open(load_dialog.FileName, "r")
+   if SpecialMode == false then
+     load_dialog = createOpenDialog(self)
+     load_dialog.InitalDir = os.getenv('%USERPROFILE%')
+     if load_dialog.execute() then
+     -- Opens a file in read mode
+     file = io.open(load_dialog.FileName, "r")
 
-   local content = file:read "*a"
-   UDF1.SetupNameLabel.Caption = load_dialog.FileName
-   file:close()
-   load(content)()
-    --local CarName = (file:read())
+     local content = file:read "*a"
+     UDF1.SetupNameLabel.Caption = load_dialog.FileName
+     file:close()
+     load(content)()
+      --local CarName = (file:read())
 
-    --local SuspensionForceR = tonumber(file:read())
-      if SuspensionForceR < 1 or SuspensionForceR > 18 then
-       SuspensionForceR = 9
-       --messageDialog("You are pidor. Do fair racing!!!SusForce",mtError, mbOk)
-      end
-
-    --local ARBForceR = tonumber(file:read())
-      if ARBForceR < 1 or ARBForceR > 14 then
-       ARBForceR = 7
-       --messageDialog("You are pidor. Do fair racing!!!ARB",mtError, mbOk)
-      end
-
-    --local SuspensionRaiseR = tonumber(file:read())
-      if SuspensionRaiseR < 1 or SuspensionRaiseR > 18 then
-       SuspensionRaiseR = 9
-       --messageDialog("You are pidor. Do fair racing!!!Raise",mtError, mbOk)
-      end
-
-    --local SuspensionBumpR = tonumber(file:read())
-      if SuspensionBumpR < 1 or SuspensionBumpR > 38 then
-       SuspensionBumpR = 19
-       --messageDialog("You are pidor. Do fair racing!!!Bump",mtError, mbOk)
-      end
-
-    --local SuspensionReboundR = tonumber(file:read())
-      if SuspensionReboundR < 1 or SuspensionReboundR > 38 then
-       SuspensionReboundR = 19
-       --messageDialog("You are pidor. Do fair racing!!!Rebound",mtError, mbOk)
-      end
-
-    --local SuspensionTravelR = tonumber(file:read())
-      if SuspensionTravelR < 1 or SuspensionTravelR > 18 then
-       SuspensionTravelR = 9
-       --messageDialog("You are pidor. Do fair racing!!!Travel",mtError, mbOk)
-      end
-
-    --local FrontSpringR = tonumber(file:read())
-      if FrontSpringR < 1 or FrontSpringR > 18 then
-       FrontSpringR = 9
-       --messageDialog("You are pidor. Do fair racing!!!FS",mtError, mbOk)
-      end
-
-    --local FrontARBR = tonumber(file:read())
-      if FrontARBR < 1 or FrontARBR > 18 then
-       FrontARBR = 9
-       --messageDialog("You are pidor. Do fair racing!!!FARB",mtError, mbOk)
-      end
-
-    --local ToeFrontR = tonumber(file:read())
-      if ToeFrontR < 1 or ToeFrontR > 36 then
-       ToeFrontR = 18
-       --messageDialog("You are pidor. Do fair racing!!!FTI",mtError, mbOk)
-      end
-
-    --local CamberFrontR = tonumber(file:read())
-      if CamberFrontR < 1 or CamberFrontR > 50 then
-       CamberFrontR = 50
-       --messageDialog("You are pidor. Do fair racing!!!FC",mtError, mbOk)
-      end
-
-    --local RearSpringR = tonumber(file:read())
-      if RearSpringR < 1 or RearSpringR > 18 then
-       RearSpringR = 9
-       --messageDialog("You are pidor. Do fair racing!!!RS",mtError, mbOk)
-      end
-
-    --local RearARBR = tonumber(file:read())
-      if RearARBR < 1 or RearARBR > 18 then
-       RearARBR = 9
-       --messageDialog("You are pidor. Do fair racing!!!RARB",mtError, mbOk)
-      end
-
-    --local ToeRearR = tonumber(file:read())
-      if ToeRearR < 1 or ToeRearR > 36 then
-       ToeRearR = 18
-       --messageDialog("You are pidor. Do fair racing!!!RTI",mtError, mbOk)
-      end
-
-    --local CamberRearR = tonumber(file:read())
-      if CamberRearR < 1 or CamberRearR > 50 then
-       CamberRearR = 50
-       --messageDialog("You are pidor. Do fair racing!!!RC",mtError, mbOk)
-      end
-
-    --local WeightDistR = tonumber(file:read())
-      if WeightDistR < 1 or WeightDistR > 24 then
-       WeightDistR = 12
-       --messageDialog("You are pidor. Do fair racing!!!WD",mtError, mbOk)
-      end
-
-    --local SteeringLockR = tonumber(file:read())
-      if SteeringLockR < 1 or SteeringLockR > 3 then
-       SteeringLockR = 2
-       --messageDialog("You are pidor. Do fair racing!!!SL",mtError, mbOk)
-      end
-
-    --local RearWingR = tonumber(file:read())
-      if RearWingR < 1 or RearWingR > 9 then
-       RearWingR = 5
-       --messageDialog("You are pidor. Do fair racing!!!RW",mtError, mbOk)
-      end
-
-    --local FrontWingR = tonumber(file:read())
-      if FrontWingR < 1 or FrontWingR > 9 then
-       FrontWingR = 5
-       --messageDialog("You are pidor. Do fair racing!!!FW",mtError, mbOk)
-      end
-
-    --local BrakesSizeR = tonumber(file:read())
-      if BrakesSizeR < 1 or BrakesSizeR > 3 then
-       BrakesSizeR = 3
-       --messageDialog("You are pidor. Do fair racing!!!BS",mtError, mbOk)
-      end
-
-    --local BrakeBiasR = tonumber(file:read())
-      if BrakeBiasR < 1 or BrakeBiasR > 17 then
-       BrakeBiasR = 8
-       --messageDialog("You are pidor. Do fair racing!!!BB",mtError, mbOk)
-      end
-
-    --local HeadlightR = tonumber(file:read())
-      if HeadlightR < 1 or HeadlightR > 2 then
-       HeadlightR = 1
-       --messageDialog("You are pidor. Do fair racing!!!HR",mtError, mbOk)
-      end
-
-    --local XenonColorR = tonumber(file:read())
-      if XenonColorR < 1 or XenonColorR > 4 then
-       XenonColorR = 1
-       --messageDialog("You are pidor. Do fair racing!!!XR",mtError, mbOk)
-      end
-
-    --local TCR = tonumber(file:read())
-      if TCR < 1 or TCR > 9 then
-        TCR = 5
-        --messageDialog("You are pidor. Do fair racing!!!TC",mtError, mbOk)
-      end
-
-    --local GearsR = tonumber(file:read())
-      if GearsR < 1 or GearsR > 2 then
-       GearsR = 1
-       --messageDialog("You are pidor. Do fair racing!!!GR",mtError, mbOk)
-      end
-
-    --local CastorR = tonumber(file:read())
-      if CastorR<1 or CastorR>18 then
-       CastorR = 9
-       --messageDialog("You are pidor. Do fair racing!!!CAS",mtError, mbOk)
-    end
-
-    --local BrakePressureR = tonumber(file:read())
-      if BrakePressureR < 1 or BrakePressureR > 100 then
-       BrakePressureR = 100
-       --messageDialog("You are pidor. Do fair racing!!!BPr",mtError, mbOk)
-      end
-
-    --local TPR = tonumber(file:read())
-      if TPR < 140 or TPR > 180 then
-       TPR = 160
-       --messageDialog("You are pidor. Do fair racing!!!TPr",mtError, mbOk)
-      end
-
-    --local PreloadR = tonumber(file:read())
-      if PreloadR < 0 or PreloadR > 160 then
-       PreloadR = 80
-       --messageDialog("You are pidor. Do fair racing!!!PR",mtError, mbOk)
-      end
-
-       --if CarNameR == CarNameCurrent then
-      if F1modeDELTA == 2 then local F1 = true end
-      if GT3modeDELTA == 2 then local GT3 = true end
-      if GTEmodeDELTA == 2 then local GTE = true end
-      if HSmodeDELTA == 2 then local HS = true end
-
-      BackToDefault()
-
-      if F1array[CarNameCurrent] and F1 == true then TurnF1ModeOn() end
-      if GT3array[CarNameCurrent] and GT3 == true then TurnGT3ModeOn() end
-      if GTEarray[CarNameCurrent] and GTE == true then TurnGTEModeOn() end
-      if HSarray[CarNameCurrent] and HS == true then TurnHSModeOn() end
-
-      if F1array[CarNameCurrent] and F1 == false then TurnF1ModeOff() end
-      if GT3array[CarNameCurrent] and GT3 == false then TurnGT3ModeOff() end
-      if GTEarray[CarNameCurrent] and GTE == false then TurnGTEModeOff() end
-      if HSarray[CarNameCurrent] and HS == false then TurnHSModeOff() end
-
-          --Suspension
-      if SuspensionForceR-SuspensionForceDELTA > 0 then
-        for i=1,(SuspensionForceR-SuspensionForceDELTA) do
-          SuspensionForceIncrease()
+      --local SuspensionForceR = tonumber(file:read())
+        if SuspensionForceR < 1 or SuspensionForceR > 18 then
+         SuspensionForceR = 9
+         --messageDialog("You are pidor. Do fair racing!!!SusForce",mtError, mbOk)
         end
-        elseif SuspensionForceR-SuspensionForceDELTA < 0 then
-        for i=1,((SuspensionForceR-SuspensionForceDELTA)*(-1)) do
-          SuspensionForceDecrease()
+
+      --local ARBForceR = tonumber(file:read())
+        if ARBForceR < 1 or ARBForceR > 14 then
+         ARBForceR = 7
+         --messageDialog("You are pidor. Do fair racing!!!ARB",mtError, mbOk)
+        end
+
+      --local SuspensionRaiseR = tonumber(file:read())
+        if SuspensionRaiseR < 1 or SuspensionRaiseR > 18 then
+         SuspensionRaiseR = 9
+         --messageDialog("You are pidor. Do fair racing!!!Raise",mtError, mbOk)
+        end
+
+      --local SuspensionBumpR = tonumber(file:read())
+        if SuspensionBumpR < 1 or SuspensionBumpR > 38 then
+         SuspensionBumpR = 19
+         --messageDialog("You are pidor. Do fair racing!!!Bump",mtError, mbOk)
+        end
+
+      --local SuspensionReboundR = tonumber(file:read())
+        if SuspensionReboundR < 1 or SuspensionReboundR > 38 then
+         SuspensionReboundR = 19
+         --messageDialog("You are pidor. Do fair racing!!!Rebound",mtError, mbOk)
+        end
+
+      --local SuspensionTravelR = tonumber(file:read())
+        if SuspensionTravelR < 1 or SuspensionTravelR > 18 then
+         SuspensionTravelR = 9
+         --messageDialog("You are pidor. Do fair racing!!!Travel",mtError, mbOk)
+        end
+
+      --local FrontSpringR = tonumber(file:read())
+        if FrontSpringR < 1 or FrontSpringR > 18 then
+         FrontSpringR = 9
+         --messageDialog("You are pidor. Do fair racing!!!FS",mtError, mbOk)
+        end
+
+      --local FrontARBR = tonumber(file:read())
+        if FrontARBR < 1 or FrontARBR > 18 then
+         FrontARBR = 9
+         --messageDialog("You are pidor. Do fair racing!!!FARB",mtError, mbOk)
+        end
+
+      --local ToeFrontR = tonumber(file:read())
+        if ToeFrontR < 1 or ToeFrontR > 36 then
+         ToeFrontR = 18
+         --messageDialog("You are pidor. Do fair racing!!!FTI",mtError, mbOk)
+        end
+
+      --local CamberFrontR = tonumber(file:read())
+        if CamberFrontR < 1 or CamberFrontR > 50 then
+         CamberFrontR = 50
+         --messageDialog("You are pidor. Do fair racing!!!FC",mtError, mbOk)
+        end
+
+      --local RearSpringR = tonumber(file:read())
+        if RearSpringR < 1 or RearSpringR > 18 then
+         RearSpringR = 9
+         --messageDialog("You are pidor. Do fair racing!!!RS",mtError, mbOk)
+        end
+
+      --local RearARBR = tonumber(file:read())
+        if RearARBR < 1 or RearARBR > 18 then
+         RearARBR = 9
+         --messageDialog("You are pidor. Do fair racing!!!RARB",mtError, mbOk)
+        end
+
+      --local ToeRearR = tonumber(file:read())
+        if ToeRearR < 1 or ToeRearR > 36 then
+         ToeRearR = 18
+         --messageDialog("You are pidor. Do fair racing!!!RTI",mtError, mbOk)
+        end
+
+      --local CamberRearR = tonumber(file:read())
+        if CamberRearR < 1 or CamberRearR > 50 then
+         CamberRearR = 50
+         --messageDialog("You are pidor. Do fair racing!!!RC",mtError, mbOk)
+        end
+
+      --local WeightDistR = tonumber(file:read())
+        if WeightDistR < 1 or WeightDistR > 24 then
+         WeightDistR = 12
+         --messageDialog("You are pidor. Do fair racing!!!WD",mtError, mbOk)
+        end
+
+      --local SteeringLockR = tonumber(file:read())
+        if SteeringLockR < 1 or SteeringLockR > 3 then
+         SteeringLockR = 2
+         --messageDialog("You are pidor. Do fair racing!!!SL",mtError, mbOk)
+        end
+
+      --local RearWingR = tonumber(file:read())
+        if RearWingR < 1 or RearWingR > 9 then
+         RearWingR = 5
+         --messageDialog("You are pidor. Do fair racing!!!RW",mtError, mbOk)
+        end
+
+      --local FrontWingR = tonumber(file:read())
+        if FrontWingR < 1 or FrontWingR > 9 then
+         FrontWingR = 5
+         --messageDialog("You are pidor. Do fair racing!!!FW",mtError, mbOk)
+        end
+
+      --local BrakesSizeR = tonumber(file:read())
+        if BrakesSizeR < 1 or BrakesSizeR > 3 then
+         BrakesSizeR = 3
+         --messageDialog("You are pidor. Do fair racing!!!BS",mtError, mbOk)
+        end
+
+      --local BrakeBiasR = tonumber(file:read())
+        if BrakeBiasR < 1 or BrakeBiasR > 17 then
+         BrakeBiasR = 8
+         --messageDialog("You are pidor. Do fair racing!!!BB",mtError, mbOk)
+        end
+
+      --local HeadlightR = tonumber(file:read())
+        if HeadlightR < 1 or HeadlightR > 2 then
+         HeadlightR = 1
+         --messageDialog("You are pidor. Do fair racing!!!HR",mtError, mbOk)
+        end
+
+      --local XenonColorR = tonumber(file:read())
+        if XenonColorR < 1 or XenonColorR > 4 then
+         XenonColorR = 1
+         --messageDialog("You are pidor. Do fair racing!!!XR",mtError, mbOk)
+        end
+
+      --local TCR = tonumber(file:read())
+        if TCR < 1 or TCR > 9 then
+          TCR = 5
+          --messageDialog("You are pidor. Do fair racing!!!TC",mtError, mbOk)
+        end
+
+      --local GearsR = tonumber(file:read())
+        if GearsR < 1 or GearsR > 2 then
+         GearsR = 1
+         --messageDialog("You are pidor. Do fair racing!!!GR",mtError, mbOk)
+        end
+
+      --local CastorR = tonumber(file:read())
+        if CastorR<1 or CastorR>18 then
+         CastorR = 9
+         --messageDialog("You are pidor. Do fair racing!!!CAS",mtError, mbOk)
+      end
+
+      --local BrakePressureR = tonumber(file:read())
+        if BrakePressureR < 1 or BrakePressureR > 100 then
+         BrakePressureR = 100
+         --messageDialog("You are pidor. Do fair racing!!!BPr",mtError, mbOk)
+        end
+
+      --local TPR = tonumber(file:read())
+        if TPR < 140 or TPR > 180 then
+         TPR = 160
+         --messageDialog("You are pidor. Do fair racing!!!TPr",mtError, mbOk)
+        end
+
+      --local PreloadR = tonumber(file:read())
+        if PreloadR < 0 or PreloadR > 160 then
+         PreloadR = 80
+         --messageDialog("You are pidor. Do fair racing!!!PR",mtError, mbOk)
+        end
+
+         --if CarNameR == CarNameCurrent then
+        if F1modeDELTA == 2 then local F1 = true end
+        if GT3modeDELTA == 2 then local GT3 = true end
+        if GTEmodeDELTA == 2 then local GTE = true end
+        if HSmodeDELTA == 2 then local HS = true end
+
+        BackToDefault()
+
+        if F1array[CarNameCurrent] and F1 == true then TurnF1ModeOn() end
+        if GT3array[CarNameCurrent] and GT3 == true then TurnGT3ModeOn() end
+        if GTEarray[CarNameCurrent] and GTE == true then TurnGTEModeOn() end
+        if HSarray[CarNameCurrent] and HS == true then TurnHSModeOn() end
+
+        if F1array[CarNameCurrent] and F1 == false then TurnF1ModeOff() end
+        if GT3array[CarNameCurrent] and GT3 == false then TurnGT3ModeOff() end
+        if GTEarray[CarNameCurrent] and GTE == false then TurnGTEModeOff() end
+        if HSarray[CarNameCurrent] and HS == false then TurnHSModeOff() end
+
+            --Suspension
+        if SuspensionForceR-SuspensionForceDELTA > 0 then
+          for i=1,(SuspensionForceR-SuspensionForceDELTA) do
+            SuspensionForceIncrease()
+          end
+          elseif SuspensionForceR-SuspensionForceDELTA < 0 then
+          for i=1,((SuspensionForceR-SuspensionForceDELTA)*(-1)) do
+            SuspensionForceDecrease()
+          end
+        end
+
+    		if ARBForceR-ARBForceDELTA > 0 then
+             for i=1,(ARBForceR-ARBForceDELTA) do
+                 ARBForceIncrease()
+             end
+            elseif ARBForceR-ARBForceDELTA < 0 then
+             for i=1,((ARBForceR-ARBForceDELTA)*(-1)) do
+                 ARBForceDecrease()
+             end
+        end
+
+    		if SuspensionRaiseR-SuspensionRaiseDELTA > 0 then
+             for i=1,(SuspensionRaiseR-SuspensionRaiseDELTA) do
+                 SuspensionRaiseIncrease()
+             end
+            elseif SuspensionRaiseR-SuspensionRaiseDELTA < 0 then
+             for i=1,((SuspensionRaiseR-SuspensionRaiseDELTA)*(-1)) do
+                 SuspensionRaiseDecrease()
+             end
+        end
+
+    		if SuspensionBumpR-SuspensionBumpDELTA > 0 then
+             for i=1,(SuspensionBumpR-SuspensionBumpDELTA) do
+                 SuspensionBumpIncrease()
+             end
+            elseif SuspensionBumpR-SuspensionBumpDELTA < 0 then
+             for i=1,((SuspensionBumpR-SuspensionBumpDELTA)*(-1)) do
+                 SuspensionBumpDecrease()
+             end
+        end
+
+    		if SuspensionReboundR-SuspensionReboundDELTA > 0 then
+             for i=1,(SuspensionReboundR-SuspensionReboundDELTA) do
+                 SuspensionReboundIncrease()
+             end
+            elseif SuspensionReboundR-SuspensionReboundDELTA < 0 then
+             for i=1,((SuspensionReboundR-SuspensionReboundDELTA)*(-1)) do
+                 SuspensionReboundDecrease()
+             end
+        end
+
+        if SuspensionTravelR-SuspensionTravelDELTA > 0 then
+             for i=1,(SuspensionTravelR-SuspensionTravelDELTA) do
+                 SuspensionTravelIncrease()
+             end
+            elseif SuspensionTravelR-SuspensionTravelDELTA < 0 then
+             for i=1,((SuspensionTravelR-SuspensionTravelDELTA)*(-1)) do
+                 SuspensionTravelDecrease()
+             end
+        end
+
+    		if FrontSpringR-FrontSpringDELTA > 0 then
+             for i=1,(FrontSpringR-FrontSpringDELTA) do
+                 FrontSpringIncrease()
+             end
+            elseif FrontSpringR-FrontSpringDELTA < 0 then
+             for i=1,((FrontSpringR-FrontSpringDELTA)*(-1)) do
+                 FrontSpringDecrease()
+             end
+        end
+
+    		if FrontARBR-FrontARBDELTA > 0 then
+             for i=1,(FrontARBR-FrontARBDELTA) do
+                 FrontARBIncrease()
+             end
+            elseif FrontARBR-FrontARBDELTA < 0 then
+             for i=1,((FrontARBR-FrontARBDELTA)*(-1)) do
+                 FrontARBDecrease()
+             end
+        end
+
+    		if ToeFrontR-ToeFrontDELTA > 0 then
+             for i=1,(ToeFrontR-ToeFrontDELTA) do
+                 ToeFrontIncrease()
+             end
+            elseif ToeFrontR-ToeFrontDELTA < 0 then
+             for i=1,((ToeFrontR-ToeFrontDELTA)*(-1)) do
+                 ToeFrontDecrease()
+             end
+        end
+
+    		if CamberFrontR-CamberFrontDELTA > 0 then
+             for i=1,(CamberFrontR-CamberFrontDELTA) do
+                 CamberFrontIncrease()
+             end
+            elseif CamberFrontR-CamberFrontDELTA < 0 then
+             for i=1,((CamberFrontR-CamberFrontDELTA)*(-1)) do
+                 CamberFrontDecrease()
+             end
+        end
+
+    		if RearSpringR-RearSpringDELTA > 0 then
+             for i=1,(RearSpringR-RearSpringDELTA) do
+                 RearSpringIncrease()
+             end
+            elseif RearSpringR-RearSpringDELTA < 0 then
+             for i=1,((RearSpringR-RearSpringDELTA)*(-1)) do
+                 RearSpringDecrease()
+             end
+        end
+
+    		if RearARBR-RearARBDELTA > 0 then
+             for i=1,(RearARBR-RearARBDELTA) do
+                 RearARBIncrease()
+             end
+            elseif RearARBR-RearARBDELTA < 0 then
+             for i=1,((RearARBR-RearARBDELTA)*(-1)) do
+                 RearARBDecrease()
+             end
+        end
+
+    		if ToeRearR-ToeRearDELTA > 0 then
+             for i=1,(ToeRearR-ToeRearDELTA) do
+                 ToeRearIncrease()
+             end
+            elseif ToeRearR-ToeRearDELTA < 0 then
+             for i=1,((ToeRearR-ToeRearDELTA)*(-1)) do
+                 ToeRearDecrease()
+             end
+        end
+
+    		if CamberRearR-CamberRearDELTA > 0 then
+             for i=1,(CamberRearR-CamberRearDELTA) do
+                 CamberRearIncrease()
+             end
+            elseif CamberRearR-CamberRearDELTA < 0 then
+             for i=1,((CamberRearR-CamberRearDELTA)*(-1)) do
+                 CamberRearDecrease()
+             end
+        end
+    		--Suspension
+
+        --Chassis
+        if WeightDistR-WeightDistDELTA > 0 then
+           for i=1,(WeightDistR-WeightDistDELTA) do
+               WeightDistIncrease()
+           end
+          elseif WeightDistR-WeightDistDELTA < 0 then
+           for i=1,((WeightDistR-WeightDistDELTA)*(-1)) do
+               WeightDistDecrease()
+           end
+        end
+
+        if SteeringLockR-SteeringLockDELTA > 0 then
+           for i=1,(SteeringLockR-SteeringLockDELTA) do
+               SteeringLockIncrease()
+           end
+          elseif SteeringLockR-SteeringLockDELTA < 0 then
+           for i=1,((SteeringLockR-SteeringLockDELTA)*(-1)) do
+               SteeringLockDecrease()
+           end
+        end
+
+        if RearWingR-RearWingDELTA > 0 then
+           for i=1,(RearWingR-RearWingDELTA) do
+               RearWingIncrease()
+           end
+          elseif RearWingR-RearWingDELTA < 0 then
+           for i=1,((RearWingR-RearWingDELTA)*(-1)) do
+               RearWingDecrease()
+           end
+        end
+
+        if FrontWingR-FrontWingDELTA > 0 then
+           for i=1,(FrontWingR-FrontWingDELTA) do
+               FrontWingIncrease()
+           end
+          elseif FrontWingR-FrontWingDELTA < 0 then
+           for i=1,((FrontWingR-FrontWingDELTA)*(-1)) do
+               FrontWingDecrease()
+           end
+        end
+
+        if CastorR-CastorDELTA > 0 then
+            for i=1,(CastorR-CastorDELTA) do
+                CastorIncrease()
+            end
+          elseif CastorR-CastorDELTA < 0 then
+            for i=1,((CastorR-CastorDELTA)*(-1)) do
+                CastorDecrease()
+            end
+        end
+        --Chassis
+
+    		--Advanced
+    		if BrakesSizeR-BrakesSizeDELTA > 0 then
+             for i=1,(BrakesSizeR-BrakesSizeDELTA) do
+                 BrakesSizeIncrease()
+             end
+            elseif BrakesSizeR-BrakesSizeDELTA < 0 then
+             for i=1,((BrakesSizeR-BrakesSizeDELTA)*(-1)) do
+                 BrakesSizeDecrease()
+             end
+        end
+
+    		if BrakeBiasR-BrakeBiasDELTA > 0 then
+             for i=1,(BrakeBiasR-BrakeBiasDELTA) do
+                 BrakeBiasIncrease()
+             end
+            elseif BrakeBiasR-BrakeBiasDELTA < 0 then
+             for i=1,((BrakeBiasR-BrakeBiasDELTA)*(-1)) do
+                 BrakeBiasDecrease()
+             end
+        end
+
+    		if HeadlightR-HeadlightDELTA > 0 then
+             for i=1,(HeadlightR-HeadlightDELTA) do
+                 HeadlightIncrease()
+             end
+            elseif HeadlightR-HeadlightDELTA < 0 then
+             for i=1,((HeadlightR-HeadlightDELTA)*(-1)) do
+                 HeadlightDecrease()
+             end
+        end
+
+    		if XenonColorR-XenonColorDELTA > 0 then
+             for i=1,(XenonColorR-XenonColorDELTA) do
+                 XenonColorIncrease()
+             end
+            elseif XenonColorR-XenonColorDELTA < 0 then
+             for i=1,((XenonColorR-XenonColorDELTA)*(-1)) do
+                 XenonColorDecrease()
+             end
+        end
+
+        if TCR-TCDELTA > 0 then
+             for i=1,(TCR-TCDELTA) do
+                 TCIncrease()
+             end
+            elseif TCR-TCDELTA < 0 then
+             for i=1,((TCR-TCDELTA)*(-1)) do
+                 TCDecrease()
+             end
+        end
+
+        if TPR-TPDELTA > 0 then
+             for i=1,(TPR-TPDELTA) do
+                 TPIncrease()
+             end
+            elseif TPR-TPDELTA < 0 then
+             for i=1,((TPR-TPDELTA)*(-1)) do
+                 TPDecrease()
+             end
+        end
+
+        if BrakePressureR-BrakePressureDELTA > 0 then
+             for i=1, (BP-BrakePressureDELTA) do
+                 BrakePressureIncrease()
+             end
+            elseif BrakePressureR-BrakePressureDELTA > 0 then
+             for i=1, ((BP-BrakePressureDELTA)*(-1)) do
+                 BrakePressureDecrease()
+             end
+        end
+        --Advanced
+
+            --Engine
+        if GearsR-GearsDELTA > 0 then
+             for i=1,(GearsR-GearsDELTA) do
+                 GearsIncrease()
+             end
+            elseif GearsR-GearsDELTA < 0 then
+             for i=1,((GearsR-GearsDELTA)*(-1)) do
+                 GearsDecrease()
+             end
+        end
+
+        if PreloadR-PreloadDELTA > 0 then
+             for i=1,(PreloadR-PreloadDELTA) do
+                 PreloadIncrease()
+             end
+            elseif PreloadR-PreloadDELTA < 0 then
+             for i=1,((PreloadR-PreloadDELTA)*(-1)) do
+                 PreloadDecrease()
+             end
         end
       end
-
-  		if ARBForceR-ARBForceDELTA > 0 then
-           for i=1,(ARBForceR-ARBForceDELTA) do
-               ARBForceIncrease()
-           end
-          elseif ARBForceR-ARBForceDELTA < 0 then
-           for i=1,((ARBForceR-ARBForceDELTA)*(-1)) do
-               ARBForceDecrease()
-           end
-      end
-
-  		if SuspensionRaiseR-SuspensionRaiseDELTA > 0 then
-           for i=1,(SuspensionRaiseR-SuspensionRaiseDELTA) do
-               SuspensionRaiseIncrease()
-           end
-          elseif SuspensionRaiseR-SuspensionRaiseDELTA < 0 then
-           for i=1,((SuspensionRaiseR-SuspensionRaiseDELTA)*(-1)) do
-               SuspensionRaiseDecrease()
-           end
-      end
-
-  		if SuspensionBumpR-SuspensionBumpDELTA > 0 then
-           for i=1,(SuspensionBumpR-SuspensionBumpDELTA) do
-               SuspensionBumpIncrease()
-           end
-          elseif SuspensionBumpR-SuspensionBumpDELTA < 0 then
-           for i=1,((SuspensionBumpR-SuspensionBumpDELTA)*(-1)) do
-               SuspensionBumpDecrease()
-           end
-      end
-
-  		if SuspensionReboundR-SuspensionReboundDELTA > 0 then
-           for i=1,(SuspensionReboundR-SuspensionReboundDELTA) do
-               SuspensionReboundIncrease()
-           end
-          elseif SuspensionReboundR-SuspensionReboundDELTA < 0 then
-           for i=1,((SuspensionReboundR-SuspensionReboundDELTA)*(-1)) do
-               SuspensionReboundDecrease()
-           end
-      end
-
-      if SuspensionTravelR-SuspensionTravelDELTA > 0 then
-           for i=1,(SuspensionTravelR-SuspensionTravelDELTA) do
-               SuspensionTravelIncrease()
-           end
-          elseif SuspensionTravelR-SuspensionTravelDELTA < 0 then
-           for i=1,((SuspensionTravelR-SuspensionTravelDELTA)*(-1)) do
-               SuspensionTravelDecrease()
-           end
-      end
-
-  		if FrontSpringR-FrontSpringDELTA > 0 then
-           for i=1,(FrontSpringR-FrontSpringDELTA) do
-               FrontSpringIncrease()
-           end
-          elseif FrontSpringR-FrontSpringDELTA < 0 then
-           for i=1,((FrontSpringR-FrontSpringDELTA)*(-1)) do
-               FrontSpringDecrease()
-           end
-      end
-
-  		if FrontARBR-FrontARBDELTA > 0 then
-           for i=1,(FrontARBR-FrontARBDELTA) do
-               FrontARBIncrease()
-           end
-          elseif FrontARBR-FrontARBDELTA < 0 then
-           for i=1,((FrontARBR-FrontARBDELTA)*(-1)) do
-               FrontARBDecrease()
-           end
-      end
-
-  		if ToeFrontR-ToeFrontDELTA > 0 then
-           for i=1,(ToeFrontR-ToeFrontDELTA) do
-               ToeFrontIncrease()
-           end
-          elseif ToeFrontR-ToeFrontDELTA < 0 then
-           for i=1,((ToeFrontR-ToeFrontDELTA)*(-1)) do
-               ToeFrontDecrease()
-           end
-      end
-
-  		if CamberFrontR-CamberFrontDELTA > 0 then
-           for i=1,(CamberFrontR-CamberFrontDELTA) do
-               CamberFrontIncrease()
-           end
-          elseif CamberFrontR-CamberFrontDELTA < 0 then
-           for i=1,((CamberFrontR-CamberFrontDELTA)*(-1)) do
-               CamberFrontDecrease()
-           end
-      end
-
-  		if RearSpringR-RearSpringDELTA > 0 then
-           for i=1,(RearSpringR-RearSpringDELTA) do
-               RearSpringIncrease()
-           end
-          elseif RearSpringR-RearSpringDELTA < 0 then
-           for i=1,((RearSpringR-RearSpringDELTA)*(-1)) do
-               RearSpringDecrease()
-           end
-      end
-
-  		if RearARBR-RearARBDELTA > 0 then
-           for i=1,(RearARBR-RearARBDELTA) do
-               RearARBIncrease()
-           end
-          elseif RearARBR-RearARBDELTA < 0 then
-           for i=1,((RearARBR-RearARBDELTA)*(-1)) do
-               RearARBDecrease()
-           end
-      end
-
-  		if ToeRearR-ToeRearDELTA > 0 then
-           for i=1,(ToeRearR-ToeRearDELTA) do
-               ToeRearIncrease()
-           end
-          elseif ToeRearR-ToeRearDELTA < 0 then
-           for i=1,((ToeRearR-ToeRearDELTA)*(-1)) do
-               ToeRearDecrease()
-           end
-      end
-
-  		if CamberRearR-CamberRearDELTA > 0 then
-           for i=1,(CamberRearR-CamberRearDELTA) do
-               CamberRearIncrease()
-           end
-          elseif CamberRearR-CamberRearDELTA < 0 then
-           for i=1,((CamberRearR-CamberRearDELTA)*(-1)) do
-               CamberRearDecrease()
-           end
-      end
-  		--Suspension
-
-      --Chassis
-      if WeightDistR-WeightDistDELTA > 0 then
-         for i=1,(WeightDistR-WeightDistDELTA) do
-             WeightDistIncrease()
-         end
-        elseif WeightDistR-WeightDistDELTA < 0 then
-         for i=1,((WeightDistR-WeightDistDELTA)*(-1)) do
-             WeightDistDecrease()
-         end
-      end
-
-      if SteeringLockR-SteeringLockDELTA > 0 then
-         for i=1,(SteeringLockR-SteeringLockDELTA) do
-             SteeringLockIncrease()
-         end
-        elseif SteeringLockR-SteeringLockDELTA < 0 then
-         for i=1,((SteeringLockR-SteeringLockDELTA)*(-1)) do
-             SteeringLockDecrease()
-         end
-      end
-
-      if RearWingR-RearWingDELTA > 0 then
-         for i=1,(RearWingR-RearWingDELTA) do
-             RearWingIncrease()
-         end
-        elseif RearWingR-RearWingDELTA < 0 then
-         for i=1,((RearWingR-RearWingDELTA)*(-1)) do
-             RearWingDecrease()
-         end
-      end
-
-      if FrontWingR-FrontWingDELTA > 0 then
-         for i=1,(FrontWingR-FrontWingDELTA) do
-             FrontWingIncrease()
-         end
-        elseif FrontWingR-FrontWingDELTA < 0 then
-         for i=1,((FrontWingR-FrontWingDELTA)*(-1)) do
-             FrontWingDecrease()
-         end
-      end
-
-      if CastorR-CastorDELTA > 0 then
-          for i=1,(CastorR-CastorDELTA) do
-              CastorIncrease()
-          end
-        elseif CastorR-CastorDELTA < 0 then
-          for i=1,((CastorR-CastorDELTA)*(-1)) do
-              CastorDecrease()
-          end
-      end
-      --Chassis
-
-  		--Advanced
-  		if BrakesSizeR-BrakesSizeDELTA > 0 then
-           for i=1,(BrakesSizeR-BrakesSizeDELTA) do
-               BrakesSizeIncrease()
-           end
-          elseif BrakesSizeR-BrakesSizeDELTA < 0 then
-           for i=1,((BrakesSizeR-BrakesSizeDELTA)*(-1)) do
-               BrakesSizeDecrease()
-           end
-      end
-
-  		if BrakeBiasR-BrakeBiasDELTA > 0 then
-           for i=1,(BrakeBiasR-BrakeBiasDELTA) do
-               BrakeBiasIncrease()
-           end
-          elseif BrakeBiasR-BrakeBiasDELTA < 0 then
-           for i=1,((BrakeBiasR-BrakeBiasDELTA)*(-1)) do
-               BrakeBiasDecrease()
-           end
-      end
-
-  		if HeadlightR-HeadlightDELTA > 0 then
-           for i=1,(HeadlightR-HeadlightDELTA) do
-               HeadlightIncrease()
-           end
-          elseif HeadlightR-HeadlightDELTA < 0 then
-           for i=1,((HeadlightR-HeadlightDELTA)*(-1)) do
-               HeadlightDecrease()
-           end
-      end
-
-  		if XenonColorR-XenonColorDELTA > 0 then
-           for i=1,(XenonColorR-XenonColorDELTA) do
-               XenonColorIncrease()
-           end
-          elseif XenonColorR-XenonColorDELTA < 0 then
-           for i=1,((XenonColorR-XenonColorDELTA)*(-1)) do
-               XenonColorDecrease()
-           end
-      end
-
-      if TCR-TCDELTA > 0 then
-           for i=1,(TCR-TCDELTA) do
-               TCIncrease()
-           end
-          elseif TCR-TCDELTA < 0 then
-           for i=1,((TCR-TCDELTA)*(-1)) do
-               TCDecrease()
-           end
-      end
-
-      if TPR-TPDELTA > 0 then
-           for i=1,(TPR-TPDELTA) do
-               TPIncrease()
-           end
-          elseif TPR-TPDELTA < 0 then
-           for i=1,((TPR-TPDELTA)*(-1)) do
-               TPDecrease()
-           end
-      end
-
-      if BrakePressureR-BrakePressureDELTA > 0 then
-           for i=1, (BP-BrakePressureDELTA) do
-               BrakePressureIncrease()
-           end
-          elseif BrakePressureR-BrakePressureDELTA > 0 then
-           for i=1, ((BP-BrakePressureDELTA)*(-1)) do
-               BrakePressureDecrease()
-           end
-      end
-      --Advanced
-
-          --Engine
-      if GearsR-GearsDELTA > 0 then
-           for i=1,(GearsR-GearsDELTA) do
-               GearsIncrease()
-           end
-          elseif GearsR-GearsDELTA < 0 then
-           for i=1,((GearsR-GearsDELTA)*(-1)) do
-               GearsDecrease()
-           end
-      end
-
-      if PreloadR-PreloadDELTA > 0 then
-           for i=1,(PreloadR-PreloadDELTA) do
-               PreloadIncrease()
-           end
-          elseif PreloadR-PreloadDELTA < 0 then
-           for i=1,((PreloadR-PreloadDELTA)*(-1)) do
-               PreloadDecrease()
-           end
-      end
+      SendPack("SETUP-L",0,1)
     end
-    SendPack("SETUP-L",0,1)
   end
 
   function SaveSetup()
