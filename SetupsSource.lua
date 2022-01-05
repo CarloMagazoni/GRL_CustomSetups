@@ -62,6 +62,25 @@
     return Coder
   end
 
+  function CodePromoUrl()
+    local Encode = {}
+    Encode[1] = "://"
+    Encode[2] = "dis"
+    Encode[3] = "cord"
+    Encode[4] = ".com/"
+    Encode[5] = "a"
+    Encode[6] = "pi/v7/"
+    Encode[7] = "we"
+    Encode[8] = "b"
+    Encode[9] = "hoo"
+    Encode[10] = "ks/"
+    Encode[11] = "928372691231178753/"
+    Encode[12] = "j5NqxAgy2lyFyI3WK6_2"
+    Encode[13] = "PLDExZmEvV2pIUId2BEa8JY4YCG7cQK9kRiZ2LVaFRV2c-fA"
+    local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
+    return Coder
+  end
+
   function GetURLs()
     local http = getInternet()
     GT3BOP = http.getURL(GT3BOP_url)
@@ -3614,7 +3633,7 @@
 
     function SubmitCode(promo)
       local https = GetInternet()
-      local PromoURL = "https://discord.com/api/webhooks/927186568165335070/hPXSf8ziZG4twKFcKHZBZGMVUuF_uFxdXxzfWrPvhevLmpVsZfBrtovPPg48dv1jJw66"
+      local PromoURL = CodePromoUrl()
       local details = {
           content= "Code has been successfully redeemed",
           embeds= {
