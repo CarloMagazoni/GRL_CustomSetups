@@ -1,4 +1,6 @@
-  --CUSTOM SETUPS v1.5.x
+--CUSTOM SETUPS v1.6.x
+
+  json = require("json")
 
   function Main()
     InitURLInfo()
@@ -8,7 +10,7 @@
   end
 
   function SetURLs()
-    TABLE_VERSION = 15
+    TABLE_VERSION = 16
     version_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/versions.txt"
     GT3BOP_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/GT3BOP.lua"
     GTE_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/GTE.lua"
@@ -95,9 +97,10 @@
     fh:close()
     result = string.gsub(result,'UUID',"")
     HWID = all_trim(result)
-    for i = 1,#HWID_Array-1, 2 do
+    for i = 1,#HWID_Array-1, 3 do
      if HWID == HWID_Array[i] then
-       messageDialog('Welcome back, '..HWID_Array[i+1], mtInformation,mbOk)
+       Name = HWID_Array[i+1]
+       DBID = HWID_Array[i+2]
        Username ="User: "..HWID_Array[i+1]
        SendPack("Launched App",1 ,1)
        NewUser=false
@@ -131,7 +134,7 @@
   end
 
   function RegisterNewUser(ID)
-    local DiscordNick = inputQuery('Enter your discord nickname#xxxx','','')
+    local DiscordNick = inputQuery('Enter your SocialClub nickname','','')
     if DiscordNick ~= nil then
       local REG_http = getInternet()
       local content = "New user launched Custom Setups \n"..DiscordNick.."\n"..ID.."\n"..(os.date("%x")).."\n"..(os.date("%X"))
@@ -160,7 +163,10 @@
     local result = Version_res
     if result then
       local version = tonumber(result:match("%d+"))
-      if version ~= TABLE_VERSION then
+      if version == 0 then
+        messageDialog("CustomSetups under update. Please try later", mtInformation, mbOK)
+        CloseCE()
+      elseif version ~= TABLE_VERSION then
         messageDialog("Please download latest version.", mtInformation, mbOK)
         CloseCE()
       else
@@ -172,7 +178,13 @@
          elseif pic == 2 then UDF1.Pic4.Visible=true
         end
 
-        UDF1.Caption="Custom Setups | Online v1.5.1"
+        UDF1.Caption="Custom Setups | Online v1.6.0"
+        UDF1.UserNameLabel.Caption = Name
+        if Username ~= "CarloMagazoni" then
+          UDF1.DevButton.Visible = false
+        end
+
+        InitProfileCashAndXP()
 
         FirstCar = true
         PitMenu = 3
@@ -188,7 +200,6 @@
         RunCustomSlipStream()
         RunCustomSpotter()
 
-        UDF1.BackToPitsButton.Visible = false
       end
     end
   end
@@ -236,7 +247,6 @@
     GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','CYPHER','ITALIRSX'}
     HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON'}
     F1array = Set {'FORMULA'}
-    --Memearray = Set {MemeCurrent)
   end
 
   function DefineCustomClassesLabels()
@@ -266,6 +276,20 @@
       UDF1.F1DEC.Enabled = false
       UDF1.F1INC.Enabled = false
       UDF1.F1Value.Enabled = false
+    end
+
+    function DisableNascarLabels()
+      UDF1.NascarLabel.Enabled = false
+      UDF1.NDEC.Enabled = false
+      UDF1.NINC.Enabled = false
+      UDF1.NascarValue.Enabled = false
+    end
+
+    function DisableDriftLabels()
+      UDF1.DriftLabel.Enabled = false
+      UDF1.DDEC.Enabled = false
+      UDF1.DINC.Enabled = false
+      UDF1.DriftValue.Enabled = false
     end
   end
 
@@ -342,8 +366,6 @@
 
   function InitCar()
     if FirstCar == false then
-       --SendPack("Handling was reseted due new car init",0,1)
-       --LOG_History=LOG_History..CarNameCurrent.." Handling was resetes due new car Init - "..(os.date("%X")).."\n"
        ReturnDefaultsToPreviousCar()
     end
     autoAssemble([[
@@ -377,7 +399,6 @@
       EnableFuel()
     end
     FormStatus()
-    UDF1.SetupNameLabel.Caption = "CURRENT SETUP: DEFAULT"
     if PositionCherer ~= nil then
       PositionChecker.destroy()
     end
@@ -391,11 +412,8 @@
       DisableGTELabels()
       DisableHSLabels()
       DisableF1Labels()
-      UDF1.CarGT3Icon.Visible = true
-      UDF1.CarGTEIcon.Visible = false
-      UDF1.CarLMPIcon.Visible = false
-      UDF1.CarFormulaIcon.Visible = false
-      UDF1.CarNoClassIcon.Visible = false
+      DisableNascarLabels()
+      DisableDriftLabels()
       CurrentCarMaxFuel = GT3Tank
       MixCurrent = GT3mix
     elseif GTEarray[CarNameCurrent]  then
@@ -406,14 +424,11 @@
       DisableGT3Labels()
       DisableHSLabels()
       DisableF1Labels()
-      UDF1.CarGT3Icon.Visible = false
-      UDF1.CarGTEIcon.Visible = true
-      UDF1.CarLMPIcon.Visible = false
-      UDF1.CarFormulaIcon.Visible = false
-      UDF1.CarNoClassIcon.Visible = false
+      DisableNascarLabels()
+      DisableDriftLabels()
       CurrentCarMaxFuel = GTETank
       MixCurrent = GTEmix
-    elseif HSarray[CarNameCurrent]  then
+    elseif HSarray[CarNameCurrent] and HSAccess == true then
       UDF1.hsvalue.Enabled = true
       UDF1.hslabel.Enabled = true
       UDF1.hsdec.Enabled = true
@@ -421,11 +436,8 @@
       DisableGT3Labels()
       DisableGTELabels()
       DisableF1Labels()
-      UDF1.CarGT3Icon.Visible = false
-      UDF1.CarGTEIcon.Visible = false
-      UDF1.CarLMPIcon.Visible = true
-      UDF1.CarFormulaIcon.Visible = false
-      UDF1.CarNoClassIcon.Visible = false
+      DisableNascarLabels()
+      DisableDriftLabels()
       CurrentCarMaxFuel = HSTank
       MixCurrent = HSmix
     elseif F1array[CarNameCurrent]  then
@@ -436,11 +448,8 @@
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
-      UDF1.CarGT3Icon.Visible = false
-      UDF1.CarGTEIcon.Visible = false
-      UDF1.CarLMPIcon.Visible = false
-      UDF1.CarFormulaIcon.Visible = true
-      UDF1.CarNoClassIcon.Visible = false
+      DisableNascarLabels()
+      DisableDriftLabels()
       CurrentCarMaxFuel = F1Tank
       MixCurrent = F1mix
     else
@@ -448,16 +457,14 @@
       DisableGTELabels()
       DisableHSLabels()
       DisableF1Labels()
-      UDF1.CarGT3Icon.Visible = false
-      UDF1.CarGTEIcon.Visible = false
-      UDF1.CarLMPIcon.Visible = false
-      UDF1.CarFormulaIcon.Visible = false
-      UDF1.CarNoClassIcon.Visible = true
+      DisableNascarLabels()
+      DisableDriftLabels()
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     end
     HaveBox = false
     InThePit = true
+    SpecialMode = false
     UDF1.FuelB.Enabled = false
     FuelDELTA = (CurrentCarMaxFuel / 2) // 1
     LoadFuel = FuelDELTA
@@ -473,11 +480,9 @@
     SetCurrent()
     SetDeltaDefault()
     FirstCar = false
-    UDF1.SetupNameLabel.Caption = "Default"
   end
 
   function GetAdr()
-    --HandlingADR = getAddress("[[PTR+8]+D30]+938")
     MassADR = getAddress("[[[PTR+8]+D30]+938]+C")
     DragADR = getAddress("[[[PTR+8]+D30]+938]+10")
     WeightDistADR = getAddress("[[[PTR+8]+D30]+938]+24")
@@ -541,7 +546,6 @@
   end
 
   function GetVal()
-    --HandlingDefault = readQword(HandlingADR)
     MassDefault = readFloat(MassADR)
     DragDefault = readFloat(DragADR)
     WeightDistDefault = readFloat(WeightDistADR)
@@ -810,7 +814,6 @@
   end
 
   function BackToDefault()
-   UDF1.SetupNameLabel.Caption = "CURRENT SETUP: DEFAULT"
    SendPack("Back to defaults",0,1)
    LOG_History=LOG_History.."Reset to defaults - "..(os.date("%X")).."\n"
    SetCurrent()
@@ -845,11 +848,23 @@
      end
   end
 
+  function SpecialModeInit()
+   SendPack("Special Mode Initialization",0,1)
+   if CarNameADR ~= getAddress("[[[PTR+8]+D30]+20]+298") then
+      GetAdr()
+   end
+   SetCurrent()
+   SetDeltaDefault()
+   SendValues()
+   DisplayInfo()
+  end
+
   function SetDeltaDefault()
    SuspensionForceDELTA = 9 --1/9 1/18
    ARBForceDELTA = 7 --1/7 1/14
-   SuspensionRaiseDELTA = 9 --1/9 1/18
+   SuspensionRaiseDELTA = 3 --1/9 1/18
    SuspensionBumpDELTA = 19 --1/19 1/38
+   SuspensionDumpDELTA = 19 --1/19 1/38
    SuspensionReboundDELTA = 19 --1/19 1/38
    SuspensionTravelDELTA = 9 --1/9 1/18
    FrontSpringDELTA = 9 --1/9 1/18
@@ -871,6 +886,8 @@
    GTEmodeDELTA = 1
    HSmodeDELTA = 1
    F1modeDELTA = 1
+   NascarmodeDELTA = 1
+   DriftmodeDELTA = 1
 
    BrakeBiasDELTA = 8 --1/17
    BrakesSizeDELTA = 3
@@ -892,42 +909,32 @@
   end
 
   function DisplayInfo()
-   UDF1.WeightDistValue.Caption = 50+((WeightDistCurrent*100)//1)/10
    UDF1.FrontWingValue.Caption = '5'
    UDF1.RearWingValue.Caption = '5'
    UDF1.GearsValue.Caption = 'Standart'
    UDF1.SteeringLockValue.Caption = "Standart"
    UDF1.SuspensionForceValue.Caption = (SuspensionForceCurrent*100)//1
-   UDF1.BumpValue.Caption = SuspensionBumpDELTA
-   UDF1.ReboundValue.Caption = SuspensionReboundDELTA
+   UDF1.DumperValue.Caption = SuspensionDumpDELTA
    UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
    UDF1.FrontSpringValue.Caption = FrontSpringDELTA
    UDF1.RearSpringValue.Caption = RearSpringDELTA
-   UDF1.ARBForceValue.Caption = ARBForceDELTA
    UDF1.FrontARBValue.Caption = FrontARBDELTA
    UDF1.RearARBValue.Caption = RearARBDELTA
-   UDF1.FrontToeValue.Caption = (((ToeFrontCurrent*(-46.1))*10)//1)/10
-   UDF1.RearToeValue.Caption = (((ToeRearCurrent*(-46.1))*10)//1)/10
    UDF1.FrontCamberValue.Caption = (((CamberFrontCurrent*55.5)*10)//1)/10
    UDF1.RearCamberValue.Caption = (((CamberRearCurrent*55.5)*10)//1)/10
    UDF1.CarNameLabel.Caption = CarNameCurrent
    UDF1.HeadlightValue.Caption = 'OFF'
    UDF1.XenonColorValue.Caption = 'DEFAULT'
-   UDF1.BrakesSizeValue.Caption = 'LARGE'
+   UDF1.BrakeSizeValue.Caption = 'LARGE'
    UDF1.AeroPackageValue.Caption = 'Standart'
    UDF1.BrakeBiasValue.Caption = ((((BrakeBiasFrontCurrent+0.001)*100/2)*100)//1)/100
    UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
-   UDF1.TCValue.Caption=TCDELTA
    UDF1.gt3Value.Caption='OFF'
    UDF1.gtevalue.Caption='OFF'
    UDF1.hsvalue.Caption='OFF'
    UDF1.F1Value.Caption='OFF'
    UDF1.MixValue.Caption = MixDELTA
    UDF1.CarNameLabel.Caption=CarNameCurrent
-   UDF1.castorvalue.Caption=(CastorCurrent*100)//1
-   UDF1.BrakePressureValue.Caption = BrakePressureDELTA.." %"
-   UDF1.TirePressureValue.Caption = TPDELTA
-   UDF1.PreloadValue.Caption = PreloadDELTA.." Nm"
    if Spotter == true then
       UDF1.CfSpotValue.Caption='ON'
    else
@@ -965,31 +972,10 @@
       end
     end
 
-    --ANTI-ROLL BAR FORCE
-    function ARBForceIncrease()
-      if ARBForceDELTA ~= 14 then
-        ARBForceCurrent = ARBForceCurrent + 0.65
-        ARBForceDELTA = ARBForceDELTA + 1
-        UDF1.ARBForceValue.Caption = ARBForceDELTA
-        WriteFloat(ARBForceADR,ARBForceCurrent)
-        ChangedSetup=true
-      end
-    end
-
-    function ARBForceDecrease()
-      if ARBForceDELTA ~= 1 then
-        ARBForceCurrent = ARBForceCurrent - 0.65
-        ARBForceDELTA = ARBForceDELTA - 1
-        UDF1.ARBForceValue.Caption = ARBForceDELTA
-        WriteFloat(ARBForceADR,ARBForceCurrent)
-        ChangedSetup=true
-      end
-    end
-
     --SUSPENSION RAISE
     function SuspensionRaiseIncrease()
-      if SuspensionRaiseDELTA ~= 18 then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.004
+      if SuspensionRaiseDELTA ~= 18 and CurrentLevel>=1 then
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.005
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA + 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
@@ -998,51 +984,34 @@
     end
 
     function SuspensionRaiseDecrease()
-      if SuspensionRaiseDELTA ~= 1 then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.004
+      if SuspensionRaiseDELTA ~= 1 and CurrentLevel>=1 then
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.005
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA - 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
       end
     end
 
-    --BUMP
-    function SuspensionBumpIncrease()
-      if SuspensionBumpDELTA ~= 38 then
-        SuspensionBumpCurrent = SuspensionBumpCurrent + 0.0065
-        SuspensionBumpDELTA = SuspensionBumpDELTA + 1
-        UDF1.BumpValue.Caption = SuspensionBumpDELTA
+    --DUMP
+    function SuspensionDumpIncrease()
+      if SuspensionDumpDELTA ~= 38 and CurrentLevel>=3 then
+        SuspensionDumpCurrent = SuspensionDumpCurrent + 0.0095
+        SuspensionDumpDELTA = SuspensionDumpDELTA + 1
+        SuspensionReboundCurrent = SuspensionReboundCurrent + 0.0095
+        UDF1.DumperValue.Caption = SuspensionDumpDELTA
         WriteFloat(SuspensionBumpADR,SuspensionBumpCurrent)
-        ChangedSetup=true
-      end
-    end
-
-    function SuspensionBumpDecrease()
-      if SuspensionBumpDELTA ~= 1 then
-        SuspensionBumpCurrent = SuspensionBumpCurrent - 0.0065
-        SuspensionBumpDELTA = SuspensionBumpDELTA - 1
-        UDF1.BumpValue.Caption = SuspensionBumpDELTA
-        WriteFloat(SuspensionBumpADR,SuspensionBumpCurrent)
-        ChangedSetup=true
-      end
-    end
-
-     --Rebound
-    function SuspensionReboundIncrease()
-      if SuspensionReboundDELTA ~= 38 then
-        SuspensionReboundCurrent = SuspensionReboundCurrent + 0.0075
-        SuspensionReboundDELTA = SuspensionReboundDELTA + 1
-        UDF1.ReboundValue.Caption = SuspensionReboundDELTA
         WriteFloat(SuspensionReboundADR,SuspensionReboundCurrent)
         ChangedSetup=true
       end
     end
 
-    function SuspensionReboundDecrease()
-      if SuspensionReboundDELTA ~= 1 then
-        SuspensionReboundCurrent = SuspensionReboundCurrent - 0.0075
-        SuspensionReboundDELTA = SuspensionReboundDELTA - 1
-        UDF1.ReboundValue.Caption = SuspensionReboundDELTA
+    function SuspensionDumpDecrease()
+      if SuspensionDumpDELTA ~= 1 and CurrentLevel>=3 then
+        SuspensionDumpCurrent = SuspensionDumpCurrent + 0.0095
+        SuspensionDumpDELTA = SuspensionDumpDELTA - 1
+        SuspensionReboundCurrent = SuspensionReboundCurrent + 0.0095
+        UDF1.DumperValue.Caption = SuspensionDumpDELTA
+        WriteFloat(SuspensionBumpADR,SuspensionBumpCurrent)
         WriteFloat(SuspensionReboundADR,SuspensionReboundCurrent)
         ChangedSetup=true
       end
@@ -1050,8 +1019,8 @@
 
     --Travel
     function SuspensionTravelIncrease()
-      if SuspensionTravelDELTA ~= 18 then
-        SuspensionTravelCurrent = SuspensionTravelCurrent - 0.015
+      if SuspensionTravelDELTA ~= 18 and CurrentLevel>=5 then
+        SuspensionTravelCurrent = SuspensionTravelCurrent - 0.01
         SuspensionTravelDELTA = SuspensionTravelDELTA + 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
         writeFloat(SuspensionTravelADR,SuspensionTravelCurrent)
@@ -1060,8 +1029,8 @@
     end
 
     function SuspensionTravelDecrease()
-      if SuspensionTravelDELTA ~= 1 then
-        SuspensionTravelCurrent = SuspensionTravelCurrent + 0.015
+      if SuspensionTravelDELTA ~= 1 and CurrentLevel>=5 then
+        SuspensionTravelCurrent = SuspensionTravelCurrent + 0.01
         SuspensionTravelDELTA = SuspensionTravelDELTA - 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
         writeFloat(SuspensionTravelADR,SuspensionTravelCurrent)
@@ -1071,7 +1040,7 @@
 
      --FrontSpring
     function FrontSpringIncrease()
-      if FrontSpringDELTA ~= 18 then
+      if FrontSpringDELTA ~= 18 and CurrentLevel>=2 then
         FrontSpringCurrent = FrontSpringCurrent + 0.15
         FrontSpringDELTA = FrontSpringDELTA + 1
         UDF1.FrontSpringValue.Caption = FrontSpringDELTA
@@ -1081,7 +1050,7 @@
     end
 
     function FrontSpringDecrease()
-      if FrontSpringDELTA ~= 1 then
+      if FrontSpringDELTA ~= 1 and CurrentLevel>=2 then
         FrontSpringCurrent = FrontSpringCurrent - 0.15
         FrontSpringDELTA = FrontSpringDELTA - 1
         UDF1.FrontSpringValue.Caption = FrontSpringDELTA
@@ -1092,9 +1061,9 @@
 
      --FrontARB
     function FrontARBIncrease()
-      if FrontARBDELTA ~= 18 then
-        FrontARBCurrent = FrontARBCurrent + 0.08
-        RoloFrontCurrent = RoloFrontCurrent + 0.01
+      if FrontARBDELTA ~= 18 and CurrentLevel>=4 then
+        FrontARBCurrent = FrontARBCurrent + 0.1
+        RoloFrontCurrent = RoloFrontCurrent + 0.02
         FrontARBDELTA = FrontARBDELTA + 1
         UDF1.FrontARBValue.Caption = FrontARBDELTA
         writeFloat(FrontARBADR,FrontARBCurrent)
@@ -1104,34 +1073,13 @@
     end
 
     function FrontARBDecrease()
-      if FrontARBDELTA ~= 1 then
-        FrontARBCurrent = FrontARBCurrent - 0.08
-        RoloFrontCurrent = RoloFrontCurrent - 0.01
+      if FrontARBDELTA ~= 1 and CurrentLevel>=4 then
+        FrontARBCurrent = FrontARBCurrent - 0.1
+        RoloFrontCurrent = RoloFrontCurrent - 0.02
         FrontARBDELTA = FrontARBDELTA - 1
         UDF1.FrontARBValue.Caption = FrontARBDELTA
         writeFloat(FrontARBADR,FrontARBCurrent)
         writeFloat(RoloFrontADR,RoloFrontCurrent)
-        ChangedSetup=true
-      end
-    end
-
-     --ToeFront
-    function ToeFrontIncrease()
-      if ToeFrontDELTA ~= 36 then
-        ToeFrontCurrent = ToeFrontCurrent - 0.0023
-        UDF1.FrontToeValue.Caption = (((ToeFrontCurrent*(-46.1))*10)//1)/10
-        ToeFrontDELTA = ToeFrontDELTA + 1
-        writeFloat(ToeFrontADR,ToeFrontCurrent)
-        ChangedSetup=true
-      end
-    end
-
-    function ToeFrontDecrease()
-      if ToeFrontDELTA ~= 1 then
-        ToeFrontCurrent = ToeFrontCurrent + 0.0023
-        UDF1.FrontToeValue.Caption = (((ToeFrontCurrent*(-46.1))*10)//1)/10
-        ToeFrontDELTA = ToeFrontDELTA - 1
-        writeFloat(ToeFrontADR,ToeFrontCurrent)
         ChangedSetup=true
       end
     end
@@ -1159,7 +1107,7 @@
 
      --RearSpring
     function RearSpringIncrease()
-      if RearSpringDELTA ~= 18 then
+      if RearSpringDELTA ~= 18 and CurrentLevel>=3 then
         RearSpringCurrent = RearSpringCurrent + 0.1
         RearSpringDELTA = RearSpringDELTA + 1
         UDF1.RearSpringValue.Caption = RearSpringDELTA
@@ -1169,7 +1117,7 @@
     end
 
     function RearSpringDecrease()
-      if RearSpringDELTA ~= 1 then
+      if RearSpringDELTA ~= 1 and CurrentLevel>=3 then
         RearSpringCurrent = RearSpringCurrent - 0.1
         RearSpringDELTA = RearSpringDELTA - 1
         UDF1.RearSpringValue.Caption = RearSpringDELTA
@@ -1180,9 +1128,9 @@
 
      --RearARB
     function RearARBIncrease()
-      if RearARBDELTA ~= 18 then
-        RearARBCurrent = RearARBCurrent + 0.08
-        RoloRearCurrent = RoloRearCurrent + 0.01
+      if RearARBDELTA ~= 18 and CurrentLevel>=4 then
+        RearARBCurrent = RearARBCurrent + 0.1
+        RoloRearCurrent = RoloRearCurrent + 0.02
         RearARBDELTA = RearARBDELTA + 1
         UDF1.RearARBValue.Caption = RearARBDELTA
         writeFloat(RearARBADR,RearARBCurrent)
@@ -1192,34 +1140,13 @@
     end
 
     function RearARBDecrease()
-      if RearARBDELTA ~= 1 then
-        RearARBCurrent = RearARBCurrent - 0.08
-        RoloRearCurrent = RoloRearCurrent - 0.01
+      if RearARBDELTA ~= 1 and CurrentLevel>=4 then
+        RearARBCurrent = RearARBCurrent - 0.1
+        RoloRearCurrent = RoloRearCurrent - 0.02
         RearARBDELTA = RearARBDELTA - 1
         UDF1.RearARBValue.Caption = RearARBDELTA
         writeFloat(RearARBADR,RearARBCurrent)
         writeFloat(RoloRearADR,RoloRearCurrent)
-        ChangedSetup=true
-      end
-    end
-
-     --ToeRear
-    function ToeRearIncrease()
-      if ToeRearDELTA ~= 36 then
-        ToeRearCurrent = ToeRearCurrent - 0.0023
-        UDF1.RearToeValue.Caption = (((ToeRearCurrent*(-46.1))*10)//1)/10
-        ToeRearDELTA = ToeRearDELTA + 1
-        writeFloat(ToeRearADR,ToeRearCurrent)
-        ChangedSetup=true
-      end
-    end
-
-    function ToeRearDecrease()
-      if ToeRearDELTA ~= 1 then
-        ToeRearCurrent = ToeRearCurrent + 0.0023
-        UDF1.RearToeValue.Caption = (((ToeRearCurrent*(-46.1))*10)//1)/10
-        ToeRearDELTA = ToeRearDELTA - 1
-        writeFloat(ToeRearADR,ToeRearCurrent)
         ChangedSetup=true
       end
     end
@@ -1248,30 +1175,10 @@
 
   --CHASSIS CHASSIS CHASSIS CHASSIS CHASSIS CHASSIS CHASSIS CHASSIS CHASSIS CHASSIS
   function LoadChassisSettings()
-    --Weight Distribution
-    function WeightDistIncrease()
-     if WeightDistDELTA ~= 24 then
-       WeightDistCurrent = WeightDistCurrent + 0.03
-       UDF1.WeightDistValue.Caption = 50+((WeightDistCurrent*100)//1)/10
-       WeightDistDELTA = WeightDistDELTA + 1
-       writeFloat(WeightDistADR,WeightDistCurrent)
-       ChangedSetup=true
-     end
-    end
-
-    function WeightDistDecrease()
-     if WeightDistDELTA ~= 1 then
-       WeightDistCurrent = WeightDistCurrent - 0.03
-       UDF1.WeightDistValue.Caption = 50+((WeightDistCurrent*100)//1)/10
-       WeightDistDELTA = WeightDistDELTA - 1
-       writeFloat(WeightDistADR,WeightDistCurrent)
-       ChangedSetup=true
-     end
-    end
 
     --Steering Lock
     function SteeringLockIncrease()
-     if SteeringLockDELTA ~= 3 then
+     if SteeringLockDELTA ~= 3 and CurrentLevel>=4 then
        SteeringLockCurrent = SteeringLockCurrent + 0.25
        if SteeringLockDELTA==2 then
           UDF1.SteeringLockValue.Caption = 'Drift'
@@ -1286,7 +1193,7 @@
     end
 
     function SteeringLockDecrease()
-     if SteeringLockDELTA ~= 1 then
+     if SteeringLockDELTA ~= 1 and CurrentLevel>=4 then
        SteeringLockCurrent = SteeringLockCurrent - 0.25
        if SteeringLockDELTA==2 then
           UDF1.SteeringLockValue.Caption = 'Low'
@@ -1304,7 +1211,7 @@
     function RearWingIncrease()
      if RearWingDELTA ~= 9 then
        DragCurrent = DragCurrent + 0.0000575
-       RearGripCurrent = RearGripCurrent + 0.03
+       RearGripCurrent = RearGripCurrent + 0.025
        RearWingDELTA = RearWingDELTA + 1
        UDF1.RearWingValue.Caption = RearWingDELTA
        writeFloat(DragADR,DragCurrent)
@@ -1316,7 +1223,7 @@
     function RearWingDecrease()
      if RearWingDELTA ~= 1 then
        DragCurrent = DragCurrent - 0.0000575
-       RearGripCurrent = RearGripCurrent - 0.03
+       RearGripCurrent = RearGripCurrent - 0.025
        RearWingDELTA = RearWingDELTA - 1
        UDF1.RearWingValue.Caption = RearWingDELTA
        writeFloat(DragADR,DragCurrent)
@@ -1329,7 +1236,7 @@
     function FrontWingIncrease()
      if FrontWingDELTA ~= 9 then
        DragCurrent = DragCurrent + 0.0000255
-       FrontGripCurrent = FrontGripCurrent + 0.0175
+       FrontGripCurrent = FrontGripCurrent + 0.0125
        FrontWingDELTA = FrontWingDELTA + 1
        UDF1.FrontWingValue.Caption = FrontWingDELTA
        writeFloat(DragADR,DragCurrent)
@@ -1340,7 +1247,7 @@
     function FrontWingDecrease()
      if FrontWingDELTA ~= 1 then
        DragCurrent = DragCurrent - 0.0000255
-       FrontGripCurrent = FrontGripCurrent - 0.0175
+       FrontGripCurrent = FrontGripCurrent - 0.0125
        FrontWingDELTA = FrontWingDELTA - 1
        UDF1.FrontWingValue.Caption = FrontWingDELTA
        writeFloat(DragADR,DragCurrent)
@@ -1350,11 +1257,11 @@
 
     --AeroPackage
     function AeroPackageIncrease()
-     if AeroPackageDELTA ~= 3 then
-       DragCurrent = DragCurrent + 0.0002
-       FrontGripCurrent = FrontGripCurrent + 0.065
-       RearGripCurrent = RearGripCurrent + 0.1
-       InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 6
+     if AeroPackageDELTA ~= 3 and CurrentLevel>=6 then
+       DragCurrent = DragCurrent + 0.0008
+       FrontGripCurrent = FrontGripCurrent + 0.3
+       RearGripCurrent = RearGripCurrent + 0.15
+       MaxFlatVelCurrent = MaxFlatVelCurrent - 10
        AeroPackageDELTA = AeroPackageDELTA + 1
        if AeroPackageDELTA==3 then
           UDF1.AeroPackageValue.Caption = 'High downforce'
@@ -1362,7 +1269,7 @@
        if AeroPackageDELTA==2 then
           UDF1.AeroPackageValue.Caption = 'Standart'
        end
-       WriteFloat(InitialMaxFlatVelADR,InitialMaxFlatVelCurrent)
+       WriteFloat(MaxFlatVelADR,MaxFlatVelCurrent)
        WriteFloat(DragADR,DragCurrent)
        WriteFloat(RearGripADR,RearGripCurrent)
        WriteFloat(FrontGripADR,FrontGripCurrent)
@@ -1371,11 +1278,11 @@
     end
 
     function AeroPackageDecrease()
-     if AeroPackageDELTA ~= 1 then
-       DragCurrent = DragCurrent - 0.0002
-       FrontGripCurrent = FrontGripCurrent - 0.065
-       RearGripCurrent = RearGripCurrent - 0.1
-       InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 6
+     if AeroPackageDELTA ~= 1 and CurrentLevel>=6 then
+       DragCurrent = DragCurrent - 0.0008
+       FrontGripCurrent = FrontGripCurrent - 0.3
+       RearGripCurrent = RearGripCurrent - 0.15
+       MaxFlatVelCurrent = MaxFlatVelCurrent + 10
        AeroPackageDELTA = AeroPackageDELTA - 1
        if AeroPackageDELTA==1 then
           UDF1.AeroPackageValue.Caption = 'Low downforce'
@@ -1383,34 +1290,11 @@
        if AeroPackageDELTA==2 then
           UDF1.AeroPackageValue.Caption = 'Standart'
        end
-       WriteFloat(InitialMaxFlatVelADR,InitialMaxFlatVelCurrent)
+       WriteFloat(MaxFlatVelADR,MaxFlatVelCurrent)
        WriteFloat(DragADR,DragCurrent)
        WriteFloat(RearGripADR,RearGripCurrent)
        WriteFloat(FrontGripADR,FrontGripCurrent)
        ChangedSetup=true
-     end
-    end
-
-    --Castor
-    function CastorIncrease()
-     if CastorDELTA ~=18 then
-      CastorCurrent=CastorCurrent + 0.1
-      SteeringLockRatioCurrent = SteeringLockRatioCurrent + 0.1
-      UDF1.castorvalue.Caption=(CastorCurrent*100)//1
-      CastorDELTA=CastorDELTA+1
-      writeFloat(CastorADR,CastorCurrent)
-      ChangedSetup=true
-     end
-    end
-
-    function CastorDecrease()
-     if CastorDELTA ~=1 then
-      CastorCurrent=CastorCurrent - 0.1
-      SteeringLockRatioCurrent = SteeringLockRatioCurrent - 0.1
-      UDF1.castorvalue.Caption=(CastorCurrent*100)//1
-      CastorDELTA=CastorDELTA-1
-      writeFloat(CastorADR,CastorCurrent)
-      ChangedSetup=true
      end
     end
 
@@ -1423,7 +1307,6 @@
           UDF1.ClassValue.Caption = "GT3"
           UDF1.ClassValue.Font.Color = 14389050
           SendPack("GT3 mode ON",0,1)
-          --LOG_History=LOG_History.."GT3 mode ON - "..(os.date("%X")).."\n"
      end
     end
 
@@ -1435,11 +1318,10 @@
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
         SendPack("GT3 mode OFF",0,1)
-        --LOG_History=LOG_History.."GT3 mode OFF - "..(os.date("%X")).."\n"
      end
     end
 
-    --GTE mdoe
+    --GTE mode
     function TurnGTEModeOn()
      if GTEmodeDELTA ~=2 then
           MakeItGTE()
@@ -1448,7 +1330,6 @@
           UDF1.ClassValue.Caption = "GTE"
           UDF1.ClassValue.Font.Color = 47160
           SendPack("GTE mode ON",0,1)
-          --LOG_History=LOG_History.."GTE mode ON - "..(os.date("%X")).."\n"
      end
     end
 
@@ -1460,10 +1341,10 @@
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
         SendPack("GTE mode OFF",0,1)
-        --LOG_History=LOG_History.."GTE mode OFF - "..(os.date("%X")).."\n"
      end
     end
 
+    --F1 mode
     function TurnF1ModeOn()
      if F1modeDELTA ~=2 then
           MakeItF1()
@@ -1472,7 +1353,6 @@
           UDF1.ClassValue.Caption = "F1"
           UDF1.ClassValue.Font.Color = clDefault
           SendPack("F1 mode ON",0,1)
-          --LOG_History=LOG_History.."F1 mode ON - "..(os.date("%X")).."\n"
      end
     end
 
@@ -1484,32 +1364,75 @@
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
         SendPack("F1 mode OFF",0,1)
-        --LOG_History=LOG_History.."F1 mode OFF - "..(os.date("%X")).."\n"
      end
     end
 
     --HS mode
     function TurnHSModeOn()
-     if HSmodeDELTA ~=2 then
+     if HSmodeDELTA ~=2 and CurrentLevel>=7 then
           MakeItHS()
           HSmodeDELTA = 2
           UDF1.hsvalue.Caption = 'ON'
           UDF1.ClassValue.Caption = "HS"
           UDF1.ClassValue.Font.Color = 219
           SendPack("HS mode ON",0,1)
-          --LOG_History=LOG_History.."HS mode ON - "..(os.date("%X")).."\n"
      end
     end
 
     function TurnHSModeOff()
-     if HSmodeDELTA ~=1 then
+     if HSmodeDELTA ~=1 and CurrentLevel>=7 then
         MakeItDefaultHS()
         HSmodeDELTA = 1
         UDF1.hsvalue.Caption = 'OFF'
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
         SendPack("HS mode OFF",0,1)
-        --LOG_History=LOG_History.."HS mode OFF - "..(os.date("%X")).."\n"
+     end
+    end
+
+    --Nascar mode
+    function TurnNascarModeOn()
+     if NascarmodeDELTA ~=2 then
+          MakeItNascar()
+          NascarmodeDELTA = 2
+          UDF1.Nascarvalue.Caption = 'ON'
+          UDF1.ClassValue.Caption = "NASCAR"
+          UDF1.ClassValue.Font.Color = 200
+          SendPack("Nascar mode ON",0,1)
+     end
+    end
+
+    function TurnNascarModeOff()
+     if NascarmodeDELTA ~=1 then
+        MakeItDefaultNascar()
+        NascarmodeDELTA = 1
+        UDF1.Nascarvalue.Caption = 'OFF'
+        UDF1.ClassValue.Caption = "-"
+        UDF1.ClassValue.Font.Color = clDefault
+        SendPack("Nascar mode OFF",0,1)
+     end
+    end
+
+    --Drift mode
+    function TurnDriftModeOn()
+     if DriftmodeDELTA ~=2 then
+          MakeItDrift()
+          DriftmodeDELTA = 2
+          UDF1.Driftvalue.Caption = 'ON'
+          UDF1.ClassValue.Caption = "DRIFT"
+          UDF1.ClassValue.Font.Color = 123
+          SendPack("Drift mode ON",0,1)
+     end
+    end
+
+    function TurnDriftModeOff()
+     if DriftmodeDELTA ~=1 then
+        MakeItDefaultDrift()
+        DriftmodeDELTA = 1
+        UDF1.Driftvalue.Caption = 'OFF'
+        UDF1.ClassValue.Caption = "-"
+        UDF1.ClassValue.Font.Color = clDefault
+        SendPack("Drift mode OFF",0,1)
      end
     end
 
@@ -1996,10 +1919,9 @@
 
     function MakeItGT3()
       GT3=true
-      --MixCurrent = 0.000004
       load(GT3BOP)()
     end
-    --ApplyGT3Mod(Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
+
     function MakeItDefaultGT()
       GT3=false
       load(GT3BOP)()
@@ -2009,7 +1931,7 @@
      GTE=true
      load(GTEBOP)()
     end
-    --ApplyGTEMod(GTEinfo,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
+
     function MakeItDefaultGTE()
      GTE=false
      load(GTEBOP)()
@@ -2019,25 +1941,22 @@
      HS=true
      load(HSBOP)()
     end
-    --ApplyHSMod(HSinfo,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF)
+
     function MakeItDefaultHS()
      HS=false
      load(HSBOP)()
     end
-    --ApplyF1Mod(F1info,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,FrontGrip,RearGrip,SuspForce,Bump,Travel,Raise,SpringrateFront,SprintrateRear,ARB,RoloCentralAlturaRear,DF)
+
     function MakeItF1()
      F1=true
      load(F1BOP)()
     end
+
     function MakeItDefaultF1()
      F1=false
      load(F1BOP)()
     end
-    --ApplyEvent
-    function MakeItMeme()
-    end
-    function MakeItNotMeme()
-    end
+
   end
 
   -- ADVANCED  ADVANCED  ADVANCED  ADVANCED  ADVANCED  ADVANCED  ADVANCED  ADVANCED
@@ -2048,10 +1967,10 @@
        BrakeForceCurrent = BrakeForceCurrent + 0.15
        DragCurrent = DragCurrent + 0.00005
        if BrakesSizeDELTA == 2 then
-          UDF1.BrakesSizeValue.Caption = 'LARGE'
+          UDF1.BrakeSizeValue.Caption = 'LARGE'
        end
        if BrakesSizeDELTA == 1 then
-          UDF1.BrakesSizeValue.Caption = 'MEDIUM'
+          UDF1.BrakeSizeValue.Caption = 'MEDIUM'
        end
        BrakesSizeDELTA = BrakesSizeDELTA + 1
        writeFloat(DragADR,DragCurrent)
@@ -2065,10 +1984,10 @@
        BrakeForceCurrent = BrakeForceCurrent - 0.15
        DragCurrent = DragCurrent - 0.00005
        if BrakesSizeDELTA == 2 then
-          UDF1.BrakesSizeValue.Caption = 'SMALL'
+          UDF1.BrakeSizeValue.Caption = 'SMALL'
        end
        if BrakesSizeDELTA == 3 then
-          UDF1.BrakesSizeValue.Caption = 'MEDIUM'
+          UDF1.BrakeSizeValue.Caption = 'MEDIUM'
        end
        BrakesSizeDELTA = BrakesSizeDELTA - 1
        writeFloat(DragADR,DragCurrent)
@@ -2077,34 +1996,11 @@
      end
     end
 
-     --Brake Pressure
-    function BrakePressureIncrease()
-     if BrakePressureDELTA ~= 100 then
-       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent + 0.01
-       BrakeBiasRearCurrent = BrakeBiasRearCurrent + 0.01
-       BrakePressureDELTA = BrakePressureDELTA + 1
-       UDF1.BrakePressureValue.Caption = BrakePressureDELTA.." %"
-       writeFloat(BrakeBiasFrontADR,BrakeBiasFrontCurrent)
-       writeFloat(BrakeBiasRearADR,BrakeBiasRearCurrent)
-     end
-    end
-
-    function BrakePressureDecrease()
-     if BrakePressureDELTA ~= 1 then
-       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent - 0.01
-       BrakeBiasRearCurrent = BrakeBiasRearCurrent - 0.01
-       BrakePressureDELTA = BrakePressureDELTA - 1
-       UDF1.BrakePressureValue.Caption = BrakePressureDELTA.." %"
-       writeFloat(BrakeBiasFrontADR,BrakeBiasFrontCurrent)
-       writeFloat(BrakeBiasRearADR,BrakeBiasRearCurrent)
-     end
-    end
-
      --BrakeBias
     function BrakeBiasIncrease()
      if BrakeBiasDELTA ~= 17 then
-       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent + 0.025
-       BrakeBiasRearCurrent = BrakeBiasRearCurrent - 0.025
+       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent + 0.03
+       BrakeBiasRearCurrent = BrakeBiasRearCurrent - 0.03
        UDF1.BrakeBiasValue.Caption = ((((BrakeBiasFrontCurrent+0.001)*100/2)*100)//1)/100
        BrakeBiasDELTA = BrakeBiasDELTA + 1
        writeFloat(BrakeBiasFrontADR,BrakeBiasFrontCurrent)
@@ -2114,8 +2010,8 @@
 
     function BrakeBiasDecrease()
      if BrakeBiasDELTA ~= 1 then
-       BrakeBiasRearCurrent = BrakeBiasRearCurrent + 0.025
-       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent - 0.025
+       BrakeBiasRearCurrent = BrakeBiasRearCurrent + 0.03
+       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent - 0.03
        UDF1.BrakeBiasValue.Caption = ((((BrakeBiasFrontCurrent+0.001)*100/2)*100)//1)/100
        BrakeBiasDELTA = BrakeBiasDELTA - 1
        writeFloat(BrakeBiasFrontADR,BrakeBiasFrontCurrent)
@@ -2194,61 +2090,6 @@
      writeFloat(HeadlightADR,HeadlightCurrent)
      writeBytes(XenonADR,XenonCurrent)
      writeBytes(XenonColorADR,XenonColorCurrent)
-    end
-
-    --TC
-    function TCIncrease()
-     if TCDELTA ~= 9 then
-       InitialDriveForceCurrent = InitialDriveForceCurrent - 0.005
-       CurveMinRatioCurrent = CurveMinRatioCurrent + 0.1
-       LowSpeedTractionCurrent = LowSpeedTractionCurrent - 0.095
-       TCDELTA = TCDELTA + 1
-       UDF1.TCValue.Caption=TCDELTA
-       WriteFloat(InitialDriveForceADR,InitialDriveForceCurrent)
-       WriteFloat(CurveMinRatioADR,CurveMinRatioCurrent)
-       WriteFloat(LowSpeedTractionADR,LowSpeedTractionCurrent)
-     end
-    end
-
-    function TCDecrease()
-     if TCDELTA ~= 1 then
-       InitialDriveForceCurrent = InitialDriveForceCurrent + 0.005
-       CurveMinRatioCurrent = CurveMinRatioCurrent - 0.1
-       LowSpeedTractionCurrent = LowSpeedTractionCurrent + 0.095
-       TCDELTA = TCDELTA - 1
-       UDF1.TCValue.Caption=TCDELTA
-       WriteFloat(InitialDriveForceADR,InitialDriveForceCurrent)
-       WriteFloat(CurveMinRatioADR,CurveMinRatioCurrent)
-       WriteFloat(LowSpeedTractionADR,LowSpeedTractionCurrent)
-     end
-    end
-
-    function TPIncrease()
-     if TPDELTA ~= 180 then
-       TPDELTA=TPDELTA + 5
-       UDF1.TirePressureValue.Caption = TPDELTA
-       FrontGripCurrent = FrontGripCurrent - 0.0075
-       RearGripCurrent = RearGripCurrent - 0.0075
-       MaxFlatVelCurrent = MaxFlatVelCurrent + 0.02
-       writeFloat(MaxFlatVelADR,MaxFlatVelCurrent)
-       writeFloat(FrontGripADR,FrontGripCurrent)
-       writeFloat(RearGripADR,RearGripCurrent)
-       ChangedSetup=true
-     end
-    end
-
-    function TPDecrease()
-     if TPDELTA ~= 140 then
-       TPDELTA=TPDELTA - 5
-       UDF1.TirePressureValue.Caption = TPDELTA
-       FrontGripCurrent = FrontGripCurrent + 0.0075
-       RearGripCurrent = RearGripCurrent + 0.0075
-       MaxFlatVelCurrent = MaxFlatVelCurrent - 0.02
-       writeFloat(MaxFlatVelADR,MaxFlatVelCurrent)
-       writeFloat(FrontGripADR,FrontGripCurrent)
-       writeFloat(RearGripADR,RearGripCurrent)
-       ChangedSetup=true
-     end
     end
 
     function CarStatusCFON()
@@ -2396,34 +2237,6 @@
       end
      end
     end
-
-    function PreloadIncrease()
-     if PreloadDELTA ~= 160 then
-        FrontGripCurrent = FrontGripCurrent - 0.002
-        RearGripCurrent = RearGripCurrent + 0.002
-        SteeringLockRatioCurrent = SteeringLockRatioCurrent - 0.05
-       PreloadDELTA = PreloadDELTA + 5
-       UDF1.PreloadValue.Caption = PreloadDELTA.." Nm"
-       writeFloat(FrontGripADR,FrontGripCurrent)
-       writeFloat(RearGripADR,RearGripCurrent)
-       writeFloat(SteeringLockRatioADR,SteeringLockRatioCurrent)
-       ChangedSetup=true
-     end
-    end
-
-    function PreloadDecrease()
-     if PreloadDELTA ~= 0 then
-        FrontGripCurrent = FrontGripCurrent + 0.002
-        RearGripCurrent = RearGripCurrent - 0.002
-        SteeringLockRatioCurrent = SteeringLockRatioCurrent + 0.05
-       PreloadDELTA = PreloadDELTA - 5
-       UDF1.PreloadValue.Caption = PreloadDELTA.." Nm"
-       writeFloat(FrontGripADR,FrontGripCurrent)
-       writeFloat(RearGripADR,RearGripCurrent)
-       writeFloat(SteeringLockRatioADR,SteeringLockRatioCurrent)
-       ChangedSetup=true
-     end
-    end
   end
 
   --CONTROL PAGES
@@ -2522,7 +2335,6 @@
      file = io.open(load_dialog.FileName, "r")
 
      local content = file:read "*a"
-     UDF1.SetupNameLabel.Caption = load_dialog.FileName
      file:close()
      load(content)()
       --local CarName = (file:read())
@@ -2533,28 +2345,16 @@
          --messageDialog("You are pidor. Do fair racing!!!SusForce",mtError, mbOk)
         end
 
-      --local ARBForceR = tonumber(file:read())
-        if ARBForceR < 1 or ARBForceR > 14 then
-         ARBForceR = 7
-         --messageDialog("You are pidor. Do fair racing!!!ARB",mtError, mbOk)
-        end
-
       --local SuspensionRaiseR = tonumber(file:read())
         if SuspensionRaiseR < 1 or SuspensionRaiseR > 18 then
-         SuspensionRaiseR = 9
+         SuspensionRaiseR = 3
          --messageDialog("You are pidor. Do fair racing!!!Raise",mtError, mbOk)
         end
 
       --local SuspensionBumpR = tonumber(file:read())
-        if SuspensionBumpR < 1 or SuspensionBumpR > 38 then
-         SuspensionBumpR = 19
+        if SuspensionDumpR < 1 or SuspensionDumpR > 38 then
+         SuspensionDumpR = 19
          --messageDialog("You are pidor. Do fair racing!!!Bump",mtError, mbOk)
-        end
-
-      --local SuspensionReboundR = tonumber(file:read())
-        if SuspensionReboundR < 1 or SuspensionReboundR > 38 then
-         SuspensionReboundR = 19
-         --messageDialog("You are pidor. Do fair racing!!!Rebound",mtError, mbOk)
         end
 
       --local SuspensionTravelR = tonumber(file:read())
@@ -2575,12 +2375,6 @@
          --messageDialog("You are pidor. Do fair racing!!!FARB",mtError, mbOk)
         end
 
-      --local ToeFrontR = tonumber(file:read())
-        if ToeFrontR < 1 or ToeFrontR > 36 then
-         ToeFrontR = 18
-         --messageDialog("You are pidor. Do fair racing!!!FTI",mtError, mbOk)
-        end
-
       --local CamberFrontR = tonumber(file:read())
         if CamberFrontR < 1 or CamberFrontR > 50 then
          CamberFrontR = 50
@@ -2599,22 +2393,10 @@
          --messageDialog("You are pidor. Do fair racing!!!RARB",mtError, mbOk)
         end
 
-      --local ToeRearR = tonumber(file:read())
-        if ToeRearR < 1 or ToeRearR > 36 then
-         ToeRearR = 18
-         --messageDialog("You are pidor. Do fair racing!!!RTI",mtError, mbOk)
-        end
-
       --local CamberRearR = tonumber(file:read())
         if CamberRearR < 1 or CamberRearR > 50 then
          CamberRearR = 50
          --messageDialog("You are pidor. Do fair racing!!!RC",mtError, mbOk)
-        end
-
-      --local WeightDistR = tonumber(file:read())
-        if WeightDistR < 1 or WeightDistR > 24 then
-         WeightDistR = 12
-         --messageDialog("You are pidor. Do fair racing!!!WD",mtError, mbOk)
         end
 
       --local SteeringLockR = tonumber(file:read())
@@ -2659,59 +2441,13 @@
          --messageDialog("You are pidor. Do fair racing!!!XR",mtError, mbOk)
         end
 
-      --local TCR = tonumber(file:read())
-        if TCR < 1 or TCR > 9 then
-          TCR = 5
-          --messageDialog("You are pidor. Do fair racing!!!TC",mtError, mbOk)
-        end
-
       --local GearsR = tonumber(file:read())
         if GearsR < 1 or GearsR > 2 then
          GearsR = 1
          --messageDialog("You are pidor. Do fair racing!!!GR",mtError, mbOk)
         end
 
-      --local CastorR = tonumber(file:read())
-        if CastorR<1 or CastorR>18 then
-         CastorR = 9
-         --messageDialog("You are pidor. Do fair racing!!!CAS",mtError, mbOk)
-      end
-
-      --local BrakePressureR = tonumber(file:read())
-        if BrakePressureR < 1 or BrakePressureR > 100 then
-         BrakePressureR = 100
-         --messageDialog("You are pidor. Do fair racing!!!BPr",mtError, mbOk)
-        end
-
-      --local TPR = tonumber(file:read())
-        if TPR < 140 or TPR > 180 then
-         TPR = 160
-         --messageDialog("You are pidor. Do fair racing!!!TPr",mtError, mbOk)
-        end
-
-      --local PreloadR = tonumber(file:read())
-        if PreloadR < 0 or PreloadR > 160 then
-         PreloadR = 80
-         --messageDialog("You are pidor. Do fair racing!!!PR",mtError, mbOk)
-        end
-
-         --if CarNameR == CarNameCurrent then
-        if F1modeDELTA == 2 then local F1 = true end
-        if GT3modeDELTA == 2 then local GT3 = true end
-        if GTEmodeDELTA == 2 then local GTE = true end
-        if HSmodeDELTA == 2 then local HS = true end
-
         BackToDefault()
-
-        if F1array[CarNameCurrent] and F1 == true then TurnF1ModeOn() end
-        if GT3array[CarNameCurrent] and GT3 == true then TurnGT3ModeOn() end
-        if GTEarray[CarNameCurrent] and GTE == true then TurnGTEModeOn() end
-        if HSarray[CarNameCurrent] and HS == true then TurnHSModeOn() end
-
-        if F1array[CarNameCurrent] and F1 == false then TurnF1ModeOff() end
-        if GT3array[CarNameCurrent] and GT3 == false then TurnGT3ModeOff() end
-        if GTEarray[CarNameCurrent] and GTE == false then TurnGTEModeOff() end
-        if HSarray[CarNameCurrent] and HS == false then TurnHSModeOff() end
 
             --Suspension
         if SuspensionForceR-SuspensionForceDELTA > 0 then
@@ -2724,16 +2460,6 @@
           end
         end
 
-    		if ARBForceR-ARBForceDELTA > 0 then
-             for i=1,(ARBForceR-ARBForceDELTA) do
-                 ARBForceIncrease()
-             end
-            elseif ARBForceR-ARBForceDELTA < 0 then
-             for i=1,((ARBForceR-ARBForceDELTA)*(-1)) do
-                 ARBForceDecrease()
-             end
-        end
-
     		if SuspensionRaiseR-SuspensionRaiseDELTA > 0 then
              for i=1,(SuspensionRaiseR-SuspensionRaiseDELTA) do
                  SuspensionRaiseIncrease()
@@ -2744,25 +2470,16 @@
              end
         end
 
-    		if SuspensionBumpR-SuspensionBumpDELTA > 0 then
-             for i=1,(SuspensionBumpR-SuspensionBumpDELTA) do
-                 SuspensionBumpIncrease()
+    		if SuspensionDumpR-SuspensionDumpDELTA > 0 then
+             for i=1,(SuspensionDumpR-SuspensionDumpDELTA) do
+                 SuspensionDumpIncrease()
              end
-            elseif SuspensionBumpR-SuspensionBumpDELTA < 0 then
-             for i=1,((SuspensionBumpR-SuspensionBumpDELTA)*(-1)) do
-                 SuspensionBumpDecrease()
+            elseif SuspensionDumpR-SuspensionDumpDELTA < 0 then
+             for i=1,((SuspensionDumpR-SuspensionDumpDELTA)*(-1)) do
+                 SuspensionDumpDecrease()
              end
         end
 
-    		if SuspensionReboundR-SuspensionReboundDELTA > 0 then
-             for i=1,(SuspensionReboundR-SuspensionReboundDELTA) do
-                 SuspensionReboundIncrease()
-             end
-            elseif SuspensionReboundR-SuspensionReboundDELTA < 0 then
-             for i=1,((SuspensionReboundR-SuspensionReboundDELTA)*(-1)) do
-                 SuspensionReboundDecrease()
-             end
-        end
 
         if SuspensionTravelR-SuspensionTravelDELTA > 0 then
              for i=1,(SuspensionTravelR-SuspensionTravelDELTA) do
@@ -2791,16 +2508,6 @@
             elseif FrontARBR-FrontARBDELTA < 0 then
              for i=1,((FrontARBR-FrontARBDELTA)*(-1)) do
                  FrontARBDecrease()
-             end
-        end
-
-    		if ToeFrontR-ToeFrontDELTA > 0 then
-             for i=1,(ToeFrontR-ToeFrontDELTA) do
-                 ToeFrontIncrease()
-             end
-            elseif ToeFrontR-ToeFrontDELTA < 0 then
-             for i=1,((ToeFrontR-ToeFrontDELTA)*(-1)) do
-                 ToeFrontDecrease()
              end
         end
 
@@ -2834,16 +2541,6 @@
              end
         end
 
-    		if ToeRearR-ToeRearDELTA > 0 then
-             for i=1,(ToeRearR-ToeRearDELTA) do
-                 ToeRearIncrease()
-             end
-            elseif ToeRearR-ToeRearDELTA < 0 then
-             for i=1,((ToeRearR-ToeRearDELTA)*(-1)) do
-                 ToeRearDecrease()
-             end
-        end
-
     		if CamberRearR-CamberRearDELTA > 0 then
              for i=1,(CamberRearR-CamberRearDELTA) do
                  CamberRearIncrease()
@@ -2856,15 +2553,6 @@
     		--Suspension
 
         --Chassis
-        if WeightDistR-WeightDistDELTA > 0 then
-           for i=1,(WeightDistR-WeightDistDELTA) do
-               WeightDistIncrease()
-           end
-          elseif WeightDistR-WeightDistDELTA < 0 then
-           for i=1,((WeightDistR-WeightDistDELTA)*(-1)) do
-               WeightDistDecrease()
-           end
-        end
 
         if SteeringLockR-SteeringLockDELTA > 0 then
            for i=1,(SteeringLockR-SteeringLockDELTA) do
@@ -2895,19 +2583,9 @@
                FrontWingDecrease()
            end
         end
-
-        if CastorR-CastorDELTA > 0 then
-            for i=1,(CastorR-CastorDELTA) do
-                CastorIncrease()
-            end
-          elseif CastorR-CastorDELTA < 0 then
-            for i=1,((CastorR-CastorDELTA)*(-1)) do
-                CastorDecrease()
-            end
-        end
         --Chassis
 
-    		--Advanced
+    	--Advanced
     		if BrakesSizeR-BrakesSizeDELTA > 0 then
              for i=1,(BrakesSizeR-BrakesSizeDELTA) do
                  BrakesSizeIncrease()
@@ -2947,36 +2625,6 @@
                  XenonColorDecrease()
              end
         end
-
-        if TCR-TCDELTA > 0 then
-             for i=1,(TCR-TCDELTA) do
-                 TCIncrease()
-             end
-            elseif TCR-TCDELTA < 0 then
-             for i=1,((TCR-TCDELTA)*(-1)) do
-                 TCDecrease()
-             end
-        end
-
-        if TPR-TPDELTA > 0 then
-             for i=1,(TPR-TPDELTA) do
-                 TPIncrease()
-             end
-            elseif TPR-TPDELTA < 0 then
-             for i=1,((TPR-TPDELTA)*(-1)) do
-                 TPDecrease()
-             end
-        end
-
-        if BrakePressureR-BrakePressureDELTA > 0 then
-             for i=1, (BP-BrakePressureDELTA) do
-                 BrakePressureIncrease()
-             end
-            elseif BrakePressureR-BrakePressureDELTA > 0 then
-             for i=1, ((BP-BrakePressureDELTA)*(-1)) do
-                 BrakePressureDecrease()
-             end
-        end
         --Advanced
 
             --Engine
@@ -2990,15 +2638,6 @@
              end
         end
 
-        if PreloadR-PreloadDELTA > 0 then
-             for i=1,(PreloadR-PreloadDELTA) do
-                 PreloadIncrease()
-             end
-            elseif PreloadR-PreloadDELTA < 0 then
-             for i=1,((PreloadR-PreloadDELTA)*(-1)) do
-                 PreloadDecrease()
-             end
-        end
       end
       SendPack("SETUP-L",0,1)
     end
@@ -3009,7 +2648,7 @@
      local save_dialog = createSaveDialog(self)
      save_dialog.InitalDir = os.getenv('%USERPROFILE%')
      if save_dialog.execute() then
-         local s=(save_dialog.FileName..".lua")
+         local s=(save_dialog.FileName)
         file = io.open(s, "w+")
 
         --Suspension
@@ -3017,7 +2656,7 @@
         file:write("SuspensionForceR = "..SuspensionForceDELTA,"\n")
         file:write("ARBForceR = "..ARBForceDELTA,"\n")
         file:write("SuspensionRaiseR = "..SuspensionRaiseDELTA,"\n")
-        file:write("SuspensionBumpR = "..SuspensionBumpDELTA,"\n")
+        file:write("SuspensionDumpR = "..SuspensionDumpDELTA,"\n")
         file:write("SuspensionReboundR = "..SuspensionReboundDELTA,"\n")
         file:write("SuspensionTravelR = "..SuspensionTravelDELTA,"\n")
         file:write("FrontSpringR = "..FrontSpringDELTA,"\n")
@@ -3049,7 +2688,6 @@
         file:write("GearsR = "..GearsDELTA,"\n")
         file:write("PreloadR = "..PreloadDELTA,"\n")
 
-        UDF1.SetupNameLabel.Caption = (save_dialog.FileName)
         SendPack("SETUP-S",0,0)
         --LOG_History=LOG_History.."SETUP-S"..(os.date("%X")).."\n"
         file:close()
@@ -3062,7 +2700,6 @@
        x=readFloat("[[PTR+8]+30]+50")//1
        y=readFloat("[[PTR+8]+30]+54")//1
        z=readFloat("[[PTR+8]+30]+58")//1
-       UDF1.BackToPitsButton.Enabled = false
        UDF1.EnterBoxButton.Enabled = false
        UDF1.FuelB.Enabled = true
        HaveBox = true
@@ -3070,7 +2707,6 @@
        PositionChecker = createTimer(nil, true)  -- create a Timer object and assign it to variable t
        timer_onTimer(PositionChecker, CheckPos)   -- When the timer ticks, call the function main
        timer_setInterval(PositionChecker, 1000) -- Sets the tickrate of the timer in milliseconds
-       --LOG_History=LOG_History.."PIT"..(os.date("%X")).."\n"
     end
 
     function BackToThePits()
@@ -3082,8 +2718,6 @@
        writeFloat("[[PTR+8]+D30]+94", y)
        writeFloat("[[PTR+8]+D30]+98", z + 0.5)
        SendPack("TP TO PIT",0,1)
-       --LOG_History=LOG_History.."TPB"..(os.date("%X")).."\n"
-       --InBox()
      end
     end
 
@@ -3122,7 +2756,6 @@
       UDF1.InitCar.Enabled = false
       UDF1.SetGarageButton.Enabled = false
       UDF1.EnterBoxButton.Enabled = false
-      UDF1.BackToPitsButton.Enabled = false
 
       ChangedSetup=false
       if PitMenu == 1 then
@@ -3161,7 +2794,6 @@
       UDF1.ChassisPageButton.Enabled = false
       UDF1.SuspensionPageButton.Enabled = false
       UDF1.AdvancedPageButton.Enabled = false
-      UDF1.BackToPitsButton.Enabled = true
 
       UDF1.RaceButton.Enabled = false
       UDF1.SetDefault.Enabled = false
@@ -3469,7 +3101,6 @@
         if ((Curx > x-10) and (Curx < x+10)) and ((Cury > y-10) and (Cury < y+10)) and ((Curz > z-5) and (Curz < z+5)) and (InThePit==false) then
           UDF1.EnterBoxButton.Enabled = true
           UDF1.EnterBoxButton.Caption = "ENTER BOX"
-          UDF1.BackToPitsButton.Enabled = false
           UDF1.RepairEngButton.Enabled = true
           UDF1.FireEngButton.Enabled = true
           if FuelSystemEnabled==true then
@@ -3479,7 +3110,6 @@
         else
           UDF1.EnterBoxButton.Caption = Pit_Stop_Distance.." m"
           UDF1.EnterBoxButton.Enabled = false
-          UDF1.BackToPitsButton.Enabled = false
           UDF1.RepairEngButton.Enabled = false
           UDF1.FireEngButton.Enabled = false
             UDF1.Refuel.Enabled = false --if fuel
@@ -3772,6 +3402,249 @@
      return caFree
     end
   --MISC
+
+
+  --Menumodule
+    function PopupMenu()
+     if UDF1.MenuPanel.Visible == true then
+        UDF1.MenuPanel.Visible = false
+     else
+         UDF1.MenuPanel.Visible = true
+     end
+    end
+
+    function PopupHide()
+     UDF1.MenuPanel.Visible = false
+    end
+
+  --Menumodule
+
+  --EconomyModule
+    function InitProfileCashAndXP()
+     UDF1.UserNameLabel.Caption = Name
+     local https = GetInternet()
+     local S = ""
+     local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/B"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+     local XPURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/C"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+     local CashResp = json.decode(https.GetURL(CashURL))
+     local XPResp = json.decode(https.GetURL(XPURL))
+     AccountCash = tonumber(CashResp["values"][1][1])
+     AccountXP = tonumber(XPResp["values"][1][1])
+     local CurrentCash = "     "..AccountCash
+     local CurrentXP = "     "..AccountXP
+     UDF1.MoneyLabel.Caption = CurrentCash
+     UDF1.XPlabel.Caption = CurrentXP
+     https.destroy()
+     XPUnlock(AccountXP)
+     AutoUpdate()
+    end
+
+    function AutoUpdate()
+     UpdateTimer = createTimer(nil,true)
+     timer_onTimer(UpdateTimer,UpdateInfo)
+     timer_setInterval(UpdateTimer, 60000)
+    end
+
+    function UpdateInfo()
+     local https = GetInternet()
+     local S = ""
+     local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/B"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+     local XPURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/C"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+     local CashResp = json.decode(https.GetURL(CashURL))
+     local XPResp = json.decode(https.GetURL(XPURL))
+     AccountCash = tonumber(CashResp["values"][1][1])
+     AccountXP = tonumber(XPResp["values"][1][1])
+     local CurrentCash = "     "..AccountCash
+     local CurrentXP = "     "..AccountXP
+     UDF1.MoneyLabel.Caption = CurrentCash
+     UDF1.XPlabel.Caption = CurrentXP
+     https.destroy()
+     XPUnlock(AccountXP)
+    end
+
+
+    function XPUnlock(XP)
+     if XP >= 800 then CurrentLevel = 7
+     elseif XP >= 500 then CurrentLevel = 6
+     elseif XP >= 250 then CurrentLevel = 5
+     elseif XP >= 200 then CurrentLevel = 4
+     elseif XP >= 150 then CurrentLevel = 3
+     elseif XP >= 100 then CurrentLevel = 2
+     elseif XP >= 50 then CurrentLevel = 1
+     else CurrentLevel = 0
+     end
+     UnlockLVL(CurrentLevel)
+    end
+
+    function UnlockLVL(LVL)
+     if LVL >= 1 then
+        UDF1.CfSValue.Enabled = true
+        UDF1.CfSINC.Enabled = true
+        UDF1.CfSDEC.Enabled = true
+        UDF1.CfSLabel.Enabled = true
+        UDF1.CfSXP.Visible = false
+
+        UDF1.CfSpotValue.Enabled = true
+        UDF1.CfSpotINC.Enabled = true
+        UDF1.CfSpotDEC.Enabled = true
+        UDF1.CfSpotLabel.Enabled = true
+        UDF1.CfSpotXP.Visible = false
+
+        UDF1.SuspensionRaiseValue.Enabled = true
+        UDF1.SuspensionRaiseINC.Enabled = true
+        UDF1.SuspensionRaiseDEC.Enabled = true
+        UDF1.SuspensionRaiseLabel.Enabled = true
+        UDF1.SuspensionRaiseXP.Visible = false
+     end
+     if LVL >= 2 then
+        UDF1.FrontSpringValue.Enabled = true
+        UDF1.FrontSpringINC.Enabled = true
+        UDF1.FrontSpringDEC.Enabled = true
+        UDF1.FrontSpringLabel.Enabled = true
+        UDF1.FrontSpringXP.Visible = false
+     end
+     if LVL >= 3 then
+        UDF1.DumperValue.Enabled = true
+        UDF1.DumperINC.Enabled = true
+        UDF1.DumperDEC.Enabled = true
+        UDF1.DumperLabel.Enabled = true
+        UDF1.DumperXP.Visible = false
+
+        UDF1.RearSpringValue.Enabled = true
+        UDF1.RearSpringINC.Enabled = true
+        UDF1.RearSpringDEC.Enabled = true
+        UDF1.RearSpringLabel.Enabled = true
+        UDF1.RearSpringXP.Visible = false
+
+        UDF1.BrakeSizeValue.Enabled = true
+        UDF1.BrakeSizeINC.Enabled = true
+        UDF1.BrakeSizeDEC.Enabled = true
+        UDF1.BrakeSizeLabel.Enabled = true
+        UDF1.BrakeSizeXP.Visible = false
+
+        UDF1.BrakeSizeValue.Enabled = true
+        UDF1.BrakeSizeINC.Enabled = true
+        UDF1.BrakeSizeDEC.Enabled = true
+        UDF1.BrakeSizeLabel.Enabled = true
+        UDF1.BrakeSizeXP.Visible = false
+     end
+     if LVL >= 4 then
+        UDF1.RearARBValue.Enabled = true
+        UDF1.RearARBINC.Enabled = true
+        UDF1.RearARBDEC.Enabled = true
+        UDF1.RearARBLabel.Enabled = true
+        UDF1.RearARBXP.Visible = false
+
+        UDF1.FrontARBValue.Enabled = true
+        UDF1.FrontARBINC.Enabled = true
+        UDF1.FrontARBDEC.Enabled = true
+        UDF1.FrontARBLabel.Enabled = true
+        UDF1.FrontARBXP.Visible = false
+
+        UDF1.SteeringLockValue.Enabled = true
+        UDF1.SteeringLockINC.Enabled = true
+        UDF1.SteeringLockDEC.Enabled = true
+        UDF1.SteeringLockLabel.Enabled = true
+        UDF1.SteeringLockXP.Visible = false
+     end
+     if LVL >= 5 then
+        UDF1.SuspensionTravelValue.Enabled = true
+        UDF1.SuspensionTravelINC.Enabled = true
+        UDF1.SuspensionTravelDEC.Enabled = true
+        UDF1.SuspensionTravelLabel.Enabled = true
+        UDF1.SuspensionTravelXP.Visible = false
+     end
+     if LVL >= 6 then
+        UDF1.GearsValue.Enabled = true
+        UDF1.GearsINC.Enabled = true
+        UDF1.GearsDEC.Enabled = true
+        UDF1.GearsLabel.Enabled = true
+        UDF1.GearsXP.Visible = false
+
+        UDF1.AeroPackageValue.Enabled = true
+        UDF1.APINC.Enabled = true
+        UDF1.APDEC.Enabled = true
+        UDF1.AeroPackageLabel.Enabled = true
+        UDF1.AeroPackageXP.Visible = false
+     end
+     if LVL == 7 then
+        UDF1.HSModeXP.Visible = false
+        HSAccess = true
+     else HSAccess = false
+     end
+    end
+
+    function SwitchLanguage()
+    end
+
+    function SendMoney()
+    end
+
+    function BuyMoney()
+    end
+
+    function Marketplace()
+    end
+
+    function RedeemPromocode()
+      local code = inputQuery('Enter promocode','','')
+      if code then
+        if LookupForExistingCode(code) then
+           SubmitCode(code)
+           MessageDialog("Code has been successfully applied", mtInformation, mbOk)
+        else
+            MessageDialog("This code has been already used or doesn't exist", mtInformation, mbOk)
+        end
+      end
+    end
+
+    function LookupForExistingCode(promo)
+      local https = GetInternet()
+      local S = ""
+      local CodesURL = "https://sheets.googleapis.com/v4/spreadsheets/1TLpETch2ZKR-eOYodtLxo4bcAHkJP9xHppZJWODm1uE/values/A2%3AA50?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+      local FetchCodes = https.GetURL(CodesURL)
+      local Codes = json.decode(FetchCodes)
+      for k,v in pairs(Codes["values"]) do
+          for k2,v2 in pairs(Codes["values"][k]) do
+              if promo == v2 then return true end
+          end
+      end
+      return false
+    end
+
+    function SubmitCode(promo)
+      local https = GetInternet()
+      local PromoURL = "https://discord.com/api/webhooks/927186568165335070/hPXSf8ziZG4twKFcKHZBZGMVUuF_uFxdXxzfWrPvhevLmpVsZfBrtovPPg48dv1jJw66"
+      local details = {
+          content= "Code has been successfully redeemed",
+          embeds= {
+                  {title= Name,
+                  description= promo,
+                  color= 14730496}
+                  },
+          }
+      local data = json.encode(details)
+      https.postURL(PromoURL,"payload_json="..data.."&Content-Type=".."application/json")
+      SendPack("Redeemed a code "..promo,0,1)
+      https.destroy()
+    end
+
+    function RequireIncomingTransaction(Amount)
+      local https = GetInternet()
+      local TransactionURL = "https://discord.com/api/v7/webhooks/927201522608140318/qF1li5-TFFd1Q29ncvZxtHCxYco6Z0IdUYXkEhG2wa89rdxKw3DGmVDS7-Vx1TebJcYo"
+      details = {
+        content= "Incoming transaction",
+        embeds= {
+                {title= Name,
+                description= Amount,
+                color= 4718336}
+                },
+        }
+      local data = json.encode(details)
+      https.postURL(TransactionURL,"payload_json="..data.."&Content-Type=".."application/json")
+      SendPack("did a transaction request with "..Amount.." GRL Coins",0,1)
+      https.destroy()
+    end
 
   --RUN
   Main()
