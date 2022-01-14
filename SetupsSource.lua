@@ -1267,7 +1267,7 @@
 
     function SteeringLockDecrease()
      if SteeringLockDELTA ~= 1 and CurrentLevel>=4 then
-       SteeringLockCurrent = SteeringLockCurrent - 0.25
+       SteeringLockCurrent = SteeringLockCurrent - 0.05
        SteeringLockDELTA = SteeringLockDELTA - 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
@@ -3481,7 +3481,7 @@
       if CurrentFuelLoad > 0 then
         RescanUNK()
         local RPM = readFloat("UNK+E50")
-          local Gear = readInteger("UNK+FD4")
+          local Gear = readInteger("UNK+FD4") --12 CE80
             if Gear == 0 then
                RPM=0.01
             end
