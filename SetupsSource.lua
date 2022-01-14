@@ -2037,6 +2037,7 @@
            CurveMin=CurveMin*(-1)
            CurveMinR=CurveMinR*(-1)
            CurveLat=CurveLat*(-1)
+           Steering=Steering*(-1)
         end
         if FWD~=0 then
            FWDCurrent=FWDCurrent + FWD
