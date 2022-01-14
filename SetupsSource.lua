@@ -16,6 +16,8 @@
     GTE_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/GTE.lua"
     HS_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/HS.lua"
     F1_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/F1BOP.lua"
+    DRIFT_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/DRIFT.lua"
+    NASCAR_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/NASCAR.lua"
     Fuel_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     --local Meme_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     HWID_url = "https://drive.google.com/uc?export=download&id=1cyu6nJI51kgzuvWjGDoYIjN__B2GN_MY"
@@ -87,6 +89,8 @@
     GTEBOP = http.getURL(GTE_url)
     HSBOP = http.getURL(HS_url)
     F1BOP = http.getURL(F1_url)
+    NASCARBOP = http.getURL(NASCAR_url)
+    DRIFTBOP = http.getURL(DRIFT_url)
     FuelSet = http.getURL(Fuel_url)
     --Meme = http.getURL(Meme_url)
     HWID_res = http.getURL(HWID_url)
@@ -266,6 +270,8 @@
     GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','CYPHER','ITALIRSX'}
     HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON'}
     F1array = Set {'FORMULA'}
+    NASCARarray = Set {'HORTING'}
+    DRIFTarray = Set {'ELEGY','CYPHER'}
   end
 
   function DefineCustomClassesLabels()
@@ -471,6 +477,30 @@
       DisableDriftLabels()
       CurrentCarMaxFuel = F1Tank
       MixCurrent = F1mix
+    elseif NASCARarray[CarNameCurrent]  then
+      UDF1.NASCARLabel.Enabled = true
+      UDF1.NASCARDEC.Enabled = true
+      UDF1.NASCARINC.Enabled = true
+      UDF1.NASCARValue.Enabled = true
+      DisableGT3Labels()
+      DisableGTELabels()
+      DisableHSLabels()
+      DisableF1Labels()
+      DisableDriftLabels()
+      CurrentCarMaxFuel = UnclassedCarTank
+      MixCurrent = UnclassedCarMix
+    elseif DRIFTarray[CarNameCurrent]  then
+      UDF1.DRIFTLabel.Enabled = true
+      UDF1.DRIFTDEC.Enabled = true
+      UDF1.DRIFTINC.Enabled = true
+      UDF1.DRIFTValue.Enabled = true
+      DisableGT3Labels()
+      DisableGTELabels()
+      DisableHSLabels()
+      DisableF1Labels()
+      DisableNascarLabels()
+      CurrentCarMaxFuel = UnclassedCarTank
+      MixCurrent = UnclassedCarMix
     else
       DisableGT3Labels()
       DisableGTELabels()
@@ -751,20 +781,35 @@
   function ReturnDefaultsToPreviousCar()
     if CarNameCurrent~=nil then
       if GT3array[CarNameCurrent]  then
-         UDF1.gt3Value.Enabled = false
-         UDF1.gt3Label.Enabled = false
-         UDF1.gt3DEC.Enabled = false
-         UDF1.gt3INC.Enabled = false
+          UDF1.gt3Value.Enabled = false
+          UDF1.gt3Label.Enabled = false
+          UDF1.gt3DEC.Enabled = false
+          UDF1.gt3INC.Enabled = false
       elseif GTEarray[CarNameCurrent]  then
-         UDF1.gtevalue.Enabled = false
-         UDF1.gtelabel.Enabled = false
-         UDF1.gtedec.Enabled = false
-         UDF1.gteinc.Enabled = false
+          UDF1.gtevalue.Enabled = false
+          UDF1.gtelabel.Enabled = false
+          UDF1.gtedec.Enabled = false
+          UDF1.gteinc.Enabled = false
       elseif HSarray[CarNameCurrent]  then
-         UDF1.hsvalue.Enabled = false
-         UDF1.hslabel.Enabled = false
-         UDF1.hsdec.Enabled = false
-         UDF1.hsinc.Enabled = false
+          UDF1.hsvalue.Enabled = false
+          UDF1.hslabel.Enabled = false
+          UDF1.hsdec.Enabled = false
+          UDF1.hsinc.Enabled = false
+      elseif F1array[CarNameCurrent]  then
+          UDF1.F1Value.Enabled = false
+          UDF1.F1Label.Enabled = false
+          UDF1.F1DEC.Enabled = false
+          UDF1.F1INC.Enabled = false
+      elseif NASCARarray[CarNameCurrent]  then
+          UDF1.NASCARValue.Enabled = false
+          UDF1.NASCARLabel.Enabled = false
+          UDF1.NASCARDEC.Enabled = false
+          UDF1.NASCARINC.Enabled = false
+      elseif DRIFTarray[CarNameCurrent]  then
+          UDF1.DRIFTValue.Enabled = false
+          UDF1.DRIFTLabel.Enabled = false
+          UDF1.DRIFTDEC.Enabled = false
+          UDF1.DRIFTINC.Enabled = false
       end
     if MassCurrent~=MassDefault then writeFloat(MassADR,MassDefault) end
     if DragCurrent~=DragDefault then writeFloat(DragADR,DragDefault) end
@@ -833,38 +878,50 @@
   end
 
   function BackToDefault()
-   SendPack("Back to defaults",0,1)
-   LOG_History=LOG_History.."Reset to defaults - "..(os.date("%X")).."\n"
-   SetCurrent()
-   SetDeltaDefault()
-     if GT3modeDELTA==1 and GTEmodeDELTA==1 and HSmodeDELTA==1 then
-        SendValues()
-        DisplayInfo()
-     elseif GT3modeDELTA==2 and GT3array[CarNameCurrent] then
-        SendValues()
-        DisplayInfo()
-        MakeItGT3()
-        GT3modeDELTA = 2
-        UDF1.gt3Value.Caption = 'ON'
-     elseif GTEmodeDELTA==2 and GTEarray[CarNameCurrent] then
-        SendValues()
-        DisplayInfo()
-        MakeItGTE()
-        GTEmodeDELTA = 2
-        UDF1.gtevalue.Caption = 'ON'
-     elseif HSmodeDELTA==2 and HSarray[CarNameCurrent] then
-        SendValues()
-        DisplayInfo()
-        MakeItHS()
-        HSmodeDELTA = 2
-        UDF1.hsvalue.Caption = 'ON'
-     elseif F1modeDELTA==2 and F1array[CarNameCurrent] then
-        SendValues()
-        DisplayInfo()
-        MakeItF1()
-        F1modeDELTA = 2
-        UDF1.f1value.Caption = 'ON'
-     end
+    SendPack("Back to defaults",0,1)
+    LOG_History=LOG_History.."Reset to defaults - "..(os.date("%X")).."\n"
+    SetCurrent()
+    SetDeltaDefault()
+    if GT3modeDELTA==1 and GTEmodeDELTA==1 and HSmodeDELTA==1 then
+      SendValues()
+      DisplayInfo()
+    elseif GT3modeDELTA==2 and GT3array[CarNameCurrent] then
+      SendValues()
+      DisplayInfo()
+      MakeItGT3()
+      GT3modeDELTA = 2
+      UDF1.gt3Value.Caption = 'ON'
+    elseif GTEmodeDELTA==2 and GTEarray[CarNameCurrent] then
+      SendValues()
+      DisplayInfo()
+      MakeItGTE()
+      GTEmodeDELTA = 2
+      UDF1.gtevalue.Caption = 'ON'
+    elseif HSmodeDELTA==2 and HSarray[CarNameCurrent] then
+      SendValues()
+      DisplayInfo()
+      MakeItHS()
+      HSmodeDELTA = 2
+      UDF1.hsvalue.Caption = 'ON'
+    elseif F1modeDELTA==2 and F1array[CarNameCurrent] then
+      SendValues()
+      DisplayInfo()
+      MakeItF1()
+      F1modeDELTA = 2
+      UDF1.F1Value.Caption = 'ON'
+    elseif NASCARmodeDELTA==2 and NASCARarray[CarNameCurrent] then
+      SendValues()
+      DisplayInfo()
+      MakeItNASCAR()
+      NASCARmodeDELTA = 2
+      UDF1.NASCARValue.Caption = 'ON'
+    elseif DRIFTmodeDELTA==2 and DRIFTarray[CarNameCurrent] then
+      SendValues()
+      DisplayInfo()
+      MakeItDRIFT()
+      DRIFTmodeDELTA = 2
+      UDF1.DRIFTValue.Caption = 'ON'
+    end
   end
 
   function SpecialModeInit()
@@ -896,7 +953,7 @@
    CamberRearDELTA = 50 --20
 
    WeightDistDELTA = 12 --1/18 1/24
-   SteeringLockDELTA = 2 --1/3
+   SteeringLockDELTA = 10 --1/3
    RearWingDELTA = 5 --1/9
    FrontWingDELTA = 5 --1/9
    AeroPackageDELTA = 2 --1/3
@@ -905,8 +962,8 @@
    GTEmodeDELTA = 1
    HSmodeDELTA = 1
    F1modeDELTA = 1
-   NascarmodeDELTA = 1
-   DriftmodeDELTA = 1
+   NASCARmodeDELTA = 1
+   DRIFTmodeDELTA = 1
 
    BrakeBiasDELTA = 8 --1/17
    BrakesSizeDELTA = 3
@@ -952,6 +1009,8 @@
    UDF1.gtevalue.Caption='OFF'
    UDF1.hsvalue.Caption='OFF'
    UDF1.F1Value.Caption='OFF'
+   UDF1.NASCARValue.Caption='OFF'
+   UDF1.DRIFTValue.Caption='OFF'
    UDF1.MixValue.Caption = MixDELTA
    UDF1.CarNameLabel.Caption=CarNameCurrent
    if Spotter == true then
@@ -1197,15 +1256,10 @@
 
     --Steering Lock
     function SteeringLockIncrease()
-     if SteeringLockDELTA ~= 3 and CurrentLevel>=4 then
-       SteeringLockCurrent = SteeringLockCurrent + 0.25
-       if SteeringLockDELTA==2 then
-          UDF1.SteeringLockValue.Caption = 'Drift'
-       end
-       if SteeringLockDELTA==1 then
-          UDF1.SteeringLockValue.Caption = 'Standart'
-       end
+     if SteeringLockDELTA ~= 20 and CurrentLevel>=4 then
+       SteeringLockCurrent = SteeringLockCurrent + 0.05
        SteeringLockDELTA = SteeringLockDELTA + 1
+       UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
        ChangedSetup=true
      end
@@ -1214,13 +1268,8 @@
     function SteeringLockDecrease()
      if SteeringLockDELTA ~= 1 and CurrentLevel>=4 then
        SteeringLockCurrent = SteeringLockCurrent - 0.25
-       if SteeringLockDELTA==2 then
-          UDF1.SteeringLockValue.Caption = 'Low'
-       end
-       if SteeringLockDELTA==3 then
-          UDF1.SteeringLockValue.Caption = 'Standart'
-       end
        SteeringLockDELTA = SteeringLockDELTA - 1
+       UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
        ChangedSetup=true
      end
@@ -1411,20 +1460,20 @@
 
     --Nascar mode
     function TurnNascarModeOn()
-     if NascarmodeDELTA ~=2 then
-          MakeItNascar()
+     if NASCARmodeDELTA ~=2 then
+          MakeItNASCAR()
           NascarmodeDELTA = 2
           UDF1.Nascarvalue.Caption = 'ON'
           UDF1.ClassValue.Caption = "NASCAR"
-          UDF1.ClassValue.Font.Color = 200
+          UDF1.ClassValue.Font.Color = 15892238
           SendPack("Nascar mode ON",0,1)
      end
     end
 
     function TurnNascarModeOff()
-     if NascarmodeDELTA ~=1 then
-        MakeItDefaultNascar()
-        NascarmodeDELTA = 1
+     if NASCARmodeDELTA ~=1 then
+        MakeItDefaultNASCAR()
+        NASCARmodeDELTA = 1
         UDF1.Nascarvalue.Caption = 'OFF'
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
@@ -1434,20 +1483,20 @@
 
     --Drift mode
     function TurnDriftModeOn()
-     if DriftmodeDELTA ~=2 then
-          MakeItDrift()
+     if DRIFTmodeDELTA ~=2 then
+          MakeItDRIFT()
           DriftmodeDELTA = 2
           UDF1.Driftvalue.Caption = 'ON'
           UDF1.ClassValue.Caption = "DRIFT"
-          UDF1.ClassValue.Font.Color = 123
+          UDF1.ClassValue.Font.Color = 7502699
           SendPack("Drift mode ON",0,1)
      end
     end
 
     function TurnDriftModeOff()
      if DriftmodeDELTA ~=1 then
-        MakeItDefaultDrift()
-        DriftmodeDELTA = 1
+        MakeItDefaultDRIFT()
+        DRIFTmodeDELTA = 1
         UDF1.Driftvalue.Caption = 'OFF'
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
@@ -1936,6 +1985,109 @@
         end
     end
 
+    function ApplyNASCARMod(IntoNASCAR,Drive,MaxFlat,Brake,CurveMax,CurveMin,Front,Rear)
+        if IntoNASCAR==false then
+           Drive=Drive*(-1)
+           MaxFlat=MaxFlat*(-1)
+           Brake=Brake*(-1)
+           CurveMax=CurveMax*(-1)
+           CurveMin=CurveMin*(-1)
+           Front=Front*(-1)
+           Rear=Rear*(-1)
+        end
+        if Drive~=0 then
+           InitialDriveForceCurrent=InitialDriveForceCurrent + Drive
+           WriteFloat(InitialDriveForceADR,InitialDriveForceCurrent)
+        end
+        if MaxFlat~=0 then
+           MaxFlatVelCurrent=MaxFlatVelCurrent + MaxFlat
+           WriteFloat(MaxFlatVelADR,MaxFlatVelCurrent)
+        end
+        if Brake~=0 then
+           BrakeForceCurrent=BrakeForceCurrent + Brake
+           WriteFloat(BrakeForceADR,BrakeForceCurrent)
+        end
+        if CurveMax~=0 then
+           CurveMaxCurrent=CurveMaxCurrent + CurveMax
+           WriteFloat(CurveMaxADR,CurveMaxCurrent)
+        end
+        if CurveMin~=0 then
+           CurveMinCurrent=CurveMinCurrent + CurveMin
+           WriteFloat(CurveMinADR,CurveMinCurrent)
+        end
+        if Rear~=0 then
+           RearGripCurrent=RearGripCurrent + Rear
+           WriteFloat(RearGripADR,RearGripCurrent)
+        end
+        if Front~=0 then
+           FrontGripCurrent=FrontGripCurrent + Front
+           WriteFloat(FrontGripADR,FrontGripCurrent)
+        end
+    end
+
+    function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Steering)
+        if IntoDRIFT==false then
+           FWD=FWD*(-1)
+           RWD=RWD*(-1)
+           Drive=Drive*(-1)
+           MaxFlat=MaxFlat*(-1)
+           Brake=Brake*(-1)
+           CurveMax=CurveMax*(-1)
+           CurveMaxR=CurveMaxR*(-1)
+           CurveMin=CurveMin*(-1)
+           CurveMinR=CurveMinR*(-1)
+           CurveLat=CurveLat*(-1)
+        end
+        if FWD~=0 then
+           FWDCurrent=FWDCurrent + FWD
+           WriteFloat(FWDADR,FWDCurrent)
+        end
+        if RWD~= 0 then
+           RWDCurrent=RWDCurrent + RWD
+           WriteFloat(RWDADR,RWDCurrent)
+        end
+        if Drive~=0 then
+           InitialDriveForceCurrent=InitialDriveForceCurrent + Drive
+           WriteFloat(InitialDriveForceADR,InitialDriveForceCurrent)
+        end
+        if MaxFlat~=0 then
+           MaxFlatVelCurrent=MaxFlatVelCurrent + MaxFlat
+           WriteFloat(MaxFlatVelADR,MaxFlatVelCurrent)
+        end
+        if Brake~=0 then
+           BrakeForceCurrent=BrakeForceCurrent + Brake
+           WriteFloat(BrakeForceADR,BrakeForceCurrent)
+        end
+        if CurveMax~=0 then
+           CurveMaxCurrent=CurveMaxCurrent + CurveMax
+           WriteFloat(CurveMaxADR,CurveMaxCurrent)
+        end
+        if CurveMaxR~=0 then
+           CurveMaxRatioCurrent=CurveMaxRatioCurrent + CurveMaxR
+           WriteFloat(CurveMaxRatioADR,CurveMaxRatioCurrent)
+        end
+        if CurveMin~=0 then
+           CurveMinCurrent=CurveMinCurrent + CurveMin
+           WriteFloat(CurveMinADR,CurveMinCurrent)
+        end
+        if CurveMinR~=0 then
+            CurveMinRatioCurrent=CurveMinRatioCurrent + CurveMinR
+            WriteFloat(CurveMinRatioADR,CurveMinRatioCurrent)
+        end
+        if CurveLat~=0 then
+           CurveLateralCurrent=CurveLateralCurrent + CurveLat
+           WriteFloat(CurveLateralADR,CurveLateralCurrent)
+        end
+        if CurveLatR~=0 then
+           CurveLateralRatioCurrent=CurveLateralRatioCurrent + CurveLatR
+           WriteFloat(CurveLateralRatioADR,CurveLateralRatioCurrent)
+        end
+        if Steering~=0 then
+           SteeringLockRatioCurrent=SteeringLockRatioCurrent + Steering
+           WriteFloat(SteeringLockRatioADR,SteeringLockRatioCurrent)
+        end
+    end
+
     function MakeItGT3()
       GT3=true
       load(GT3BOP)()
@@ -1974,6 +2126,26 @@
     function MakeItDefaultF1()
      F1=false
      load(F1BOP)()
+    end
+
+    function MakeItNASCAR()
+     NASCAR=true
+     load(NASCARBOP)()
+    end
+
+    function MakeItDefaultNASCAR()
+     NASCAR=false
+     load(NASCARBOP)()
+    end
+
+    function MakeItDRIFT()
+     DRIFT=true
+     load(DRIFTBOP)()
+    end
+
+    function MakeItDefaultDRIFT()
+     DRIFT=false
+     load(DRIFTBOP)()
     end
 
   end
@@ -2419,8 +2591,8 @@
         end
 
       --local SteeringLockR = tonumber(file:read())
-        if SteeringLockR < 1 or SteeringLockR > 3 then
-         SteeringLockR = 2
+        if SteeringLockR < 1 or SteeringLockR > 20 then
+         SteeringLockR = 10
          --messageDialog("You are pidor. Do fair racing!!!SL",mtError, mbOk)
         end
 
