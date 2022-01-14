@@ -2,7 +2,7 @@
 if CarNameCurrent=='ELEGY' then
 	 local FWD = -0.5
 	 local RWD = -0.5
-	 local Drive = 0.9
+	 local Drive = 0.6
 	 local MaxFlat = 0
 	 local Steering = 0.2
 	 local CurveMax = -1.8 --2.67
