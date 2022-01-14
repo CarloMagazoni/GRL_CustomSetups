@@ -2084,8 +2084,8 @@
            WriteFloat(CurveLateralRatioADR,CurveLateralRatioCurrent)
         end
         if Steering~=0 then
-           SteeringLockRatioCurrent=SteeringLockRatioCurrent + Steering
-           WriteFloat(SteeringLockRatioADR,SteeringLockRatioCurrent)
+           SteeringLockCurrent=SteeringLockCurrent + Steering
+           WriteFloat(SteeringLockADR,SteeringLockCurrent)
         end
     end
 
