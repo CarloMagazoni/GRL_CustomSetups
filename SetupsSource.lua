@@ -270,7 +270,7 @@
     GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','CYPHER','ITALIRSX'}
     HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON'}
     F1array = Set {'FORMULA'}
-    NASCARarray = Set {'HORTING'}
+    NASCARarray = Set {'HOTRING'}
     DRIFTarray = Set {'ELEGY','CYPHER'}
   end
 
