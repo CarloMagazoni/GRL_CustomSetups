@@ -2025,17 +2025,14 @@
         end
     end
 
-    function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,Brake,CurveMax,CurveMin,CurveLat,Steering)
+    function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering)
         if IntoDRIFT==false then
            FWD=FWD*(-1)
            RWD=RWD*(-1)
            Drive=Drive*(-1)
            MaxFlat=MaxFlat*(-1)
-           Brake=Brake*(-1)
            CurveMax=CurveMax*(-1)
-           CurveMaxR=CurveMaxR*(-1)
            CurveMin=CurveMin*(-1)
-           CurveMinR=CurveMinR*(-1)
            CurveLat=CurveLat*(-1)
            Steering=Steering*(-1)
         end
@@ -2054,10 +2051,6 @@
         if MaxFlat~=0 then
            MaxFlatVelCurrent=MaxFlatVelCurrent + MaxFlat
            WriteFloat(MaxFlatVelADR,MaxFlatVelCurrent)
-        end
-        if Brake~=0 then
-           BrakeForceCurrent=BrakeForceCurrent + Brake
-           WriteFloat(BrakeForceADR,BrakeForceCurrent)
         end
         if CurveMax~=0 then
            CurveMaxCurrent=CurveMaxCurrent + CurveMax
