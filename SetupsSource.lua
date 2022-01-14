@@ -307,14 +307,14 @@
       UDF1.NascarLabel.Enabled = false
       UDF1.NDEC.Enabled = false
       UDF1.NINC.Enabled = false
-      UDF1.NascarValue.Enabled = false
+      UDF1.Nascarvalue.Enabled = false
     end
 
     function DisableDriftLabels()
       UDF1.DriftLabel.Enabled = false
       UDF1.DDEC.Enabled = false
       UDF1.DINC.Enabled = false
-      UDF1.DriftValue.Enabled = false
+      UDF1.Driftvalue.Enabled = false
     end
   end
 
@@ -478,10 +478,10 @@
       CurrentCarMaxFuel = F1Tank
       MixCurrent = F1mix
     elseif NASCARarray[CarNameCurrent]  then
-      UDF1.NASCARLabel.Enabled = true
-      UDF1.NASCARDEC.Enabled = true
-      UDF1.NASCARINC.Enabled = true
-      UDF1.NASCARValue.Enabled = true
+      UDF1.NascarLabel.Enabled = true
+      UDF1.NDEC.Enabled = true
+      UDF1.NINC.Enabled = true
+      UDF1.Nascarvalue.Enabled = true
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
@@ -490,10 +490,10 @@
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     elseif DRIFTarray[CarNameCurrent]  then
-      UDF1.DRIFTLabel.Enabled = true
-      UDF1.DRIFTDEC.Enabled = true
-      UDF1.DRIFTINC.Enabled = true
-      UDF1.DRIFTValue.Enabled = true
+      UDF1.DriftLabel.Enabled = true
+      UDF1.DDEC.Enabled = true
+      UDF1.DINC.Enabled = true
+      UDF1.Driftvalue.Enabled = true
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
@@ -801,15 +801,15 @@
           UDF1.F1DEC.Enabled = false
           UDF1.F1INC.Enabled = false
       elseif NASCARarray[CarNameCurrent]  then
-          UDF1.NASCARValue.Enabled = false
-          UDF1.NASCARLabel.Enabled = false
-          UDF1.NASCARDEC.Enabled = false
-          UDF1.NASCARINC.Enabled = false
+          UDF1.Nascarvalue.Enabled = false
+          UDF1.NascarLabel.Enabled = false
+          UDF1.NDEC.Enabled = false
+          UDF1.NINC.Enabled = false
       elseif DRIFTarray[CarNameCurrent]  then
-          UDF1.DRIFTValue.Enabled = false
-          UDF1.DRIFTLabel.Enabled = false
-          UDF1.DRIFTDEC.Enabled = false
-          UDF1.DRIFTINC.Enabled = false
+          UDF1.Driftvalue.Enabled = false
+          UDF1.DriftLabel.Enabled = false
+          UDF1.DDEC.Enabled = false
+          UDF1.DINC.Enabled = false
       end
     if MassCurrent~=MassDefault then writeFloat(MassADR,MassDefault) end
     if DragCurrent~=DragDefault then writeFloat(DragADR,DragDefault) end
@@ -914,13 +914,13 @@
       DisplayInfo()
       MakeItNASCAR()
       NASCARmodeDELTA = 2
-      UDF1.NASCARValue.Caption = 'ON'
+      UDF1.NascarValue.Caption = 'ON'
     elseif DRIFTmodeDELTA==2 and DRIFTarray[CarNameCurrent] then
       SendValues()
       DisplayInfo()
       MakeItDRIFT()
       DRIFTmodeDELTA = 2
-      UDF1.DRIFTValue.Caption = 'ON'
+      UDF1.Driftvalue.Caption = 'ON'
     end
   end
 
@@ -1009,8 +1009,8 @@
    UDF1.gtevalue.Caption='OFF'
    UDF1.hsvalue.Caption='OFF'
    UDF1.F1Value.Caption='OFF'
-   UDF1.NASCARValue.Caption='OFF'
-   UDF1.DRIFTValue.Caption='OFF'
+   UDF1.Nascarvalue.Caption='OFF'
+   UDF1.Driftvalue.Caption='OFF'
    UDF1.MixValue.Caption = MixDELTA
    UDF1.CarNameLabel.Caption=CarNameCurrent
    if Spotter == true then
