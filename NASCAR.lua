@@ -7,5 +7,5 @@ if CarNameCurrent=='HOTRING' then
 	 local CurveMin = 2 --2.55
    local Front = -0.25
    local Rear = -0.3
-     ApplyNASCARMod(IntoNASCAR,Drive,MaxFlat,Brake,CurveMax,CurveMin,Front,Rear)
+     ApplyNASCARMod(NASCAR,Drive,MaxFlat,Brake,CurveMax,CurveMin,Front,Rear)
 end
