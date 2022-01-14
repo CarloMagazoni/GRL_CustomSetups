@@ -988,7 +988,7 @@
    UDF1.FrontWingValue.Caption = '5'
    UDF1.RearWingValue.Caption = '5'
    UDF1.GearsValue.Caption = 'Standart'
-   UDF1.SteeringLockValue.Caption = "Standart"
+   UDF1.SteeringLockValue.Caption = SteeringLockDELTA
    UDF1.SuspensionForceValue.Caption = (SuspensionForceCurrent*100)//1
    UDF1.DumperValue.Caption = SuspensionDumpDELTA
    UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
