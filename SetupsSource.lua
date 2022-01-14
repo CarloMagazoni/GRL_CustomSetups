@@ -2063,25 +2063,13 @@
            CurveMaxCurrent=CurveMaxCurrent + CurveMax
            WriteFloat(CurveMaxADR,CurveMaxCurrent)
         end
-        if CurveMaxR~=0 then
-           CurveMaxRatioCurrent=CurveMaxRatioCurrent + CurveMaxR
-           WriteFloat(CurveMaxRatioADR,CurveMaxRatioCurrent)
-        end
         if CurveMin~=0 then
            CurveMinCurrent=CurveMinCurrent + CurveMin
            WriteFloat(CurveMinADR,CurveMinCurrent)
         end
-        if CurveMinR~=0 then
-            CurveMinRatioCurrent=CurveMinRatioCurrent + CurveMinR
-            WriteFloat(CurveMinRatioADR,CurveMinRatioCurrent)
-        end
         if CurveLat~=0 then
            CurveLateralCurrent=CurveLateralCurrent + CurveLat
            WriteFloat(CurveLateralADR,CurveLateralCurrent)
-        end
-        if CurveLatR~=0 then
-           CurveLateralRatioCurrent=CurveLateralRatioCurrent + CurveLatR
-           WriteFloat(CurveLateralRatioADR,CurveLateralRatioCurrent)
         end
         if Steering~=0 then
            SteeringLockCurrent=SteeringLockCurrent + Steering
