@@ -1085,9 +1085,9 @@
 
     function SuspensionDumpDecrease()
       if SuspensionDumpDELTA ~= 1 and CurrentLevel>=3 then
-        SuspensionBumpCurrent = SuspensionBumpCurrent + 0.0095
+        SuspensionBumpCurrent = SuspensionBumpCurrent - 0.0095
         SuspensionDumpDELTA = SuspensionDumpDELTA - 1
-        SuspensionReboundCurrent = SuspensionReboundCurrent + 0.0095
+        SuspensionReboundCurrent = SuspensionReboundCurrent - 0.0095
         UDF1.DumperValue.Caption = SuspensionDumpDELTA
         WriteFloat(SuspensionBumpADR,SuspensionBumpCurrent)
         WriteFloat(SuspensionReboundADR,SuspensionReboundCurrent)
