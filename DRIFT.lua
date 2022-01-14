@@ -10,7 +10,7 @@ if CarNameCurrent=='ELEGY' then
 	 local CurveMaxR = 0 --0.3745
 	 local CurveMin = -1.0 --2.55
 	 local CurveMinR = 0 --8.33
-	 local CurveLat = 1 --0.3926
+	 local CurveLat = 1.0 --0.3926
 	 local CurveLatR = 0 --2.5464
      ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Steering)
 end
