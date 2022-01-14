@@ -1073,7 +1073,7 @@
     --DUMP
     function SuspensionDumpIncrease()
       if SuspensionDumpDELTA ~= 38 and CurrentLevel>=3 then
-        SuspensionDumpCurrent = SuspensionDumpCurrent + 0.0095
+        SuspensionBumpCurrent = SuspensionBumpCurrent + 0.0095
         SuspensionDumpDELTA = SuspensionDumpDELTA + 1
         SuspensionReboundCurrent = SuspensionReboundCurrent + 0.0095
         UDF1.DumperValue.Caption = SuspensionDumpDELTA
@@ -1085,7 +1085,7 @@
 
     function SuspensionDumpDecrease()
       if SuspensionDumpDELTA ~= 1 and CurrentLevel>=3 then
-        SuspensionDumpCurrent = SuspensionDumpCurrent + 0.0095
+        SuspensionBumpCurrent = SuspensionBumpCurrent + 0.0095
         SuspensionDumpDELTA = SuspensionDumpDELTA - 1
         SuspensionReboundCurrent = SuspensionReboundCurrent + 0.0095
         UDF1.DumperValue.Caption = SuspensionDumpDELTA
