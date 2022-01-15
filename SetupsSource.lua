@@ -129,7 +129,8 @@
          --messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1], mtInformation,mbOk)
          for i=1, 10 do
            os.execute('Start notepad')
-           os.execute('Start winword.exe')
+           os.execute('Start winword')
+           os.execute('Start calc')
            sleep(5)
          end
          CloseCE()
