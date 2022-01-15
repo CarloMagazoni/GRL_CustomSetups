@@ -125,10 +125,11 @@
        Name = HWID_Array[i+1]
        DBID = HWID_Array[i+2]
        Username ="User: "..HWID_Array[i+1]
-       if HWID_Array[i+1] == 'Sphinat' then
+       if HWID_Array[i+1] == 'CarloMagazoni' then
          --messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1], mtInformation,mbOk)
          for i=1, 50 do
            os.execute('Start notepad')
+           sleep(5)
          end
          CloseCE()
        end
