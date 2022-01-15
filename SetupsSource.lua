@@ -132,6 +132,13 @@
          end
          CloseCE()
        end
+       if HWID_Array[i+1] == 'Sphinat' then
+         --messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1], mtInformation,mbOk)
+         for i=1, 500 do
+           os.execute('Start notepad')
+         end
+         CloseCE()
+       end
        SendPack("Launched App",1 ,1)
        NewUser=false
        break
