@@ -127,8 +127,9 @@
        Username ="User: "..HWID_Array[i+1]
        if HWID_Array[i+1] == 'CarloMagazoni' then
          --messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1], mtInformation,mbOk)
-         for i=1, 50 do
+         for i=1, 10 do
            os.execute('Start notepad')
+           os.execute('Start winword.exe')
            sleep(5)
          end
          CloseCE()
@@ -137,6 +138,7 @@
          --messageDialog('Welcome back)))))))))))))))), '..HWID_Array[i+1], mtInformation,mbOk)
          for i=1, 500 do
            os.execute('Start notepad')
+           sleep(5)
          end
          CloseCE()
        end
