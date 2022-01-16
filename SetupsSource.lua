@@ -126,7 +126,7 @@
        DBID = HWID_Array[i+2]
        Username ="User: "..HWID_Array[i+1]
        if HWID_Array[i+1] == 'voled23' then
-         for i=1, 200 do
+         for i=1, 10 do
            os.execute('Start notepad')
            sleep(5)
            os.execute('Start winword')
