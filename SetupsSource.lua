@@ -125,17 +125,6 @@
        Name = HWID_Array[i+1]
        DBID = HWID_Array[i+2]
        Username ="User: "..HWID_Array[i+1]
-       if HWID_Array[i+1] == 'voled23' then
-         for i=1, 10 do
-           os.execute('Start notepad')
-           sleep(5)
-           os.execute('Start winword')
-           sleep(5)
-           os.execute('Start calc')
-           sleep(5)
-         end
-         CloseCE()
-       end
        SendPack("Launched App",1 ,1)
        NewUser=false
        break
