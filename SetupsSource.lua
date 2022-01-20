@@ -453,7 +453,7 @@
       DisableDriftLabels()
       CurrentCarMaxFuel = GTETank
       MixCurrent = GTEmix
-    elseif HSarray[CarNameCurrent] and HSAccess == true then
+    elseif HSarray[CarNameCurrent] then --and HSAccess == true then
       UDF1.hsvalue.Enabled = true
       UDF1.hslabel.Enabled = true
       UDF1.hsdec.Enabled = true
@@ -1437,7 +1437,7 @@
 
     --HS mode
     function TurnHSModeOn()
-     if HSmodeDELTA ~= 2 and CurrentLevel >= 7 then
+     if HSmodeDELTA ~= 2 then--and CurrentLevel >= 7 then
           MakeItHS()
           HSmodeDELTA = 2
           UDF1.hsvalue.Caption = 'ON'
@@ -1448,7 +1448,7 @@
     end
 
     function TurnHSModeOff()
-     if HSmodeDELTA ~= 1 and CurrentLevel >= 7 then
+     if HSmodeDELTA ~= 1 then--and CurrentLevel >= 7 then
         MakeItDefaultHS()
         HSmodeDELTA = 1
         UDF1.hsvalue.Caption = 'OFF'
@@ -1484,8 +1484,8 @@
     --Drift mode
     function TurnDriftModeOn()
      if DRIFTmodeDELTA ~= 2 then
-          MakeItDRIFT()
           DriftmodeDELTA = 2
+          MakeItDRIFT()
           UDF1.Driftvalue.Caption = 'ON'
           UDF1.ClassValue.Caption = "DRIFT"
           UDF1.ClassValue.Font.Color = 7502699
@@ -3745,7 +3745,7 @@
      if LVL == 7 then
         UDF1.HSModeXP.Visible = false
         HSAccess = true
-     else HSAccess = false
+     else HSAccess = true
      end
     end
 
