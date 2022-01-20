@@ -3652,6 +3652,9 @@
     end
 
     function UnlockLVL(LVL)
+      if LVL >= 0 then
+        UDF1.HSModeXP.Visible = false
+      end
      if LVL >= 1 then
         UDF1.CfSValue.Enabled = true
         UDF1.CfSINC.Enabled = true
