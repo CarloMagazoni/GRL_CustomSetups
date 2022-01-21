@@ -1872,6 +1872,7 @@
            CurveMin=CurveMin*(-1)
            CurveMinR=CurveMinR*(-1)
            CurveLat=CurveLat*(-1)
+           CurveLatR=CurveLatR*(-1)
            DF=DF*(-1)
            Front=Front*(-1)
            Rear=Rear*(-1)
