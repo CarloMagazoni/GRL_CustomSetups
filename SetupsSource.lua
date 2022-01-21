@@ -1496,8 +1496,8 @@
 
     function TurnDriftModeOff()
      if DriftmodeDELTA ~= 1 then
-        MakeItDefaultDRIFT()
         DRIFTmodeDELTA = 1
+        MakeItDefaultDRIFT()
         UDF1.Driftvalue.Caption = 'OFF'
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
