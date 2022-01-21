@@ -26,4 +26,31 @@ if CarNameCurrent=='FORMULA' then
 	 local Travel = -0.01
 	 local Rolo = 0
      ApplyF1Mod(F1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF)
+elseif CarNameCurrent=='OPENWHEEL1' then
+	 local Mass = 300
+	 local Drag = 0
+	 local UpShift = -4
+	 local DownShift = 0
+	 local Drive = 0
+	 local MaxFlat = 16
+	 local InitMaxFlat = 0
+	 local Brake = -0.8
+	 local CurveMax = -0.025
+	 local CurveMaxR = -0.05
+	 local CurveMin = -0.095
+	 local CurveMinR = 0.14
+	 local CurveLat = 0.038
+	 local CurveLatR = -0.59
+	 local DF = -3
+	 local Front = 0.05
+	 local Rear = -0.01
+	 local SuspensionLift = 0.07
+	 local Force = 0.1
+	 local Bump = 0.20
+	 local ARB = 2
+	 local FS = -0.14
+	 local RS = 0.14
+	 local Travel = -0.05
+	 local Rolo = 0.03
+     ApplyF1Mod(F1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF)
 end
