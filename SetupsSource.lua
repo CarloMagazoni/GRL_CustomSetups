@@ -202,7 +202,8 @@
         end
 
         UDF1.Caption="Custom Setups | Online v1.6.0"
-        UDF1.UserNameLabel.Caption = Name
+        UDF1.UserNameLabel.Alignment = "taRightJustify"
+        UDF1.UserNameLabel.Caption = Name.."    "
         if Username ~= "CarloMagazoni" then
           UDF1.DevButton.Visible = false
         else UDF1.DevButton.Visible = true
