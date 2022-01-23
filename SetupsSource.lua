@@ -205,6 +205,7 @@
         UDF1.UserNameLabel.Caption = Name
         if Username ~= "CarloMagazoni" then
           UDF1.DevButton.Visible = false
+        else UDF1.DevButton.Visible = true
         end
 
         InitProfileCashAndXP()
