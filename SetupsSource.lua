@@ -2139,7 +2139,7 @@
   function LoadAdvancedSettings()
     --BrakesSize
     function BrakesSizeIncrease()
-     if BrakesSizeDELTA ~= 3 then
+     if BrakesSizeDELTA ~= 3 and CurrentLevel>=3 then
        BrakeForceCurrent = BrakeForceCurrent + 0.15
        DragCurrent = DragCurrent + 0.00005
        if BrakesSizeDELTA == 2 then
@@ -2156,7 +2156,7 @@
     end
 
     function BrakesSizeDecrease()
-     if BrakesSizeDELTA ~= 1 then
+     if BrakesSizeDELTA ~= 1 and CurrentLevel>=3 then
        BrakeForceCurrent = BrakeForceCurrent - 0.15
        DragCurrent = DragCurrent - 0.00005
        if BrakesSizeDELTA == 2 then
@@ -2306,7 +2306,7 @@
     --Gears
 
     function GearsIncrease()
-     if GearsDELTA ~= 2 then
+     if GearsDELTA ~= 2 and CurrentLevel>=6 then
         DriveInertiaCurrent = DriveInertiaCurrent + 0.8
         UpShiftCurrent = UpShiftCurrent + 5.6
         DownShiftCurrent = DownShiftCurrent + 5.6
@@ -2326,7 +2326,7 @@
     end
 
     function GearsDecrease()
-     if GearsDELTA ~= 1 then
+     if GearsDELTA ~= 1 and CurrentLevel>=6 then
         DriveInertiaCurrent = DriveInertiaCurrent - 0.8
         UpShiftCurrent = UpShiftCurrent - 5.6
         DownShiftCurrent = DownShiftCurrent - 5.6
@@ -3042,7 +3042,7 @@
       if EnableSlipStream == true then
         CheckSlipStreamTimer = createTimer(nil, false)
         timer_onTimer(CheckSlipStreamTimer, CheckOppoPositionSlip)
-        timer_setInterval(CheckSlipStreamTimer, 10)
+        timer_setInterval(CheckSlipStreamTimer, 100)
         timer_setEnabled(CheckSlipStreamTimer, true)
         RWDSetted = RWDCurrent
         FrontGripSetted = FrontGripCurrent
