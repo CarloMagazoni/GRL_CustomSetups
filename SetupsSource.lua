@@ -3396,6 +3396,9 @@
        local Engine = (readFloat("[[PTR+8]+D30]+908"))
        if Engine~=nil then
          Engine=(Engine//1)/10
+         if Engine >=0 and Engine <=100 then
+           writeFloat('[PTR+8]+1530',Engine)
+         end
          local Body = (readFloat("[[PTR+8]+D30]+844"))
          if Body~=nil then
            Body=(Body//1)/10
@@ -3511,7 +3514,7 @@
             local CurveMaxMoment = CurveMaxCurrent - ((CurveMaxCurrent/7)/CurrentCarMaxFuel)*CurrentFuelLoad
             writeFloat(BrakeForceADR, BrakeForceMoment)
             writeFloat(CurveMaxADR, CurveMaxMoment)
-            writeFloat('[PTR+8]+14E0',(CurrentFuelLoad*50/CurrentCarMaxFuel))
+            writeFloat('[PTR+8]+1530',(CurrentFuelLoad*50/CurrentCarMaxFuel))
             UDF1.FuelLevel.Caption=(((CurrentFuelLoad*100)//1)/100).." / "..CurrentCarMaxFuel
             if CurrentFuelLoad==CurrentCarMaxFuel//2 then playSound(findTableFile('Half2.wav')) end
       else
