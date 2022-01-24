@@ -3453,12 +3453,12 @@
            end
          end
        end
-       if readFloat("[[PTR+8]+D30]+A14") and readBytes("[[[PTR+8]+D30]+48]+3E1") and readBytes("[[[PTR+8]+D30]+48]+406") then
+       --[[if readFloat("[[PTR+8]+D30]+A14") and readBytes("[[[PTR+8]+D30]+48]+3E1") and readBytes("[[[PTR+8]+D30]+48]+406") then
          if (readFloat("[[PTR+8]+D30]+A14")~=HeadlightCurrent and readFloat("[[PTR+8]+D30]+A14")~=nil) or (readBytes("[[[PTR+8]+D30]+48]+3E1")~=XenonCurrent and readBytes("[[[PTR+8]+D30]+48]+3E1")~=nil) or (readBytes("[[[PTR+8]+D30]+48]+406")~=XenonColorCurrent and readBytes("[[[PTR+8]+D30]+48]+406")~=nil) then
             ResetHeadlight()
             SendPack("POSSIBLE RESPAWN",0,1)
          end
-       end
+       end]]
     end
   --UPDATE CAR STATUS
 
