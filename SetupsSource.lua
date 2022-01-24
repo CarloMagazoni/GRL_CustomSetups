@@ -202,7 +202,7 @@
          elseif pic == 2 then UDF1.Pic4.Visible=true
         end
 
-        UDF1.Caption="Custom Setups | Online v1.6.0"
+        UDF1.Caption="Custom Setups | Online v1.6.1"
         UDF1.UserNameLabel.Alignment = "taRightJustify"
         UDF1.UserNameLabel.Caption = Name.."    "
         if Username ~= "CarloMagazoni" then
