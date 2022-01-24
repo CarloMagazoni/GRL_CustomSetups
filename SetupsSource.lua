@@ -3834,8 +3834,10 @@
    end
    ReturnDefaultsToPreviousCar()
    local reward = CalculateScore()
-   if reward < 0 then SendPack("Closed app without reward",1,1) else SendPack("Closed app and earned "..reward.."XP <@297762358393176064>",1,1) end
-   messageDialog("Thank you for playing GTA with Custom Setups!".."\n\n".."During last session you have earned: \n"..reward.." XP", mtInformation, mbOk)
+   if reward < 0 then SendPack("Closed app without reward",1,1) else
+     SendPack("Closed app and earned "..reward.."XP <@297762358393176064>",1,1)
+     messageDialog("Thank you for playing GTA with Custom Setups!".."\n\n".."During last session you have earned: \n"..reward.." XP", mtInformation, mbOk)
+   end
    LogSender.destroy()
    closeCE()
    return caFree
@@ -3851,9 +3853,9 @@
       end
     end
     local TrackTime = TimeOnTrack
-    if Tracktime == 0 then return 0 end
+    if TrackTime == nil orTracktime == 0 then return 0 end
     local Cars = CarsCount
-    if Cars == 0 then return 0 end
+    if Cars == nil or Cars == 0 then return 0 end
     local Setups = SetupsWork
     OverallTime = TrackTime / OverallTime * 0.000625
     local BalancedTrackTime = TrackTime / Cars * 0.0016666
