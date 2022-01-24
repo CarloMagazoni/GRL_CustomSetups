@@ -3853,7 +3853,7 @@
       end
     end
     local TrackTime = TimeOnTrack
-    if TrackTime == nil orTracktime == 0 then return 0 end
+    if TrackTime == nil or Tracktime == 0 then return 0 end
     local Cars = CarsCount
     if Cars == nil or Cars == 0 then return 0 end
     local Setups = SetupsWork
