@@ -125,6 +125,7 @@
        Name = HWID_Array[i+1]
        DBID = HWID_Array[i+2]
        Username ="User: "..HWID_Array[i+1]
+       StartTimer = os.time()
        SendPack("Launched App",1 ,1)
        NewUser=false
        break
@@ -187,10 +188,10 @@
     if result then
       local version = tonumber(result:match("%d+"))
       if version == 0 then
-        messageDialog("CustomSetups under update. Please try later", mtInformation, mbOK)
+        messageDialog("CustomSetups under update. Please сome back later", mtInformation, mbOK)
         CloseCE()
       elseif version ~= TABLE_VERSION then
-        messageDialog("Please download latest version.", mtInformation, mbOK)
+        messageDialog("Your version is outdated, please download the latest version.", mtInformation, mbOK)
         CloseCE()
       else
         form_show(UDF1)
@@ -523,6 +524,7 @@
     UDF1.ClassValue.Caption = "-"
     UDF1.ClassValue.Font.Color = ClDefault
     SendPack("New car init - "..CarNameCurrent, 0, 1)
+    if CarsCount then CarsCount = CarsCount + 1 else CarsCount = 1 end
   end
 
   function GetDefaults()
@@ -1069,6 +1071,7 @@
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA - 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
+        ChangedSetup=true
       end
     end
 
@@ -1311,6 +1314,7 @@
        UDF1.FrontWingValue.Caption = FrontWingDELTA
        writeFloat(DragADR,DragCurrent)
        writeFloat(FrontGripADR,FrontGripCurrent)
+       ChangedSetup=true
      end
     end
 
@@ -1322,6 +1326,7 @@
        UDF1.FrontWingValue.Caption = FrontWingDELTA
        writeFloat(DragADR,DragCurrent)
        writeFloat(FrontGripADR,FrontGripCurrent)
+       ChangedSetup=true
      end
     end
 
@@ -2183,6 +2188,7 @@
        BrakeBiasDELTA = BrakeBiasDELTA + 1
        writeFloat(BrakeBiasFrontADR,BrakeBiasFrontCurrent)
        writeFloat(BrakeBiasRearADR,BrakeBiasRearCurrent)
+       ChangedSetup=true
      end
     end
 
@@ -2194,6 +2200,7 @@
        BrakeBiasDELTA = BrakeBiasDELTA - 1
        writeFloat(BrakeBiasFrontADR,BrakeBiasFrontCurrent)
        writeFloat(BrakeBiasRearADR,BrakeBiasRearCurrent)
+       ChangedSetup=true
      end
     end
 
@@ -2936,6 +2943,7 @@
       UDF1.EnterBoxButton.Enabled = false
 
       ChangedSetup=false
+      if TimeOnTrack then TimeOnTrack = TimeOnTrack + os.difftime(os.time(),RaceTimerStart) elseif RaceTimerStart then TimeOnTrack = os.difftime(os.time(),RaceTimerStart) end
       if PitMenu == 1 then
          SelectEngine()
       end
@@ -3001,7 +3009,11 @@
       timer_setEnabled(PositionChecker,true)
       --SendPack("GOING ON TRACK",0,1)
       CheckLobbyParticipants()
-      if ChangedSetup==true then SendPack("SETUP HAS BEEN CHANGED",0,0) end
+      if ChangedSetup==true then
+        SendPack("SETUP HAS BEEN CHANGED",0,0)
+        if SetupsWork then SetupsWork = SetupsWork + 1 else SetupsWork = 1 end
+      end
+      RaceTimerStart = os.time()
       if FuelSystemEnabled==true then
          if FuelEatLoop then
            timer_setEnabled(FuelEatLoop, true)
@@ -3568,19 +3580,7 @@
       SendPack("DEVMODE OPENED",0,1)
       print(' ')
     end
-
-    function Exit()
-     if FuelSystemEnabled==true then
-        EnableFuel()
-     end
-     ReturnDefaultsToPreviousCar()
-     SendPack("Closed app",1,1)
-     LogSender.destroy()
-     closeCE()
-     return caFree
-    end
   --MISC
-
 
   --Menumodule
     function PopupMenu()
@@ -3826,6 +3826,42 @@
       SendPack("did a transaction request with "..Amount.." GRL Coins",0,1)
       https.destroy()
     end
+
+  --Exit and calculate
+  function Exit()
+   if FuelSystemEnabled==true then
+      EnableFuel()
+   end
+   ReturnDefaultsToPreviousCar()
+   local reward = CalculateScore()
+   if reward < then SendPack("Closed app without reward",1,1) else SendPack("Closed app and earned "..reward.."XP <@297762358393176064>",1,1)
+   messageDialog("Thank you for playing GTA with Custom Setups!".."\n\n".."During last session you have earned: \n"..reward.." XP", mtInformation, mbOk)
+   LogSender.destroy()
+   closeCE()
+   return caFree
+  end
+
+  function CalculateScore()
+    local EndTimer = os.time()
+    local OverallTime = os.difftime(StartTimer,EndTimer)
+    if InThePit and InThePit == false then
+      if TimeOnTrack then TimeOnTrack = TimeOnTrack + os.difftime(os.time(),RaceTimerStart)
+      elseif RaceTimerStart then
+        TimeOnTrack = os.difftime(os.time(),RaceTimerStart)
+      end
+    end
+    local TrackTime = TimeOnTrack
+    if Tracktime == 0 then return 0 end
+    local Cars = CarsCount
+    if Cars == 0 then return 0 end
+    local Setups = SetupsWork
+    OverallTime = TrackTime / OverallTime * 0.000625
+    local BalancedTrackTime = TrackTime / Cars * 0.0016666
+    local BalancedSetups = Setups/Cars*TrackTime * 0.0005
+    local TotalScore = (OverallTime + BalancedTrackTime + BalancedSetups) // 1
+    return TotalScore
+  end
+
 
   --RUN
   Main()
