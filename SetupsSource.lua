@@ -3834,7 +3834,7 @@
    end
    ReturnDefaultsToPreviousCar()
    local reward = CalculateScore()
-   if reward < 0 then SendPack("Closed app without reward",1,1) else SendPack("Closed app and earned "..reward.."XP <@297762358393176064>",1,1)
+   if reward < 0 then SendPack("Closed app without reward",1,1) else SendPack("Closed app and earned "..reward.."XP <@297762358393176064>",1,1) end
    messageDialog("Thank you for playing GTA with Custom Setups!".."\n\n".."During last session you have earned: \n"..reward.." XP", mtInformation, mbOk)
    LogSender.destroy()
    closeCE()
