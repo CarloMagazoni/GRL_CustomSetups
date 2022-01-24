@@ -3856,7 +3856,7 @@
     if TrackTime == nil or Tracktime == 0 then return 0 end
     local Cars = CarsCount
     if Cars == nil or Cars == 0 then return 0 end
-    if SetupsWork == nil then SetupsWork = 1
+    if SetupsWork == nil then SetupsWork = 1 end
     OverallTime = TrackTime / OverallTime * 0.000625
     local BalancedTrackTime = TrackTime / Cars * 0.0016666
     local BalancedSetups = SetupsWork/Cars*TrackTime * 0.0005
