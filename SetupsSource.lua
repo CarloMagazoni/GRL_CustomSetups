@@ -3198,11 +3198,11 @@
                 local CPed = readPointer(CPlayerInfo + pCNetPed)
                 if CPed and CPed ~= 0 then
                   local CNav = readPointer(CPed + pCNavigation)
-                    if CNav and CNav ~= 0 then
-                      OppoX= readFloat(CNav + oPositionX)
-                      OppoY= readFloat(CNav + oPositionY)
-                      DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY)
-                    end
+                  if CNav and CNav ~= 0 then
+                    OppoX= readFloat(CNav + oPositionX)
+                    OppoY= readFloat(CNav + oPositionY)
+                    DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY)
+                  end
                 end
               end
             end
@@ -3212,6 +3212,7 @@
         Exit()
       end
     end
+  end
   --SLIPSTREAM
 
   --SPOTTER
