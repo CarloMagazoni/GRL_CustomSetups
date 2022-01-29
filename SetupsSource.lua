@@ -3182,8 +3182,9 @@
         end
       end
 
-      function CheckOppoPositionSlip()
-        local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
+    function CheckOppoPositionSlip()
+      local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
+      if CNetworkPlayerMgr then
         local Px=readFloat("[[PTR+8]+30]+50")
         local Py=readFloat("[[PTR+8]+30]+54")
         local Hx=readFloat("[[PTR+8]+30]+20")
@@ -3197,16 +3198,19 @@
                 local CPed = readPointer(CPlayerInfo + pCNetPed)
                 if CPed and CPed ~= 0 then
                   local CNav = readPointer(CPed + pCNavigation)
-                  if CNav and CNav ~= 0 then
-                    OppoX= readFloat(CNav + oPositionX)
-                    OppoY= readFloat(CNav + oPositionY)
-                    DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY)
+                    if CNav and CNav ~= 0 then
+                      OppoX= readFloat(CNav + oPositionX)
+                      OppoY= readFloat(CNav + oPositionY)
+                      DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY)
+                    end
                   end
                 end
               end
             end
           end
         end
+      elseif CNetworkPlayerMgr == nil then
+        Exit()
       end
     end
   --SLIPSTREAM
@@ -3287,23 +3291,25 @@
         Curx=readFloat("[[PTR+8]+30]+50")
         Cury=readFloat("[[PTR+8]+30]+54")
         Curz=readFloat("[[PTR+8]+30]+58")
-        Pit_Stop_Distance = ((((x-Curx)^2)+((y-Cury)^2)+((z-Curz)^2))^0.5)//1
-        if ((Curx > x-10) and (Curx < x+10)) and ((Cury > y-10) and (Cury < y+10)) and ((Curz > z-5) and (Curz < z+5)) and (InThePit==false) then
-          UDF1.EnterBoxButton.Enabled = true
-          UDF1.EnterBoxButton.Caption = "ENTER BOX"
-          UDF1.RepairEngButton.Enabled = true
-          UDF1.FireEngButton.Enabled = true
-          if FuelSystemEnabled==true then
-           UDF1.Refuel.Enabled = true
+        if Curx and Cury and Curz then
+          Pit_Stop_Distance = ((((x-Curx)^2)+((y-Cury)^2)+((z-Curz)^2))^0.5)//1
+          if ((Curx > x-10) and (Curx < x+10)) and ((Cury > y-10) and (Cury < y+10)) and ((Curz > z-5) and (Curz < z+5)) and (InThePit==false) then
+            UDF1.EnterBoxButton.Enabled = true
+            UDF1.EnterBoxButton.Caption = "ENTER BOX"
+            UDF1.RepairEngButton.Enabled = true
+            UDF1.FireEngButton.Enabled = true
+            if FuelSystemEnabled==true then
+             UDF1.Refuel.Enabled = true
+            end
+            NearPit=true
+          else
+            UDF1.EnterBoxButton.Caption = Pit_Stop_Distance.." m"
+            UDF1.EnterBoxButton.Enabled = false
+            UDF1.RepairEngButton.Enabled = false
+            UDF1.FireEngButton.Enabled = false
+              UDF1.Refuel.Enabled = false --if fuel
+            NearPit=false
           end
-          NearPit=true
-        else
-          UDF1.EnterBoxButton.Caption = Pit_Stop_Distance.." m"
-          UDF1.EnterBoxButton.Enabled = false
-          UDF1.RepairEngButton.Enabled = false
-          UDF1.FireEngButton.Enabled = false
-            UDF1.Refuel.Enabled = false --if fuel
-          NearPit=false
         end
       else UDF1.EnterBoxButton.Caption = "NO PIT"
       end
