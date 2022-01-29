@@ -3203,13 +3203,12 @@
                       OppoY= readFloat(CNav + oPositionY)
                       DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY)
                     end
-                  end
                 end
               end
             end
           end
         end
-      elseif CNetworkPlayerMgr == nil then
+      else
         Exit()
       end
     end
