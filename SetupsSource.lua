@@ -538,66 +538,66 @@
   end
 
   function GetAdr()
-    MassADR = getAddress("[[[PTR+8]+D30]+938]+C")
-    DragADR = getAddress("[[[PTR+8]+D30]+938]+10")
-    WeightDistADR = getAddress("[[[PTR+8]+D30]+938]+24")
-    FWDADR = getAddress("[[[PTR+8]+D30]+938]+48")
-    RWDADR = getAddress("[[[PTR+8]+D30]+938]+4C")
-    GearsADR = getAddress("[[[PTR+8]+D30]+938]+50")
-    DriveInertiaADR = getAddress("[[[PTR+8]+D30]+938]+54")
-    UpShiftADR = getAddress("[[[PTR+8]+D30]+938]+58")
-    DownShiftADR = getAddress("[[[PTR+8]+D30]+938]+5C")
-    InitialDriveForceADR = getAddress("[[[PTR+8]+D30]+938]+60")
-    MaxFlatVelADR = getAddress("[[[PTR+8]+D30]+938]+64")
-    InitialMaxFlatVelADR = getAddress("[[[PTR+8]+D30]+938]+68")
-    BrakeForceADR = getAddress("[[[PTR+8]+D30]+938]+6C")
-    BrakeBiasFrontADR = getAddress("[[[PTR+8]+D30]+938]+74")
-    BrakeBiasRearADR = getAddress("[[[PTR+8]+D30]+938]+78")
-    SteeringLockADR = getAddress("[[[PTR+8]+D30]+938]+80")
-    SteeringLockRatioADR = getAddress("[[[PTR+8]+D30]+938]+84")
-    CurveMaxADR = getAddress("[[[PTR+8]+D30]+938]+88")
-    CurveMaxRatioADR = getAddress("[[[PTR+8]+D30]+938]+8C")
-    CurveMinADR = getAddress("[[[PTR+8]+D30]+938]+90")
-    CurveMinRatioADR = getAddress("[[[PTR+8]+D30]+938]+94")
-    CurveLateralADR = getAddress("[[[PTR+8]+D30]+938]+98")
-    CurveLateralRatioADR = getAddress("[[[PTR+8]+D30]+938]+9C")
-    SpringDeltaADR = getAddress("[[[PTR+8]+D30]+938]+A0")
-    SpringDeltaRatioADR = getAddress("[[[PTR+8]+D30]+938]+A4")
-    LowSpeedTractionADR = getAddress("[[[PTR+8]+D30]+938]+A8")
-    FrontGripADR = getAddress("[[[PTR+8]+D30]+938]+B0")
-    RearGripADR = getAddress("[[[PTR+8]+D30]+938]+B4")
-    TractionLossMultADR = getAddress("[[[PTR+8]+D30]+938]+B8")
-    SuspensionForceADR = getAddress("[[[PTR+8]+D30]+938]+BC")
-    SuspensionBumpADR = getAddress("[[[PTR+8]+D30]+938]+C0")
-    SuspensionReboundADR = getAddress("[[[PTR+8]+D30]+938]+C4")
-    SuspensionRaiseADR = getAddress("[[[PTR+8]+D30]+938]+D0")
-    SuspensionTravelADR = getAddress("[[[PTR+8]+D30]+938]+CC")
-    FrontSpringADR = getAddress("[[[PTR+8]+D30]+938]+D4")
-    RearSpringADR = getAddress("[[[PTR+8]+D30]+938]+D8")
-    ARBForceADR = getAddress("[[[PTR+8]+D30]+938]+DC")
-    FrontARBADR = getAddress("[[[PTR+8]+D30]+938]+E0")
-    RearARBADR = getAddress("[[[PTR+8]+D30]+938]+E4")
-    CollisionMultADR = getAddress("[[[PTR+8]+D30]+938]+F0")
-    EngineMultADR = getAddress("[[[PTR+8]+D30]+938]+FC")
-    --PetrolADR = getAddress("[[[PTR+8]+D30]+938]+100")
-    ToeFrontADR = getAddress("[[[PTR+8]+D30]+938]+344")
-    ToeRearADR = getAddress("[[[PTR+8]+D30]+938]+348")
-    CamberFrontADR = getAddress("[[[PTR+8]+D30]+938]+34C")
-    CamberRearADR = getAddress("[[[PTR+8]+D30]+938]+350")
-    ModelFlagADR = getAddress("[[[PTR+8]+D30]+938]+124")
-    HandlingFlagADR = getAddress("[[[PTR+8]+D30]+938]+128")
-    AdvancedADR = getAddress("[[[PTR+8]+D30]+938]+36C")
-    CastorADR = getAddress("[[[PTR+8]+D30]+938]+354")
-    DownForceMultADR = getAddress("[[[PTR+8]+D30]+938]+14")
-    VehHealthADR = getAddress("[[PTR+8]+D30]+844")
-    EngineHealthADR = getAddress("[[PTR+8]+D30]+908")
-    BodyHealthADR = getAddress("[[PTR+8]+D30]+844")
-    CarNameADR = getAddress("[[[PTR+8]+D30]+20]+298")
-    HeadlightADR = getAddress("[[PTR+8]+D30]+A14") --15
-    XenonADR = getAddress("[[[PTR+8]+D30]+48]+3E1") --1
-    XenonColorADR = getAddress("[[[PTR+8]+D30]+48]+406") --2 Proto 5 GT
-    RoloFrontADR = getAddress("[[[PTR+8]+D30]+938]+E8")
-    RoloRearADR = getAddress("[[[PTR+8]+D30]+938]+EC")
+    MassADR = getAddress("[[[PTR+8]+D10]+918]+C")
+    DragADR = getAddress("[[[PTR+8]+D10]+918]+10")
+    WeightDistADR = getAddress("[[[PTR+8]+D10]+918]+24")
+    FWDADR = getAddress("[[[PTR+8]+D10]+918]+48")
+    RWDADR = getAddress("[[[PTR+8]+D10]+918]+4C")
+    GearsADR = getAddress("[[[PTR+8]+D10]+918]+50")
+    DriveInertiaADR = getAddress("[[[PTR+8]+D10]+918]+54")
+    UpShiftADR = getAddress("[[[PTR+8]+D10]+918]+58")
+    DownShiftADR = getAddress("[[[PTR+8]+D10]+918]+5C")
+    InitialDriveForceADR = getAddress("[[[PTR+8]+D10]+918]+60")
+    MaxFlatVelADR = getAddress("[[[PTR+8]+D10]+918]+64")
+    InitialMaxFlatVelADR = getAddress("[[[PTR+8]+D10]+918]+68")
+    BrakeForceADR = getAddress("[[[PTR+8]+D10]+918]+6C")
+    BrakeBiasFrontADR = getAddress("[[[PTR+8]+D10]+918]+74")
+    BrakeBiasRearADR = getAddress("[[[PTR+8]+D10]+918]+78")
+    SteeringLockADR = getAddress("[[[PTR+8]+D10]+918]+80")
+    SteeringLockRatioADR = getAddress("[[[PTR+8]+D10]+918]+84")
+    CurveMaxADR = getAddress("[[[PTR+8]+D10]+918]+88")
+    CurveMaxRatioADR = getAddress("[[[PTR+8]+D10]+918]+8C")
+    CurveMinADR = getAddress("[[[PTR+8]+D10]+918]+90")
+    CurveMinRatioADR = getAddress("[[[PTR+8]+D10]+918]+94")
+    CurveLateralADR = getAddress("[[[PTR+8]+D10]+918]+98")
+    CurveLateralRatioADR = getAddress("[[[PTR+8]+D10]+918]+9C")
+    SpringDeltaADR = getAddress("[[[PTR+8]+D10]+918]+A0")
+    SpringDeltaRatioADR = getAddress("[[[PTR+8]+D10]+918]+A4")
+    LowSpeedTractionADR = getAddress("[[[PTR+8]+D10]+918]+A8")
+    FrontGripADR = getAddress("[[[PTR+8]+D10]+918]+B0")
+    RearGripADR = getAddress("[[[PTR+8]+D10]+918]+B4")
+    TractionLossMultADR = getAddress("[[[PTR+8]+D10]+918]+B8")
+    SuspensionForceADR = getAddress("[[[PTR+8]+D10]+918]+BC")
+    SuspensionBumpADR = getAddress("[[[PTR+8]+D10]+918]+C0")
+    SuspensionReboundADR = getAddress("[[[PTR+8]+D10]+918]+C4")
+    SuspensionRaiseADR = getAddress("[[[PTR+8]+D10]+918]+D0")
+    SuspensionTravelADR = getAddress("[[[PTR+8]+D10]+918]+CC")
+    FrontSpringADR = getAddress("[[[PTR+8]+D10]+918]+D4")
+    RearSpringADR = getAddress("[[[PTR+8]+D10]+918]+D8")
+    ARBForceADR = getAddress("[[[PTR+8]+D10]+918]+DC")
+    FrontARBADR = getAddress("[[[PTR+8]+D10]+918]+E0")
+    RearARBADR = getAddress("[[[PTR+8]+D10]+918]+E4")
+    CollisionMultADR = getAddress("[[[PTR+8]+D10]+918]+F0")
+    EngineMultADR = getAddress("[[[PTR+8]+D10]+918]+FC")
+    --PetrolADR = getAddress("[[[PTR+8]+D10]+918]+100")
+    ToeFrontADR = getAddress("[[[PTR+8]+D10]+918]+344")
+    ToeRearADR = getAddress("[[[PTR+8]+D10]+918]+348")
+    CamberFrontADR = getAddress("[[[PTR+8]+D10]+918]+34C")
+    CamberRearADR = getAddress("[[[PTR+8]+D10]+918]+350")
+    ModelFlagADR = getAddress("[[[PTR+8]+D10]+918]+124")
+    HandlingFlagADR = getAddress("[[[PTR+8]+D10]+918]+128")
+    AdvancedADR = getAddress("[[[PTR+8]+D10]+918]+36C")
+    CastorADR = getAddress("[[[PTR+8]+D10]+918]+354")
+    DownForceMultADR = getAddress("[[[PTR+8]+D10]+918]+14")
+    VehHealthADR = getAddress("[[PTR+8]+D10]+844")
+    EngineHealthADR = getAddress("[[PTR+8]+D10]+908")
+    BodyHealthADR = getAddress("[[PTR+8]+D10]+844")
+    CarNameADR = getAddress("[[[PTR+8]+D10]+20]+298")
+    HeadlightADR = getAddress("[[PTR+8]+D10]+A14") --15
+    XenonADR = getAddress("[[[PTR+8]+D10]+48]+3E1") --1
+    XenonColorADR = getAddress("[[[PTR+8]+D10]+48]+406") --2 Proto 5 GT
+    RoloFrontADR = getAddress("[[[PTR+8]+D10]+918]+E8")
+    RoloRearADR = getAddress("[[[PTR+8]+D10]+918]+EC")
   end
 
   function GetVal()
@@ -875,7 +875,7 @@
   end
 
   function ForceDefault()
-    if CarNameADR ~= getAddress("[[[PTR+8]+D30]+20]+298") then
+    if CarNameADR ~= getAddress("[[[PTR+8]+D10]+20]+298") then
       GetAdr()
       BackToDefault()
     else
@@ -932,7 +932,7 @@
 
   function SpecialModeInit()
    SendPack("Special Mode Initialization",0,1)
-   if CarNameADR ~= getAddress("[[[PTR+8]+D30]+20]+298") then
+   if CarNameADR ~= getAddress("[[[PTR+8]+D10]+20]+298") then
       GetAdr()
    end
    SetCurrent()
@@ -985,9 +985,9 @@
    CarStatusDELTA = 1
    SpotterDELTA = 1
    EngRunDELTA=1
-   HeadlightCurrent=readFloat("[[PTR+8]+D30]+A14")
-   XenonCurrent=readBytes("[[[PTR+8]+D30]+48]+3E1")
-   XenonColorCurrent=readBytes("[[[PTR+8]+D30]+48]+406")
+   HeadlightCurrent=readFloat("[[PTR+8]+D10]+A14")
+   XenonCurrent=readBytes("[[[PTR+8]+D10]+48]+3E1")
+   XenonColorCurrent=readBytes("[[[PTR+8]+D10]+48]+406")
   end
 
   function DisplayInfo()
@@ -2271,9 +2271,9 @@
     end
 
     function ResetHeadlight()
-     HeadlightADR = getAddress("[[PTR+8]+D30]+A14") --15
-     XenonADR = getAddress("[[[PTR+8]+D30]+48]+3E1") --1
-     XenonColorADR = getAddress("[[[PTR+8]+D30]+48]+406") --2 Proto 6 GT
+     HeadlightADR = getAddress("[[PTR+8]+D10]+A14") --15
+     XenonADR = getAddress("[[[PTR+8]+D10]+48]+3E1") --1
+     XenonColorADR = getAddress("[[[PTR+8]+D10]+48]+406") --2 Proto 6 GT
      writeFloat(HeadlightADR,HeadlightCurrent)
      writeBytes(XenonADR,XenonCurrent)
      writeBytes(XenonColorADR,XenonColorCurrent)
@@ -2898,12 +2898,12 @@
 
     function BackToThePits()
      if readFloat('GTA5.exe+2630FC4') == 0 then
-       writeFloat("[[[PTR+8]+D30]+30]+50", x)
-       writeFloat("[[[PTR+8]+D30]+30]+54", y)
-       writeFloat("[[[PTR+8]+D30]+30]+58", z+0.5)
-       writeFloat("[[PTR+8]+D30]+90", x)
-       writeFloat("[[PTR+8]+D30]+94", y)
-       writeFloat("[[PTR+8]+D30]+98", z + 0.5)
+       writeFloat("[[[PTR+8]+D10]+30]+50", x)
+       writeFloat("[[[PTR+8]+D10]+30]+54", y)
+       writeFloat("[[[PTR+8]+D10]+30]+58", z+0.5)
+       writeFloat("[[PTR+8]+D10]+90", x)
+       writeFloat("[[PTR+8]+D10]+94", y)
+       writeFloat("[[PTR+8]+D10]+98", z + 0.5)
        SendPack("TP TO PIT",0,1)
      end
     end
@@ -3401,13 +3401,13 @@
     end
 
     function ShowStatus()
-       local Engine = (readFloat("[[PTR+8]+D30]+908"))
+       local Engine = (readFloat("[[PTR+8]+D10]+908"))
        if Engine~=nil then
          Engine=(Engine//1)/10
          if Engine >=0 and Engine <=100 then
            writeFloat('[PTR+8]+1530',Engine/2)
          end
-         local Body = (readFloat("[[PTR+8]+D30]+844"))
+         local Body = (readFloat("[[PTR+8]+D10]+844"))
          if Body~=nil then
            Body=(Body//1)/10
            UDF1.EngineHP.Caption=(Engine.."%")
@@ -3464,8 +3464,8 @@
            end
          end
        end
-       --[[if readFloat("[[PTR+8]+D30]+A14") and readBytes("[[[PTR+8]+D30]+48]+3E1") and readBytes("[[[PTR+8]+D30]+48]+406") then
-         if (readFloat("[[PTR+8]+D30]+A14")~=HeadlightCurrent and readFloat("[[PTR+8]+D30]+A14")~=nil) or (readBytes("[[[PTR+8]+D30]+48]+3E1")~=XenonCurrent and readBytes("[[[PTR+8]+D30]+48]+3E1")~=nil) or (readBytes("[[[PTR+8]+D30]+48]+406")~=XenonColorCurrent and readBytes("[[[PTR+8]+D30]+48]+406")~=nil) then
+       --[[if readFloat("[[PTR+8]+D10]+A14") and readBytes("[[[PTR+8]+D10]+48]+3E1") and readBytes("[[[PTR+8]+D10]+48]+406") then
+         if (readFloat("[[PTR+8]+D10]+A14")~=HeadlightCurrent and readFloat("[[PTR+8]+D10]+A14")~=nil) or (readBytes("[[[PTR+8]+D10]+48]+3E1")~=XenonCurrent and readBytes("[[[PTR+8]+D10]+48]+3E1")~=nil) or (readBytes("[[[PTR+8]+D10]+48]+406")~=XenonColorCurrent and readBytes("[[[PTR+8]+D10]+48]+406")~=nil) then
             ResetHeadlight()
             SendPack("POSSIBLE RESPAWN",0,1)
          end
