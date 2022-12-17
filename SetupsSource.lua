@@ -1038,7 +1038,7 @@
     --SUSPENSION FORCE
     function SuspensionForceIncrease()
       if SuspensionForceDELTA ~= 18 then
-        SuspensionForceCurrent = SuspensionForceCurrent + 0.125
+        SuspensionForceCurrent = SuspensionForceCurrent + 0.13
         UDF1.SuspensionForceValue.Caption = (SuspensionForceCurrent*100)//1
         SuspensionForceDELTA = SuspensionForceDELTA + 1
         WriteFloat(SuspensionForceADR,SuspensionForceCurrent)
@@ -1048,7 +1048,7 @@
 
     function SuspensionForceDecrease()
       if SuspensionForceDELTA ~= 1 then
-        SuspensionForceCurrent = SuspensionForceCurrent - 0.125
+        SuspensionForceCurrent = SuspensionForceCurrent - 0.13
         UDF1.SuspensionForceValue.Caption = (SuspensionForceCurrent*100)//1
         SuspensionForceDELTA = SuspensionForceDELTA - 1
         WriteFloat(SuspensionForceADR,SuspensionForceCurrent)
@@ -1059,7 +1059,7 @@
     --SUSPENSION RAISE
     function SuspensionRaiseIncrease()
       if SuspensionRaiseDELTA ~= 18 and CurrentLevel>=1 then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.005
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.00575
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA + 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
@@ -1069,7 +1069,7 @@
 
     function SuspensionRaiseDecrease()
       if SuspensionRaiseDELTA ~= 1 and CurrentLevel>=1 then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.005
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.00575
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA - 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
@@ -1105,7 +1105,7 @@
     --Travel
     function SuspensionTravelIncrease()
       if SuspensionTravelDELTA ~= 18 and CurrentLevel>=5 then
-        SuspensionTravelCurrent = SuspensionTravelCurrent - 0.01
+        SuspensionTravelCurrent = SuspensionTravelCurrent - 0.015
         SuspensionTravelDELTA = SuspensionTravelDELTA + 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
         writeFloat(SuspensionTravelADR,SuspensionTravelCurrent)
@@ -1115,7 +1115,7 @@
 
     function SuspensionTravelDecrease()
       if SuspensionTravelDELTA ~= 1 and CurrentLevel>=5 then
-        SuspensionTravelCurrent = SuspensionTravelCurrent + 0.01
+        SuspensionTravelCurrent = SuspensionTravelCurrent + 0.015
         SuspensionTravelDELTA = SuspensionTravelDELTA - 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
         writeFloat(SuspensionTravelADR,SuspensionTravelCurrent)
@@ -1126,7 +1126,7 @@
      --FrontSpring
     function FrontSpringIncrease()
       if FrontSpringDELTA ~= 18 and CurrentLevel>=2 then
-        FrontSpringCurrent = FrontSpringCurrent + 0.15
+        FrontSpringCurrent = FrontSpringCurrent + 0.2
         FrontSpringDELTA = FrontSpringDELTA + 1
         UDF1.FrontSpringValue.Caption = FrontSpringDELTA
         writeFloat(FrontSpringADR,FrontSpringCurrent)
@@ -1136,7 +1136,7 @@
 
     function FrontSpringDecrease()
       if FrontSpringDELTA ~= 1 and CurrentLevel>=2 then
-        FrontSpringCurrent = FrontSpringCurrent - 0.15
+        FrontSpringCurrent = FrontSpringCurrent - 0.2
         FrontSpringDELTA = FrontSpringDELTA - 1
         UDF1.FrontSpringValue.Caption = FrontSpringDELTA
         writeFloat(FrontSpringADR,FrontSpringCurrent)
@@ -1147,8 +1147,8 @@
      --FrontARB
     function FrontARBIncrease()
       if FrontARBDELTA ~= 18 and CurrentLevel>=4 then
-        FrontARBCurrent = FrontARBCurrent + 0.1
-        RoloFrontCurrent = RoloFrontCurrent + 0.02
+        FrontARBCurrent = FrontARBCurrent + 0.175
+        RoloFrontCurrent = RoloFrontCurrent + 0.025
         FrontARBDELTA = FrontARBDELTA + 1
         UDF1.FrontARBValue.Caption = FrontARBDELTA
         writeFloat(FrontARBADR,FrontARBCurrent)
@@ -1159,8 +1159,8 @@
 
     function FrontARBDecrease()
       if FrontARBDELTA ~= 1 and CurrentLevel>=4 then
-        FrontARBCurrent = FrontARBCurrent - 0.1
-        RoloFrontCurrent = RoloFrontCurrent - 0.02
+        FrontARBCurrent = FrontARBCurrent - 0.175
+        RoloFrontCurrent = RoloFrontCurrent - 0.025
         FrontARBDELTA = FrontARBDELTA - 1
         UDF1.FrontARBValue.Caption = FrontARBDELTA
         writeFloat(FrontARBADR,FrontARBCurrent)
@@ -1172,7 +1172,7 @@
      --CamberFront
     function CamberFrontIncrease()
       if CamberFrontDELTA ~= 50 then
-        CamberFrontCurrent = CamberFrontCurrent + 0.0018
+        CamberFrontCurrent = CamberFrontCurrent + 0.002
         UDF1.FrontCamberValue.Caption = (((CamberFrontCurrent*55.5)*10)//1)/10
         CamberFrontDELTA = CamberFrontDELTA + 1
         writeFloat(CamberFrontADR,CamberFrontCurrent)
@@ -1182,7 +1182,7 @@
 
     function CamberFrontDecrease()
       if CamberFrontDELTA ~= 1 then
-        CamberFrontCurrent = CamberFrontCurrent - 0.0018
+        CamberFrontCurrent = CamberFrontCurrent - 0.002
         UDF1.FrontCamberValue.Caption = (((CamberFrontCurrent*55.5)*10)//1)/10
         CamberFrontDELTA = CamberFrontDELTA - 1
         writeFloat(CamberFrontADR,CamberFrontCurrent)
@@ -1193,7 +1193,7 @@
      --RearSpring
     function RearSpringIncrease()
       if RearSpringDELTA ~= 18 and CurrentLevel>=3 then
-        RearSpringCurrent = RearSpringCurrent + 0.1
+        RearSpringCurrent = RearSpringCurrent + 0.2
         RearSpringDELTA = RearSpringDELTA + 1
         UDF1.RearSpringValue.Caption = RearSpringDELTA
         writeFloat(RearSpringADR,RearSpringCurrent)
@@ -1203,7 +1203,7 @@
 
     function RearSpringDecrease()
       if RearSpringDELTA ~= 1 and CurrentLevel>=3 then
-        RearSpringCurrent = RearSpringCurrent - 0.1
+        RearSpringCurrent = RearSpringCurrent - 0.2
         RearSpringDELTA = RearSpringDELTA - 1
         UDF1.RearSpringValue.Caption = RearSpringDELTA
         writeFloat(RearSpringADR,RearSpringCurrent)
@@ -1214,8 +1214,8 @@
      --RearARB
     function RearARBIncrease()
       if RearARBDELTA ~= 18 and CurrentLevel>=4 then
-        RearARBCurrent = RearARBCurrent + 0.1
-        RoloRearCurrent = RoloRearCurrent + 0.02
+        RearARBCurrent = RearARBCurrent + 0.175
+        RoloRearCurrent = RoloRearCurrent + 0.025
         RearARBDELTA = RearARBDELTA + 1
         UDF1.RearARBValue.Caption = RearARBDELTA
         writeFloat(RearARBADR,RearARBCurrent)
@@ -1226,8 +1226,8 @@
 
     function RearARBDecrease()
       if RearARBDELTA ~= 1 and CurrentLevel>=4 then
-        RearARBCurrent = RearARBCurrent - 0.1
-        RoloRearCurrent = RoloRearCurrent - 0.02
+        RearARBCurrent = RearARBCurrent - 0.175
+        RoloRearCurrent = RoloRearCurrent - 0.025
         RearARBDELTA = RearARBDELTA - 1
         UDF1.RearARBValue.Caption = RearARBDELTA
         writeFloat(RearARBADR,RearARBCurrent)
@@ -1239,7 +1239,7 @@
      --CamberRear
     function CamberRearIncrease()
       if CamberRearDELTA ~= 50 then
-        CamberRearCurrent = CamberRearCurrent + 0.0018
+        CamberRearCurrent = CamberRearCurrent + 0.002
         UDF1.RearCamberValue.Caption = (((CamberRearCurrent*55.5)*10)//1)/10
         CamberRearDELTA = CamberRearDELTA + 1
         writeFloat(CamberRearADR,CamberRearCurrent)
@@ -1249,7 +1249,7 @@
 
     function CamberRearDecrease()
       if CamberRearDELTA ~= 1 then
-        CamberRearCurrent = CamberRearCurrent - 0.0018
+        CamberRearCurrent = CamberRearCurrent - 0.002
         UDF1.RearCamberValue.Caption = (((CamberRearCurrent*55.5)*10)//1)/10
         CamberRearDELTA = CamberRearDELTA - 1
         writeFloat(CamberRearADR,CamberRearCurrent)
@@ -1264,7 +1264,7 @@
     --Steering Lock
     function SteeringLockIncrease()
      if SteeringLockDELTA ~= 20 and CurrentLevel>=4 then
-       SteeringLockCurrent = SteeringLockCurrent + 0.05
+       SteeringLockCurrent = SteeringLockCurrent + 0.06
        SteeringLockDELTA = SteeringLockDELTA + 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
@@ -1274,7 +1274,7 @@
 
     function SteeringLockDecrease()
      if SteeringLockDELTA ~= 1 and CurrentLevel>=4 then
-       SteeringLockCurrent = SteeringLockCurrent - 0.05
+       SteeringLockCurrent = SteeringLockCurrent - 0.06
        SteeringLockDELTA = SteeringLockDELTA - 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
@@ -1310,8 +1310,8 @@
     --Front Wing
     function FrontWingIncrease()
      if FrontWingDELTA ~= 9 then
-       DragCurrent = DragCurrent + 0.0000255
-       FrontGripCurrent = FrontGripCurrent + 0.0125
+       DragCurrent = DragCurrent + 0.000026
+       FrontGripCurrent = FrontGripCurrent + 0.013
        FrontWingDELTA = FrontWingDELTA + 1
        UDF1.FrontWingValue.Caption = FrontWingDELTA
        writeFloat(DragADR,DragCurrent)
@@ -1322,8 +1322,8 @@
 
     function FrontWingDecrease()
      if FrontWingDELTA ~= 1 then
-       DragCurrent = DragCurrent - 0.0000255
-       FrontGripCurrent = FrontGripCurrent - 0.0125
+       DragCurrent = DragCurrent - 0.000026
+       FrontGripCurrent = FrontGripCurrent - 0.013
        FrontWingDELTA = FrontWingDELTA - 1
        UDF1.FrontWingValue.Caption = FrontWingDELTA
        writeFloat(DragADR,DragCurrent)
