@@ -2166,8 +2166,8 @@
 
     function BrakesSizeDecrease()
      if BrakesSizeDELTA ~= 1 and CurrentLevel>=3 then
-       BrakeForceCurrent = BrakeForceCurrent - 0.15
-       DragCurrent = DragCurrent - 0.00005
+       BrakeForceCurrent = BrakeForceCurrent - 0.2
+       DragCurrent = DragCurrent - 0.000075
        if BrakesSizeDELTA == 2 then
           UDF1.BrakeSizeValue.Caption = 'SMALL'
        end
@@ -2184,8 +2184,8 @@
      --BrakeBias
     function BrakeBiasIncrease()
      if BrakeBiasDELTA ~= 17 then
-       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent + 0.03
-       BrakeBiasRearCurrent = BrakeBiasRearCurrent - 0.03
+       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent + 0.05
+       BrakeBiasRearCurrent = BrakeBiasRearCurrent - 0.05
        UDF1.BrakeBiasValue.Caption = ((((BrakeBiasFrontCurrent+0.001)*100/2)*100)//1)/100
        BrakeBiasDELTA = BrakeBiasDELTA + 1
        writeFloat(BrakeBiasFrontADR,BrakeBiasFrontCurrent)
@@ -2196,8 +2196,8 @@
 
     function BrakeBiasDecrease()
      if BrakeBiasDELTA ~= 1 then
-       BrakeBiasRearCurrent = BrakeBiasRearCurrent + 0.03
-       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent - 0.03
+       BrakeBiasRearCurrent = BrakeBiasRearCurrent + 0.05
+       BrakeBiasFrontCurrent = BrakeBiasFrontCurrent - 0.05
        UDF1.BrakeBiasValue.Caption = ((((BrakeBiasFrontCurrent+0.001)*100/2)*100)//1)/100
        BrakeBiasDELTA = BrakeBiasDELTA - 1
        writeFloat(BrakeBiasFrontADR,BrakeBiasFrontCurrent)
