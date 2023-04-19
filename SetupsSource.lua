@@ -22,7 +22,6 @@
     --local Meme_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     HWID_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/HWID.lua"
     LOG_url = CodeLogUrl()
-    --REG_url = CodeRegUrl()
     REG_url = CodeRegUrl()
     REG_url_new = "https://hook.eu1.make.com/pssfjrcdrbr5ddth9jfvnyjss82nhz4f"
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
@@ -3609,6 +3608,52 @@
     end
 
   --Menumodule
+
+  --EconomyModule
+  function InitProfileCashAndXP()
+    UDF1.UserNameLabel.Caption = Name
+    local https = GetInternet()
+    local S = ""
+    local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/B"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+    local XPURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/C"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+    local CashResp = json.decode(https.GetURL(CashURL))
+    local XPResp = json.decode(https.GetURL(XPURL))
+    AccountCash = tonumber(CashResp["values"][1][1])
+    AccountXP = tonumber(XPResp["values"][1][1])
+    local CurrentCash = "     "..AccountCash
+    local CurrentXP = "     "..AccountXP
+    UDF1.MoneyLabel.Caption = CurrentCash
+    UDF1.XPlabel.Caption = CurrentXP
+    https.destroy()
+    XPUnlock(AccountXP)
+    AutoUpdate()
+   end
+
+   function AutoUpdate()
+    UpdateTimer = createTimer(nil,true)
+    timer_onTimer(UpdateTimer,UpdateInfo)
+    timer_setInterval(UpdateTimer, 60000)
+   end
+
+   function UpdateInfo()
+    local https = GetInternet()
+    local S = ""
+    local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/B"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+    local XPURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/C"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+    local CashResp = json.decode(https.GetURL(CashURL))
+    local XPResp = json.decode(https.GetURL(XPURL))
+    AccountCash = tonumber(CashResp["values"][1][1])
+    AccountXP = tonumber(XPResp["values"][1][1])
+    local CurrentCash = "     "..AccountCash
+    local CurrentXP = "     "..AccountXP
+    UDF1.MoneyLabel.Caption = CurrentCash
+    UDF1.XPlabel.Caption = CurrentXP
+    https.destroy()
+    XPUnlock(AccountXP)
+   end
+
+   end
+   --EconomyModule
 
   --Exit and calculate
   function Exit()
