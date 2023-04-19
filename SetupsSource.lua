@@ -20,9 +20,11 @@
     NASCAR_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/NASCAR.lua"
     Fuel_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     --local Meme_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
-    HWID_url = "https://drive.google.com/uc?export=download&id=1cyu6nJI51kgzuvWjGDoYIjN__B2GN_MY"
+    HWID_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/HWID.lua"
     LOG_url = CodeLogUrl()
+    --REG_url = CodeRegUrl()
     REG_url = CodeRegUrl()
+    REG_url_new = "https://hook.eu1.make.com/pssfjrcdrbr5ddth9jfvnyjss82nhz4f"
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
   end
 
@@ -38,9 +40,9 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "905925823876464741/"
-    Encode[12] = "aIlSyfHvQdVIpccxjel"
-    Encode[13] = "-ixNzCAaWxP9YysHlCTPCbKXx2ARSzdjBz3p498_u8GrIDOqe"
+    Encode[11] = "1098332346631077998/MOCK"
+    Encode[12] = "bLZ4Cs_KlWg1aHqM0LJCLsqJgi2qYqlJbt2SaKUlZiCzm6Dp74TEQah6nvT"
+    Encode[13] = "-AUNo5OK1"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
@@ -57,9 +59,9 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "905931123694129193/"
-    Encode[12] = "pbbDaBg7aTzfZRuNQyMrf"
-    Encode[13] = "o2IlAFZkvBtD9MBDRIEAR6wy3R2ksK_GqaRwc3pddBWd-45"
+    Encode[11] = "1098332346631077998/MOCK"
+    Encode[12] = "bLZ4Cs_KlWg1aHqM0LJCLsqJgi2qYqlJbt2SaKUlZiCzm6Dp74TEQah6nvT"
+    Encode[13] = "-AUNo5OK1"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
@@ -189,7 +191,7 @@
     if result then
       local version = tonumber(result:match("%d+"))
       if version == 0 then
-        messageDialog("CustomSetups under update. Please сome back later", mtInformation, mbOK)
+        messageDialog("CustomSetups is under update. Please сome back later", mtInformation, mbOK)
         CloseCE()
       elseif version ~= TABLE_VERSION then
         messageDialog("Your version is outdated, please download the latest version.", mtInformation, mbOK)
