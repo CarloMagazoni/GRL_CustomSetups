@@ -3610,7 +3610,7 @@
   --Menumodule
 
   --EconomyModule
-  --TODO Economy. New tables
+  --TODO Economy. New tables new structure
   function InitProfileCashAndXP()
     UDF1.UserNameLabel.Caption = Name
     local https = GetInternet()
