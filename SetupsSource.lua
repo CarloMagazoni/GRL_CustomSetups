@@ -2530,109 +2530,90 @@
       --local SuspensionForceR = tonumber(file:read())
         if SuspensionForceR < 1 or SuspensionForceR > 18 then
          SuspensionForceR = 9
-         --messageDialog("You are pidor. Do fair racing!!!SusForce",mtError, mbOk)
         end
 
       --local SuspensionRaiseR = tonumber(file:read())
         if SuspensionRaiseR < 1 or SuspensionRaiseR > 18 then
          SuspensionRaiseR = 3
-         --messageDialog("You are pidor. Do fair racing!!!Raise",mtError, mbOk)
         end
 
       --local SuspensionBumpR = tonumber(file:read())
         if SuspensionDumpR < 1 or SuspensionDumpR > 38 then
          SuspensionDumpR = 19
-         --messageDialog("You are pidor. Do fair racing!!!Bump",mtError, mbOk)
         end
 
       --local SuspensionTravelR = tonumber(file:read())
         if SuspensionTravelR < 1 or SuspensionTravelR > 18 then
          SuspensionTravelR = 9
-         --messageDialog("You are pidor. Do fair racing!!!Travel",mtError, mbOk)
         end
 
       --local FrontSpringR = tonumber(file:read())
         if FrontSpringR < 1 or FrontSpringR > 18 then
          FrontSpringR = 9
-         --messageDialog("You are pidor. Do fair racing!!!FS",mtError, mbOk)
         end
 
       --local FrontARBR = tonumber(file:read())
         if FrontARBR < 1 or FrontARBR > 18 then
          FrontARBR = 9
-         --messageDialog("You are pidor. Do fair racing!!!FARB",mtError, mbOk)
         end
 
       --local CamberFrontR = tonumber(file:read())
         if CamberFrontR < 1 or CamberFrontR > 50 then
          CamberFrontR = 50
-         --messageDialog("You are pidor. Do fair racing!!!FC",mtError, mbOk)
         end
 
       --local RearSpringR = tonumber(file:read())
         if RearSpringR < 1 or RearSpringR > 18 then
          RearSpringR = 9
-         --messageDialog("You are pidor. Do fair racing!!!RS",mtError, mbOk)
         end
 
       --local RearARBR = tonumber(file:read())
         if RearARBR < 1 or RearARBR > 18 then
          RearARBR = 9
-         --messageDialog("You are pidor. Do fair racing!!!RARB",mtError, mbOk)
         end
 
       --local CamberRearR = tonumber(file:read())
         if CamberRearR < 1 or CamberRearR > 50 then
          CamberRearR = 50
-         --messageDialog("You are pidor. Do fair racing!!!RC",mtError, mbOk)
         end
 
-      --local SteeringLockR = tonumber(file:read())
         if SteeringLockR < 1 or SteeringLockR > 20 then
          SteeringLockR = 10
-         --messageDialog("You are pidor. Do fair racing!!!SL",mtError, mbOk)
         end
 
       --local RearWingR = tonumber(file:read())
         if RearWingR < 1 or RearWingR > 9 then
          RearWingR = 5
-         --messageDialog("You are pidor. Do fair racing!!!RW",mtError, mbOk)
         end
 
       --local FrontWingR = tonumber(file:read())
         if FrontWingR < 1 or FrontWingR > 9 then
          FrontWingR = 5
-         --messageDialog("You are pidor. Do fair racing!!!FW",mtError, mbOk)
         end
 
       --local BrakesSizeR = tonumber(file:read())
         if BrakesSizeR < 1 or BrakesSizeR > 3 then
          BrakesSizeR = 3
-         --messageDialog("You are pidor. Do fair racing!!!BS",mtError, mbOk)
         end
 
       --local BrakeBiasR = tonumber(file:read())
         if BrakeBiasR < 1 or BrakeBiasR > 17 then
          BrakeBiasR = 8
-         --messageDialog("You are pidor. Do fair racing!!!BB",mtError, mbOk)
         end
 
       --local HeadlightR = tonumber(file:read())
         if HeadlightR < 1 or HeadlightR > 2 then
          HeadlightR = 1
-         --messageDialog("You are pidor. Do fair racing!!!HR",mtError, mbOk)
         end
 
       --local XenonColorR = tonumber(file:read())
         if XenonColorR < 1 or XenonColorR > 4 then
          XenonColorR = 1
-         --messageDialog("You are pidor. Do fair racing!!!XR",mtError, mbOk)
         end
 
       --local GearsR = tonumber(file:read())
         if GearsR < 1 or GearsR > 2 then
          GearsR = 1
-         --messageDialog("You are pidor. Do fair racing!!!GR",mtError, mbOk)
         end
 
         BackToDefault()
