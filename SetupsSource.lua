@@ -204,11 +204,11 @@
          elseif pic == 2 then UDF1.Pic4.Visible=true
         end
 
-        UDF1.Caption="Custom Setups | Online v1.6.1"
-        UDF1.UserNameLabel.Alignment = "taRightJustify"
-        local SpaceBars = "    "
+        UDF1.Caption="Custom Setups | Online v1.8.0"
+        --UDF1.UserNameLabel.Alignment = "taRightJustify"
+        local SpaceBars = ""
         UDF1.UserNameLabel.Caption = Name..SpaceBars
-        if Username ~= "CarloMagazoni" then
+        if Username ~= "VioLence" then
           UDF1.DevButton.Visible = false
         else UDF1.DevButton.Visible = true
         end
@@ -1059,8 +1059,8 @@
 
     --SUSPENSION RAISE
     function SuspensionRaiseIncrease()
-      if SuspensionRaiseDELTA ~= 18 and CurrentLevel>=1 then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.00575
+      if SuspensionRaiseDELTA ~= 18  then
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.006 --0.00575
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA + 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
@@ -1069,8 +1069,8 @@
     end
 
     function SuspensionRaiseDecrease()
-      if SuspensionRaiseDELTA ~= 1 and CurrentLevel>=1 then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.00575
+      if SuspensionRaiseDELTA ~= 1  then
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.006 --0.00575
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA - 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
@@ -1080,7 +1080,7 @@
 
     --DUMP
     function SuspensionDumpIncrease()
-      if SuspensionDumpDELTA ~= 38 and CurrentLevel>=3 then
+      if SuspensionDumpDELTA ~= 38  then
         SuspensionBumpCurrent = SuspensionBumpCurrent + 0.0095
         SuspensionDumpDELTA = SuspensionDumpDELTA + 1
         SuspensionReboundCurrent = SuspensionReboundCurrent + 0.0095
@@ -1092,7 +1092,7 @@
     end
 
     function SuspensionDumpDecrease()
-      if SuspensionDumpDELTA ~= 1 and CurrentLevel>=3 then
+      if SuspensionDumpDELTA ~= 1  then
         SuspensionBumpCurrent = SuspensionBumpCurrent - 0.0095
         SuspensionDumpDELTA = SuspensionDumpDELTA - 1
         SuspensionReboundCurrent = SuspensionReboundCurrent - 0.0095
@@ -1105,7 +1105,7 @@
 
     --Travel
     function SuspensionTravelIncrease()
-      if SuspensionTravelDELTA ~= 18 and CurrentLevel>=5 then
+      if SuspensionTravelDELTA ~= 18  then
         SuspensionTravelCurrent = SuspensionTravelCurrent - 0.015
         SuspensionTravelDELTA = SuspensionTravelDELTA + 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
@@ -1115,7 +1115,7 @@
     end
 
     function SuspensionTravelDecrease()
-      if SuspensionTravelDELTA ~= 1 and CurrentLevel>=5 then
+      if SuspensionTravelDELTA ~= 1  then
         SuspensionTravelCurrent = SuspensionTravelCurrent + 0.015
         SuspensionTravelDELTA = SuspensionTravelDELTA - 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
@@ -1126,7 +1126,7 @@
 
      --FrontSpring
     function FrontSpringIncrease()
-      if FrontSpringDELTA ~= 18 and CurrentLevel>=2 then
+      if FrontSpringDELTA ~= 18  then
         FrontSpringCurrent = FrontSpringCurrent + 0.2
         FrontSpringDELTA = FrontSpringDELTA + 1
         UDF1.FrontSpringValue.Caption = FrontSpringDELTA
@@ -1136,7 +1136,7 @@
     end
 
     function FrontSpringDecrease()
-      if FrontSpringDELTA ~= 1 and CurrentLevel>=2 then
+      if FrontSpringDELTA ~= 1  then
         FrontSpringCurrent = FrontSpringCurrent - 0.2
         FrontSpringDELTA = FrontSpringDELTA - 1
         UDF1.FrontSpringValue.Caption = FrontSpringDELTA
@@ -1147,7 +1147,7 @@
 
      --FrontARB
     function FrontARBIncrease()
-      if FrontARBDELTA ~= 18 and CurrentLevel>=4 then
+      if FrontARBDELTA ~= 18  then
         FrontARBCurrent = FrontARBCurrent + 0.175
         RoloFrontCurrent = RoloFrontCurrent + 0.025
         FrontARBDELTA = FrontARBDELTA + 1
@@ -1159,7 +1159,7 @@
     end
 
     function FrontARBDecrease()
-      if FrontARBDELTA ~= 1 and CurrentLevel>=4 then
+      if FrontARBDELTA ~= 1  then
         FrontARBCurrent = FrontARBCurrent - 0.175
         RoloFrontCurrent = RoloFrontCurrent - 0.025
         FrontARBDELTA = FrontARBDELTA - 1
@@ -1193,7 +1193,7 @@
 
      --RearSpring
     function RearSpringIncrease()
-      if RearSpringDELTA ~= 18 and CurrentLevel>=3 then
+      if RearSpringDELTA ~= 18  then
         RearSpringCurrent = RearSpringCurrent + 0.2
         RearSpringDELTA = RearSpringDELTA + 1
         UDF1.RearSpringValue.Caption = RearSpringDELTA
@@ -1203,7 +1203,7 @@
     end
 
     function RearSpringDecrease()
-      if RearSpringDELTA ~= 1 and CurrentLevel>=3 then
+      if RearSpringDELTA ~= 1  then
         RearSpringCurrent = RearSpringCurrent - 0.2
         RearSpringDELTA = RearSpringDELTA - 1
         UDF1.RearSpringValue.Caption = RearSpringDELTA
@@ -1214,7 +1214,7 @@
 
      --RearARB
     function RearARBIncrease()
-      if RearARBDELTA ~= 18 and CurrentLevel>=4 then
+      if RearARBDELTA ~= 18  then
         RearARBCurrent = RearARBCurrent + 0.175
         RoloRearCurrent = RoloRearCurrent + 0.025
         RearARBDELTA = RearARBDELTA + 1
@@ -1226,7 +1226,7 @@
     end
 
     function RearARBDecrease()
-      if RearARBDELTA ~= 1 and CurrentLevel>=4 then
+      if RearARBDELTA ~= 1  then
         RearARBCurrent = RearARBCurrent - 0.175
         RoloRearCurrent = RoloRearCurrent - 0.025
         RearARBDELTA = RearARBDELTA - 1
@@ -1264,7 +1264,7 @@
 
     --Steering Lock
     function SteeringLockIncrease()
-     if SteeringLockDELTA ~= 20 and CurrentLevel>=4 then
+     if SteeringLockDELTA ~= 20  then
        SteeringLockCurrent = SteeringLockCurrent + 0.06
        SteeringLockDELTA = SteeringLockDELTA + 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
@@ -1274,7 +1274,7 @@
     end
 
     function SteeringLockDecrease()
-     if SteeringLockDELTA ~= 1 and CurrentLevel>=4 then
+     if SteeringLockDELTA ~= 1  then
        SteeringLockCurrent = SteeringLockCurrent - 0.06
        SteeringLockDELTA = SteeringLockDELTA - 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
@@ -1335,7 +1335,7 @@
 
     --AeroPackage
     function AeroPackageIncrease()
-     if AeroPackageDELTA ~= 3 and CurrentLevel>=6 then
+     if AeroPackageDELTA ~= 3  then
        DragCurrent = DragCurrent + 0.0008
        FrontGripCurrent = FrontGripCurrent + 0.3
        RearGripCurrent = RearGripCurrent + 0.15
@@ -1356,7 +1356,7 @@
     end
 
     function AeroPackageDecrease()
-     if AeroPackageDELTA ~= 1 and CurrentLevel>=6 then
+     if AeroPackageDELTA ~= 1  then
        DragCurrent = DragCurrent - 0.0008
        FrontGripCurrent = FrontGripCurrent - 0.3
        RearGripCurrent = RearGripCurrent - 0.15
@@ -2149,7 +2149,7 @@
   function LoadAdvancedSettings()
     --BrakesSize
     function BrakesSizeIncrease()
-     if BrakesSizeDELTA ~= 3 and CurrentLevel>=3 then
+     if BrakesSizeDELTA ~= 3  then
        BrakeForceCurrent = BrakeForceCurrent + 0.2
        DragCurrent = DragCurrent + 0.000075
        if BrakesSizeDELTA == 2 then
@@ -2166,7 +2166,7 @@
     end
 
     function BrakesSizeDecrease()
-     if BrakesSizeDELTA ~= 1 and CurrentLevel>=3 then
+     if BrakesSizeDELTA ~= 1  then
        BrakeForceCurrent = BrakeForceCurrent - 0.2
        DragCurrent = DragCurrent - 0.000075
        if BrakesSizeDELTA == 2 then
@@ -2318,7 +2318,7 @@
     --Gears
 
     function GearsIncrease()
-     if GearsDELTA ~= 2 and CurrentLevel>=6 then
+     if GearsDELTA ~= 2  then
         DriveInertiaCurrent = DriveInertiaCurrent + 0.8
         UpShiftCurrent = UpShiftCurrent + 5.6
         DownShiftCurrent = DownShiftCurrent + 5.6
@@ -2338,7 +2338,7 @@
     end
 
     function GearsDecrease()
-     if GearsDELTA ~= 1 and CurrentLevel>=6 then
+     if GearsDELTA ~= 1  then
         DriveInertiaCurrent = DriveInertiaCurrent - 0.8
         UpShiftCurrent = UpShiftCurrent - 5.6
         DownShiftCurrent = DownShiftCurrent - 5.6
