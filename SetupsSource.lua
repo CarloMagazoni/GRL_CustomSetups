@@ -262,7 +262,7 @@
   end
 
   function InitSlipstreamFeature()
-    EnableSlipStream=true
+    EnableSlipStream=false
   end
 
   function Set (list)
@@ -2428,6 +2428,7 @@
   end
 
   --CONTROL PAGES
+
   function LoadPagesControl()
     function SelectChassis()
      UDF1.SuspensionPageButton.Caption='SUSPENSION'
@@ -2505,6 +2506,8 @@
      UDF1.ChassisPanel.Enabled=false
     end
   end
+
+  --CONTROL PAGES
 
   function InitSettings()
     LoadSuspensionSettings()
@@ -3383,13 +3386,13 @@
     end
 
     function ShowStatus()
-       local Engine = (readFloat("[[PTR+8]+D10]+908"))
+       local Engine = (readFloat("[[PTR+8]+D10]+8E8")) --908
        if Engine~=nil then
          Engine=(Engine//1)/10
          if Engine >=0 and Engine <=100 then
-           writeFloat('[PTR+8]+1530',Engine/2)
+           writeFloat('[PTR+8]+150C',Engine/2)
          end
-         local Body = (readFloat("[[PTR+8]+D10]+844"))
+         local Body = (readFloat("[[PTR+8]+D10]+824")) --844
          if Body~=nil then
            Body=(Body//1)/10
            UDF1.EngineHP.Caption=(Engine.."%")
@@ -3607,7 +3610,7 @@
     UDF1.MoneyLabel.Caption = CurrentCash
     UDF1.XPlabel.Caption = CurrentXP
     https.destroy()
-    XPUnlock(AccountXP)
+    --XPUnlock(AccountXP)
     AutoUpdate()
    end
 
@@ -3631,10 +3634,9 @@
     UDF1.MoneyLabel.Caption = CurrentCash
     UDF1.XPlabel.Caption = CurrentXP
     https.destroy()
-    XPUnlock(AccountXP)
+    --XPUnlock(AccountXP)
    end
-
-   end
+   
    --EconomyModule
 
   --Exit and calculate
@@ -3646,7 +3648,7 @@
      end
      ReturnDefaultsToPreviousCar()
      form_hide(UDF1)
-     local reward = CalculateScore()
+     --local reward = CalculateScore()
      LogSender.destroy()
      closeCE()
      return caFree
