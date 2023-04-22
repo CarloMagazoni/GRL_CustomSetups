@@ -3597,25 +3597,26 @@
   --TODO Economy. New tables new structure
   function InitProfileCashAndXP()
     UDF1.UserNameLabel.Caption = Name
+    local LicenceArray = Set {"WHITE","BRONZE","SILVER","GOLD","ENGINEER"}
     local https = GetInternet()
     local S = ""
     local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/B"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
     local XPURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/C"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
     local CashResp = json.decode(https.GetURL(CashURL))
     local XPResp = json.decode(https.GetURL(XPURL))
-    AccountCash = tonumber(CashResp["values"][1][1])
-    AccountXP = tonumber(XPResp["values"][1][1])
-    local CurrentCash = "     "..AccountCash
-    local CurrentXP = "     "..AccountXP
-    UDF1.MoneyLabel.Caption = CurrentCash
-    UDF1.XPlabel.Caption = CurrentXP
+    local AccountCash = tonumber(CashResp["values"][1][1])
+    local CurrentLicence = tonumber(XPResp["values"][1][1])
+    --local CurrentCash = "     "..AccountCash
+    --local CurrentLicence = "     "..AccountXP
+    UDF1.MoneyLabel.Caption = AccountCash.."$"
+    UDF1.XPlabel.Caption = LicenceArray[CurrentLicence]
     https.destroy()
     --XPUnlock(AccountXP)
-    AutoUpdate()
+    --AutoUpdate()
    end
 
    function AutoUpdate()
-    UpdateTimer = createTimer(nil,true)
+    UpdateTimer = createTimer(nil,false)
     timer_onTimer(UpdateTimer,UpdateInfo)
     timer_setInterval(UpdateTimer, 60000)
    end
