@@ -22,7 +22,8 @@
 -- SOFTWARE.
 --
 
-local CSA = {_version = "0.1.2"}
+--local CSA = {_version = "0.1.2"}
+local CSA ={}
 
 function CSA.draw (class, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color, source)
     local uiComponent
