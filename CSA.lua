@@ -22,7 +22,7 @@
 -- SOFTWARE.
 --
 
-local CSA = {_version = "0.1.1"}
+local CSA = {_version = "0.1.2"}
 
 function CSA.draw (class, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color, source)
     local uiComponent
@@ -44,7 +44,7 @@ function CSA.draw (class, parent, leftOffset, topOffset, height, width, isVisibl
     end
 end
 
-local function makeForm (height, width, isVisible, isEnabled, color)
+function makeForm (height, width, isVisible, isEnabled, color)
     ui = createForm()
     ui.Height = height
     ui.Width = width
@@ -57,7 +57,7 @@ local function makeForm (height, width, isVisible, isEnabled, color)
     return ui
 end
 
-local function makeLabel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+function makeLabel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
     ui = createLabel(parent)
     ui.AutoSize = false
     ui.Height = height
@@ -75,7 +75,7 @@ local function makeLabel (parent, leftOffset, topOffset, height, width, isVisibl
     return ui
 end
 
-local function makeButton (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+function makeButton (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
     ui = createButton(parent)
     ui.AutoSize = false
     ui.Height = height
@@ -90,7 +90,7 @@ local function makeButton (parent, leftOffset, topOffset, height, width, isVisib
     return ui
 end
 
-local function makeImage (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
+function makeImage (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
     ui = createImage(parent)
     ui.AutoSize = false
     ui.KeepOriginXWhenClipped = false
@@ -106,7 +106,7 @@ local function makeImage (parent, leftOffset, topOffset, height, width, isVisibl
     return ui
 end
 
-local function getImage (url)
+function getImage (url)
     local WEB = getInternet()
     local img = WEB.getURL(url)
     local Stream = createStringStream(img)
@@ -117,7 +117,7 @@ local function getImage (url)
     return pic
 end
 
-local function makePanel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+function makePanel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
     ui = createPanel(parent)
     ui.AutoSize = false
     ui.Height = height
@@ -138,7 +138,7 @@ local function makePanel (parent, leftOffset, topOffset, height, width, isVisibl
     return ui
 end
 
-local function makeProgressBar (parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
+function makeProgressBar (parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
     ui = createProgressBar(parent)
     ui.Height = height
     ui.Width = width
