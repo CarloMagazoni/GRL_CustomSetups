@@ -22,82 +22,88 @@
 -- SOFTWARE.
 --
 
-local CSA = {_version = "0.1.0"}
+local CSA = {_version = "0.1.1"}
 
-function CSA.draw (name, class, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color, source)
+function CSA.draw (class, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color, source)
+    local uiComponent
     if class then
-       if class == form then
-          name = makeForm(name, height, width, isVisible, isEnabled, color)
+       if class == "form" then
+          uiComponent = makeForm(height, width, isVisible, isEnabled, color)
        elseif class == label then
-              name = makeLabel(name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+              uiComponent = makeLabel(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
        elseif class == button then
-              name = makeButton(name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+              uiComponent = makeButton(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
        elseif class == image then
-              name = makeImage(name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
+              uiComponent = makeImage(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
        elseif class == panel then
-              name = makePanel(name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+              uiComponent = makePanel(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
        elseif class == progressBar then
-              name = makeProgressBar(name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
+              uiComponent = makeProgressBar(parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
        end
+    return uiComponent
     end
 end
 
-local function makeForm (name, height, width, isVisible, isEnabled, color)
-    name = createForm()
-    name.Height = height
-    name.Width = width
-    name.Visible = isVisible
-    name.Enable = isEnabled
-    name.color = color
-    name.Position = "poScreenCenter"
-    name.ShownInTaskBar = "stAlways"
-    name.BorderStyle = "bsSingle"
+local function makeForm (height, width, isVisible, isEnabled, color)
+    ui = createForm()
+    ui.Height = height
+    ui.Width = width
+    ui.Visible = isVisible
+    ui.Enable = isEnabled
+    ui.color = color
+    ui.Position = "poScreenCenter"
+    ui.ShownInTaskBar = "stAlways"
+    ui.BorderStyle = "bsSingle"
+    return ui
 end
 
-local function makeLabel (name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
-    name = createLabel(parent)
-    name.AutoSize = false
-    name.Height = height
-    name.Width = width
-    name.Visible = isVisible
-    name.Enable = isEnabled
+local function makeLabel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+    ui = createLabel(parent)
+    ui.AutoSize = false
+    ui.Height = height
+    ui.Width = width
+    ui.Visible = isVisible
+    ui.Enable = isEnabled
     if color == "transparent" then
-       name.transparent = true
-    else name.color = color end
-    name.Left = leftOffset
-    name.Top = topOffset
-    name.Caption = "-"
-    name.Alignment = "taCenter"
-    name.parentFont = true
+       ui.transparent = true
+    else ui.color = color end
+    ui.Left = leftOffset
+    ui.Top = topOffset
+    ui.Caption = "-"
+    ui.Alignment = "taCenter"
+    ui.parentFont = true
+    return ui
 end
 
-local function makeButton (name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
-    name = createButton(parent)
-    name.AutoSize = false
-    name.Height = height
-    name.Width = width
-    name.Visible = isVisible
-    name.Enable = isEnabled
-    name.color = color
-    name.Left = leftOffset
-    name.Top = topOffset
-    name.Caption = "-"
-    name.parentFont = true
+local function makeButton (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+    ui = createButton(parent)
+    ui.AutoSize = false
+    ui.Height = height
+    ui.Width = width
+    ui.Visible = isVisible
+    ui.Enable = isEnabled
+    ui.color = color
+    ui.Left = leftOffset
+    ui.Top = topOffset
+    ui.Caption = "-"
+    ui.parentFont = true
+    return ui
 end
 
-local function makeImage (name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
-    name = createImage(parent)
-    name.AutoSize = false
-    name.KeepOriginXWhenClipped = false
-    name.KeepOriginYWhenClipped = false
-    name.AntialiasingMode = "amOn"
-    name.Height = height
-    name.Width = width
-    name.Visible = isVisible
-    name.Enable = isEnabled
-    name.Left = leftOffset
-    name.Top = topOffset
-    name.picture = getImage(source)
+local function makeImage (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
+    ui = createImage(parent)
+    ui.AutoSize = false
+    ui.KeepOriginXWhenClipped = false
+    ui.KeepOriginYWhenClipped = false
+    ui.AntialiasingMode = "amOn"
+    ui.Height = height
+    ui.Width = width
+    ui.Visible = isVisible
+    ui.Enable = isEnabled
+    ui.Left = leftOffset
+    ui.Top = topOffset
+    ui.picture = getImage(source)
+    return ui
 end
 
 local function getImage (url)
@@ -111,43 +117,45 @@ local function getImage (url)
     return pic
 end
 
-local function makePanel (name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
-    name = createPanel(parent)
-    name.AutoSize = false
-    name.Height = height
-    name.Width = width
-    name.Visible = isVisible
-    name.Enable = isEnabled
-    name.color = color
-    name.Left = leftOffset
-    name.Top = topOffset
-    name.parentFont = true
-    name.BevelColor = color
-    name.bevelInner = "bdNone"
-    name.bevelOuter = "bvRaised"
-    name.BevelWidth = 1
-    name.BorderStyle = "bsNone"
-    name.Borderwidt = 0
-    name.Alignment = "taCenter"
+local function makePanel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+    ui = createPanel(parent)
+    ui.AutoSize = false
+    ui.Height = height
+    ui.Width = width
+    ui.Visible = isVisible
+    ui.Enable = isEnabled
+    ui.color = color
+    ui.Left = leftOffset
+    ui.Top = topOffset
+    ui.parentFont = true
+    ui.BevelColor = color
+    ui.bevelInner = "bdNone"
+    ui.bevelOuter = "bvRaised"
+    ui.BevelWidth = 1
+    ui.BorderStyle = "bsNone"
+    ui.Borderwidt = 0
+    ui.Alignment = "taCenter"
+    return ui
 end
 
-local function makeProgressBar (name, parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
-    name = createProgressBar(parent)
-    name.Height = height
-    name.Width = width
-    name.Visible = isVisible
-    name.Enable = isEnabled
-    name.color = color
-    name.Left = leftOffset
-    name.Top = topOffset
-    name.Style = "pbstNormal"
-    name.Smooth = true
-    name.min = 0
-    name.max = 100
-    name.step = 10
-    name.Orientation = "pbVertical"
-    name.position = 100
-    name.parentFont = true
+local function makeProgressBar (parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
+    ui = createProgressBar(parent)
+    ui.Height = height
+    ui.Width = width
+    ui.Visible = isVisible
+    ui.Enable = isEnabled
+    ui.color = color
+    ui.Left = leftOffset
+    ui.Top = topOffset
+    ui.Style = "pbstNormal"
+    ui.Smooth = true
+    ui.min = 0
+    ui.max = 100
+    ui.step = 10
+    ui.Orientation = "pbVertical"
+    ui.position = 100
+    ui.parentFont = true
+    return ui
 end
 
 return CSA
