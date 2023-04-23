@@ -3628,7 +3628,7 @@
   --TODO Economy. New tables new structure
   function InitProfileCashAndXP()
     UDF1.UserNameLabel.Caption = Name
-    local LicenceArray = {"WHITE","BRONZE","SILVER","GOLD","ENGINEER"}
+    local LicenceArray = {"ROOKIE","BRONZE","SILVER","GOLD","ENGINEER"}
     local https = GetInternet()
     local S = ""
     local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/B"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
@@ -3653,7 +3653,7 @@
    end
 
    function UpdateInfo()
-    local LicenceArray = {"WHITE","BRONZE","SILVER","GOLD","ENGINEER"}
+    local LicenceArray = {"ROOKIE","BRONZE","SILVER","GOLD","ENGINEER"}
     local https = GetInternet()
     local S = ""
     local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/B"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
