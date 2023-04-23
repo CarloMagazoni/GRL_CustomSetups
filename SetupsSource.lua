@@ -39,7 +39,7 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "1098332346631077998/MOCK"
+    Encode[11] = "1098332346631077998/"
     Encode[12] = "bLZ4Cs_KlWg1aHqM0LJCLsqJgi2qYqlJbt2SaKUlZiCzm6Dp74TEQah6nvT"
     Encode[13] = "-AUNo5OK1"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
@@ -58,7 +58,7 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "1098332346631077998/MOCK"
+    Encode[11] = "1098332346631077998/"
     Encode[12] = "bLZ4Cs_KlWg1aHqM0LJCLsqJgi2qYqlJbt2SaKUlZiCzm6Dp74TEQah6nvT"
     Encode[13] = "-AUNo5OK1"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
@@ -3521,7 +3521,7 @@
         if RefuelLoop then
           RefuelLoop.destroy()
         end
-        NormalRepairRate = readFloat('adr+10E348')
+        NormalRepairRate = readFloat('adr+1453F8') --or 145510
         RefuelLoop = createTimer(nil,true)
         timer_onTimer(RefuelLoop,Refuel)
         timer_setInterval(RefuelLoop, 10)
@@ -3530,7 +3530,7 @@
         UDF1.Refuel.Caption="STOP REFUELING"
         SendPack("REFUELING",0,1)
         OnRefuel=true
-        writeFloat('adr+10E348',0)
+        writeFloat('adr+1453F8',0)
         sleep(150)
      else
         timer_setEnabled(RefuelLoop, false)
@@ -3539,7 +3539,7 @@
         UDF1.Refuel.Caption="REFUEL"
         SendPack("REFUELING FINISHED",0,1)
         OnRefuel=false
-        writeFloat('adr+10E348',NormalRepairRate)
+        writeFloat('adr+1453F8',NormalRepairRate)
         sleep(150)
      end
     end
