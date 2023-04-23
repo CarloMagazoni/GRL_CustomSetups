@@ -37,8 +37,8 @@ elseif CarNameCurrent=='OPENWHEEL1' then
 	 local Brake = -0.9
 	 local CurveMax = -0.025
 	 local CurveMaxR = -0.025
-	 local CurveMin = -0.035
-	 local CurveMinR = 0.14
+	 local CurveMin = -0.02575
+	 local CurveMinR = 0.24
 	 local CurveLat = 0.038
 	 local CurveLatR = -0.29
 	 local DF = -3
