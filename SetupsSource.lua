@@ -1060,7 +1060,7 @@
     --SUSPENSION RAISE
     function SuspensionRaiseIncrease()
       if SuspensionRaiseDELTA ~= 18  then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.006 --0.00575
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.00575 --0.00575
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA + 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
@@ -1070,7 +1070,7 @@
 
     function SuspensionRaiseDecrease()
       if SuspensionRaiseDELTA ~= 1  then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.006 --0.00575
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.00575 --0.00575
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA - 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
