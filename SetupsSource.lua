@@ -436,6 +436,7 @@
     GetDefaults()
     DisplayInfo()
     if GT3array[CarNameCurrent]  then
+      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
       UDF1.gt3Value.Enabled = true
       UDF1.gt3Label.Enabled = true
       UDF1.gt3DEC.Enabled = true
@@ -448,6 +449,7 @@
       CurrentCarMaxFuel = GT3Tank
       MixCurrent = GT3mix
     elseif GTEarray[CarNameCurrent]  then
+      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
       UDF1.gtevalue.Enabled = true
       UDF1.gtelabel.Enabled = true
       UDF1.gtedec.Enabled = true
@@ -460,6 +462,7 @@
       CurrentCarMaxFuel = GTETank
       MixCurrent = GTEmix
     elseif HSarray[CarNameCurrent] then --and HSAccess == true then
+      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
       UDF1.hsvalue.Enabled = true
       UDF1.hslabel.Enabled = true
       UDF1.hsdec.Enabled = true
@@ -472,6 +475,7 @@
       CurrentCarMaxFuel = HSTank
       MixCurrent = HSmix
     elseif F1array[CarNameCurrent]  then
+      if UDF1.HeadlightTypelabel.Enabled == true then DisableHeadlights() end
       UDF1.F1Label.Enabled = true
       UDF1.F1DEC.Enabled = true
       UDF1.F1INC.Enabled = true
@@ -484,6 +488,7 @@
       CurrentCarMaxFuel = F1Tank
       MixCurrent = F1mix
     elseif NASCARarray[CarNameCurrent]  then
+      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
       UDF1.NascarLabel.Enabled = true
       UDF1.NDEC.Enabled = true
       UDF1.NINC.Enabled = true
@@ -496,6 +501,7 @@
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     elseif DRIFTarray[CarNameCurrent]  then
+      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
       UDF1.DriftLabel.Enabled = true
       UDF1.DDEC.Enabled = true
       UDF1.DINC.Enabled = true
@@ -508,6 +514,7 @@
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     else
+      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
@@ -528,6 +535,28 @@
     UDF1.ClassValue.Font.Color = ClDefault
     SendPack("New car init - "..CarNameCurrent, 0, 1)
     if CarsCount then CarsCount = CarsCount + 1 else CarsCount = 1 end
+  end
+
+  function DisableHeadlights ()
+    UDF1.Headlightlabel.Enabled = false
+    UDF1.HLENDINC.Enabled = false
+    UDF1.HLENDDEC.Enabled = false
+    UDF1.HeadlightValue.Enabled = false
+    UDF1.HeadlightTypelabel.Enabled = false
+    UDF1.XenonINC.Enabled = false
+    UDF1.XenonDEC.Enabled = false
+    UDF1.XenonColorValue.Enabled = false
+  end
+
+  function EnableHeadlights ()
+    UDF1.Headlightlabel.Enabled = true
+    UDF1.HLENDINC.Enabled = true
+    UDF1.HLENDDEC.Enabled = true
+    UDF1.HeadlightValue.Enabled = true
+    UDF1.HeadlightTypelabel.Enabled = true
+    UDF1.XenonINC.Enabled = true
+    UDF1.XenonDEC.Enabled = true
+    UDF1.XenonColorValue.Enabled = true
   end
 
   function GetDefaults()
@@ -3549,7 +3578,7 @@
         CurrentFuelLoad = CurrentFuelLoad + 0.01
         UDF1.FuelLevel.Caption=(((CurrentFuelLoad*100)//1)/100).." / "..CurrentCarMaxFuel
         UDF1.FuelBar.Position = CurrentFuelLoad*100/CurrentCarMaxFuel
-        writeFloat('[PTR+8]+14E0',(CurrentFuelLoad*50/CurrentCarMaxFuel))
+        writeFloat('[PTR+8]+150C',(CurrentFuelLoad*50/CurrentCarMaxFuel))
      else
         StartNStopRefuel()
      end
