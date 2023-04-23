@@ -26,7 +26,7 @@
     REG_url_new = "https://hook.eu1.make.com/pssfjrcdrbr5ddth9jfvnyjss82nhz4f"
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
   end
-
+  
   function CodeLogUrl()
     local Encode = {}
     Encode[1] = "://"
@@ -39,9 +39,9 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "1098332346631077998/"
-    Encode[12] = "bLZ4Cs_KlWg1aHqM0LJCLsqJgi2qYqlJbt2SaKUlZiCzm6Dp74TEQah6nvT"
-    Encode[13] = "-AUNo5OK1"
+    Encode[11] = "1098366411857997854/"
+    Encode[12] = "WxbOso69kCRX3cB3SQ5ydgHwk3f"
+    Encode[13] = "_FK3WCfaTmZj7Ug4bu32OWsrxIICPflU7Sr40w2A1"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
@@ -58,9 +58,9 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "1098332346631077998/"
-    Encode[12] = "bLZ4Cs_KlWg1aHqM0LJCLsqJgi2qYqlJbt2SaKUlZiCzm6Dp74TEQah6nvT"
-    Encode[13] = "-AUNo5OK1"
+    Encode[11] = "1098366411857997854/"
+    Encode[12] = "WxbOso69kCRX3cB3SQ5ydgHwk3f"
+    Encode[13] = "_FK3WCfaTmZj7Ug4bu32OWsrxIICPflU7Sr40w2A1"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
@@ -3499,8 +3499,10 @@
 
     function EnableFuel()
       if FuelSystemEnabled==false then
+        UDF1.FuelB.Caption="IN PROGRESS 50%"
         FindAdr()
-        NormalRepairRate=readFloat('adr+F06230') --F06230  FD158
+        UDF1.FuelB.Caption="IN PROGRESS 75%"
+        NormalRepairRate=readFloat('adr+1453F8') --F06230  FD158
         SendPack("ENABLED FUEL SYSTEM",0,1)
         FuelSystemEnabled=true
         CreateFuelHotkey()
