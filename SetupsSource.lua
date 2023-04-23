@@ -3023,7 +3023,7 @@
 
       FoundMyCurrentID()
       timer_setEnabled(PositionChecker,true)
-      --SendPack("GOING ON TRACK",0,1)
+      SendPack("GOING ON TRACK",0,1)
       CheckLobbyParticipants()
       if ChangedSetup==true then
         SendPack("SETUP HAS BEEN CHANGED",0,0)
@@ -3038,7 +3038,7 @@
          writeFloat(RWDADR,RWDCurrent)
          OnRefuel=false
          CurrentFuelLoad=FuelDELTA
-         --SendPack("FUEL LOAD = "..FuelDELTA,0,0)
+         SendPack("FUEL LOAD = "..FuelDELTA,0,0)
       end
       if Spotter==true then
         if OppoChek then
@@ -3052,7 +3052,7 @@
         PlaySound(findTableFile("BeepStart.wav"), true)
         PlaySound(findTableFile('RadioCheck2.wav'), true)
         PlaySound(findTableFile("BeepEnd.wav"))
-        --SendPack("SPOTTER - ON",0,0)
+        SendPack("SPOTTER - ON",0,0)
       end
       if CarStatus==true then
         NotAnnoySevere = false
@@ -3478,12 +3478,12 @@
            end
          end
        end
-       --[[if readFloat("[[PTR+8]+D10]+A14") and readBytes("[[[PTR+8]+D10]+48]+3E1") and readBytes("[[[PTR+8]+D10]+48]+406") then
+       if readFloat("[[PTR+8]+D10]+A14") and readBytes("[[[PTR+8]+D10]+48]+3E1") and readBytes("[[[PTR+8]+D10]+48]+406") then
          if (readFloat("[[PTR+8]+D10]+A14")~=HeadlightCurrent and readFloat("[[PTR+8]+D10]+A14")~=nil) or (readBytes("[[[PTR+8]+D10]+48]+3E1")~=XenonCurrent and readBytes("[[[PTR+8]+D10]+48]+3E1")~=nil) or (readBytes("[[[PTR+8]+D10]+48]+406")~=XenonColorCurrent and readBytes("[[[PTR+8]+D10]+48]+406")~=nil) then
             ResetHeadlight()
             SendPack("POSSIBLE RESPAWN",0,1)
          end
-       end]]
+       end
     end
   --UPDATE CAR STATUS
 
@@ -3682,6 +3682,7 @@
      ReturnDefaultsToPreviousCar()
      form_hide(UDF1)
      --local reward = CalculateScore()
+     SendPack("Closed app and earned nothing",1,1)
      LogSender.destroy()
      closeCE()
      return caFree
