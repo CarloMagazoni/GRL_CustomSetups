@@ -25,27 +25,7 @@
 --local CSA = {_version = "0.1.2"}
 local CSA ={}
 
-function CSA.draw (class, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color, source)
-    local uiComponent
-    if class then
-       if class == "form" then
-          uiComponent = makeForm(height, width, isVisible, isEnabled, color)
-       elseif class == label then
-              uiComponent = makeLabel(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
-       elseif class == button then
-              uiComponent = makeButton(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
-       elseif class == image then
-              uiComponent = makeImage(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
-       elseif class == panel then
-              uiComponent = makePanel(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
-       elseif class == progressBar then
-              uiComponent = makeProgressBar(parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
-       end
-    return uiComponent
-    end
-end
-
-function makeForm (height, width, isVisible, isEnabled, color)
+local function makeForm (height, width, isVisible, isEnabled, color)
     ui = createForm()
     ui.Height = height
     ui.Width = width
@@ -58,7 +38,7 @@ function makeForm (height, width, isVisible, isEnabled, color)
     return ui
 end
 
-function makeLabel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+local function makeLabel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
     ui = createLabel(parent)
     ui.AutoSize = false
     ui.Height = height
@@ -76,7 +56,7 @@ function makeLabel (parent, leftOffset, topOffset, height, width, isVisible, isE
     return ui
 end
 
-function makeButton (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+local function makeButton (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
     ui = createButton(parent)
     ui.AutoSize = false
     ui.Height = height
@@ -91,7 +71,7 @@ function makeButton (parent, leftOffset, topOffset, height, width, isVisible, is
     return ui
 end
 
-function makeImage (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
+local function makeImage (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
     ui = createImage(parent)
     ui.AutoSize = false
     ui.KeepOriginXWhenClipped = false
@@ -107,7 +87,7 @@ function makeImage (parent, leftOffset, topOffset, height, width, isVisible, isE
     return ui
 end
 
-function getImage (url)
+local function getImage (url)
     local WEB = getInternet()
     local img = WEB.getURL(url)
     local Stream = createStringStream(img)
@@ -118,7 +98,7 @@ function getImage (url)
     return pic
 end
 
-function makePanel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+local function makePanel (parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
     ui = createPanel(parent)
     ui.AutoSize = false
     ui.Height = height
@@ -139,7 +119,7 @@ function makePanel (parent, leftOffset, topOffset, height, width, isVisible, isE
     return ui
 end
 
-function makeProgressBar (parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
+local function makeProgressBar (parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
     ui = createProgressBar(parent)
     ui.Height = height
     ui.Width = width
@@ -157,6 +137,26 @@ function makeProgressBar (parent, leftOffset, topOffset, height, width, isVisibl
     ui.position = 100
     ui.parentFont = true
     return ui
+end
+
+function CSA.draw (class, parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color, source)
+    local uiComponent
+    if class then
+       if class == "form" then
+          uiComponent = makeForm(height, width, isVisible, isEnabled, color)
+       elseif class == label then
+              uiComponent = makeLabel(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+       elseif class == button then
+              uiComponent = makeButton(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+       elseif class == image then
+              uiComponent = makeImage(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, source)
+       elseif class == panel then
+              uiComponent = makePanel(parent, leftOffset, topOffset, height, width, isVisible, isEnabled, color)
+       elseif class == progressBar then
+              uiComponent = makeProgressBar(parent, leftOffset, topOffset, height, width, isVisible, isEnabled)
+       end
+    return uiComponent
+    end
 end
 
 return CSA
