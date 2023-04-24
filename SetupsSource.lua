@@ -41,7 +41,7 @@
     Encode[10] = "ks/"
     Encode[11] = "1098366411857997854/"
     Encode[12] = "WxbOso69kCRX3cB3SQ5ydgHwk3f"
-    Encode[13] = "_FK3WCfaTmZj7Ug4bu32OWsrxIICPflU7Sr40w2A1"
+    Encode[13] = "_FK3WCfaTmZj7Ug4bu32OWsrxIICPflU7Sr40w2A1-"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
