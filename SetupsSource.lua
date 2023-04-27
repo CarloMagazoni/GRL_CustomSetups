@@ -111,6 +111,7 @@
     for id = 2,100, 1 do
       if getDataFromURL("A", id, "bool") == false then break end
       HWID_Array[id] = getDataFromURL("A", id, "int") --ID
+      HWID_Array[id] = {}
       HWID_Array[id]["NAME"] = getDataFromURL("B", id, "str") --NAME
       HWID_Array[id]["CASH"] = getDataFromURL("C", id, "str") --CASH
       HWID_Array[id]["LVL"] = getDataFromURL("D", id, "str") --LVL
@@ -126,10 +127,10 @@
     if format == "int" then
       res = tonumber(resp["values"][1][1])
       return res
-    elseif format == "str"
+    elseif format == "str" then
       res = tostring(resp["values"][1][1])
       return res
-    elseif format == "bool"
+    elseif format == "bool" then
       if resp["values"] == nil then res = false else res = true end
       return res
     end
