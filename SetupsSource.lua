@@ -104,9 +104,6 @@
     GetURLs()
   end
 
-  local CashResp = json.decode(https.GetURL(CashURL))
-  local AccountCash = tonumber(CashResp["values"][1][1])
-
   function buildHWIDArray()
     local http = getInternet()
     local S = ""
