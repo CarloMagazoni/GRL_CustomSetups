@@ -117,12 +117,13 @@
       if getDataFromURL(http, "A", id, "bool") == false then break end
       if getDataFromURL(http, "E", id, "str") == HWID then
         HWID_Array[1] = {}
+        HWID_Array[1]["ID"] = getDataFromURL(http, "A", id, "str") --ID
         HWID_Array[1]["NAME"] = getDataFromURL(http, "B", id, "str") --NAME
         HWID_Array[1]["CASH"] = getDataFromURL(http, "C", id, "str") --CASH
         HWID_Array[1]["LVL"] = getDataFromURL(http, "D", id, "str") --LVL
         HWID_Array[1]["HWID"] = getDataFromURL(http, "E", id, "str") --HWID
         Name = HWID_Array[1]["NAME"]
-        DBID = HWID_Array[1]
+        DBID = HWID_Array[1]["ID"]
         Username ="User: "..HWID_Array[1]["NAME"]
         SendPack("Launched App",1 ,1)
         NewUser=false
