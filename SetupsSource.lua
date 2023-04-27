@@ -111,12 +111,10 @@
     fh:close()
     result = string.gsub(result,'UUID',"")
     HWID = all_trim(result)
-    print(HWID)
     local http = getInternet()
     HWID_Array={}
     for id = 2,50, 1 do 
       if getDataFromURL(http, "A", id, "bool") == false then break end
-      print(getDataFromURL(http, "E", id, "str"))
       if getDataFromURL(http, "E", id, "str") == HWID then
         HWID_Array[1] = {}
         HWID_Array[1]["NAME"] = getDataFromURL(http, "B", id, "str") --NAME
@@ -141,7 +139,7 @@
     HWID_Array={}
     for id = 2,100, 1 do
       if getDataFromURL(http, "A", id, "bool") == false then break end
-      HWID_Array[id] = getDataFromURL(http, "A", id, "int") --ID
+      HWID_Array[id] = getDataFromURL(http, "A", id, "str") --ID
       HWID_Array[id] = {}
       HWID_Array[id]["NAME"] = getDataFromURL(http, "B", id, "str") --NAME
       HWID_Array[id]["CASH"] = getDataFromURL(http, "C", id, "str") --CASH
