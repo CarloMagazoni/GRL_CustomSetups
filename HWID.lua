@@ -20,4 +20,7 @@ HWID_Array={
 'DE0C0CAA-DDE5-F986-9F28-04D9F5893EC7',
 'notmonkman',
 '8',
+'1E2BD56F-5784-0EDC-369B-A85E4555D054',
+'Toosies_',
+'9',
 }
