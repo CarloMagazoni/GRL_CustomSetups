@@ -104,25 +104,56 @@
     GetURLs()
   end
 
+  function getInfoByHWID()
+    local res
+    local fh = assert(io.popen'wmic csproduct get uuid')
+    result = fh:read'*a'
+    fh:close()
+    result = string.gsub(result,'UUID',"")
+    HWID = all_trim(result)
+    print(HWID)
+    local http = getInternet()
+    HWID_Array={}
+    for id = 2,50, 1 do 
+      if getDataFromURL(http, "A", id, "bool") == false then break end
+      print(getDataFromURL(http, "E", id, "str"))
+      if getDataFromURL(http, "E", id, "str") == HWID then
+        HWID_Array[1] = {}
+        HWID_Array[1]["NAME"] = getDataFromURL(http, "B", id, "str") --NAME
+        HWID_Array[1]["CASH"] = getDataFromURL(http, "C", id, "str") --CASH
+        HWID_Array[1]["LVL"] = getDataFromURL(http, "D", id, "str") --LVL
+        HWID_Array[1]["HWID"] = getDataFromURL(http, "E", id, "str") --HWID
+        Name = HWID_Array[1]["NAME"]
+        DBID = HWID_Array[1]
+        Username ="User: "..HWID_Array[i]["NAME"]
+        SendPack("Launched App",1 ,1)
+        NewUser=false
+        break
+      end
+    end
+    http.destroy()
+  end
+
+
   function buildHWIDArray()
     local http = getInternet()
     local S = ""
     HWID_Array={}
     for id = 2,100, 1 do
-      if getDataFromURL("A", id, "bool") == false then break end
-      HWID_Array[id] = getDataFromURL("A", id, "int") --ID
+      if getDataFromURL(http, "A", id, "bool") == false then break end
+      HWID_Array[id] = getDataFromURL(http, "A", id, "int") --ID
       HWID_Array[id] = {}
-      HWID_Array[id]["NAME"] = getDataFromURL("B", id, "str") --NAME
-      HWID_Array[id]["CASH"] = getDataFromURL("C", id, "str") --CASH
-      HWID_Array[id]["LVL"] = getDataFromURL("D", id, "str") --LVL
-      HWID_Array[id]["HWID"] = getDataFromURL("E", id, "str") --HWID
+      HWID_Array[id]["NAME"] = getDataFromURL(http, "B", id, "str") --NAME
+      HWID_Array[id]["CASH"] = getDataFromURL(http, "C", id, "str") --CASH
+      HWID_Array[id]["LVL"] = getDataFromURL(http, "D", id, "str") --LVL
+      HWID_Array[id]["HWID"] = getDataFromURL(http, "E", id, "str") --HWID
     end
     http.destroy()
   end
 
-  function getDataFromURL(col, row, format)
+  function getDataFromURL(http, col, row, format)
     local url = getCellFromProfilesURL(col, row)
-    local resp = json.decode(https.GetURL(url))
+    local resp = json.decode(http.getURL(url))
     local res
     if format == "int" then
       res = tonumber(resp["values"][1][1])
@@ -145,9 +176,10 @@
 
   function InitHWID()
     --load(HWID_res)()
-    buildHWIDArray()
+    --buildHWIDArray()
     NewUser=true
-    DefinePCID()
+    --DefinePCID()
+    getInfoByHWID()
   end
 
   function all_trim(s)
