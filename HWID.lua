@@ -17,4 +17,7 @@ HWID_Array={
 'C59C1E7C-6C68-DC1F-A792-047C160617BE',
 'v takt',
 '7',
+'DE0C0CAA-DDE5-F986-9F28-04D9F5893EC7',
+'notmonkman',
+'8',
 }
