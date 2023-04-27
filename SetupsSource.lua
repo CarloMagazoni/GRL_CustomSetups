@@ -104,26 +104,37 @@
     GetURLs()
   end
 
+  local CashResp = json.decode(https.GetURL(CashURL))
+  local AccountCash = tonumber(CashResp["values"][1][1])
 
   function buildHWIDArray()
     local http = getInternet()
     local S = ""
     HWID_Array={}
     for id = 2,100, 1 do
-      row = tostring(id)
-      local url = getCellFromProfilesURL("A", id) --ID
-      if tostring(http.getURL(url)) == "" then break end
-      HWID_Array[id] = http.getURL(url)
-      url = getCellFromProfilesURL("B", id) --Username
-      HWID_Array[id]["NAME"] = http.getURL(url)
-      url = getCellFromProfilesURL("C", id) --Cash
-      HWID_Array[id]["CASH"] = http.getURL(url)
-      url = getCellFromProfilesURL("D", id) --EXP
-      HWID_Array[id]["EXP"] = http.getURL(url)
-      url = getCellFromProfilesURL("E", id) --HWID
-      HWID_Array[id]["HWID"] = http.getURL(url)
+      HWID_Array[id] = getDataFromURL("A", id, "int") --ID
+      HWID_Array[id]["NAME"] = getDataFromURL("B", id, "str") --NAME
+      HWID_Array[id]["CASH"] = getDataFromURL("C", id, "str") --CASH
+      HWID_Array[id]["LVL"] = getDataFromURL("D", id, "str") --LVL
+      HWID_Array[id]["HWID"] = getDataFromURL("E", id, "str") --HWID
     end
     http.destroy()
+  end
+
+  function getDataFromURL(col, row, format)
+    local url = getCellFromProfilesURL(col, row)
+    local resp = json.decode(https.GetURL(url))
+    local res
+    if format == "int" then
+      res = tonumber(resp["values"][1][1])
+      return res
+    elseif format == "str"
+      res = tostring(resp["values"][1][1])
+      return res
+    elseif format == "bool"
+      if resp["values"] == nil then res = false else res = true end
+      return res
+    end
   end
 
   function getCellFromProfilesURL(col, row)
