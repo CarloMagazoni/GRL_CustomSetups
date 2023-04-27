@@ -1,4 +1,4 @@
---CUSTOM SETUPS v1.6.x
+--CUSTOM SETUPS v1.8.x
 
   json = require("json")
 
@@ -104,8 +104,38 @@
     GetURLs()
   end
 
+
+  function buildHWIDArray()
+    local http = getInternet()
+    local S = ""
+    HWID_Array={}
+    for id = 2,100, 1 do
+      row = tostring(id)
+      local url = getCellFromProfilesURL("A", id) --ID
+      if tostring(http.getURL(url)) == "" then break end
+      HWID_Array[id] = http.getURL(url)
+      url = getCellFromProfilesURL("B", id) --Username
+      HWID_Array[id]["NAME"] = http.getURL(url)
+      url = getCellFromProfilesURL("C", id) --Cash
+      HWID_Array[id]["CASH"] = http.getURL(url)
+      url = getCellFromProfilesURL("D", id) --EXP
+      HWID_Array[id]["EXP"] = http.getURL(url)
+      url = getCellFromProfilesURL("E", id) --HWID
+      HWID_Array[id]["HWID"] = http.getURL(url)
+    end
+    http.destroy()
+  end
+
+  function getCellFromProfilesURL(col, row)
+    local S = ""
+    local url = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/"..col..row.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+    return url
+  end
+
+
   function InitHWID()
-    load(HWID_res)()
+    --load(HWID_res)()
+    buildHWIDArray()
     NewUser=true
     DefinePCID()
   end
@@ -121,12 +151,12 @@
     fh:close()
     result = string.gsub(result,'UUID',"")
     HWID = all_trim(result)
-    for i = 1,#HWID_Array-1, 3 do
-     if HWID == HWID_Array[i] then
-       Name = HWID_Array[i+1]
-       DBID = HWID_Array[i+2]
-       Username ="User: "..HWID_Array[i+1]
-       StartTimer = os.time()
+    for i = 2,#HWID_Array, 1 do
+     if HWID == HWID_Array[i]["HWID"] then
+       Name = HWID_Array[i]["USERNAME"]
+       DBID = HWID_Array[i]
+       Username ="User: "..HWID_Array[i]["USERNAME"]
+       --StartTimer = os.time()
        SendPack("Launched App",1 ,1)
        NewUser=false
        break
@@ -204,11 +234,11 @@
          elseif pic == 2 then UDF1.Pic4.Visible=true
         end
 
-        UDF1.Caption="Custom Setups | Online v1.8.0"
+        UDF1.Caption="Custom Setups | Online v1.8.2"
         --UDF1.UserNameLabel.Alignment = "taRightJustify"
         local SpaceBars = ""
         UDF1.UserNameLabel.Caption = Name..SpaceBars
-        if Username ~= "VioLence" then
+        if Name ~= "VioLence" then
           UDF1.DevButton.Visible = false
         else UDF1.DevButton.Visible = true
         end
@@ -3167,12 +3197,12 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/50))*1000 --
+        local ApplyForce = (1 - (Distance/50))*1.5 --
         return ApplyForce
       end
 
       function CalculateSlipTractionLoss(Distance)
-        local TractionLoss = (1 - (Distance/50))*0.0
+        local TractionLoss = (1 - (Distance/50))*0.5
         return TractionLoss
       end
 
@@ -3182,7 +3212,7 @@
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
         if (Side < 2 and Side > -2) and (FrontSide > 3 and FrontSide < 50) then
-          if Lenght < 300 then
+          if Lenght < 80 then
             local CurrentForce = RWDSetted
             local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
