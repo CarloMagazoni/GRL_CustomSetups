@@ -109,6 +109,7 @@
     local S = ""
     HWID_Array={}
     for id = 2,100, 1 do
+      if getDataFromURL("A", id, "bool") == false then break end
       HWID_Array[id] = getDataFromURL("A", id, "int") --ID
       HWID_Array[id]["NAME"] = getDataFromURL("B", id, "str") --NAME
       HWID_Array[id]["CASH"] = getDataFromURL("C", id, "str") --CASH
