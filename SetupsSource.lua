@@ -3172,7 +3172,7 @@
       end
 
       function CalculateSlipTractionLoss(Distance)
-        local TractionLoss = (1 - (Distance/50))*0.1
+        local TractionLoss = (1 - (Distance/50))*0.0
         return TractionLoss
       end
 
@@ -3182,7 +3182,7 @@
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
         if (Side < 2 and Side > -2) and (FrontSide > 3 and FrontSide < 50) then
-          if Lenght < 50 then
+          if Lenght < 200 then
             local CurrentForce = RWDSetted
             local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
