@@ -3167,7 +3167,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/50))*20 --
+        local ApplyForce = (1 - (Distance/50))*1000 --
         return ApplyForce
       end
 
@@ -3182,7 +3182,7 @@
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
         if (Side < 2 and Side > -2) and (FrontSide > 3 and FrontSide < 50) then
-          if Lenght < 200 then
+          if Lenght < 300 then
             local CurrentForce = RWDSetted
             local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
