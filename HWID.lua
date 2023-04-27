@@ -13,8 +13,8 @@ HWID_Array={
 '5',
 '3637BB5A-9AB3-6189-0E39-244BFE818CDA',
 'Versat1led',
-'6'
+'6',
 'C59C1E7C-6C68-DC1F-A792-047C160617BE',
 '-v_takt',
-'7'
+'7',
 }
