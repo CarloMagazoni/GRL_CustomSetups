@@ -123,7 +123,7 @@
         HWID_Array[1]["HWID"] = getDataFromURL(http, "E", id, "str") --HWID
         Name = HWID_Array[1]["NAME"]
         DBID = HWID_Array[1]
-        Username ="User: "..HWID_Array[i]["NAME"]
+        Username ="User: "..HWID_Array[1]["NAME"]
         SendPack("Launched App",1 ,1)
         NewUser=false
         break
