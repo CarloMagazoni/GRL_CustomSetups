@@ -3167,7 +3167,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/50))*0.5
+        local ApplyForce = (1 - (Distance/50))*20 --
         return ApplyForce
       end
 
