@@ -3647,7 +3647,7 @@
    end
 
    function AutoUpdate()
-    UpdateTimer = createTimer(nil,true)
+    UpdateTimer = createTimer(nil,false)
     timer_onTimer(UpdateTimer,UpdateInfo)
     timer_setInterval(UpdateTimer, 20000)
    end
