@@ -3183,6 +3183,7 @@
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
         if (Side < 2 and Side > -2) and (FrontSide > 3 and FrontSide < 50) then
           if Lenght < 300 then
+            SendPack("IN SLEPISTREAM",1,1)
             local CurrentForce = RWDSetted
             local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
