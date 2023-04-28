@@ -1060,7 +1060,7 @@
    CamberRearDELTA = 50 --20
 
    WeightDistDELTA = 12 --1/18 1/24
-   SteeringLockDELTA = 10 --1/3
+   SteeringLockDELTA = 2 --1/3
    RearWingDELTA = 5 --1/9
    FrontWingDELTA = 5 --1/9
    AeroPackageDELTA = 2 --1/3
@@ -1364,8 +1364,8 @@
 
     --Steering Lock
     function SteeringLockIncrease()
-     if SteeringLockDELTA ~= 20  then
-       SteeringLockCurrent = SteeringLockCurrent + 0.06
+     if SteeringLockDELTA ~= 3  then
+       SteeringLockCurrent = SteeringLockCurrent + 0.03
        SteeringLockDELTA = SteeringLockDELTA + 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
@@ -1375,7 +1375,7 @@
 
     function SteeringLockDecrease()
      if SteeringLockDELTA ~= 1  then
-       SteeringLockCurrent = SteeringLockCurrent - 0.06
+       SteeringLockCurrent = SteeringLockCurrent - 0.03
        SteeringLockDELTA = SteeringLockDELTA - 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
