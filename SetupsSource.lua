@@ -3501,7 +3501,7 @@
        if Engine~=nil then
          Engine=(Engine//1)/10
          if Engine >=0 and Engine <=100 then
-           writeFloat('[PTR+8]+150C',Engine/2)
+           --writeFloat('[PTR+8]+150C',Engine/2)
          end
          local Body = (readFloat("[[PTR+8]+D10]+824")) --844
          if Body~=nil then
