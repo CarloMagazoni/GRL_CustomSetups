@@ -548,11 +548,11 @@
       MixCurrent = HSmix
     elseif F1array[CarNameCurrent]  then
       if UDF1.HeadlightTypelabel.Enabled == true then DisableHeadlights() end
-      --UDF1.F1Label.Enabled = true
-      --UDF1.F1DEC.Enabled = true
-      --UDF1.F1INC.Enabled = true
-      --UDF1.F1Value.Enabled = true
-      DisableF1Labels()
+      UDF1.F1Label.Enabled = true
+      UDF1.F1DEC.Enabled = true
+      UDF1.F1INC.Enabled = true
+      UDF1.F1Value.Enabled = true
+      --DisableF1Labels()
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
