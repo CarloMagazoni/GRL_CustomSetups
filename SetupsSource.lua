@@ -321,10 +321,10 @@
 
   function InitOffsets()
     pCNetPlayerInfo = 0xA0
-    pCNetPed = 0x1E8
+    pCNetPed = 0x248
     oNumPlayers = 0x180
-    oRid = 0x090
-    oName = 0xA4
+    oRid = 0x30
+    oName = 0x104
     pCPed = 0x8
     pCPlayerInfo = 0x10A8 --0x10C8
     pCNavigation = 0x30
