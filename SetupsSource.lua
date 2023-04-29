@@ -3576,7 +3576,7 @@
         end
         FuelEatLoop = createTimer(nil,false)
         timer_onTimer(FuelEatLoop,FuelConsumption)
-        timer_setInterval(FuelEatLoop, 1000)
+        timer_setInterval(FuelEatLoop, 1500)
     end
 
     function EnableFuel()
@@ -3638,7 +3638,7 @@
         RefuelLoop = createTimer(nil,true)
         timer_onTimer(RefuelLoop,Refuel)
         timer_setInterval(RefuelLoop, 10)
-        writeFloat(RWDADR,0.001)
+        writeFloat(RWDADR,0.0001)
         timer_setEnabled(FuelEatLoop, false)
         UDF1.Refuel.Caption="STOP REFUELING"
         SendPack("REFUELING",0,1)
