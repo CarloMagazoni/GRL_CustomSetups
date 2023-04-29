@@ -22,7 +22,8 @@
     --local Meme_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     HWID_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/HWID.lua"
     LOG_url = CodeLogUrl()
-    REG_url = CodeRegUrl()
+    REG_url = "https://discord.com/api/webhooks/1101824513525686375/Pph2ibeUqOpDkETpYaBrelnAKpA10UXczDw6Xqy7rDjkEe0hf-dR9GoQHZLLfEgOWoMN"
+    --CodeRegUrl()
     REG_url_new = "https://hook.eu1.make.com/pssfjrcdrbr5ddth9jfvnyjss82nhz4f"
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
   end
