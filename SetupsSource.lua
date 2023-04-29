@@ -3638,7 +3638,8 @@
         RefuelLoop = createTimer(nil,true)
         timer_onTimer(RefuelLoop,Refuel)
         timer_setInterval(RefuelLoop, 10)
-        writeFloat(RWDADR,0.0001)
+        writeFloat(DownShiftADR,-1)
+        writeFloat(UpShiftADR,-1)
         timer_setEnabled(FuelEatLoop, false)
         UDF1.Refuel.Caption="STOP REFUELING"
         SendPack("REFUELING",0,1)
@@ -3648,7 +3649,8 @@
      else
         timer_setEnabled(RefuelLoop, false)
         timer_setEnabled(FuelEatLoop, true)
-        writeFloat(RWDADR,RWDCurrent)
+        writeFloat(DownShiftADR,DownShiftCurrent)
+        writeFloat(UpShiftADR,UpShiftCurrent)
         UDF1.Refuel.Caption="REFUEL"
         SendPack("REFUELING FINISHED",0,1)
         OnRefuel=false
