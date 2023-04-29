@@ -33,8 +33,8 @@ if CarNameCurrent=='VAGNER' then
  elseif CarNameCurrent=='IGNUS' then
 	 local Mass = 0
 	 local Drag = 0
-	 local FWD = -0.5
-	 local RWD = 0.5
+	 local FWD = -0.50
+	 local RWD = 0.50
 	 local UpShift = 0.2
 	 local DownShift = -1.0
 	 local Drive = 0.36
