@@ -1162,7 +1162,7 @@
     --SUSPENSION RAISE
     function SuspensionRaiseIncrease()
       if SuspensionRaiseDELTA ~= 18  then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.00575 --0.00575
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent + 0.005 --0.00575
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA + 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
@@ -1172,7 +1172,7 @@
 
     function SuspensionRaiseDecrease()
       if SuspensionRaiseDELTA ~= 1  then
-        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.00575 --0.00575
+        SuspensionRaiseCurrent = SuspensionRaiseCurrent - 0.005 --0.00575
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA - 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
@@ -1208,7 +1208,7 @@
     --Travel
     function SuspensionTravelIncrease()
       if SuspensionTravelDELTA ~= 18  then
-        SuspensionTravelCurrent = SuspensionTravelCurrent - 0.015
+        SuspensionTravelCurrent = SuspensionTravelCurrent - 0.01
         SuspensionTravelDELTA = SuspensionTravelDELTA + 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
         writeFloat(SuspensionTravelADR,SuspensionTravelCurrent)
@@ -1218,7 +1218,7 @@
 
     function SuspensionTravelDecrease()
       if SuspensionTravelDELTA ~= 1  then
-        SuspensionTravelCurrent = SuspensionTravelCurrent + 0.015
+        SuspensionTravelCurrent = SuspensionTravelCurrent + 0.01
         SuspensionTravelDELTA = SuspensionTravelDELTA - 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
         writeFloat(SuspensionTravelADR,SuspensionTravelCurrent)
@@ -1367,7 +1367,7 @@
     --Steering Lock
     function SteeringLockIncrease()
      if SteeringLockDELTA ~= 3  then
-       SteeringLockCurrent = SteeringLockCurrent + 0.03
+       SteeringLockCurrent = SteeringLockCurrent + 0.015
        SteeringLockDELTA = SteeringLockDELTA + 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
@@ -1377,7 +1377,7 @@
 
     function SteeringLockDecrease()
      if SteeringLockDELTA ~= 1  then
-       SteeringLockCurrent = SteeringLockCurrent - 0.03
+       SteeringLockCurrent = SteeringLockCurrent - 0.015
        SteeringLockDELTA = SteeringLockDELTA - 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
@@ -1388,8 +1388,8 @@
     --Rear Wing
     function RearWingIncrease()
      if RearWingDELTA ~= 9 then
-       DragCurrent = DragCurrent + 0.0000575
-       RearGripCurrent = RearGripCurrent + 0.025
+       DragCurrent = DragCurrent + 0.0000595
+       RearGripCurrent = RearGripCurrent + 0.02575
        RearWingDELTA = RearWingDELTA + 1
        UDF1.RearWingValue.Caption = RearWingDELTA
        writeFloat(DragADR,DragCurrent)
@@ -1400,8 +1400,8 @@
 
     function RearWingDecrease()
      if RearWingDELTA ~= 1 then
-       DragCurrent = DragCurrent - 0.0000575
-       RearGripCurrent = RearGripCurrent - 0.025
+       DragCurrent = DragCurrent - 0.0000595
+       RearGripCurrent = RearGripCurrent - 0.02575
        RearWingDELTA = RearWingDELTA - 1
        UDF1.RearWingValue.Caption = RearWingDELTA
        writeFloat(DragADR,DragCurrent)
@@ -1414,7 +1414,7 @@
     function FrontWingIncrease()
      if FrontWingDELTA ~= 9 then
        DragCurrent = DragCurrent + 0.000026
-       FrontGripCurrent = FrontGripCurrent + 0.013
+       FrontGripCurrent = FrontGripCurrent + 0.01
        FrontWingDELTA = FrontWingDELTA + 1
        UDF1.FrontWingValue.Caption = FrontWingDELTA
        writeFloat(DragADR,DragCurrent)
@@ -1426,7 +1426,7 @@
     function FrontWingDecrease()
      if FrontWingDELTA ~= 1 then
        DragCurrent = DragCurrent - 0.000026
-       FrontGripCurrent = FrontGripCurrent - 0.013
+       FrontGripCurrent = FrontGripCurrent - 0.01
        FrontWingDELTA = FrontWingDELTA - 1
        UDF1.FrontWingValue.Caption = FrontWingDELTA
        writeFloat(DragADR,DragCurrent)
@@ -1438,10 +1438,10 @@
     --AeroPackage
     function AeroPackageIncrease()
      if AeroPackageDELTA ~= 3  then
-       DragCurrent = DragCurrent + 0.0008
-       FrontGripCurrent = FrontGripCurrent + 0.3
-       RearGripCurrent = RearGripCurrent + 0.15
-       MaxFlatVelCurrent = MaxFlatVelCurrent - 10
+       DragCurrent = DragCurrent + 0.000875
+       FrontGripCurrent = FrontGripCurrent + 0.4
+       RearGripCurrent = RearGripCurrent + 0.25
+       MaxFlatVelCurrent = MaxFlatVelCurrent - 15
        AeroPackageDELTA = AeroPackageDELTA + 1
        if AeroPackageDELTA==3 then
           UDF1.AeroPackageValue.Caption = 'High downforce'
@@ -1459,10 +1459,10 @@
 
     function AeroPackageDecrease()
      if AeroPackageDELTA ~= 1  then
-       DragCurrent = DragCurrent - 0.0008
-       FrontGripCurrent = FrontGripCurrent - 0.3
-       RearGripCurrent = RearGripCurrent - 0.15
-       MaxFlatVelCurrent = MaxFlatVelCurrent + 10
+       DragCurrent = DragCurrent - 0.000875
+       FrontGripCurrent = FrontGripCurrent - 0.4
+       RearGripCurrent = RearGripCurrent - 0.25
+       MaxFlatVelCurrent = MaxFlatVelCurrent + 15
        AeroPackageDELTA = AeroPackageDELTA - 1
        if AeroPackageDELTA==1 then
           UDF1.AeroPackageValue.Caption = 'Low downforce'
