@@ -3595,7 +3595,7 @@
         FuelEatLoop.destroy()
         UDF1.FuelB.Caption="ENABLE FUEL"
         SendPack("DISABLED FUEL SYSTEM",0,1)
-        --messageDialog("Back to pits to disable fuel system",mtInformation,mbOk)
+        messageDialog("Back to pits to disable fuel system",mtInformation,mbOk)
         FuelSystemEnabled=false
         HotRefuel.destroy()
         IncMix.destroy()
@@ -3668,11 +3668,11 @@
      end
     end
 
-    --function CreateFuelHotkey()
-      --HotRefuel = createHotkey(StartNStopRefuel,VK_MULTIPLY)
-      --IncMix = createHotkey(MixIncrease,VK_RIGHT)
-      --DecMix = createHotkey(MixDecrease,VK_LEFT)
-    --end
+    function CreateFuelHotkey()
+      HotRefuel = createHotkey(StartNStopRefuel,VK_MULTIPLY)
+      IncMix = createHotkey(MixIncrease,VK_RIGHT)
+      DecMix = createHotkey(MixDecrease,VK_LEFT)
+    end
   --FUEL TODO
 
   --MISC
