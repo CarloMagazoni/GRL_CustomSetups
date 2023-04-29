@@ -325,7 +325,7 @@
     oRid = 0x090
     oName = 0xA4
     pCPed = 0x8
-    pCPlayerInfo = 0x10C8
+    pCPlayerInfo = 0x10A8 --0x10C8
     pCNavigation = 0x30
     oPositionX = 0x50
     oPositionY = 0x54
@@ -547,10 +547,11 @@
       MixCurrent = HSmix
     elseif F1array[CarNameCurrent]  then
       if UDF1.HeadlightTypelabel.Enabled == true then DisableHeadlights() end
-      UDF1.F1Label.Enabled = true
-      UDF1.F1DEC.Enabled = true
-      UDF1.F1INC.Enabled = true
-      UDF1.F1Value.Enabled = true
+      --UDF1.F1Label.Enabled = true
+      --UDF1.F1DEC.Enabled = true
+      --UDF1.F1INC.Enabled = true
+      --UDF1.F1Value.Enabled = true
+      DisableF1Labels()
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
