@@ -1071,7 +1071,7 @@
    CamberRearDELTA = 50 --20
 
    WeightDistDELTA = 12 --1/18 1/24
-   SteeringLockDELTA = 2 --1/3
+   SteeringLockDELTA = 5 --1/9
    RearWingDELTA = 5 --1/9
    FrontWingDELTA = 5 --1/9
    AeroPackageDELTA = 2 --1/3
@@ -1375,21 +1375,25 @@
 
     --Steering Lock
     function SteeringLockIncrease()
-     if SteeringLockDELTA ~= 3  then
-       SteeringLockCurrent = SteeringLockCurrent + 0.015
+     if SteeringLockDELTA ~= 9  then
+       SteeringLockCurrent = SteeringLockCurrent + 0.005
+       SteeringLockRatioCurrent = SteeringLockRatioCurrent + 0.01
        SteeringLockDELTA = SteeringLockDELTA + 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
+       writeFloat(SteeringLockRatioADR,SteeringLockRatioCurrent)
        ChangedSetup=true
      end
     end
 
     function SteeringLockDecrease()
      if SteeringLockDELTA ~= 1  then
-       SteeringLockCurrent = SteeringLockCurrent - 0.015
+      SteeringLockCurrent = SteeringLockCurrent - 0.005
+      SteeringLockRatioCurrent = SteeringLockRatioCurrent - 0.01
        SteeringLockDELTA = SteeringLockDELTA - 1
        UDF1.SteeringLockValue.Caption = SteeringLockDELTA
        writeFloat(SteeringLockADR,SteeringLockCurrent)
+       writeFloat(SteeringLockRatioADR,SteeringLockRatioCurrent)
        ChangedSetup=true
      end
     end
@@ -3717,6 +3721,40 @@
   --Menumodule
 
   --EconomyModule
+  function RequireIncomingTransaction(Amount, Reason)
+    local https = GetInternet()
+    local TransactionURL = Bank_url
+    details = {
+      content= "Incoming transaction",
+      embeds= {
+              {title= Name,
+              description= Amount,
+              color= 4718336}
+              },
+      }
+    local data = json.encode(details)
+    https.postURL(TransactionURL,"payload_json="..data.."&Content-Type=".."application/json")
+    --SendPack("did a transaction request with "..Amount.." FV Dollars",0,1)
+    https.destroy()
+  end
+
+  function RequireOutcomingTransaction(Amount, Reason)
+    local https = GetInternet()
+    local TransactionURL = Bank_url
+    details = {
+      content= "Outcoming transaction",
+      embeds= {
+              {title= Name,
+              description= Amount,
+              color= 13243921}
+              },
+      }
+    local data = json.encode(details)
+    https.postURL(TransactionURL,"payload_json="..data.."&Content-Type=".."application/json")
+    --SendPack("did a transaction request with "..Amount.." FV Dollars",0,1)
+    https.destroy()
+  end
+
   --TODO Economy. New tables new structure
   function InitProfileCashAndXP()
     UDF1.UserNameLabel.Caption = Name
