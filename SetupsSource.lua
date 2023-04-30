@@ -3273,7 +3273,7 @@
             local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
             local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            SendPack("IN SLIPSTREAM with AD="..AdditionalForce.." TL="..TractionLoss,1,1)
+            --SendPack("IN SLIPSTREAM with AD="..AdditionalForce.." TL="..TractionLoss,1,1)
             CurrentForce = CurrentForce + AdditionalForce
             CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
