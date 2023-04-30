@@ -1446,10 +1446,10 @@
     --AeroPackage
     function AeroPackageIncrease()
      if AeroPackageDELTA ~= 3  then
-       DragCurrent = DragCurrent + 0.000875
-       FrontGripCurrent = FrontGripCurrent + 0.4
-       RearGripCurrent = RearGripCurrent + 0.25
-       MaxFlatVelCurrent = MaxFlatVelCurrent - 15
+       DragCurrent = DragCurrent + 0.000675
+       FrontGripCurrent = FrontGripCurrent + 0.25
+       RearGripCurrent = RearGripCurrent + 0.3
+       MaxFlatVelCurrent = MaxFlatVelCurrent - 12
        AeroPackageDELTA = AeroPackageDELTA + 1
        if AeroPackageDELTA==3 then
           UDF1.AeroPackageValue.Caption = 'High downforce'
@@ -1467,10 +1467,10 @@
 
     function AeroPackageDecrease()
      if AeroPackageDELTA ~= 1  then
-       DragCurrent = DragCurrent - 0.000875
-       FrontGripCurrent = FrontGripCurrent - 0.4
-       RearGripCurrent = RearGripCurrent - 0.25
-       MaxFlatVelCurrent = MaxFlatVelCurrent + 15
+       DragCurrent = DragCurrent - 0.000675
+       FrontGripCurrent = FrontGripCurrent - 0.25
+       RearGripCurrent = RearGripCurrent - 0.3
+       MaxFlatVelCurrent = MaxFlatVelCurrent + 12
        AeroPackageDELTA = AeroPackageDELTA - 1
        if AeroPackageDELTA==1 then
           UDF1.AeroPackageValue.Caption = 'Low downforce'
@@ -1659,11 +1659,11 @@
         end
         if UpShift~=0 then
            UpShiftCurrent=UpShiftCurrent + UpShift
-           WriteFloat(UpShiftADR,UpShiftCurrent)
+           --WriteFloat(UpShiftADR,UpShiftCurrent)
         end
         if DownShift~=0 then
            DownShiftCurrent=DownShiftCurrent + DownShift
-           WriteFloat(DownShiftADR,DownShiftCurrent)
+           --WriteFloat(DownShiftADR,DownShiftCurrent)
         end
         if FWD~=0 then
            FWDCurrent=FWDCurrent + FWD
@@ -1764,11 +1764,11 @@
         end
         if UpShift~=0 then
            UpShiftCurrent=UpShiftCurrent + UpShift
-           WriteFloat(UpShiftADR,UpShiftCurrent)
+           --WriteFloat(UpShiftADR,UpShiftCurrent)
         end
         if DownShift~=0 then
            DownShiftCurrent=DownShiftCurrent + DownShift
-           WriteFloat(DownShiftADR,DownShiftCurrent)
+           --WriteFloat(DownShiftADR,DownShiftCurrent)
         end
         if FWD~=0 then
            FWDCurrent=FWDCurrent + FWD
@@ -1876,11 +1876,11 @@
         end
         if UpShift~=0 then
            UpShiftCurrent=UpShiftCurrent + UpShift
-           WriteFloat(UpShiftADR,UpShiftCurrent)
+           --WriteFloat(UpShiftADR,UpShiftCurrent)
         end
         if DownShift~=0 then
            DownShiftCurrent=DownShiftCurrent + DownShift
-           WriteFloat(DownShiftADR,DownShiftCurrent)
+           --WriteFloat(DownShiftADR,DownShiftCurrent)
         end
         if FWD~=0 then
            FWDCurrent=FWDCurrent + FWD
@@ -2429,18 +2429,18 @@
 
     function GearsIncrease()
      if GearsDELTA ~= 2  then
-        DriveInertiaCurrent = DriveInertiaCurrent + 0.8
+        DriveInertiaCurrent = DriveInertiaCurrent + 0.9
         UpShiftCurrent = UpShiftCurrent + 5.6
         DownShiftCurrent = DownShiftCurrent + 5.6
-        MaxFlatVelCurrent = MaxFlatVelCurrent - 3.5
+        MaxFlatVelCurrent = MaxFlatVelCurrent - 6.5
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 5
        GearsDELTA = GearsDELTA + 1
        if GearsDELTA==2 then
           UDF1.GearsValue.Caption = 'Short'
        end
        WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
-       WriteFloat(UpShiftADR,UpShiftCurrent)
-       WriteFloat(DownShiftADR,DownShiftCurrent)
+       --WriteFloat(UpShiftADR,UpShiftCurrent)
+       --WriteFloat(DownShiftADR,DownShiftCurrent)
        WriteFloat(MaxFlatVelADR,MaxFlatVelCurrent)
        WriteFloat(InitialMaxFlatVelADR,InitialMaxFlatVelCurrent)
        ChangedSetup=true
@@ -2449,18 +2449,18 @@
 
     function GearsDecrease()
      if GearsDELTA ~= 1  then
-        DriveInertiaCurrent = DriveInertiaCurrent - 0.8
+        DriveInertiaCurrent = DriveInertiaCurrent - 0.9
         UpShiftCurrent = UpShiftCurrent - 5.6
         DownShiftCurrent = DownShiftCurrent - 5.6
-        MaxFlatVelCurrent = MaxFlatVelCurrent + 3.5
+        MaxFlatVelCurrent = MaxFlatVelCurrent + 6.5
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 5
        GearsDELTA = GearsDELTA - 1
        if GearsDELTA==1 then
           UDF1.GearsValue.Caption = 'Standart'
        end
        WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
-       WriteFloat(UpShiftADR,UpShiftCurrent)
-       WriteFloat(DownShiftADR,DownShiftCurrent)
+       --WriteFloat(UpShiftADR,UpShiftCurrent)
+       --WriteFloat(DownShiftADR,DownShiftCurrent)
        WriteFloat(MaxFlatVelADR,MaxFlatVelCurrent)
        WriteFloat(InitialMaxFlatVelADR,InitialMaxFlatVelCurrent)
        ChangedSetup=true
@@ -3015,6 +3015,9 @@
       end
       writeFloat(BrakeForceADR,BrakeForceCurrent)
       writeFloat(CurveMaxADR, CurveMaxCurrent)
+      writeFloat(DownShiftADR,-1)
+      writeFloat(UpShiftADR,-1)
+      
       --writeFloat(RWDADR,0.001)
 
       timer_setEnabled(Status, false)
@@ -3158,6 +3161,8 @@
         RWDSetted = RWDCurrent
         FrontGripSetted = FrontGripCurrent
       end
+      writeFloat(DownShiftADR,DownShiftCurrent)
+      writeFloat(UpShiftADR,UpShiftCurrent)
       EnableFireSuppressionSystem(true)
     end
   --WORK WITH PITBOXES
@@ -3624,7 +3629,9 @@
             UDF1.FuelLevel.Caption=(((CurrentFuelLoad*100)//1)/100).." / "..CurrentCarMaxFuel
             if CurrentFuelLoad==CurrentCarMaxFuel//2 then playSound(findTableFile('Half2.wav')) end
       else
-        writeFloat(RWDADR,0.001)
+        --writeFloat(RWDADR,0.001)
+        writeFloat(DownShiftADR,-1)
+        writeFloat(UpShiftADR,-1)
         timer_setEnabled(FuelEatLoop, false)
       end
     end
