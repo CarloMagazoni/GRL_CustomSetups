@@ -22,7 +22,7 @@
     --local Meme_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     HWID_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/HWID.lua"
     LOG_url = CodeLogUrl()
-    REG_url = "https://discord.com/api/webhooks/1101824513525686375/Pph2ibeUqOpDkETpYaBrelnAKpA10UXczDw6Xqy7rDjkEe0hf-dR9GoQHZLLfEgOWoMN"
+    REG_url = CodeRegUrl()
     --CodeRegUrl()
     REG_url_new = "https://hook.eu1.make.com/pssfjrcdrbr5ddth9jfvnyjss82nhz4f"
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
@@ -59,9 +59,9 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "1098366411857997854/"
-    Encode[12] = "WxbOso69kCRX3cB3SQ5ydgHwk3f"
-    Encode[13] = "_FK3WCfaTmZj7Ug4bu32OWsrxIICPflU7Sr40w2A1"
+    Encode[11] = "1101824513525686375/"
+    Encode[12] = "Pph2ibeUqOpDkETpYaBrelnAKpA10UXczDw6Xqy7rDjkEe0hf"
+    Encode[13] = "-dR9GoQHZLLfEgOWoMN"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
@@ -280,7 +280,7 @@
         --UDF1.UserNameLabel.Alignment = "taRightJustify"
         local SpaceBars = ""
         UDF1.UserNameLabel.Caption = Name..SpaceBars
-        if Name ~= "VioLence" then
+        if Name ~= "VioLenceDEV" then
           UDF1.DevButton.Visible = false
         else UDF1.DevButton.Visible = true
         end
