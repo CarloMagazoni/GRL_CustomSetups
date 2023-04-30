@@ -23,6 +23,7 @@
     HWID_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/HWID.lua"
     LOG_url = CodeLogUrl()
     REG_url = CodeRegUrl()
+    Bank_url = CodeBankUrl()
     --CodeRegUrl()
     REG_url_new = "https://hook.eu1.make.com/pssfjrcdrbr5ddth9jfvnyjss82nhz4f"
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
@@ -66,7 +67,7 @@
     return Coder
   end
 
-  function CodePromoUrl()
+  function CodeBankUrl()
     local Encode = {}
     Encode[1] = "://"
     Encode[2] = "dis"
@@ -78,9 +79,9 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "928372691231178753/"
-    Encode[12] = "j5NqxAgy2lyFyI3WK6_2"
-    Encode[13] = "PLDExZmEvV2pIUId2BEa8JY4YCG7cQK9kRiZ2LVaFRV2c-fA"
+    Encode[11] = "1102163747579113472/"
+    Encode[12] = "/O9kqCluMNZy3WklnWsrrVPyKSniSBAWDUQx6kobJ6RNL0"
+    Encode[13] = "gWSdKdkWYJ3StNzBrEQ0v52"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
