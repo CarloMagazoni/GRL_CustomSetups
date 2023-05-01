@@ -1454,7 +1454,7 @@
        DragCurrent = DragCurrent + 0.000675
        FrontGripCurrent = FrontGripCurrent + 0.25
        RearGripCurrent = RearGripCurrent + 0.3
-       MaxFlatVelCurrent = MaxFlatVelCurrent - 12
+       MaxFlatVelCurrent = MaxFlatVelCurrent - 18
        AeroPackageDELTA = AeroPackageDELTA + 1
        if AeroPackageDELTA==3 then
           UDF1.AeroPackageValue.Caption = 'High downforce'
@@ -1475,7 +1475,7 @@
        DragCurrent = DragCurrent - 0.000675
        FrontGripCurrent = FrontGripCurrent - 0.25
        RearGripCurrent = RearGripCurrent - 0.3
-       MaxFlatVelCurrent = MaxFlatVelCurrent + 12
+       MaxFlatVelCurrent = MaxFlatVelCurrent + 18
        AeroPackageDELTA = AeroPackageDELTA - 1
        if AeroPackageDELTA==1 then
           UDF1.AeroPackageValue.Caption = 'Low downforce'
@@ -3031,6 +3031,20 @@
       UDF1.ChassisPageButton.Enabled = true
       UDF1.SuspensionPageButton.Enabled = true
       UDF1.AdvancedPageButton.Enabled = true
+      --[[if EasyMode == false then
+        UDF1.EnginePageButton.Enabled = true
+        UDF1.ChassisPageButton.Enabled = true
+        UDF1.SuspensionPageButton.Enabled = true
+        UDF1.AdvancedPageButton.Enabled = true
+        UDF1.EasySetupPage.Enabled = true
+      end
+      if EasyMode == true then
+        UDF1.EnginePageButton.Enabled = false
+        UDF1.ChassisPageButton.Enabled = false
+        UDF1.SuspensionPageButton.Enabled = false
+        UDF1.AdvancedPageButton.Enabled = false
+        UDF1.EasySetupPage.Enabled = true
+      end]]
 
       UDF1.HintBox.Visible=false
 
@@ -3278,7 +3292,7 @@
             local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
             local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            --SendPack("IN SLIPSTREAM with AD="..AdditionalForce.." TL="..TractionLoss,1,1)
+            SendPack("IN SLIPSTREAM with AD="..AdditionalForce.." TL="..TractionLoss,1,1)
             CurrentForce = CurrentForce + AdditionalForce
             CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
