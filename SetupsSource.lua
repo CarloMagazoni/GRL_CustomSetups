@@ -3277,7 +3277,7 @@
       end
 
       function CalculateSlipTractionLoss(Distance)
-        local TractionLoss = (1 - (Distance/50))*0.2
+        local TractionLoss = (1 - (Distance/50))*0.05
         return TractionLoss
       end
 
