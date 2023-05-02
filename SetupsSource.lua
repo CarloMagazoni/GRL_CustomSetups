@@ -3277,7 +3277,7 @@
       end
 
       function CalculateSlipTractionLoss(Distance)
-        local TractionLoss = (1 - (Distance/50))*0.5
+        local TractionLoss = (1 - (Distance/50))*0.2
         return TractionLoss
       end
 
@@ -3286,13 +3286,13 @@
         local Side = OpponentX*HeadX + OpponentY*HeadY + R
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
-        if (Side < 2 and Side > -2) and (FrontSide > 3 and FrontSide < 50) then
+        if (Side < 3 and Side > -3) and (FrontSide > 3 and FrontSide < 50) then
           if Lenght < 80 then
             local CurrentForce = RWDSetted
             local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
             local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            --SendPack("IN SLIPSTREAM with AD="..AdditionalForce.." TL="..TractionLoss,1,1)
+            SendPack("IN SLIPSTREAM with AD="..AdditionalForce.." TL="..TractionLoss,1,1)
             CurrentForce = CurrentForce + AdditionalForce
             CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
