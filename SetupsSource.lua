@@ -3652,10 +3652,12 @@
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
+            wasInSlip = true
             --writeFloat(FrontGripADR,CurrentTractionlLoss)
           end
         else
           writeFloat(RWDADR,RWDSetted)
+          wasInSlip = false
           --writeFloat(FrontGripADR,FrontGripSetted)
         end
       end
@@ -3680,6 +3682,7 @@
                     OppoX= readFloat(CNav + oPositionX)
                     OppoY= readFloat(CNav + oPositionY)
                     DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY)
+                    if wasInSlip == true then i = i-1 end
                   end
                 end
               end
