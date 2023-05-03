@@ -2519,7 +2519,11 @@
          MixCurrent = MixCurrent + 0.0000009
          MixDELTA = MixDELTA + 1
          RWDCurrent = RWDCurrent + 0.11
-         writeFloat(RWDADR,RWDCurrent)
+         if InThePit == false then 
+          RWDSetted = RWDCurrent
+          writeFloat(RWDADR,RWDSetted)
+         else writeFloat(RWDADR,RWDCurrent)
+         end
          speak(MixDELTA)
          UDF1.MixValue.Caption = MixDELTA
          UDF1.MixValueDisp.Caption = MixDELTA
@@ -2533,7 +2537,11 @@
          MixCurrent = MixCurrent - 0.0000009
          MixDELTA = MixDELTA - 1
          RWDCurrent = RWDCurrent - 0.11
-         writeFloat(RWDADR,RWDCurrent)
+         if InThePit == false then 
+          RWDSetted = RWDCurrent
+          writeFloat(RWDADR,RWDSetted)
+         else writeFloat(RWDADR,RWDCurrent)
+         end
          speak(MixDELTA)
          UDF1.MixValue.Caption = MixDELTA
          UDF1.MixValueDisp.Caption = MixDELTA
@@ -3087,7 +3095,7 @@
       if EnableSlipStream==true then
         if CheckSlipStreamTimer then CheckSlipStreamTimer.destroy() end
         if RWDSetted then writeFloat(RWDADR, RWDSetted) end
-        if FrontGripSetted then writeFloat(FrontGripADR,FrontGripSetted) end
+        --if FrontGripSetted then writeFloat(FrontGripADR,FrontGripSetted) end
       end
     end
 
@@ -3175,10 +3183,10 @@
       if EnableSlipStream == true then
         CheckSlipStreamTimer = createTimer(nil, false)
         timer_onTimer(CheckSlipStreamTimer, CheckOppoPositionSlip)
-        timer_setInterval(CheckSlipStreamTimer, 100)
+        timer_setInterval(CheckSlipStreamTimer, 50)
         timer_setEnabled(CheckSlipStreamTimer, true)
         RWDSetted = RWDCurrent
-        FrontGripSetted = FrontGripCurrent
+        --FrontGripSetted = FrontGripCurrent
       end
       writeFloat(DownShiftADR,DownShiftCurrent)
       writeFloat(UpShiftADR,UpShiftCurrent)
@@ -3272,7 +3280,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/50))*2 --
+        local ApplyForce = (1 - (Distance/50))*1.5 --
         return ApplyForce
       end
 
@@ -3287,20 +3295,20 @@
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
         if (Side < 1.5 and Side > -1.5) and (FrontSide > 3 and FrontSide < 50) then
-          if Lenght < 80 then
+          if Lenght < 100 then
             local CurrentForce = RWDSetted
-            local CurrentTractionlLoss = FrontGripSetted
+            --local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
-            local TractionLoss = CalculateSlipTractionLoss(Lenght)
+            --local TractionLoss = CalculateSlipTractionLoss(Lenght)
             --SendPack("IN SLIPSTREAM with AD="..AdditionalForce.." TL="..TractionLoss,1,1)
             CurrentForce = CurrentForce + AdditionalForce
-            CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
+            --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
-            writeFloat(FrontGripADR,CurrentTractionlLoss)
+            --writeFloat(FrontGripADR,CurrentTractionlLoss)
           end
         else
           writeFloat(RWDADR,RWDSetted)
-          writeFloat(FrontGripADR,FrontGripSetted)
+          --writeFloat(FrontGripADR,FrontGripSetted)
         end
       end
 
