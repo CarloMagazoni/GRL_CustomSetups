@@ -267,6 +267,8 @@
         CloseCE()
       elseif version ~= TABLE_VERSION then
         messageDialog("Your version is outdated, please download the latest version.", mtInformation, mbOK)
+        local fh = assert(io.popen'explorer "https://mega.nz/file/oQYCiBLB#kzRij71Se6NjQeROgkcmNlg_NrK8oVuyvUC254nkDhs"')
+        fh:close()
         CloseCE()
       else
         form_show(UDF1)
