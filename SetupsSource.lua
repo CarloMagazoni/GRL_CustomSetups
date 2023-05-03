@@ -212,6 +212,7 @@
     LOG_History = ''
     Username = ''
     ChangedSetup = false
+    logMessage = ''
   end
 
   function SendPack(DATA,DAY,TIME)
@@ -223,7 +224,7 @@
       DataDay = ""
     end
     if TIME ~= 0 then
-      DataTime = " at "..(os.date("%X"))
+      DataTime = " at "..(os.date("!%H:%M:%S"))
     else
       DataTime = ""
     end
@@ -231,21 +232,34 @@
     LogSender.postURL(LOG_url,"content="..LOG_History)
   end
 
+  function addLog(string)
+    logMessage = logMessage..string.." at "..(os.date("!%H:%M:%S")).." UTC".."\n"
+  end   
+
+  function SendLogs(url, reason)
+    local details = {
+      content= reason,
+      embeds= {
+              {title= Name,
+              description= logMessage,
+              color= 13828095}
+              },
+      }
+    local data = json.encode(details)
+    LogSender.postURL(url,"payload_json="..data.."&Content-Type=".."application/json")
+    logMessage = ''
+  end
+
   function RegisterNewUser(ID)
     local DiscordNick = inputQuery('Enter your SocialClub nickname','','')
     if DiscordNick ~= nil then
       local REG_http = getInternet()
-      local content = "New user launched Custom Setups \n"..DiscordNick.."\n"..ID.."\n"..(os.date("%x")).."\n"..(os.date("%X"))
+      local content = "New user launched Custom Setups \n"..DiscordNick.."\n"..ID.."\n"..(os.date("%x")).."\n"..(os.date("!%H:%M:%S"))
       REG_http.postURL(REG_url,"content="..content)
       REG_http.destroy()
     else
       CloseCE()
     end
-  end
-
-  function SendDebug(DATA)
-    LOG_History = DATA
-    LogSender.postURL(DEBUG_URL,"content="..LOG_History)
   end
 
   function CheckForNewUser()
@@ -2573,7 +2587,7 @@
         UDF1.EasyDF2.Caption = 'STANDART'
         UDF1.EasyDF1.Caption = 'LOW'
         local FWTarget = 7
-        local RWTarget = 8
+        local RWTarget = 7
         
         local current
         if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
@@ -2641,7 +2655,7 @@
         UDF1.EasyDF2.Caption = 'STANDART'
         UDF1.EasyDF1.Caption = '-> LOW <-'
         local FWTarget = 2
-        local RWTarget = 4
+        local RWTarget = 3
         
         local current
         if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
@@ -2675,7 +2689,7 @@
         UDF1.EasySus2.Caption = 'STANDART'
         UDF1.EasySus1.Caption = 'SOFT'
         local DumpTarget = 30
-        local StiffnessTarget = 9
+        local StiffnessTarget = 12
         local RideHightTarget = 2
         local FrontARBTarget = 12
         local RearARBTarget = 11
@@ -2796,11 +2810,11 @@
         UDF1.EasySus3.Caption = 'STIFF'
         UDF1.EasySus2.Caption = 'STANDART'
         UDF1.EasySus1.Caption = '-> SOFT <-'
-        local DumpTarget = 6
-        local StiffnessTarget = 4
+        local DumpTarget = 14
+        local StiffnessTarget = 7
         local RideHightTarget = 4
-        local FrontARBTarget = 6
-        local RearARBTarget = 4
+        local FrontARBTarget = 7
+        local RearARBTarget = 6
         
         local current
         if SuspensionDumpDELTA < DumpTarget then
@@ -3628,7 +3642,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/50))*1.5 --
+        local ApplyForce = (1 - (Distance/100))*1.5 --
         return ApplyForce
       end
 
@@ -3637,7 +3651,7 @@
         return TractionLoss
       end
 
-      function DoSlipstream(HeadX,HeadY,PlayerX,PlayerY,OpponentX,OpponentY)
+      function DoSlipstream(HeadX,HeadY,PlayerX,PlayerY,OpponentX,OpponentY,target)
         local R = (PlayerX*HeadX + PlayerY*HeadY) * (-1)
         local Side = OpponentX*HeadX + OpponentY*HeadY + R
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
@@ -3648,7 +3662,7 @@
             --local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
             --local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce,1,1)
+            SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
@@ -3681,7 +3695,7 @@
                   if CNav and CNav ~= 0 then
                     OppoX= readFloat(CNav + oPositionX)
                     OppoY= readFloat(CNav + oPositionY)
-                    DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY)
+                    DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
                     if wasInSlip == true then i = i-1 end
                   end
                 end
