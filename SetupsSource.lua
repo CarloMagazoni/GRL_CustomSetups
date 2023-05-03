@@ -10,7 +10,7 @@
   end
 
   function SetURLs()
-    TABLE_VERSION = 19
+    if TABLE_VERSION == nil then TABLE_VERSION = 18 end
     version_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/versions.txt"
     GT3BOP_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/GT3BOP.lua"
     GTE_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/GTE.lua"
