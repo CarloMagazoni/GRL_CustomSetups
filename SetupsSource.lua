@@ -2586,8 +2586,8 @@
         UDF1.EasyDF3.Caption = '-> HIGH <-'
         UDF1.EasyDF2.Caption = 'STANDART'
         UDF1.EasyDF1.Caption = 'LOW'
-        local FWTarget = 7
-        local RWTarget = 7
+        local FWTarget = 8
+        local RWTarget = 8
         
         local current
         if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
@@ -2654,8 +2654,8 @@
         UDF1.EasyDF3.Caption = 'HIGH'
         UDF1.EasyDF2.Caption = 'STANDART'
         UDF1.EasyDF1.Caption = '-> LOW <-'
-        local FWTarget = 2
-        local RWTarget = 3
+        local FWTarget = 1
+        local RWTarget = 1
         
         local current
         if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
