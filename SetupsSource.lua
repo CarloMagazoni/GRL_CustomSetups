@@ -2588,8 +2588,10 @@
         UDF1.EasyDF1.Caption = 'LOW'
         local FWTarget = 8
         local RWTarget = 8
+        local AeroPackageTarget = 2
         
         local current
+        if (AeroPackageDELTA < AeroPackageTarget) then AeroPackageIncrease() end
         if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
           current = FrontWingDELTA
           for i = 0, (FWTarget - current)-1, 1 do
@@ -2622,8 +2624,10 @@
         UDF1.EasyDF1.Caption = 'LOW'
         local FWTarget = 5
         local RWTarget = 5
+        local AeroPackageTarget = 2
         
         local current
+        if (AeroPackageDELTA < AeroPackageTarget) then AeroPackageIncrease() end
         if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
           current = FrontWingDELTA
           for i = 0, (FWTarget - current)-1, 1 do
@@ -2654,10 +2658,12 @@
         UDF1.EasyDF3.Caption = 'HIGH'
         UDF1.EasyDF2.Caption = 'STANDART'
         UDF1.EasyDF1.Caption = '-> LOW <-'
-        local FWTarget = 1
-        local RWTarget = 1
+        local FWTarget = 4
+        local RWTarget = 6
+        local AeroPackageTarget = 1
         
         local current
+        if (AeroPackageDELTA > AeroPackageTarget) then AeroPackageDecrease() end
         if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
           current = FrontWingDELTA
           for i = 0, (FWTarget - current)-1, 1 do
