@@ -1,4 +1,4 @@
---CUSTOM SETUPS v1.9.0
+--CUSTOM SETUPS v1.9.1
 
   json = require("json")
 
@@ -3579,7 +3579,7 @@
       writeFloat(DownShiftADR,DownShiftCurrent)
       writeFloat(UpShiftADR,UpShiftCurrent)
       EnableFireSuppressionSystem(true)
-      if ChangedSetup == true then (writeFloat("[[PTR+8]+D10]+824", -100)) end
+      if ChangedSetup == true then writeFloat("[[PTR+8]+D10]+824", -100) end
     end
   --WORK WITH PITBOXES
 
