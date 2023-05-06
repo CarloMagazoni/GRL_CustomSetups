@@ -955,8 +955,8 @@
     if readFloat(FWDADR)~= FWDDefault or FWDCurrent~=FWDDefault then writeFloat(FWDADR,FWDDefault) end
     if readFloat(RWDADR)~= RWDDefault or RWDCurrent~=RWDDefault then writeFloat(RWDADR,RWDDefault) end
     if DriveInertiaCurrent~=DriveInertiaDefault then writeFloat(DriveInertiaADR,DriveInertiaDefault) end
-    if UpShiftCurrent~=UpShiftDefault then writeFloat(UpShiftADR,UpShiftDefault) end
-    if DownShiftCurrent~=DownShiftDefault then writeFloat(DownShiftADR,DownShiftDefault) end
+    if readFloat(UpShiftADR)~= UpShiftDefault or UpShiftCurrent~=UpShiftDefault then writeFloat(UpShiftADR,UpShiftDefault) end
+    if readFloat(DownShiftADR)~= DownShiftDefault or DownShiftCurrent~=DownShiftDefault then writeFloat(DownShiftADR,DownShiftDefault) end
     if InitialDriveForceCurrent~=InitialDriveForceDefault then writeFloat(InitialDriveForceADR,InitialDriveForceDefault) end
     if MaxFlatVelCurrent~=MaxFlatVelDefault then writeFloat(MaxFlatVelADR,MaxFlatVelDefault) end
     if InitialMaxFlatVelCurrent~=InitialMaxFlatVelDefault then writeFloat(InitialMaxFlatVelADR,InitialMaxFlatVelDefault) end
@@ -3370,31 +3370,36 @@
 
   --WORK WITH PITBOXES
     function RememberMyPit()
-       x=readFloat("[[PTR+8]+30]+50")//1
-       y=readFloat("[[PTR+8]+30]+54")//1
-       z=readFloat("[[PTR+8]+30]+58")//1
-       UDF1.EnterBoxButton.Enabled = false
-       if EasyMode == false then UDF1.FuelB.Enabled = true end
-       HaveBox = true
-       InThePit = false
-       PositionChecker = createTimer(nil, true)  -- create a Timer object and assign it to variable t
-       timer_onTimer(PositionChecker, CheckPos)   -- When the timer ticks, call the function main
-       timer_setInterval(PositionChecker, 1000) -- Sets the tickrate of the timer in milliseconds
+      if CarNameADR ~= getAddress("[[[PTR+8]+D10]+20]+298") then InitCar() end
+      local isFirtsPit
+      x=readFloat("[[PTR+8]+30]+50")//1
+      y=readFloat("[[PTR+8]+30]+54")//1
+      z=readFloat("[[PTR+8]+30]+58")//1
+      UDF1.EnterBoxButton.Enabled = false
+      if EasyMode == false then UDF1.FuelB.Enabled = true end
+      if HaveBox == false then isFirtsPit = true end
+      HaveBox = true
+      InThePit = false
+      PositionChecker = createTimer(nil, true)  -- create a Timer object and assign it to variable t
+      timer_onTimer(PositionChecker, CheckPos)   -- When the timer ticks, call the function main
+      timer_setInterval(PositionChecker, 1000) -- Sets the tickrate of the timer in milliseconds
+      if isFirtsPit == true then InBox() end
     end
 
     function BackToThePits()
      if readFloat('GTA5.exe+2630FC4') == 0 then
-       writeFloat("[[[PTR+8]+D10]+30]+50", x)
-       writeFloat("[[[PTR+8]+D10]+30]+54", y)
-       writeFloat("[[[PTR+8]+D10]+30]+58", z+0.5)
-       writeFloat("[[PTR+8]+D10]+90", x)
-       writeFloat("[[PTR+8]+D10]+94", y)
-       writeFloat("[[PTR+8]+D10]+98", z + 0.5)
-       SendPack("TP TO PIT",0,1)
+      writeFloat("[[[PTR+8]+D10]+30]+50", x)
+      writeFloat("[[[PTR+8]+D10]+30]+54", y)
+      writeFloat("[[[PTR+8]+D10]+30]+58", z+0.5)
+      writeFloat("[[PTR+8]+D10]+90", x)
+      writeFloat("[[PTR+8]+D10]+94", y)
+      writeFloat("[[PTR+8]+D10]+98", z + 0.5)
+      SendPack("TP TO PIT",0,1)
      end
     end
 
     function InBox()
+      if CarNameADR ~= getAddress("[[[PTR+8]+D10]+20]+298") then InitCar() end
       timer_setEnabled(PositionChecker,false)
       if FuelSystemEnabled==true then
         if FuelEatLoop then
@@ -3574,6 +3579,7 @@
       writeFloat(DownShiftADR,DownShiftCurrent)
       writeFloat(UpShiftADR,UpShiftCurrent)
       EnableFireSuppressionSystem(true)
+      if ChangedSetup == true then (writeFloat("[[PTR+8]+D10]+824", -100)) end
     end
   --WORK WITH PITBOXES
 
