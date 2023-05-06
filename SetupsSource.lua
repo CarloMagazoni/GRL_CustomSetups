@@ -3931,7 +3931,7 @@
          if Body~=nil then
            Body=(Body//1)/10
            UDF1.EngineHP.Caption=(Engine.."%")
-           UDF1.CarStatusCheck.Visible=false
+           --UDF1.CarStatusCheck.Visible=false
            if Engine > 70 then
               UDF1.EngineHP.Font.Color=65280
            elseif Engine < 70 and Engine > 30 then
@@ -3951,7 +3951,7 @@
                      NotAnnoySevere = true
                   end
               UDF1.EngineHP.Font.Color=219
-              UDF1.CarStatusCheck.Visible=true
+              --UDF1.CarStatusCheck.Visible=true
            elseif (Engine < 0 or Engine == 0) and NotAnnoyKilledEngine == false then
                   local randomkillswear = math.random(1,4)
                   local soundname="EngineGone"..randomkillswear..".wav"
