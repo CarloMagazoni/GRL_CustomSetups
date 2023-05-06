@@ -2544,7 +2544,7 @@
     function MixIncrease()
      if FuelSystemEnabled==true then
       if MixDELTA ~= 4 and EngRunDELTA ~= 0 then
-         MixCurrent = MixCurrent + 0.0000009
+         MixCurrent = MixCurrent + 0.00000099
          MixDELTA = MixDELTA + 1
          RWDCurrent = RWDCurrent + 0.11
          if InThePit == false then 
@@ -2562,7 +2562,7 @@
     function MixDecrease()
      if FuelSystemEnabled==true then
       if MixDELTA ~= 1 and EngRunDELTA ~= 0 then
-         MixCurrent = MixCurrent - 0.0000009
+         MixCurrent = MixCurrent - 0.00000099
          MixDELTA = MixDELTA - 1
          RWDCurrent = RWDCurrent - 0.11
          if InThePit == false then 
@@ -2592,20 +2592,25 @@
         
         local current
         if (AeroPackageDELTA < AeroPackageTarget) then AeroPackageIncrease() end
-        if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
+
+        if (FrontWingDELTA < FWTarget) then
           current = FrontWingDELTA
           for i = 0, (FWTarget - current)-1, 1 do
             FrontWingIncrease()
-          end
-          current = RearWingDELTA
-          for i = 0, (RWTarget - current)-1, 1 do
-            RearWingIncrease()
           end
         else
           current = FrontWingDELTA
           for i = 0, (current - FWTarget)-1, 1 do
             FrontWingDecrease()
           end
+        end
+
+        if (RearWingDELTA < RWTarget) then
+          current = RearWingDELTA
+          for i = 0, (RWTarget - current)-1, 1 do
+            RearWingIncrease()
+          end
+        else
           current = RearWingDELTA
           for i = 0, (current - RWTarget)-1, 1 do
             RearWingDecrease()
@@ -2628,20 +2633,25 @@
         
         local current
         if (AeroPackageDELTA < AeroPackageTarget) then AeroPackageIncrease() end
-        if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
+
+        if (FrontWingDELTA < FWTarget) then
           current = FrontWingDELTA
           for i = 0, (FWTarget - current)-1, 1 do
             FrontWingIncrease()
-          end
-          current = RearWingDELTA
-          for i = 0, (RWTarget - current)-1, 1 do
-            RearWingIncrease()
           end
         else
           current = FrontWingDELTA
           for i = 0, (current - FWTarget)-1, 1 do
             FrontWingDecrease()
           end
+        end
+
+        if (RearWingDELTA < RWTarget) then
+          current = RearWingDELTA
+          for i = 0, (RWTarget - current)-1, 1 do
+            RearWingIncrease()
+          end
+        else
           current = RearWingDELTA
           for i = 0, (current - RWTarget)-1, 1 do
             RearWingDecrease()
@@ -2664,20 +2674,25 @@
         
         local current
         if (AeroPackageDELTA > AeroPackageTarget) then AeroPackageDecrease() end
-        if (FrontWingDELTA < FWTarget) and (RearWingDELTA < RWTarget) then
+
+        if (FrontWingDELTA < FWTarget) then
           current = FrontWingDELTA
           for i = 0, (FWTarget - current)-1, 1 do
             FrontWingIncrease()
-          end
-          current = RearWingDELTA
-          for i = 0, (RWTarget - current)-1, 1 do
-            RearWingIncrease()
           end
         else
           current = FrontWingDELTA
           for i = 0, (current - FWTarget)-1, 1 do
             FrontWingDecrease()
           end
+        end
+
+        if (RearWingDELTA < RWTarget) then
+          current = RearWingDELTA
+          for i = 0, (RWTarget - current)-1, 1 do
+            RearWingIncrease()
+          end
+        else
           current = RearWingDELTA
           for i = 0, (current - RWTarget)-1, 1 do
             RearWingDecrease()
