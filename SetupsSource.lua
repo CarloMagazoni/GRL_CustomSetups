@@ -3688,7 +3688,7 @@
         local Side = OpponentX*HeadX + OpponentY*HeadY + R
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
-        if (Side < 1.5 and Side > -1.5) and (FrontSide > 3 and FrontSide < 50) then
+        if (Side < 3 and Side > -3) and (FrontSide > 3 and FrontSide < 50) then
           if Lenght < 100 then
             local CurrentForce = RWDSetted
             --local CurrentTractionlLoss = FrontGripSetted
@@ -3698,7 +3698,7 @@
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
-            --wasInSlip = true
+            wasInSlip = true
             --writeFloat(FrontGripADR,CurrentTractionlLoss)
           end
         else
@@ -3728,7 +3728,7 @@
                     OppoX= readFloat(CNav + oPositionX)
                     OppoY= readFloat(CNav + oPositionY)
                     DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
-                    --if wasInSlip == true then i = i-1 end
+                    if wasInSlip == true then i = i-1 end
                   end
                 end
               end
