@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.0
 
   json = require("json")
-  buildVersion = 07050256
+  buildVersion = 07051400
 
   function Main()
     InitURLInfo()
@@ -478,7 +478,6 @@
             local ORGRid = readPointer(CPlayerInfo + oRid)
             if ORGRid == markMyRid then
                MyIDNumber = i
-               SendPack(MyIDNumber,0,0)
                break
             end
           end
@@ -2466,8 +2465,8 @@
     function GearsIncrease()
      if GearsDELTA ~= 2  then
         DriveInertiaCurrent = DriveInertiaCurrent + 0.9
-        UpShiftCurrent = UpShiftCurrent + 5.6
-        DownShiftCurrent = DownShiftCurrent + 5.6
+        --UpShiftCurrent = UpShiftCurrent + 5.6
+        --DownShiftCurrent = DownShiftCurrent + 5.6
         MaxFlatVelCurrent = MaxFlatVelCurrent - 6.5
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 5
        GearsDELTA = GearsDELTA + 1
@@ -2486,8 +2485,8 @@
     function GearsDecrease()
      if GearsDELTA ~= 1  then
         DriveInertiaCurrent = DriveInertiaCurrent - 0.9
-        UpShiftCurrent = UpShiftCurrent - 5.6
-        DownShiftCurrent = DownShiftCurrent - 5.6
+        --UpShiftCurrent = UpShiftCurrent - 5.6
+        --DownShiftCurrent = DownShiftCurrent - 5.6
         MaxFlatVelCurrent = MaxFlatVelCurrent + 6.5
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 5
        GearsDELTA = GearsDELTA - 1
@@ -2547,7 +2546,7 @@
     function MixIncrease()
      if FuelSystemEnabled==true then
       if MixDELTA ~= 4 and EngRunDELTA ~= 0 then
-         MixCurrent = MixCurrent + 0.00000099
+         MixCurrent = MixCurrent + 0.0000009
          MixDELTA = MixDELTA + 1
          RWDCurrent = RWDCurrent + 0.11
          if InThePit == false then 
@@ -2565,7 +2564,7 @@
     function MixDecrease()
      if FuelSystemEnabled==true then
       if MixDELTA ~= 1 and EngRunDELTA ~= 0 then
-         MixCurrent = MixCurrent - 0.00000099
+         MixCurrent = MixCurrent - 0.0000009
          MixDELTA = MixDELTA - 1
          RWDCurrent = RWDCurrent - 0.11
          if InThePit == false then 
@@ -3695,7 +3694,7 @@
             --local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
             --local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
+            --SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
