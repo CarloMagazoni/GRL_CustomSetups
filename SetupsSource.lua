@@ -3674,7 +3674,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/100))*1.5 --
+        local ApplyForce = (1 - (Distance/100))*0.75 --
         return ApplyForce
       end
 
@@ -3694,7 +3694,7 @@
             --local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
             --local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
+            --SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
