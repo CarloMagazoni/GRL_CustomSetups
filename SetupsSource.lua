@@ -1112,7 +1112,7 @@
    TCDELTA = 5
 
    GearsDELTA = 1
-   MixDELTA = 2
+   MixDELTA = 1
    BrakePressureDELTA = 100
    TPDELTA = 160 --140/180
    PreloadDELTA = 80 --0/160
@@ -4234,7 +4234,7 @@
      ReturnDefaultsToPreviousCar()
      form_hide(UDF1)
      --local reward = CalculateScore()
-     SendPack("Closed app and earned nothing",1,1)
+     SendPack("Closed app",1,1)
      LogSender.destroy()
      closeCE()
      return caFree
