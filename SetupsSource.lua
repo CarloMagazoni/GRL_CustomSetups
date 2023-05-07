@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.0
 
   json = require("json")
-  buildVersion = 07051400
+  buildVersion = 07051555
 
   function Main()
     InitURLInfo()
@@ -3694,7 +3694,7 @@
             --local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
             --local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            --SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
+            SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
