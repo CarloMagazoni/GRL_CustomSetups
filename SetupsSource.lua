@@ -3573,7 +3573,7 @@
       if EnableSlipStream == true then
         CheckSlipStreamTimer = createTimer(nil, false)
         timer_onTimer(CheckSlipStreamTimer, CheckOppoPositionSlip)
-        timer_setInterval(CheckSlipStreamTimer, 50)
+        timer_setInterval(CheckSlipStreamTimer, 25)
         timer_setEnabled(CheckSlipStreamTimer, true)
         RWDSetted = RWDCurrent
         --FrontGripSetted = FrontGripCurrent
@@ -3703,7 +3703,7 @@
           end
         else
           writeFloat(RWDADR,RWDSetted)
-          --wasInSlip = false
+          wasInSlip = false
           --writeFloat(FrontGripADR,FrontGripSetted)
         end
       end
