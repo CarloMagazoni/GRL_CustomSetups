@@ -16,7 +16,7 @@ if CarNameCurrent=='FORMULA' then
 	 local CurveLatR = 0
 	 local DF = -4
 	 local Front = 0.06
-	 local Rear = -0.06
+	 local Rear = -0.001
 	 local SuspensionLift = 0
 	 local Force = -0.45
 	 local Bump = 0.20
