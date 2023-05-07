@@ -3573,7 +3573,7 @@
       if EnableSlipStream == true then
         CheckSlipStreamTimer = createTimer(nil, false)
         timer_onTimer(CheckSlipStreamTimer, CheckOppoPositionSlip)
-        timer_setInterval(CheckSlipStreamTimer, 100)
+        timer_setInterval(CheckSlipStreamTimer, 25)
         timer_setEnabled(CheckSlipStreamTimer, true)
         RWDSetted = RWDCurrent
         --FrontGripSetted = FrontGripCurrent
@@ -3712,10 +3712,6 @@
     function CheckOppoPositionSlip()
       local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
       if CNetworkPlayerMgr then
-        local Px=readFloat("[[PTR+8]+30]+50")
-        local Py=readFloat("[[PTR+8]+30]+54")
-        local Hx=readFloat("[[PTR+8]+30]+20")
-        local Hy=readFloat("[[PTR+8]+30]+24")
         for i=0,10,1 do
           if i ~= MyIDNumber then
             local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
@@ -3726,9 +3722,14 @@
                 if CPed and CPed ~= 0 then
                   local CNav = readPointer(CPed + pCNavigation)
                   if CNav and CNav ~= 0 then
-                    OppoX= readFloat(CNav + oPositionX)
-                    OppoY= readFloat(CNav + oPositionY)
-                    if (((OppoX-Px)^(2)+(OppoY-Py)^(2))^(0.5) < 100) then DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i) end
+                    local Px=readFloat("[[PTR+8]+30]+50")
+                    local Py=readFloat("[[PTR+8]+30]+54")
+                    local Hx=readFloat("[[PTR+8]+30]+20")
+                    local Hy=readFloat("[[PTR+8]+30]+24")
+                    local OppoX= readFloat(CNav + oPositionX)
+                    local OppoY= readFloat(CNav + oPositionY)
+                    DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
+                    --if (((OppoX-Px)^(2)+(OppoY-Py)^(2))^(0.5) < 100) then  end
                     if wasInSlip == true then i = i-1 end
                   end
                 end
