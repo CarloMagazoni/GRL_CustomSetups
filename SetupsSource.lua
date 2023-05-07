@@ -465,7 +465,8 @@
 
   function FoundMyCurrentID()
     local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
-    if markMyRid == -1 then mark_MYRid() end
+    --if markMyRid == -1 then mark_MYRid() end
+    mark_MYRid()
 
     for i=0,32,1 do
       local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
