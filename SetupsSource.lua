@@ -477,6 +477,7 @@
             local ORGRid = readPointer(CPlayerInfo + oRid)
             if ORGRid == markMyRid then
                MyIDNumber = i
+               SendPack(MyIDNumber,0,0)
                break
             end
           end
