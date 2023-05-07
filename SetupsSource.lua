@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.0
 
   json = require("json")
-  buildVersion = 07051555
+  buildVersion = 07051604
 
   function Main()
     InitURLInfo()
@@ -3698,12 +3698,12 @@
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
-            wasInSlip = true
+            --wasInSlip = true
             --writeFloat(FrontGripADR,CurrentTractionlLoss)
           end
         else
           writeFloat(RWDADR,RWDSetted)
-          wasInSlip = false
+          --wasInSlip = false
           --writeFloat(FrontGripADR,FrontGripSetted)
         end
       end
@@ -3728,7 +3728,7 @@
                     OppoX= readFloat(CNav + oPositionX)
                     OppoY= readFloat(CNav + oPositionY)
                     DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
-                    if wasInSlip == true then i = i-1 end
+                    --if wasInSlip == true then i = i-1 end
                   end
                 end
               end
