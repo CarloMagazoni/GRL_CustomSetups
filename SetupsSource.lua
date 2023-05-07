@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.0
 
   json = require("json")
-  buildVersion = 07051604
+  buildVersion = 07051646
 
   function Main()
     InitURLInfo()
@@ -3674,7 +3674,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/100))*100 --
+        local ApplyForce = (1 - (Distance/100))*1.5 --
         return ApplyForce
       end
 
@@ -3727,7 +3727,7 @@
                   if CNav and CNav ~= 0 then
                     OppoX= readFloat(CNav + oPositionX)
                     OppoY= readFloat(CNav + oPositionY)
-                    DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
+                    if (((OppoX-Px)^(2)+(OppoY-Py)^(2))^(0.5) < 100) then DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i) end
                     if wasInSlip == true then i = i-1 end
                   end
                 end
