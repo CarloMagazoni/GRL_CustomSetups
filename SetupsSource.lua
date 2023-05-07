@@ -2548,7 +2548,7 @@
       if MixDELTA ~= 4 and EngRunDELTA ~= 0 then
          MixCurrent = MixCurrent + 0.0000009
          MixDELTA = MixDELTA + 1
-         RWDCurrent = RWDCurrent + 0.11
+         RWDCurrent = RWDCurrent + 0.06
          if InThePit == false then 
           RWDSetted = RWDCurrent
           writeFloat(RWDADR,RWDSetted)
@@ -2566,7 +2566,7 @@
       if MixDELTA ~= 1 and EngRunDELTA ~= 0 then
          MixCurrent = MixCurrent - 0.0000009
          MixDELTA = MixDELTA - 1
-         RWDCurrent = RWDCurrent - 0.11
+         RWDCurrent = RWDCurrent - 0.06
          if InThePit == false then 
           RWDSetted = RWDCurrent
           writeFloat(RWDADR,RWDSetted)
@@ -3573,7 +3573,7 @@
       if EnableSlipStream == true then
         CheckSlipStreamTimer = createTimer(nil, false)
         timer_onTimer(CheckSlipStreamTimer, CheckOppoPositionSlip)
-        timer_setInterval(CheckSlipStreamTimer, 25)
+        timer_setInterval(CheckSlipStreamTimer, 100)
         timer_setEnabled(CheckSlipStreamTimer, true)
         RWDSetted = RWDCurrent
         --FrontGripSetted = FrontGripCurrent
@@ -3694,7 +3694,7 @@
             --local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
             --local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            --SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
+            SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
@@ -3703,6 +3703,7 @@
           end
         else
           writeFloat(RWDADR,RWDSetted)
+          if wasInSlip == true then SendPack("Lost slip PlayerID="..MyIDNumber.." FromID="..target,1,1) end
           wasInSlip = false
           --writeFloat(FrontGripADR,FrontGripSetted)
         end
