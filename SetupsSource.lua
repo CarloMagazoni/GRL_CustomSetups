@@ -2546,7 +2546,7 @@
     function MixIncrease()
      if FuelSystemEnabled==true then
       if MixDELTA ~= 4 and EngRunDELTA ~= 0 then
-         MixCurrent = MixCurrent + 0.0000009
+         MixCurrent = MixCurrent + 0.00000045
          MixDELTA = MixDELTA + 1
          RWDCurrent = RWDCurrent + 0.06
          if InThePit == false then 
@@ -2564,7 +2564,7 @@
     function MixDecrease()
      if FuelSystemEnabled==true then
       if MixDELTA ~= 1 and EngRunDELTA ~= 0 then
-         MixCurrent = MixCurrent - 0.0000009
+         MixCurrent = MixCurrent - 0.00000045
          MixDELTA = MixDELTA - 1
          RWDCurrent = RWDCurrent - 0.06
          if InThePit == false then 
