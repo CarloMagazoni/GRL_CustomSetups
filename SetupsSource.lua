@@ -3581,8 +3581,8 @@
       writeFloat(UpShiftADR,UpShiftCurrent)
       EnableFireSuppressionSystem(true)
       if ChangedSetup == true then 
-        writeFloat("[[PTR+8]+D10]+824", -400)
-        writeFloat("[[PTR+8]+D10]+8E8", -400)
+        --writeFloat("[[PTR+8]+D10]+824", -400)
+        writeFloat("[[PTR+8]+D10]+8E8", -4000)
       end
     end
   --WORK WITH PITBOXES
