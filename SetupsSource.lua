@@ -298,7 +298,7 @@
         --UDF1.UserNameLabel.Alignment = "taRightJustify"
         local SpaceBars = ""
         UDF1.UserNameLabel.Caption = Name..SpaceBars
-        if (Name == "VioLenceDEV") or (Name == "Jay-Jak") or (Name == "Acid_Ibis") or (Name == "SCHraf_Bruder") or (Name == "notmonkman") then
+        if (Name == "VioLence") or (Name == "Jay-Jak") or (Name == "Acid_Ibis") or (Name == "SCHraf_Bruder") or (Name == "notmonkman") then
           UDF1.DevButton.Visible = true
         else UDF1.DevButton.Visible = false
         end
