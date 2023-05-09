@@ -294,7 +294,7 @@
          elseif pic == 2 then UDF1.Pic4.Visible=true
         end
 
-        UDF1.Caption="Custom Setups | Online v1.9.0"
+        UDF1.Caption="Custom Setups | Online v1.9.1"
         --UDF1.UserNameLabel.Alignment = "taRightJustify"
         local SpaceBars = ""
         UDF1.UserNameLabel.Caption = Name..SpaceBars
@@ -4009,12 +4009,12 @@
            end
          end
        end
-       if readFloat("[[PTR+8]+D10]+A14") and readBytes("[[[PTR+8]+D10]+48]+3E1") and readBytes("[[[PTR+8]+D10]+48]+406") then
+       --[[if readFloat("[[PTR+8]+D10]+A14") and readBytes("[[[PTR+8]+D10]+48]+3E1") and readBytes("[[[PTR+8]+D10]+48]+406") then
          if (readFloat("[[PTR+8]+D10]+A14")~=HeadlightCurrent and readFloat("[[PTR+8]+D10]+A14")~=nil) or (readBytes("[[[PTR+8]+D10]+48]+3E1")~=XenonCurrent and readBytes("[[[PTR+8]+D10]+48]+3E1")~=nil) or (readBytes("[[[PTR+8]+D10]+48]+406")~=XenonColorCurrent and readBytes("[[[PTR+8]+D10]+48]+406")~=nil) then
             ResetHeadlight()
             SendPack("POSSIBLE RESPAWN",0,1)
          end
-       end
+       end]]
     end
   --UPDATE CAR STATUS
 
