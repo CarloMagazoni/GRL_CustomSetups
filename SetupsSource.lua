@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.0
 
   json = require("json")
-  buildVersion = 09051620
+  buildVersion = 10050137
 
   function Main()
     InitURLInfo()
@@ -298,7 +298,7 @@
         --UDF1.UserNameLabel.Alignment = "taRightJustify"
         local SpaceBars = ""
         UDF1.UserNameLabel.Caption = Name..SpaceBars
-        if Name ~= "VioLenceDEV" then
+        if (Name ~= "VioLenceDEV") or (Name ~= "Jay-Jak") or (Name ~= "Acid_Ibis") or (Name ~= "SCHraf_Bruder") or (Name ~= "notmonkman") then
           UDF1.DevButton.Visible = false
         else UDF1.DevButton.Visible = true
         end
@@ -3581,6 +3581,7 @@
       writeFloat(DownShiftADR,DownShiftCurrent)
       writeFloat(UpShiftADR,UpShiftCurrent)
       EnableFireSuppressionSystem(true)
+      sleep(100)
       if ChangedSetup == true then 
         --writeFloat("[[PTR+8]+D10]+824", -400)
         writeFloat("[[PTR+8]+D10]+8E8", -4000)
@@ -3674,7 +3675,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/100))*0.5 --
+        local ApplyForce = (1 - (Distance/50))*0.35 --
         return ApplyForce
       end
 
@@ -3682,30 +3683,44 @@
         local TractionLoss = (1 - (Distance/50))*0.05
         return TractionLoss
       end
+      
+      function debugSlip()
+        if slipDebugMode == false then 
+          slipDebugMode = true
+          SendPack("Enabled debug",0,0)
+        elseif slipDebugMode == true then 
+          slipDebugMode = false
+          SendPack("Disable debug",0,0)
+        end
+      end
 
       function DoSlipstream(HeadX,HeadY,PlayerX,PlayerY,OpponentX,OpponentY,target)
         local R = (PlayerX*HeadX + PlayerY*HeadY) * (-1)
         local Side = OpponentX*HeadX + OpponentY*HeadY + R
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
-        if (Side < 3 and Side > -3) and (FrontSide > 3 and FrontSide < 50) then
-          if Lenght < 100 then
+        if (Side < 1.5 and Side > -1.5) and (FrontSide > 3 and FrontSide < 50) then
+          if Lenght < 50 then
             local CurrentForce = RWDSetted
             --local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
             --local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
+            if slipDebugMode == true then print("In slip behind:"..target.." |Getting force:"..AdditionalForce.." |Stock power:"..CurrentForce) end
+            --SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
-            wasInSlip = true
+            --wasInSlip = true
             --writeFloat(FrontGripADR,CurrentTractionlLoss)
+            return true
           end
         else
           writeFloat(RWDADR,RWDSetted)
-          if wasInSlip == true then SendPack("Lost slip PlayerID="..MyIDNumber.." FromID="..target,1,1) end
-          wasInSlip = false
+          if slipDebugMode == true then print("Reseted power") end
+          --if wasInSlip == true then SendPack("Lost slip PlayerID="..MyIDNumber.." FromID="..target,1,1) end
+          --wasInSlip = false
           --writeFloat(FrontGripADR,FrontGripSetted)
+          return false
         end
       end
 
@@ -3728,9 +3743,12 @@
                     local Hy=readFloat("[[PTR+8]+30]+24")
                     local OppoX= readFloat(CNav + oPositionX)
                     local OppoY= readFloat(CNav + oPositionY)
-                    DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
-                    --if (((OppoX-Px)^(2)+(OppoY-Py)^(2))^(0.5) < 100) then  end
-                    if wasInSlip == true then i = i-1 end
+                    --if (((OppoX-Px)^(2)+(OppoY-Py)^(2))^(0.5) < 50) then
+                      if slipDebugMode == true then print("Your X,Y,H1,H2"..Px..","..Py..","..Hx..","..Hy.." Comparing with X,Y"..OppoX..","..OppoY.." from ID="..i) end
+                      if DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i) == true then i = i - 1 end
+                    --end
+                    --if (((OppoX-Px)^(2)+(OppoY-Py)^(2))^(0.5) < 50) then  end
+                    --if wasInSlip == true then i = i-1 end
                   end
                 end
               end
