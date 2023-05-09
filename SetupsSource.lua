@@ -4112,7 +4112,7 @@
 
     function Refuel()
      if CurrentFuelLoad < CurrentCarMaxFuel then
-        CurrentFuelLoad = CurrentFuelLoad + 0.01
+        CurrentFuelLoad = CurrentFuelLoad + 0.09
         UDF1.FuelLevel.Caption=(((CurrentFuelLoad*100)//1)/100).." / "..CurrentCarMaxFuel
         UDF1.FuelBar.Position = CurrentFuelLoad*100/CurrentCarMaxFuel
         writeFloat('[PTR+8]+150C',(CurrentFuelLoad*50/CurrentCarMaxFuel))
