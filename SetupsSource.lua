@@ -298,9 +298,9 @@
         --UDF1.UserNameLabel.Alignment = "taRightJustify"
         local SpaceBars = ""
         UDF1.UserNameLabel.Caption = Name..SpaceBars
-        if (Name ~= "VioLenceDEV") or (Name ~= "Jay-Jak") or (Name ~= "Acid_Ibis") or (Name ~= "SCHraf_Bruder") or (Name ~= "notmonkman") then
-          UDF1.DevButton.Visible = false
-        else UDF1.DevButton.Visible = true
+        if (Name == "VioLenceDEV") or (Name == "Jay-Jak") or (Name == "Acid_Ibis") or (Name == "SCHraf_Bruder") or (Name == "notmonkman") then
+          UDF1.DevButton.Visible = true
+        else UDF1.DevButton.Visible = false
         end
 
         InitProfileCashAndXP()
