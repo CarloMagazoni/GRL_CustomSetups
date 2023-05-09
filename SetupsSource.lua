@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.0
 
   json = require("json")
-  buildVersion = 07052110
+  buildVersion = 09051620
 
   function Main()
     InitURLInfo()
@@ -1096,7 +1096,7 @@
    SteeringLockDELTA = 5 --1/9
    RearWingDELTA = 5 --1/9
    FrontWingDELTA = 5 --1/9
-   AeroPackageDELTA = 2 --1/3
+   AeroPackageDELTA = 3 --1/3
    CastorDELTA=9 --1/18
    GT3modeDELTA = 1
    GTEmodeDELTA = 1
@@ -1125,17 +1125,17 @@
    DFstate = 2
    SusState = 2
    UDF1.EasyDF3.Caption = 'HIGH'
-    UDF1.EasyDF2.Caption = '-> STANDART <-'
+    UDF1.EasyDF2.Caption = '-> STANDARD <-'
     UDF1.EasyDF1.Caption = 'LOW'
     UDF1.EasySus3.Caption = 'STIFF'
-    UDF1.EasySus2.Caption = '-> STANDART <-'
+    UDF1.EasySus2.Caption = '-> STANDARD <-'
     UDF1.EasySus1.Caption = 'SOFT'
   end
 
   function DisplayInfo()
    UDF1.FrontWingValue.Caption = '5'
    UDF1.RearWingValue.Caption = '5'
-   UDF1.GearsValue.Caption = 'Standart'
+   UDF1.GearsValue.Caption = 'Standard'
    UDF1.SteeringLockValue.Caption = SteeringLockDELTA
    UDF1.SuspensionForceValue.Caption = (SuspensionForceCurrent*100)//1
    UDF1.DumperValue.Caption = SuspensionDumpDELTA
@@ -1150,7 +1150,7 @@
    UDF1.HeadlightValue.Caption = 'OFF'
    UDF1.XenonColorValue.Caption = 'DEFAULT'
    UDF1.BrakeSizeValue.Caption = 'LARGE'
-   UDF1.AeroPackageValue.Caption = 'Standart'
+   UDF1.AeroPackageValue.Caption = 'Standard'
    UDF1.BrakeBiasValue.Caption = ((((BrakeBiasFrontCurrent+0.001)*100/2)*100)//1)/100
    UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
    UDF1.gt3Value.Caption='OFF'
@@ -1481,16 +1481,16 @@
     --AeroPackage
     function AeroPackageIncrease()
      if AeroPackageDELTA ~= 3  then
-       DragCurrent = DragCurrent + 0.000675
-       FrontGripCurrent = FrontGripCurrent + 0.25
-       RearGripCurrent = RearGripCurrent + 0.3
-       MaxFlatVelCurrent = MaxFlatVelCurrent - 18
+       DragCurrent = DragCurrent + 0.0003375
+       FrontGripCurrent = FrontGripCurrent + 0.125
+       RearGripCurrent = RearGripCurrent + 0.15
+       MaxFlatVelCurrent = MaxFlatVelCurrent - 9
        AeroPackageDELTA = AeroPackageDELTA + 1
        if AeroPackageDELTA==3 then
-          UDF1.AeroPackageValue.Caption = 'High downforce'
+          UDF1.AeroPackageValue.Caption = 'Standard downforce'
        end
        if AeroPackageDELTA==2 then
-          UDF1.AeroPackageValue.Caption = 'Standart'
+          UDF1.AeroPackageValue.Caption = 'Medium downforce'
        end
        WriteFloat(MaxFlatVelADR,MaxFlatVelCurrent)
        WriteFloat(DragADR,DragCurrent)
@@ -1502,16 +1502,16 @@
 
     function AeroPackageDecrease()
      if AeroPackageDELTA ~= 1  then
-       DragCurrent = DragCurrent - 0.000675
-       FrontGripCurrent = FrontGripCurrent - 0.25
-       RearGripCurrent = RearGripCurrent - 0.3
-       MaxFlatVelCurrent = MaxFlatVelCurrent + 18
+       DragCurrent = DragCurrent - 0.0003375 --675
+       FrontGripCurrent = FrontGripCurrent - 0.125 --25
+       RearGripCurrent = RearGripCurrent - 0.15 --3
+       MaxFlatVelCurrent = MaxFlatVelCurrent + 9 -- 18
        AeroPackageDELTA = AeroPackageDELTA - 1
        if AeroPackageDELTA==1 then
           UDF1.AeroPackageValue.Caption = 'Low downforce'
        end
        if AeroPackageDELTA==2 then
-          UDF1.AeroPackageValue.Caption = 'Standart'
+          UDF1.AeroPackageValue.Caption = 'Medium downforce'
        end
        WriteFloat(MaxFlatVelADR,MaxFlatVelCurrent)
        WriteFloat(DragADR,DragCurrent)
@@ -2295,7 +2295,7 @@
     --BrakesSize
     function BrakesSizeIncrease()
      if BrakesSizeDELTA ~= 3  then
-       BrakeForceCurrent = BrakeForceCurrent + 0.2
+       BrakeForceCurrent = BrakeForceCurrent + 0.3
        DragCurrent = DragCurrent + 0.000075
        if BrakesSizeDELTA == 2 then
           UDF1.BrakeSizeValue.Caption = 'LARGE'
@@ -2312,7 +2312,7 @@
 
     function BrakesSizeDecrease()
      if BrakesSizeDELTA ~= 1  then
-       BrakeForceCurrent = BrakeForceCurrent - 0.2
+       BrakeForceCurrent = BrakeForceCurrent - 0.3
        DragCurrent = DragCurrent - 0.000075
        if BrakesSizeDELTA == 2 then
           UDF1.BrakeSizeValue.Caption = 'SMALL'
@@ -2491,7 +2491,7 @@
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 5
        GearsDELTA = GearsDELTA - 1
        if GearsDELTA==1 then
-          UDF1.GearsValue.Caption = 'Standart'
+          UDF1.GearsValue.Caption = 'STANDARD'
        end
        WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
        --WriteFloat(UpShiftADR,UpShiftCurrent)
@@ -2586,7 +2586,7 @@
     function DFpreset3()
      if DFstate ~= 3  then
         UDF1.EasyDF3.Caption = '-> HIGH <-'
-        UDF1.EasyDF2.Caption = 'STANDART'
+        UDF1.EasyDF2.Caption = 'STANDARD'
         UDF1.EasyDF1.Caption = 'LOW'
         local FWTarget = 8
         local RWTarget = 8
@@ -2627,7 +2627,7 @@
     function DFpreset2()
       if DFstate ~= 2  then
         UDF1.EasyDF3.Caption = 'HIGH'
-        UDF1.EasyDF2.Caption = '-> STANDART <-'
+        UDF1.EasyDF2.Caption = '-> STANDARD <-'
         UDF1.EasyDF1.Caption = 'LOW'
         local FWTarget = 5
         local RWTarget = 5
@@ -2668,7 +2668,7 @@
     function DFpreset1()
       if DFstate ~= 1  then
         UDF1.EasyDF3.Caption = 'HIGH'
-        UDF1.EasyDF2.Caption = 'STANDART'
+        UDF1.EasyDF2.Caption = 'STANDARD'
         UDF1.EasyDF1.Caption = '-> LOW <-'
         local FWTarget = 4
         local RWTarget = 6
@@ -2709,7 +2709,7 @@
     function susPreset3()
       if SusState ~= 3  then
         UDF1.EasySus3.Caption = '-> STIFF <-'
-        UDF1.EasySus2.Caption = 'STANDART'
+        UDF1.EasySus2.Caption = 'STANDARD'
         UDF1.EasySus1.Caption = 'SOFT'
         local DumpTarget = 30
         local StiffnessTarget = 12
@@ -2770,7 +2770,7 @@
     function susPreset2()
       if SusState ~= 2  then
         UDF1.EasySus3.Caption = 'STIFF'
-        UDF1.EasySus2.Caption = '-> STANDART <-'
+        UDF1.EasySus2.Caption = '-> STANDARD <-'
         UDF1.EasySus1.Caption = 'SOFT'
         local DumpTarget = 19
         local StiffnessTarget = 9
@@ -2831,7 +2831,7 @@
     function susPreset1()
       if SusState ~= 1  then
         UDF1.EasySus3.Caption = 'STIFF'
-        UDF1.EasySus2.Caption = 'STANDART'
+        UDF1.EasySus2.Caption = 'STANDARD'
         UDF1.EasySus1.Caption = '-> SOFT <-'
         local DumpTarget = 14
         local StiffnessTarget = 7
