@@ -118,7 +118,7 @@
     HWID_Array={}
     for id = 2,50, 1 do 
       if getDataFromURL(http, "A", id, "bool") == false then break end
-      sleep(5)
+      sleep(25)
       if getDataFromURL(http, "E", id, "str") == HWID then
         HWID_Array[1] = {}
         HWID_Array[1]["ID"] = getDataFromURL(http, "A", id, "str") --ID
