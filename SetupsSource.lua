@@ -2298,8 +2298,8 @@
     --BrakesSize
     function BrakesSizeIncrease()
      if BrakesSizeDELTA ~= 3  then
-       BrakeForceCurrent = BrakeForceCurrent - 0.35
-       DragCurrent = DragCurrent + 0.000060
+       BrakeForceCurrent = BrakeForceCurrent - 0.3
+       DragCurrent = DragCurrent + 0.000050
        if BrakesSizeDELTA == 2 then
           UDF1.BrakeSizeValue.Caption = 'LARGE'
        end
@@ -2315,8 +2315,8 @@
 
     function BrakesSizeDecrease()
      if BrakesSizeDELTA ~= 1  then
-       BrakeForceCurrent = BrakeForceCurrent - 0.35
-       DragCurrent = DragCurrent - 0.000060
+       BrakeForceCurrent = BrakeForceCurrent - 0.3
+       DragCurrent = DragCurrent - 0.000050
        if BrakesSizeDELTA == 2 then
           UDF1.BrakeSizeValue.Caption = 'SMALL'
        end
@@ -3752,7 +3752,11 @@
       if CNetworkPlayerMgr then
         for i=0,10,1 do
           if i ~= MyIDNumber then
-            if wasInSlip == true then i = slipTarget end
+            if wasInSlip == true then 
+              i = slipTarget
+            else 
+              i = i 
+            end
             local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
             if CNetGamePlayer then
               local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
