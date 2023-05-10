@@ -2295,7 +2295,7 @@
     --BrakesSize
     function BrakesSizeIncrease()
      if BrakesSizeDELTA ~= 3  then
-       BrakeForceCurrent = BrakeForceCurrent + 0.3
+       BrakeForceCurrent = BrakeForceCurrent + 0.4
        DragCurrent = DragCurrent + 0.000075
        if BrakesSizeDELTA == 2 then
           UDF1.BrakeSizeValue.Caption = 'LARGE'
@@ -2312,7 +2312,7 @@
 
     function BrakesSizeDecrease()
      if BrakesSizeDELTA ~= 1  then
-       BrakeForceCurrent = BrakeForceCurrent - 0.3
+       BrakeForceCurrent = BrakeForceCurrent - 0.4
        DragCurrent = DragCurrent - 0.000075
        if BrakesSizeDELTA == 2 then
           UDF1.BrakeSizeValue.Caption = 'SMALL'
