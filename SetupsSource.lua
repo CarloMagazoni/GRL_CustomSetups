@@ -3090,6 +3090,11 @@
          SteeringLockR = 10
         end
 
+      --local AeroPackageR = tonumber(file:read())
+        if AeroPackageR < 1 or AeroPacakgeR > 3 then
+          AeroPackageR = 3
+         end
+
       --local RearWingR = tonumber(file:read())
         if RearWingR < 1 or RearWingR > 9 then
          RearWingR = 5
@@ -3111,14 +3116,14 @@
         end
 
       --local HeadlightR = tonumber(file:read())
-        if HeadlightR < 1 or HeadlightR > 2 then
+        --[[if HeadlightR < 1 or HeadlightR > 2 then
          HeadlightR = 1
         end
 
       --local XenonColorR = tonumber(file:read())
         if XenonColorR < 1 or XenonColorR > 4 then
          XenonColorR = 1
-        end
+        end]]
 
       --local GearsR = tonumber(file:read())
         if GearsR < 1 or GearsR > 2 then
@@ -3261,6 +3266,16 @@
                FrontWingDecrease()
            end
         end
+
+        if AeroPackageR-AeroPackageDELTA > 0 then
+          for i=1,(AeroPackageR-AeroPackageDELTA) do
+              AeroPackageIncrease()
+          end
+         elseif AeroPackageR-AeroPackageDELTA < 0 then
+          for i=1,((AeroPackageR-AeroPackageDELTA)*(-1)) do
+              AeroPackageDecrease()
+          end
+       end
         --Chassis
 
     	--Advanced
@@ -3284,7 +3299,7 @@
              end
         end
 
-    		if HeadlightR-HeadlightDELTA > 0 then
+    		--[[if HeadlightR-HeadlightDELTA > 0 then
              for i=1,(HeadlightR-HeadlightDELTA) do
                  HeadlightIncrease()
              end
@@ -3302,7 +3317,7 @@
              for i=1,((XenonColorR-XenonColorDELTA)*(-1)) do
                  XenonColorDecrease()
              end
-        end
+        end]]
         --Advanced
 
             --Engine
@@ -3347,24 +3362,25 @@
         file:write("CamberRearR = "..CamberRearDELTA,"\n")
 
         --Chassis
+        file:write("AeroPackageR = "..AeroPackageDELTA, "\n")
         file:write("FrontWingR = "..FrontWingDELTA,"\n")
         file:write("RearWingR = "..RearWingDELTA,"\n")
         file:write("SteeringLockR = "..SteeringLockDELTA,"\n")
-        file:write("CastorR = "..CastorDELTA,"\n")
-        file:write("WeightDistR = "..WeightDistDELTA,"\n")
+        --file:write("CastorR = "..CastorDELTA,"\n")
+        --file:write("WeightDistR = "..WeightDistDELTA,"\n")
 
         --Advanced
         file:write("BrakesSizeR = "..BrakesSizeDELTA,"\n")
-        file:write("BrakePressureR = "..BrakePressureDELTA,"\n")
+        --file:write("BrakePressureR = "..BrakePressureDELTA,"\n")
         file:write("BrakeBiasR = "..BrakeBiasDELTA,"\n")
-        file:write("TPR = "..TPDELTA,"\n")
-        file:write("TCR = "..TCDELTA,"\n")
-        file:write("HeadlightR = "..HeadlightDELTA,"\n")
-        file:write("XenonColorR = "..XenonColorDELTA,"\n")
+        --file:write("TPR = "..TPDELTA,"\n")
+        --file:write("TCR = "..TCDELTA,"\n")
+        --file:write("HeadlightR = "..HeadlightDELTA,"\n")
+        --file:write("XenonColorR = "..XenonColorDELTA,"\n")
 
         --Drivetrain
         file:write("GearsR = "..GearsDELTA,"\n")
-        file:write("PreloadR = "..PreloadDELTA,"\n")
+        --file:write("PreloadR = "..PreloadDELTA,"\n")
 
         SendPack("SETUP-S",0,0)
         --LOG_History=LOG_History.."SETUP-S"..(os.date("%X")).."\n"
