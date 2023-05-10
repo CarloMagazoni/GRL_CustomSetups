@@ -3579,6 +3579,8 @@
         timer_setInterval(CheckSlipStreamTimer, 50)
         timer_setEnabled(CheckSlipStreamTimer, true)
         RWDSetted = RWDCurrent
+        slipTarget = nil
+        wasInSlip = false
         --FrontGripSetted = FrontGripCurrent
       end
       writeFloat(DownShiftADR,DownShiftCurrent)
@@ -3678,7 +3680,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/50))*0.9 --
+        local ApplyForce = (1 - (Distance/50))*0.5 --
         return ApplyForce
       end
 
@@ -3713,7 +3715,8 @@
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
-            --wasInSlip = true
+            wasInSlip = true
+            slipTarget = target
             --writeFloat(FrontGripADR,CurrentTractionlLoss)
             --return true
           end
@@ -3721,7 +3724,8 @@
           writeFloat(RWDADR,RWDSetted)
           if slipDebugMode == true then print("Reseted power") end
           --if wasInSlip == true then SendPack("Lost slip PlayerID="..MyIDNumber.." FromID="..target,1,1) end
-          --wasInSlip = false
+          wasInSlip = false
+          slipTarget = nil
           --writeFloat(FrontGripADR,FrontGripSetted)
           --return false
         end
@@ -3732,6 +3736,7 @@
       if CNetworkPlayerMgr then
         for i=0,10,1 do
           if i ~= MyIDNumber then
+            if wasInSlip == true then i = slipTarget end
             local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
             if CNetGamePlayer then
               local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
