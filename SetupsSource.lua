@@ -2464,7 +2464,7 @@
 
     function GearsIncrease()
      if GearsDELTA ~= 2  then
-        DriveInertiaCurrent = DriveInertiaCurrent + 0.9
+        DriveInertiaCurrent = DriveInertiaCurrent + 1.5
         --UpShiftCurrent = UpShiftCurrent + 5.6
         --DownShiftCurrent = DownShiftCurrent + 5.6
         MaxFlatVelCurrent = MaxFlatVelCurrent - 6.5
@@ -2484,7 +2484,7 @@
 
     function GearsDecrease()
      if GearsDELTA ~= 1  then
-        DriveInertiaCurrent = DriveInertiaCurrent - 0.9
+        DriveInertiaCurrent = DriveInertiaCurrent - 1.5
         --UpShiftCurrent = UpShiftCurrent - 5.6
         --DownShiftCurrent = DownShiftCurrent - 5.6
         MaxFlatVelCurrent = MaxFlatVelCurrent + 6.5
