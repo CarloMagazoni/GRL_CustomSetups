@@ -118,6 +118,7 @@
     HWID_Array={}
     for id = 2,50, 1 do 
       if getDataFromURL(http, "A", id, "bool") == false then break end
+      sleep(5)
       if getDataFromURL(http, "E", id, "str") == HWID then
         HWID_Array[1] = {}
         HWID_Array[1]["ID"] = getDataFromURL(http, "A", id, "str") --ID
@@ -2467,8 +2468,8 @@
         DriveInertiaCurrent = DriveInertiaCurrent + 5.5
         --UpShiftCurrent = UpShiftCurrent + 5.6
         --DownShiftCurrent = DownShiftCurrent + 5.6
-        MaxFlatVelCurrent = MaxFlatVelCurrent - 6.5
-        InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 5
+        MaxFlatVelCurrent = MaxFlatVelCurrent - 5.5
+        InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 4
        GearsDELTA = GearsDELTA + 1
        if GearsDELTA==2 then
           UDF1.GearsValue.Caption = 'Short'
@@ -2487,11 +2488,11 @@
         DriveInertiaCurrent = DriveInertiaCurrent - 5.5
         --UpShiftCurrent = UpShiftCurrent - 5.6
         --DownShiftCurrent = DownShiftCurrent - 5.6
-        MaxFlatVelCurrent = MaxFlatVelCurrent + 6.5
-        InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 5
+        MaxFlatVelCurrent = MaxFlatVelCurrent + 5.5
+        InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 4
        GearsDELTA = GearsDELTA - 1
        if GearsDELTA==1 then
-          UDF1.GearsValue.Caption = 'STANDARD'
+          UDF1.GearsValue.Caption = 'Standard'
        end
        WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
        --WriteFloat(UpShiftADR,UpShiftCurrent)
