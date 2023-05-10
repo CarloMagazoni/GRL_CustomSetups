@@ -1132,7 +1132,7 @@
     UDF1.EasySus2.Caption = '-> STANDARD <-'
     UDF1.EasySus1.Caption = 'SOFT'
     UDF1.FrontWingLabel.Caption = 'FRONT FLAP:'
-    UDF1.RearWingLabel.Caption = 'REAR FLAP:'
+    UDF1.RearWingLabel1.Caption = 'REAR FLAP:'
   end
 
   function DisplayInfo()
