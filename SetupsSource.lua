@@ -3576,7 +3576,7 @@
       if EnableSlipStream == true then
         CheckSlipStreamTimer = createTimer(nil, false)
         timer_onTimer(CheckSlipStreamTimer, CheckOppoPositionSlip)
-        timer_setInterval(CheckSlipStreamTimer, 25)
+        timer_setInterval(CheckSlipStreamTimer, 50)
         timer_setEnabled(CheckSlipStreamTimer, true)
         RWDSetted = RWDCurrent
         --FrontGripSetted = FrontGripCurrent
@@ -3715,7 +3715,7 @@
             writeFloat(RWDADR,CurrentForce)
             --wasInSlip = true
             --writeFloat(FrontGripADR,CurrentTractionlLoss)
-            return true
+            --return true
           end
         else
           writeFloat(RWDADR,RWDSetted)
@@ -3723,7 +3723,7 @@
           --if wasInSlip == true then SendPack("Lost slip PlayerID="..MyIDNumber.." FromID="..target,1,1) end
           --wasInSlip = false
           --writeFloat(FrontGripADR,FrontGripSetted)
-          return false
+          --return false
         end
       end
 
@@ -3748,7 +3748,8 @@
                     local OppoY= readFloat(CNav + oPositionY)
                     --if (((OppoX-Px)^(2)+(OppoY-Py)^(2))^(0.5) < 50) then
                       if slipDebugMode == true then print("Your X,Y,H1,H2"..Px..","..Py..","..Hx..","..Hy.." Comparing with X,Y"..OppoX..","..OppoY.." from ID="..i) end
-                      if DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i) == true then i = i - 1 end
+                      --if DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i) == true then i = i - 1 end
+                      DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
                     --end
                     --if (((OppoX-Px)^(2)+(OppoY-Py)^(2))^(0.5) < 50) then  end
                     --if wasInSlip == true then i = i-1 end
