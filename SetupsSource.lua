@@ -183,7 +183,7 @@
     local fh = assert(io.popen'wmic bios get version')
     local result = fh:read'*a'
     fh:close()
-    result = string.gsub(result,'VERSION',"")
+    result = string.gsub(result,'Version',"")
     result = string.gsub(result,'%с',"")
     result = string.gsub(result,'%s',"")
     return result
