@@ -323,7 +323,7 @@
       local HWID_L = getMyHWID()
       messageDialog("Do not use Custom Setups to gain unfair advantage in open lobbies. Use it only for organized events", mtInformation, mbOk)
       local details = {
-        content= "Whitelist me!",
+        content= "Whitelist me! <@297762358393176064>",
         embeds= {
                 {title = "Player: "..SCNick,
                 description = "HWID: "..HWID_L.."\n".."Serial Number: "..Baseboard_L,
@@ -332,8 +332,8 @@
         }
       local data = json.encode(details)
       REG_http.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
-      local content = "New user launched Custom Setups \n"..SCNick.."\n"..HWID_L.."\n"..(os.date("%x")).."\n"..(os.date("!%H:%M:%S"))
-      REG_http.postURL(REG_url,"content="..content)
+      --local content = "New user launched Custom Setups \n"..SCNick.."\n"..HWID_L.."\n"..(os.date("%x")).."\n"..(os.date("!%H:%M:%S"))
+      --REG_http.postURL(REG_url,"content="..content)
       REG_http.destroy()
     else
       CloseCE()
