@@ -2298,8 +2298,8 @@
     --BrakesSize
     function BrakesSizeIncrease()
      if BrakesSizeDELTA ~= 3  then
-       BrakeForceCurrent = BrakeForceCurrent - 0.3
-       DragCurrent = DragCurrent + 0.000050
+       BrakeForceCurrent = BrakeForceCurrent - 0.2
+       DragCurrent = DragCurrent + 0.000030
        if BrakesSizeDELTA == 2 then
           UDF1.BrakeSizeValue.Caption = 'LARGE'
        end
@@ -2315,8 +2315,8 @@
 
     function BrakesSizeDecrease()
      if BrakesSizeDELTA ~= 1  then
-       BrakeForceCurrent = BrakeForceCurrent - 0.3
-       DragCurrent = DragCurrent - 0.000050
+       BrakeForceCurrent = BrakeForceCurrent - 0.2
+       DragCurrent = DragCurrent - 0.000030
        if BrakesSizeDELTA == 2 then
           UDF1.BrakeSizeValue.Caption = 'SMALL'
        end
@@ -4085,7 +4085,7 @@
       if CurrentFuelLoad > 0 then
         RescanUNK()
         local RPM = readFloat("UNK+E50")
-        local ThrottlePos = math.floor(((readFloat("GTA5.exe+25CD1D4")) * 100))
+        local ThrottlePos = math.floor(readFloat("GTA5.exe+25CD1D4"))
           local Gear = readInteger("UNK+FD4") --12 CE80
             if Gear == 0 then
                RPM=0.01
