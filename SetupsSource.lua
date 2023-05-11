@@ -147,7 +147,6 @@
     g.destroy()
   end
 
-
   function buildHWIDArray()
     local http = getInternet()
     local S = ""
