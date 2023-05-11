@@ -191,7 +191,7 @@
 
   function findMyIDFromHWIDArray()
     local HWID = getMyHWID()
-    Baseboard = getMyBiosVersion()
+    Baseboard = getMyBaseboardVersion()
     for i=1,#playersTable.values,1 do
       if (playersTable.values[i][5]) == HWID then
         local id = i
