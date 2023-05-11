@@ -331,7 +331,7 @@
                 },
         }
       local data = json.encode(details)
-      http.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
+      REG_http.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
       local content = "New user launched Custom Setups \n"..SCNick.."\n"..hardID.."\n"..(os.date("%x")).."\n"..(os.date("!%H:%M:%S"))
       REG_http.postURL(REG_url,"content="..content)
       REG_http.destroy()
