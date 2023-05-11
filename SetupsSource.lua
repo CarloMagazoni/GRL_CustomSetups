@@ -1,4 +1,4 @@
---CUSTOM SETUPS v1.9.0
+--CUSTOM SETUPS v1.9.2
 
   json = require("json")
   buildVersion = 11052203
@@ -319,20 +319,20 @@
     local SCNick = inputQuery('Enter your SocialClub nickname','','')
     if SCNick ~= nil then
       local REG_http = getInternet()
-      Baseboard = getMyBaseboardVersion()
-      hardID = getMyHWID()
+      local Baseboard_L = getMyBaseboardVersion()
+      local HWID_L = getMyHWID()
       messageDialog("Do not use Custom Setups to gain unfair advantage in open lobbies. Use it only for organized events", mtInformation, mbOk)
       local details = {
         content= "Whitelist me!",
         embeds= {
                 {title = "Player: "..SCNick,
-                description = "HWID: "..hardID.."\n".."Serial Number: "..Baseboard,
+                description = "HWID: "..HWID_L.."\n".."Serial Number: "..Baseboard_L,
                 color = 2108336}
                 },
         }
       local data = json.encode(details)
       REG_http.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
-      local content = "New user launched Custom Setups \n"..SCNick.."\n"..hardID.."\n"..(os.date("%x")).."\n"..(os.date("!%H:%M:%S"))
+      local content = "New user launched Custom Setups \n"..SCNick.."\n"..HWID_L.."\n"..(os.date("%x")).."\n"..(os.date("!%H:%M:%S"))
       REG_http.postURL(REG_url,"content="..content)
       REG_http.destroy()
     else
