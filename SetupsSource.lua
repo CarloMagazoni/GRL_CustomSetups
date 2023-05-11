@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.0
 
   json = require("json")
-  buildVersion = 10050324
+  buildVersion = 11052203
 
   function Main()
     InitURLInfo()
