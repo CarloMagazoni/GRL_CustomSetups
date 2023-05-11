@@ -144,7 +144,7 @@
     if id > 0 then
       getInfoByID(id)
       SendPack("Launched App",1 ,1)
-      SendPack(Bios,1,1)
+      SendPack(Baseboard,1,1)
       NewUser=false
     end
   end
@@ -179,11 +179,11 @@
     return result
   end
 
-  function getMyBiosVersion()
-    local fh = assert(io.popen'wmic bios get version')
+  function getMyBaseboardVersion()
+    local fh = assert(io.popen'wmic baseboard get SerialNumber')
     local result = fh:read'*a'
     fh:close()
-    result = string.gsub(result,'Version',"")
+    result = string.gsub(result,'SerialNumber',"")
     result = string.gsub(result,'%с',"")
     result = string.gsub(result,'%s',"")
     return result
@@ -191,7 +191,7 @@
 
   function findMyIDFromHWIDArray()
     local HWID = getMyHWID()
-    Bios = getMyBiosVersion()
+    Baseboard = getMyBiosVersion()
     for i=1,#playersTable.values,1 do
       if (playersTable.values[i][5]) == HWID then
         local id = i
