@@ -20,12 +20,10 @@
     DRIFT_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/DRIFT.lua"
     NASCAR_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/NASCAR.lua"
     Fuel_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
-    --local Meme_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/Fuel.lua"
     HWID_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/HWID.lua"
     LOG_url = CodeLogUrl()
     REG_url = CodeRegUrl()
     Bank_url = CodeBankUrl()
-    --CodeRegUrl()
     REG_url_new = "https://hook.eu1.make.com/pssfjrcdrbr5ddth9jfvnyjss82nhz4f"
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
   end
@@ -96,7 +94,6 @@
     NASCARBOP = http.getURL(NASCAR_url)
     DRIFTBOP = http.getURL(DRIFT_url)
     FuelSet = http.getURL(Fuel_url)
-    --Meme = http.getURL(Meme_url)
     HWID_res = http.getURL(HWID_url)
     Version_res = http.getURL(version_url)
     http.destroy()
@@ -241,10 +238,7 @@
 
 
   function InitHWID()
-    --load(HWID_res)()
-    --buildHWIDArray()
     NewUser=true
-    --DefinePCID()
     getInfoByHWID()
   end
 
@@ -332,8 +326,6 @@
         }
       local data = json.encode(details)
       REG_http.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
-      --local content = "New user launched Custom Setups \n"..SCNick.."\n"..HWID_L.."\n"..(os.date("%x")).."\n"..(os.date("!%H:%M:%S"))
-      --REG_http.postURL(REG_url,"content="..content)
       REG_http.destroy()
     else
       CloseCE()
