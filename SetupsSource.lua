@@ -107,7 +107,7 @@
     GetURLs()
   end
 
-  function getInfoByHWID()
+  --[[function getInfoByHWID()
     local res
     local fh = assert(io.popen'wmic csproduct get uuid')
     result = fh:read'*a'
@@ -130,21 +130,74 @@
         DBID = id
         Username ="User: "..HWID_Array[1]["NAME"]
         SendPack("Launched App",1 ,1)
+        SendPack(Bios,1,1)
         NewUser=false
         break
       end
     end
     http.destroy()
+  end]]
+
+  function getInfoByHWID()
+    buildPlayersTable(50)
+    local id = findMyIDFromHWIDArray()
+    if id > 0 then
+      getInfoByID(id)
+      SendPack("Launched App",1 ,1)
+      SendPack(Bios,1,1)
+      NewUser=false
+    end
   end
 
-  function getArrayOfInfo(col, size)
+  function getInfoByID(ID)
+    HWID_Array[1] = {}
+    HWID_Array[1]["ID"] = (playersTable.values[ID][1]) --ID
+    HWID_Array[1]["NAME"] = (playersTable.values[ID][2]) --NAME
+    HWID_Array[1]["CASH"] = (playersTable.values[ID][3]) --CASH
+    HWID_Array[1]["LVL"] = (playersTable.values[ID][4]) --LVL
+    HWID_Array[1]["HWID"] = (playersTable.values[ID][5]) --HWID
+    Name = HWID_Array[1]["NAME"]
+    DBID = ID + 1
+    Username ="User: "..HWID_Array[1]["NAME"]
+  end
+
+  function buildPlayersTable(size)
     local g = getInternet()
-    local url = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/"..col.."2:"..size.."?key=AIzaSyBAd6k7IWM_0vHZKS8IxP9562j1md7duUE"
-    local resp = json.decode(g.getURL(url))
-    for i = 1,size-1,1 do 
-      print(resp["values"][1][i])
-    end
+    local url = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/A2:E"..size.."?key=AIzaSyBAd6k7IWM_0vHZKS8IxP9562j1md7duUE"
+    playersTable = json.decode(g.getURL(url))
     g.destroy()
+  end
+
+  function getMyHWID()
+    local fh = assert(io.popen'wmic csproduct get uuid')
+    local result = fh:read'*a'
+    fh:close()
+    result = string.gsub(result,'UUID',"")
+    result = string.gsub(result,'%с',"")
+    result = string.gsub(result,'%s',"")
+    return result
+  end
+
+  function getMyBiosVersion()
+    local fh = assert(io.popen'wmic bios get version')
+    local result = fh:read'*a'
+    fh:close()
+    result = string.gsub(result,'VERSION',"")
+    result = string.gsub(result,'%с',"")
+    result = string.gsub(result,'%s',"")
+    return result
+  end
+
+  function findMyIDFromHWIDArray()
+    local HWID = getMyHWID()
+    Bios = getMyBiosVersion()
+    for i=1,#playersTable.values,1 do
+      if (playersTable.values[i][5]) == HWID then
+        local id = i
+        return id
+      end
+    end
+    return -1
   end
 
   function buildHWIDArray()
