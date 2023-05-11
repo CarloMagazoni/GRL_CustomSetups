@@ -150,6 +150,7 @@
   end
 
   function getInfoByID(ID)
+    HWID_Array={}
     HWID_Array[1] = {}
     HWID_Array[1]["ID"] = (playersTable.values[ID][1]) --ID
     HWID_Array[1]["NAME"] = (playersTable.values[ID][2]) --NAME
