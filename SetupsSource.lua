@@ -315,23 +315,24 @@
     logMessage = ''
   end
 
-  function RegisterNewUser(ID)
+  function RegisterNewUser()
     local SCNick = inputQuery('Enter your SocialClub nickname','','')
     if SCNick ~= nil then
       local REG_http = getInternet()
       Baseboard = getMyBaseboardVersion()
+      hardID = getMyHWID()
       messageDialog("Do not use Custom Setups to gain unfair advantage in open lobbies. Use it only for organized events", mtInformation, mbOk)
       local details = {
         content= "Whitelist me!",
         embeds= {
                 {title = "Player: "..SCNick,
-                description = "HWID: "..ID.."\n".."Serial Number: "..Baseboard,
+                description = "HWID: "..hardID.."\n".."Serial Number: "..Baseboard,
                 color = 2108336}
                 },
         }
       local data = json.encode(details)
       https.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
-      local content = "New user launched Custom Setups \n"..SCNick.."\n"..ID.."\n"..(os.date("%x")).."\n"..(os.date("!%H:%M:%S"))
+      local content = "New user launched Custom Setups \n"..SCNick.."\n"..hardID.."\n"..(os.date("%x")).."\n"..(os.date("!%H:%M:%S"))
       REG_http.postURL(REG_url,"content="..content)
       REG_http.destroy()
     else
@@ -341,7 +342,7 @@
 
   function CheckForNewUser()
     if NewUser == true then
-      RegisterNewUser(HWID)
+      RegisterNewUser()
       messageDialog("Adding you to whitelist is manual process, please be patient. Come back later", mtInformation, mbOk)
       CloseCE()
     end
