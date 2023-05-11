@@ -1138,7 +1138,7 @@
   function DisplayInfo()
    UDF1.FrontWingValue.Caption = '5'
    UDF1.RearWingValue.Caption = '5'
-   UDF1.GearsValue.Caption = 'Standard'
+   UDF1.GearsValue.Caption = 'STANDARD'
    UDF1.SteeringLockValue.Caption = SteeringLockDELTA
    UDF1.SuspensionForceValue.Caption = (SuspensionForceCurrent*100)//1
    UDF1.DumperValue.Caption = SuspensionDumpDELTA
@@ -2474,7 +2474,7 @@
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 4
        GearsDELTA = GearsDELTA + 1
        if GearsDELTA==2 then
-          UDF1.GearsValue.Caption = 'Short'
+          UDF1.GearsValue.Caption = 'SHORT'
        end
        WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
        --WriteFloat(UpShiftADR,UpShiftCurrent)
@@ -2494,7 +2494,7 @@
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 4
        GearsDELTA = GearsDELTA - 1
        if GearsDELTA==1 then
-          UDF1.GearsValue.Caption = 'Standard'
+          UDF1.GearsValue.Caption = 'STANDARD'
        end
        WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
        --WriteFloat(UpShiftADR,UpShiftCurrent)
@@ -4085,13 +4085,13 @@
       if CurrentFuelLoad > 0 then
         RescanUNK()
         local RPM = readFloat("UNK+E50")
-        local ThrottlePos = math.floor(readFloat("GTA5.exe+25CD1D4"))
+        local ThrottlePos = math.floor((readFloat("GTA5.exe+25CD1D4")*100))
           local Gear = readInteger("UNK+FD4") --12 CE80
             if Gear == 0 then
                RPM=0.01
             end
             if ThrottlePos == 0 or ThrottlePos == nil then ThrottlePos = 1 end
-            local Eat = MixCurrent * (RPM*25000) * ThrottlePos * ((0.5 * ThrottlePos/100 + 0.5)^2)
+            local Eat = MixCurrent * (RPM*250) * ThrottlePos * ((0.5 * ThrottlePos/100 + 0.5)^2)
             UDF1.FuelUsage.Caption=(((Eat*1000)//1)/1000).."/s"
             CurrentFuelLoad = CurrentFuelLoad - Eat
             UDF1.FuelBar.Position = CurrentFuelLoad*100/CurrentCarMaxFuel
