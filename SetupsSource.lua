@@ -137,6 +137,16 @@
     http.destroy()
   end
 
+  function getArrayOfInfo(col, size)
+    local g = getInternet()
+    local url = local url = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/"..col.."2:"..size.."""?key=AIzaSyBAd6k7IWM_0vHZKS8IxP9562j1md7duUE"
+    local resp = json.decode(g.getURL(url))
+    for i = 1,size-1,1 do 
+      print(resp["values"][1][i])
+    end
+    g.destroy()
+  end
+
 
   function buildHWIDArray()
     local http = getInternet()
