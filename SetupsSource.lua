@@ -4310,9 +4310,9 @@
    end
 
    function AutoUpdate()
-    UpdateTimer = createTimer(nil,false)
+    UpdateTimer = createTimer(nil,true)
     timer_onTimer(UpdateTimer,UpdateInfo)
-    timer_setInterval(UpdateTimer, 20000)
+    timer_setInterval(UpdateTimer, 10000)
    end
 
    function UpdateInfo()
