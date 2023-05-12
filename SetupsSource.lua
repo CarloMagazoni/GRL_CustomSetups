@@ -2382,7 +2382,7 @@
     end
 
     function BrakesSizeDecrease()
-     if BrakesSizeDELTA ~= 1  then
+     if BrakesSizeDELTA ~= 3  then
        BrakeForceCurrent = BrakeForceCurrent - 0.2
        DragCurrent = DragCurrent - 0.000030
        if BrakesSizeDELTA == 2 then
