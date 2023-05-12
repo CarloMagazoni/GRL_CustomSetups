@@ -652,7 +652,7 @@
       UDF1.F1DEC.Enabled = true
       UDF1.F1INC.Enabled = true
       UDF1.F1Value.Enabled = true
-      --DisableF1Labels()
+      DisableF1Labels()
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
