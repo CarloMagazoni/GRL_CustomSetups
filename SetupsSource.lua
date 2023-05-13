@@ -3161,7 +3161,6 @@
       --local AeroPackageR = tonumber(file:read())
         if AeroPackageR < 1 or AeroPackageR > 3 then
           AeroPackageR = 3
-          Aero
          end
 
       --local RearWingR = tonumber(file:read())
