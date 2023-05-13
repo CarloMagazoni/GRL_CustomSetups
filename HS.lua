@@ -9,7 +9,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Drive = 0.45
 	 local MaxFlat = 6
 	 local InitMaxFlat = 10
-	 local Brake = -0.1
+	 local Brake = -0.18
 	 local Steering = 0
 	 local CurveMax = -0.01
 	 local CurveMaxR = 0
@@ -40,7 +40,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Drive = 0.36
 	 local MaxFlat = 6
 	 local InitMaxFlat = 4
-	 local Brake = 0.4
+	 local Brake = 0.3
 	 local Steering = 0.1
 	 local CurveMax = 0.062
 	 local CurveMaxR = 0.02
@@ -52,8 +52,8 @@ if CarNameCurrent=='VAGNER' then
 	 local Eng = 5
 	 local DF = 0
 	 local Flag = 0
-	 local Front = 0.045
-	 local Rear = -0.01
+	 local Front = 0.05
+	 local Rear = 0.015
 	 local Inertia = 0
 	 local Model = 0
 	 local ADV = 4194304
@@ -69,7 +69,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Drive = 0.29
 	 local MaxFlat = 7
 	 local InitMaxFlat = 10
-	 local Brake = 0.14
+	 local Brake = 0
 	 local Steering = 0.1
 	 local CurveMax = 0.3
 	 local CurveMaxR = 0
@@ -81,7 +81,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Eng = 5
 	 local DF = 0
 	 local Flag = 0
-	 local Front = 0.085
+	 local Front = 0.075
 	 local Rear = 0.11
 	 local Inertia = 0
 	 local Model = 0
@@ -127,7 +127,7 @@ if CarNameCurrent=='VAGNER' then
 	 local Drive = 0.75
 	 local MaxFlat = 8.65
 	 local InitMaxFlat = 10
-	 local Brake = -0.1
+	 local Brake = -0.125
 	 local Steering = -0.01
 	 local CurveMax = 0
 	 local CurveMaxR = 0
@@ -140,7 +140,7 @@ if CarNameCurrent=='VAGNER' then
 	 local DF = 0
 	 local Flag = 0
 	 local Front = 0.04
-	 local Rear = 0
+	 local Rear = 0.09
 	 local Inertia = -0.35
 	 local Model = 0
 	 local ADV = 4194304
