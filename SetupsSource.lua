@@ -1180,7 +1180,7 @@
     XenonColorDELTA = 1
     TCDELTA = 5
 
-    GearsDELTA = 2
+    GearsDELTA = 1
     MixDELTA = 1
     BrakePressureDELTA = 100
     TPDELTA = 160 --140/180
