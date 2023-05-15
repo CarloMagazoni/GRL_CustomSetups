@@ -1180,7 +1180,7 @@
     XenonColorDELTA = 1
     TCDELTA = 5
 
-    GearsDELTA = 1
+    GearsDELTA = 2
     MixDELTA = 1
     BrakePressureDELTA = 100
     TPDELTA = 160 --140/180
@@ -2542,7 +2542,7 @@
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 4
        GearsDELTA = GearsDELTA + 1
        if GearsDELTA==2 then
-          UDF1.GearsValue.Caption = 'SHORT'
+          UDF1.GearsValue.Caption = 'STANDARD'
        end
        WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
        --WriteFloat(UpShiftADR,UpShiftCurrent)
@@ -2562,7 +2562,7 @@
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 4
        GearsDELTA = GearsDELTA - 1
        if GearsDELTA==1 then
-          UDF1.GearsValue.Caption = 'STANDARD'
+          UDF1.GearsValue.Caption = 'LONG'
        end
        WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
        --WriteFloat(UpShiftADR,UpShiftCurrent)
