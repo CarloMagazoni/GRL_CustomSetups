@@ -3174,7 +3174,8 @@
         end
 
       --local BrakesSizeR = tonumber(file:read())
-        if BrakesSizeR < 1 or BrakesSizeR > 3 then
+        --if BrakesSizeR < 3 or BrakesSizeR > 3 then
+        if BrakesSizeR ~= 3 then
          BrakesSizeR = 3
         end
 
