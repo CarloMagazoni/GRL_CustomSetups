@@ -7,9 +7,9 @@ if CarNameCurrent=='SPECTER2' then
 	 local UpShift = 3
 	 local DownShift = 3
 	 local Drive = 0.015
-	 local MaxFlat = 3
+	 local MaxFlat = 2.8
 	 local InitMaxFlat = 0
-	 local Brake = -0.3
+	 local Brake = -0.35
 	 local Steering = -0.1
 	 local CurveMax = -0.11 --2.67
 	 local CurveMaxR = 0 --0.3745
@@ -31,7 +31,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local Drive = 0.02
 	 local MaxFlat = 1
 	 local InitMaxFlat = 0
-	 local Brake = -0.2
+	 local Brake = -0.25
 	 local Steering = 0
 	 local CurveMax = -0.075 --2.6
 	 local CurveMaxR = 0 --0.3846
@@ -53,7 +53,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local Drive = 0
 	 local MaxFlat = 2
 	 local InitMaxFlat = 0
-	 local Brake = -0.2
+	 local Brake = -0.25
 	 local Steering = 0
 	 local CurveMax = 0.055 --2.65
 	 local CurveMaxR = 0.008 --0.3766
@@ -75,7 +75,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local Drive = -0.0452
 	 local MaxFlat = -1.223
 	 local InitMaxFlat = -1.4394
-	 local Brake = -0.5
+	 local Brake = -0.55
 	 local Steering = -0.05
 	 local CurveMax = -0.127
 	 local CurveMaxR = 0.0268
@@ -97,7 +97,7 @@ if CarNameCurrent=='SPECTER2' then
 	 local Drive = 0.085
 	 local MaxFlat = 0.75
 	 local InitMaxFlat = 0
-	 local Brake = -0.2
+	 local Brake = -0.25
 	 local Steering = -0.015
 	 local CurveMax = -0.08 --2.59
 	 local CurveMaxR = 0 --0.3861
