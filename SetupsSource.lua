@@ -1,7 +1,7 @@
---CUSTOM SETUPS v1.9.2
+--CUSTOM SETUPS v1.9.3
 
   json = require("json")
-  buildVersion = 11052203
+  buildVersion = 29052023
 
   function Main()
     InitURLInfo()
@@ -363,7 +363,7 @@
          elseif pic == 2 then UDF1.Pic4.Visible=true
         end
 
-        UDF1.Caption="Custom Setups | Online v1.9.1"
+        UDF1.Caption="Custom Setups | Online v1.9.3"
         --UDF1.UserNameLabel.Alignment = "taRightJustify"
         local SpaceBars = ""
         UDF1.UserNameLabel.Caption = Name..SpaceBars
@@ -433,7 +433,7 @@
   end
 
   function InitSlipstreamFeature()
-    EnableSlipStream=true
+    EnableSlipStream=false
   end
 
   function Set (list)
