@@ -3466,7 +3466,7 @@
       y=readFloat("[[PTR+8]+30]+54")//1
       z=readFloat("[[PTR+8]+30]+58")//1
       UDF1.EnterBoxButton.Enabled = false
-      if EasyMode == false then UDF1.FuelB.Enabled = true end
+      if EasyMode == false then UDF1.FuelB.Enabled = false end --Changed
       if HaveBox == false then isFirtsPit = true end
       HaveBox = true
       InThePit = false
