@@ -272,7 +272,7 @@
       content= "Going on track with setup:",
       embeds= {
               {title = "Player: "..SCNick,
-              description = Setup
+              description = Setup,
               color = 1178336}
               },
       }
