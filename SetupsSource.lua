@@ -271,7 +271,7 @@
     local details = {
       content= "Going on track with setup:",
       embeds= {
-              {title = "Player: "..SCNick,
+              {title = "Player: "..Username,
               description = Setup,
               color = 1178336}
               },
