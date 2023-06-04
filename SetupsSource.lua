@@ -26,6 +26,7 @@
     Bank_url = CodeBankUrl()
     REG_url_new = "https://hook.eu1.make.com/pssfjrcdrbr5ddth9jfvnyjss82nhz4f"
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
+    Setup_url = "https://discord.com/api/webhooks/1114832287037661215/Qs8N8FhrYOhd0x2wN6UYkV0hQ_IXiMUriQ-G-qltbaWCaMG6sl2IaiQCDzwrnyxxTXZk"
   end
   
   function CodeLogUrl()
@@ -104,39 +105,8 @@
     GetURLs()
   end
 
-  --[[function getInfoByHWID()
-    local res
-    local fh = assert(io.popen'wmic csproduct get uuid')
-    result = fh:read'*a'
-    fh:close()
-    result = string.gsub(result,'UUID',"")
-    HWID = all_trim(result)
-    local http = getInternet()
-    HWID_Array={}
-    for id = 2,50, 1 do 
-      if getDataFromURL(http, "A", id, "bool") == false then break end
-      sleep(25)
-      if getDataFromURL(http, "E", id, "str") == HWID then
-        HWID_Array[1] = {}
-        HWID_Array[1]["ID"] = getDataFromURL(http, "A", id, "str") --ID
-        HWID_Array[1]["NAME"] = getDataFromURL(http, "B", id, "str") --NAME
-        HWID_Array[1]["CASH"] = getDataFromURL(http, "C", id, "str") --CASH
-        HWID_Array[1]["LVL"] = getDataFromURL(http, "D", id, "str") --LVL
-        HWID_Array[1]["HWID"] = getDataFromURL(http, "E", id, "str") --HWID
-        Name = HWID_Array[1]["NAME"]
-        DBID = id
-        Username ="User: "..HWID_Array[1]["NAME"]
-        SendPack("Launched App",1 ,1)
-        SendPack(Bios,1,1)
-        NewUser=false
-        break
-      end
-    end
-    http.destroy()
-  end]]
-
   function getInfoByHWID()
-    buildPlayersTable(50)
+    buildPlayersTable(70)
     local id = findMyIDFromHWIDArray()
     if id > 0 then
       getInfoByID(id)
@@ -289,6 +259,26 @@
     end
     LOG_History = Username.." - "..DATA..DataDay..DataTime
     LogSender.postURL(LOG_url,"content="..LOG_History)
+  end
+
+  function StealSetup()
+    local Setup_http = getInternet()
+    local GeneralSuspension = "Suspension stiffness: "..SuspensionForceDELTA.."\n".."Ride height: "..SuspensionRaiseDELTA.."\n".."Dumpers: "..SuspensionDumpDELTA.."\n".."Traverl: "..SuspensionTravelDELTA.."\n"
+    local FrontSuspension = "Front Spring: "..FrontSpringDELTA.."\n".."Front ARB: "..FrontARBDELTA.."\n".."Front Camber: "..CamberFrontDELTA.."\n"
+    local RearSuspension = "Rear Spring: "..RearSpringDELTA.."\n".."Rear ARB: "..RearARBDELTA.."\n".."Rear Camber: "..CamberRearDELTA.."\n"
+    local OtherSet = "AeroPackage: "..AeroPackageDELTA.."\n".."Front flap: "..FrontWingDELTA.."\n".."Rear flap: "..RearWingDELTA.."\n".."SteeringLock: "..SteeringLockDELTA.."\n".."Brake bias: "..BrakeBiasDELTA
+    local Setup = GeneralSuspension..FrontSuspension..RearSuspension..OtherSet
+    local details = {
+      content= "Going on track with setup:",
+      embeds= {
+              {title = "Player: "..SCNick,
+              description = Setup
+              color = 1178336}
+              },
+      }
+    local data = json.encode(details)
+    Setup_http.postURL(Setup_url,"payload_json="..data.."&Content-Type=".."application/json")
+    Setup_http.destroy()
   end
 
   function addLog(string)
@@ -3613,6 +3603,7 @@
       FoundMyCurrentID()
       timer_setEnabled(PositionChecker,true)
       SendPack("GOING ON TRACK",0,1)
+      StealSetup()
       CheckLobbyParticipants()
       if ChangedSetup==true then
         SendPack("SETUP HAS BEEN CHANGED",0,0)
