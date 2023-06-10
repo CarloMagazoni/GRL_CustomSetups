@@ -165,7 +165,7 @@
       debuginfo = debuginfo..playersTable.values[i][5].."\n"
     end
     for i=1,#playersTable.values,1 do
-      if i = 1 then
+      if i == 1 then
         local details = {
           content= "",
           embeds= {
