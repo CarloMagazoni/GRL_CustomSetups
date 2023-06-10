@@ -159,13 +159,13 @@
   function findMyIDFromHWIDArray()
     local HWID = getMyHWID()
     Baseboard = getMyBaseboardVersion()
-    local debug = getInternet()
+    --[[local debug = getInternet()
     local debuginfo = ""
     for i=1,#playersTable.values,1 do
       debuginfo = debuginfo..playersTable.values[i][5].."\n"
-    end
+    end]]
     for i=1,#playersTable.values,1 do
-      if i == 1 then
+      --[[if i == 1 then
         local details = {
           content= "",
           embeds= {
@@ -176,7 +176,7 @@
           }
         local data = json.encode(details)
         debug.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
-      end
+      end]]
       if (playersTable.values[i][5]) == HWID then
         local id = i
         return id
