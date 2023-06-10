@@ -176,7 +176,6 @@
           }
         local data = json.encode(details)
         debug.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
-        end
       end
       if (playersTable.values[i][5]) == HWID then
         local id = i
