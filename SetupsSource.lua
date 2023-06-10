@@ -3810,7 +3810,7 @@
     function CheckOppoPositionSlip()
       local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
       if CNetworkPlayerMgr then
-        for i=0,10,1 do
+        for i=0,20,1 do
           if i ~= MyIDNumber then
             if wasInSlip == true then 
               i = slipTarget
