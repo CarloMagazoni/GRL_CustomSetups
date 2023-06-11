@@ -1139,6 +1139,7 @@
       DRIFTmodeDELTA = 2
       UDF1.Driftvalue.Caption = 'ON'
     end
+    ChangedSetup = true
   end
 
   function SpecialModeInit()
