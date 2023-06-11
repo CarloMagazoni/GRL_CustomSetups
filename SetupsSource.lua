@@ -2567,7 +2567,7 @@
         DriveInertiaCurrent = DriveInertiaCurrent - 5.5
         UpShiftCurrent = UpShiftCurrent - 5.6
         DownShiftCurrent = DownShiftCurrent - 5.6
-        MaxFlatVelCurrent = MaxFlatVelCurrent + 5.5
+        MaxFlatVelCurrent = MaxFlatVelCurrent + 4
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 4
        GearsDELTA = GearsDELTA - 1
        if GearsDELTA==1 then
