@@ -2548,7 +2548,7 @@
         UpShiftCurrent = UpShiftCurrent + 5.6
         DownShiftCurrent = DownShiftCurrent + 5.6
         MaxFlatVelCurrent = MaxFlatVelCurrent - 4
-        InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 3
+        InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 4
        GearsDELTA = GearsDELTA + 1
        if GearsDELTA==2 then
           UDF1.GearsValue.Caption = 'SHORT'
