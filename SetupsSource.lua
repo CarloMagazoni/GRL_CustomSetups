@@ -1082,6 +1082,7 @@
     if DownForceMultCurrent~=DownForceMultDefault then writeFloat(DownForceMultADR,DownForceMultDefault) end
     if RoloFrontCurrent~=RoloFrontDefault then writeFloat(RoloFrontADR,RoloFrontDefault) end
     if RoloRearCurrent~=RoloRearDefault then writeFloat(RoloRearADR,RoloRearDefault) end
+    ChangedSetup = true
     end
   end
 
@@ -4353,19 +4354,21 @@
 
   --Exit and calculate
   function Exit()
-   if SingleExit == true then
-     SingleExit = false
-     if FuelSystemEnabled==true then
+    if SingleExit == true then
+      SingleExit = false
+      if FuelSystemEnabled==true then
         EnableFuel()
-     end
-     ReturnDefaultsToPreviousCar()
-     form_hide(UDF1)
-     --local reward = CalculateScore()
-     SendPack("Closed app",1,1)
-     LogSender.destroy()
-     closeCE()
-     return caFree
-   end
+      end
+      ReturnDefaultsToPreviousCar()
+      if ChangedSetup == true then 
+        writeFloat("[[PTR+8]+D10]+8E8", -4000)
+      end
+      form_hide(UDF1)
+      SendPack("Closed app",1,1)
+      LogSender.destroy()
+      closeCE()
+      return caFree
+    end
   end
 
   --RUN
