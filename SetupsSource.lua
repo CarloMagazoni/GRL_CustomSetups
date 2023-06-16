@@ -3517,7 +3517,7 @@
       InThePit = false
       PositionChecker = createTimer(nil, true)  -- create a Timer object and assign it to variable t
       timer_onTimer(PositionChecker, CheckPos)   -- When the timer ticks, call the function main
-      timer_setInterval(PositionChecker, 1000) -- Sets the tickrate of the timer in milliseconds
+      timer_setInterval(PositionChecker, 3000) -- Sets the tickrate of the timer in milliseconds
       if isFirtsPit == true then InBox() end
     end
 
@@ -3681,7 +3681,7 @@
         else
             OppoCheck = createTimer(nil,false)
             timer_onTimer(OppoCheck,CheckOppoPosition)
-            timer_setInterval(OppoCheck, 500)
+            timer_setInterval(OppoCheck, 1000)
             timer_setEnabled(OppoCheck, true)
         end
         PlaySound(findTableFile("BeepStart.wav"), true)
@@ -3707,7 +3707,7 @@
       if EnableSlipStream == true then
         CheckSlipStreamTimer = createTimer(nil, false)
         timer_onTimer(CheckSlipStreamTimer, CheckOppoPositionSlip)
-        timer_setInterval(CheckSlipStreamTimer, 500)
+        timer_setInterval(CheckSlipStreamTimer, 1000)
         timer_setEnabled(CheckSlipStreamTimer, true)
         RWDSetted = RWDCurrent
         slipTarget = nil
@@ -4085,7 +4085,7 @@
         end
         Status = createTimer(nil,false)
         timer_onTimer(Status,ShowStatus)
-        timer_setInterval(Status, 1000)
+        timer_setInterval(Status, 3000)
         timer_setEnabled(Status, true)
     end
 
@@ -4233,7 +4233,7 @@
         NormalRepairRate = readFloat('adr+1453F8') --or 145510
         RefuelLoop = createTimer(nil,true)
         timer_onTimer(RefuelLoop,Refuel)
-        timer_setInterval(RefuelLoop, 10)
+        timer_setInterval(RefuelLoop, 100)
         writeFloat(DownShiftADR,-1)
         writeFloat(UpShiftADR,-1)
         timer_setEnabled(FuelEatLoop, false)
@@ -4364,7 +4364,7 @@
    function AutoUpdate()
     UpdateTimer = createTimer(nil,true)
     timer_onTimer(UpdateTimer,UpdateInfo)
-    timer_setInterval(UpdateTimer, 10000)
+    timer_setInterval(UpdateTimer, 60000)
    end
 
    function UpdateInfo()
