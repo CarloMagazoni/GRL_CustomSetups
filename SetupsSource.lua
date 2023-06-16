@@ -430,7 +430,7 @@
     oPositionY = 0x54
     oPositionZ = 0x58
     -- CNetworkPlayerMgr
-    pCNetPlayerInfo = 0x98
+    pCNetPlayerInfo = 0xA0
     pCNetPed = 0x248
     oNumPlayers = 0x180
     -- CPlayerInfo Offsets
