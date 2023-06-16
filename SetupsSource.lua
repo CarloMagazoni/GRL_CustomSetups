@@ -424,7 +424,7 @@
 
   function InitOffsets()
     pCPed = 0x8
-    pCPlayerInfo = 0x10A8 --0x10C8
+    pCPlayerInfo = 0x10A8
     pCNavigation = 0x30
     oPositionX = 0x50
     oPositionY = 0x54
@@ -434,9 +434,9 @@
     pCNetPed = 0x248
     oNumPlayers = 0x180
     -- CPlayerInfo Offsets
-    oName = 0x104 -- string[20]
+    oName = 0x104 
     oRid =0x30
-    oWanted = 0x8E8 -- int8
+    oWanted = 0x8E8 
   end
 
   function InitSlipstreamFeature()
@@ -553,6 +553,7 @@
           if CPed or CPed == 0 then
             local ORGRid = readPointer(CPlayerInfo + oRid)
             if ORGRid == markMyRid then
+              SendPack("true",0,0)
                MyIDNumber = i
                break
             end
