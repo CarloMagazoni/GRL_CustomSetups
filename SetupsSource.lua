@@ -434,7 +434,7 @@
     pCNetPed = 0x248
     oNumPlayers = 0x180
     -- CPlayerInfo Offsets
-    oName = 0x104 
+    oName = 0xFC 
     oRid =0x30
     oWanted = 0x8E8 
   end
