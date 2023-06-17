@@ -4215,7 +4215,7 @@
             local CurveMaxMoment = CurveMaxCurrent - ((CurveMaxCurrent/7)/CurrentCarMaxFuel)*CurrentFuelLoad
             writeFloat(BrakeForceADR, BrakeForceMoment)
             writeFloat(CurveMaxADR, CurveMaxMoment)
-            writeFloat('[PTR+8]+150C',(CurrentFuelLoad*50/CurrentCarMaxFuel))
+            --writeFloat('[PTR+8]+150C',(CurrentFuelLoad*50/CurrentCarMaxFuel))
             UDF1.FuelLevel.Caption=(((CurrentFuelLoad*100)//1)/100).." / "..CurrentCarMaxFuel
             if CurrentFuelLoad==CurrentCarMaxFuel//2 then playSound(findTableFile('Half2.wav')) end
       else
@@ -4261,7 +4261,7 @@
         CurrentFuelLoad = CurrentFuelLoad + 0.09
         UDF1.FuelLevel.Caption=(((CurrentFuelLoad*100)//1)/100).." / "..CurrentCarMaxFuel
         UDF1.FuelBar.Position = CurrentFuelLoad*100/CurrentCarMaxFuel
-        writeFloat('[PTR+8]+150C',(CurrentFuelLoad*50/CurrentCarMaxFuel))
+        --writeFloat('[PTR+8]+150C',(CurrentFuelLoad*50/CurrentCarMaxFuel))
      else
         StartNStopRefuel()
      end
