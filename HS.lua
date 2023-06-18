@@ -156,7 +156,7 @@ elseif CarNameCurrent=='krieger' then
 	local Drive = 0.2
 	local MaxFlat = 8
 	local InitMaxFlat = 10
-	local Brake = -0.275
+	local Brake = -0.675
 	local Steering = 0
 	local CurveMax = 0.01
 	local CurveMaxR = 0
