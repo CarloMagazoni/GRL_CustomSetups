@@ -553,7 +553,6 @@
           if CPed or CPed == 0 then
             local ORGRid = readPointer(CPlayerInfo + oRid)
             if ORGRid == markMyRid then
-              SendPack("true",0,0)
                MyIDNumber = i
                break
             end
