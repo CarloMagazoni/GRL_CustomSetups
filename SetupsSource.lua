@@ -452,7 +452,7 @@
   function SetCustomClassesArrays()
     GT3array = Set {'PARAGON','SPECTER','ELEGY2','CARBONIZ','DRAFTER','COQUETTE','SCHLAGEN','GROWLER','VECTRE'}
     GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','CYPHER','ITALIRSX'}
-    HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON'}
+    HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON','krieger'}
     F1array = Set {'FORMULA','OPENWHEEL1'}
     NASCARarray = Set {'HOTRING'}
     DRIFTarray = Set {'ELEGY','CYPHER'}
