@@ -186,7 +186,7 @@
         return id
       end
     end
-    debug.destroy()
+    --debug.destroy()
     return -1
   end
 
