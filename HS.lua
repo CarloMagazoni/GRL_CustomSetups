@@ -9,7 +9,7 @@ if CarNameCurrent=='VAGNER' then
 	local Drive = 0.45
 	local MaxFlat = 6
 	local InitMaxFlat = 10
-	local Brake = -0.3
+	local Brake = -0.35
 	local Steering = 0
 	local CurveMax = -0.01
 	local CurveMaxR = 0
@@ -69,7 +69,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local Drive = 0.29
 	local MaxFlat = 7
 	local InitMaxFlat = 10
-	local Brake = 0
+	local Brake = -0.1
 	local Steering = 0.1
 	local CurveMax = 0.25
 	local CurveMaxR = 0.01
@@ -98,7 +98,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local Drive = 0.51
 	local MaxFlat = 6.8
 	local InitMaxFlat = 10
-	local Brake = -0.19
+	local Brake = -0.29
 	local Steering = 0
 	local CurveMax = -0.001
 	local CurveMaxR = 0
@@ -156,7 +156,7 @@ elseif CarNameCurrent=='krieger' then
 	local Drive = 0.2
 	local MaxFlat = 8
 	local InitMaxFlat = 10
-	local Brake = -0.675
+	local Brake = -0.575
 	local Steering = 0
 	local CurveMax = 0.01
 	local CurveMaxR = 0
