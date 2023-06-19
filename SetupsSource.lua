@@ -440,7 +440,7 @@
   end
 
   function InitSlipstreamFeature()
-    EnableSlipStream=false
+    EnableSlipStream=true
   end
 
   function Set (list)
@@ -3843,6 +3843,7 @@
             --local TractionLoss = CalculateSlipTractionLoss(Lenght)
             if slipDebugMode == true then print("In slip behind:"..target.." |Getting force:"..AdditionalForce.." |Stock power:"..CurrentForce) end
             --SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
+            SendPack(HeadX,HeadY,PlayerX,PlayerY,OpponentX,OpponentY,0,0)
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
@@ -3866,7 +3867,7 @@
       local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
       if CNetworkPlayerMgr then
         for i=0,20,1 do
-          if i ~= MyIDNumber then
+          if i == MyIDNumber then
             if wasInSlip == true then 
               i = slipTarget
             else 
