@@ -432,7 +432,7 @@
     -- CNetworkPlayerMgr
     pCNetPlayerInfo = 0xA0
     pCNetPed = 0x248
-    oNumPlayers = 0x180
+    oNumPlayers = 0x170
     -- CPlayerInfo Offsets
     oName = 0xFC 
     oRid =0x30
@@ -3819,23 +3819,12 @@
         local TractionLoss = (1 - (Distance/50))*0.05
         return TractionLoss
       end
-      
-      function debugSlip()
-        if slipDebugMode == false then 
-          slipDebugMode = true
-          SendPack("Enabled debug",0,0)
-        elseif slipDebugMode == true then 
-          slipDebugMode = false
-          SendPack("Disable debug",0,0)
-        end
-      end
 
       function DoSlipstream(HeadX,HeadY,PlayerX,PlayerY,OpponentX,OpponentY,target)
         local R = (PlayerX*HeadX + PlayerY*HeadY) * (-1)
         local Side = OpponentX*HeadX + OpponentY*HeadY + R
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
-        SendPack(HeadX,HeadY,PlayerX,PlayerY,OpponentX,OpponentY,0,0)
         if (Side < 1.5 and Side > -1.5) and (FrontSide > 3 and FrontSide < 50) then
           if Lenght < 50 then
             local CurrentForce = RWDSetted
@@ -3867,7 +3856,7 @@
       local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
       if CNetworkPlayerMgr then
         for i=0,20,1 do
-          if i == MyIDNumber then
+          if i ~= MyIDNumber then
             if wasInSlip == true then 
               i = slipTarget
             else 
