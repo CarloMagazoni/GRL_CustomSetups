@@ -3835,6 +3835,7 @@
         local Side = OpponentX*HeadX + OpponentY*HeadY + R
         local FrontSide = (-HeadY)*(OpponentX - PlayerX) + HeadX*(OpponentY - PlayerY)
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
+        SendPack(HeadX,HeadY,PlayerX,PlayerY,OpponentX,OpponentY,0,0)
         if (Side < 1.5 and Side > -1.5) and (FrontSide > 3 and FrontSide < 50) then
           if Lenght < 50 then
             local CurrentForce = RWDSetted
@@ -3843,7 +3844,6 @@
             --local TractionLoss = CalculateSlipTractionLoss(Lenght)
             if slipDebugMode == true then print("In slip behind:"..target.." |Getting force:"..AdditionalForce.." |Stock power:"..CurrentForce) end
             --SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
-            SendPack(HeadX,HeadY,PlayerX,PlayerY,OpponentX,OpponentY,0,0)
             CurrentForce = CurrentForce + AdditionalForce
             --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
