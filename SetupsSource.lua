@@ -3842,7 +3842,7 @@
             --return true
           end
         else
-          if wasInSlip = true then writeFloat(RWDADR,RWDSetted) end
+          if wasInSlip == true then writeFloat(RWDADR,RWDSetted) end
           --if slipDebugMode == true then print("Reseted power") end
           --if wasInSlip == true then SendPack("Lost slip PlayerID="..MyIDNumber.." FromID="..target,1,1) end
           wasInSlip = false
