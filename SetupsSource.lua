@@ -3842,8 +3842,8 @@
             --return true
           end
         else
-          writeFloat(RWDADR,RWDSetted)
-          if slipDebugMode == true then print("Reseted power") end
+          if wasInSlip = true then writeFloat(RWDADR,RWDSetted) end
+          --if slipDebugMode == true then print("Reseted power") end
           --if wasInSlip == true then SendPack("Lost slip PlayerID="..MyIDNumber.." FromID="..target,1,1) end
           wasInSlip = false
           slipTarget = nil
@@ -3856,7 +3856,7 @@
       local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
       if CNetworkPlayerMgr then
         for i=0,20,1 do
-          if i ~= MyIDNumber then
+          if i ~= 0 then --MyIDNumber then
             if wasInSlip == true then 
               i = slipTarget
             else 
@@ -3876,8 +3876,9 @@
                     local Hy=readFloat("[[PTR+8]+30]+24")
                     local OppoX= readFloat(CNav + oPositionX)
                     local OppoY= readFloat(CNav + oPositionY)
+                    SendPack('Doing slip with'..i,0,0)
                     --if (((OppoX-Px)^(2)+(OppoY-Py)^(2))^(0.5) < 50) then
-                      if slipDebugMode == true then print("Your X,Y,H1,H2"..Px..","..Py..","..Hx..","..Hy.." Comparing with X,Y"..OppoX..","..OppoY.." from ID="..i) end
+                      --if slipDebugMode == true then print("Your X,Y,H1,H2"..Px..","..Py..","..Hx..","..Hy.." Comparing with X,Y"..OppoX..","..OppoY.." from ID="..i) end
                       --if DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i) == true then i = i - 1 end
                       DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
                     --end
