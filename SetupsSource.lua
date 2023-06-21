@@ -595,6 +595,7 @@
     end
     GetDefaults()
     DisplayInfo()
+    --InitClassSpecificSetupValues()
     if GT3array[CarNameCurrent]  then
       if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
       UDF1.gt3Value.Enabled = true
@@ -695,7 +696,7 @@
     UDF1.ClassValue.Caption = "-"
     UDF1.ClassValue.Font.Color = ClDefault
     SendPack("New car init - "..CarNameCurrent, 0, 1)
-    --InitClassSpecificSetupValues()
+    
   end
 
   function InitClassSpecificSetupValues()
