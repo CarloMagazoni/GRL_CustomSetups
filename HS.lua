@@ -7,8 +7,8 @@ if CarNameCurrent=='VAGNER' then
 	local UpShift = 0
 	local DownShift = 0
 	local Drive = 0.45
-	local MaxFlat = 6
-	local InitMaxFlat = 10
+	local MaxFlat = 5
+	local InitMaxFlat = 9
 	local Brake = -0.35
 	local Steering = 0
 	local CurveMax = -0.01
@@ -38,8 +38,8 @@ elseif CarNameCurrent=='IGNUS' then
 	local UpShift = 0.2
 	local DownShift = -1.0
 	local Drive = 0.36
-	local MaxFlat = 6
-	local InitMaxFlat = 4
+	local MaxFlat = 5
+	local InitMaxFlat = 3
 	local Brake = 0.2
 	local Steering = 0.1
 	local CurveMax = 0.082
@@ -67,8 +67,8 @@ elseif CarNameCurrent=='VISIONE' then
 	local UpShift = 0
 	local DownShift = 0
 	local Drive = 0.29
-	local MaxFlat = 7
-	local InitMaxFlat = 10
+	local MaxFlat = 6
+	local InitMaxFlat = 9
 	local Brake = -0.1
 	local Steering = 0.1
 	local CurveMax = 0.25
@@ -93,11 +93,11 @@ elseif CarNameCurrent=='EMERUS' then
 	local Drag = 0.000099
 	local FWD = 0
 	local RWD = 0
-	local UpShift = -3
-	local DownShift = -3
+	local UpShift = -4
+	local DownShift = -4
 	local Drive = 0.51
-	local MaxFlat = 6.8
-	local InitMaxFlat = 10
+	local MaxFlat = 5.8
+	local InitMaxFlat = 9
 	local Brake = -0.29
 	local Steering = 0
 	local CurveMax = -0.001
@@ -154,8 +154,8 @@ elseif CarNameCurrent=='krieger' then
 	local UpShift = 0.5
 	local DownShift = 2.5
 	local Drive = 0.2
-	local MaxFlat = 8
-	local InitMaxFlat = 10
+	local MaxFlat = 7
+	local InitMaxFlat = 9
 	local Brake = -0.575
 	local Steering = 0
 	local CurveMax = 0.01
@@ -173,6 +173,6 @@ elseif CarNameCurrent=='krieger' then
 	local Inertia = -0.5
 	local Model = 0
 	local ADV = 4194304
-	local Lift = 0.02
+	local Lift = 0.03
 	ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model,Lift)
 end
