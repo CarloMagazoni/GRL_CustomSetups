@@ -196,7 +196,7 @@ elseif CarNameCurrent=='krieger' then
     susRearRoloVAL = 0.025
     HSTank=80
     HSmix=0.0000022
-elseif CarNameCurrent=='OPENWHEEL1'
+elseif CarNameCurrent=='OPENWHEEL1' then
     steeringLockVAL = 0.005
     steeringLockRatioVAL = 0.01
     rearWingDragVAL = 0.0000595
