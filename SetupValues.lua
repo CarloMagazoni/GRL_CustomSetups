@@ -29,6 +29,8 @@ if CarNameCurrent=='VISIONE' then
     susRearSpringVAL = 0.1
     susRearARBVAL = 0.375
     susRearRoloVAL = 0.025
+    HSTank=60
+    HSmix=0.00000135
 elseif CarNameCurrent=='EMERUS' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
@@ -60,6 +62,8 @@ elseif CarNameCurrent=='EMERUS' then
     susRearSpringVAL = 0.1
     susRearARBVAL = 0.375
     susRearRoloVAL = 0.025
+    HSTank=75
+    HSmix=0.000002
 elseif CarNameCurrent=='VAGNER' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
@@ -91,6 +95,8 @@ elseif CarNameCurrent=='VAGNER' then
     susRearSpringVAL = 0.1
     susRearARBVAL = 0.375
     susRearRoloVAL = 0.025
+    HSTank=65
+    HSmix=0.0000018
 elseif CarNameCurrent=='IGNUS' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
@@ -122,6 +128,8 @@ elseif CarNameCurrent=='IGNUS' then
     susRearSpringVAL = 0.1
     susRearARBVAL = 0.375
     susRearRoloVAL = 0.025
+    HSTank=75
+    HSmix=0.000002
 elseif CarNameCurrent=='TIGON' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
@@ -153,6 +161,8 @@ elseif CarNameCurrent=='TIGON' then
     susRearSpringVAL = 0.1
     susRearARBVAL = 0.375
     susRearRoloVAL = 0.025
+    HSTank=75
+    HSmix=0.000002
 elseif CarNameCurrent=='krieger' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
@@ -184,6 +194,8 @@ elseif CarNameCurrent=='krieger' then
     susRearSpringVAL = 0.1
     susRearARBVAL = 0.375
     susRearRoloVAL = 0.025
+    HSTank=80
+    HSmix=0.0000022
 else
     steeringLockVAL = 0.005
     steeringLockRatioVAL = 0.01
