@@ -3949,8 +3949,6 @@
           if ((Curx > x-10) and (Curx < x+10)) and ((Cury > y-10) and (Cury < y+10)) and ((Curz > z-5) and (Curz < z+5)) and (InThePit==false) then
             UDF1.EnterBoxButton.Enabled = true
             UDF1.EnterBoxButton.Caption = "ENTER BOX"
-            --UDF1.RepairEngButton.Enabled = true
-           -- UDF1.FireEngButton.Enabled = true
             if FuelSystemEnabled==true then
              UDF1.Refuel.Enabled = true
             end
@@ -3958,8 +3956,6 @@
           else
             UDF1.EnterBoxButton.Caption = Pit_Stop_Distance.." m"
             UDF1.EnterBoxButton.Enabled = false
-            --UDF1.RepairEngButton.Enabled = false
-            --UDF1.FireEngButton.Enabled = false
               UDF1.Refuel.Enabled = false --if fuel
             NearPit=false
           end
@@ -4280,7 +4276,6 @@
       }
     local data = json.encode(details)
     https.postURL(TransactionURL,"payload_json="..data.."&Content-Type=".."application/json")
-    --SendPack("did a transaction request with "..Amount.." FV Dollars",0,1)
     https.destroy()
   end
 
@@ -4297,7 +4292,6 @@
       }
     local data = json.encode(details)
     https.postURL(TransactionURL,"payload_json="..data.."&Content-Type=".."application/json")
-    --SendPack("did a transaction request with "..Amount.." FV Dollars",0,1)
     https.destroy()
   end
 
@@ -4313,13 +4307,10 @@
     local XPResp = json.decode(https.GetURL(XPURL))
     local AccountCash = tonumber(CashResp["values"][1][1])
     local CurrentLicence = tonumber(XPResp["values"][1][1])
-    --local CurrentCash = "     "..AccountCash
-    --local CurrentLicence = "     "..AccountXP
     UDF1.MoneyLabel.Caption = AccountCash.." $"
     if CurrentLicence == 1 then EasyMode = true else EasyMode = false end
     UDF1.XPlabel.Caption = LicenceArray[CurrentLicence]
     https.destroy()
-    --XPUnlock(AccountXP)
     AutoUpdate()
    end
 
@@ -4339,12 +4330,9 @@
     local XPResp = json.decode(https.GetURL(XPURL))
     local AccountCash = tonumber(CashResp["values"][1][1])
     local CurrentLicence = tonumber(XPResp["values"][1][1])
-    --local CurrentCash = "     "..AccountCash
-    --local CurrentLicence = "     "..AccountXP
     UDF1.MoneyLabel.Caption = AccountCash.." $"
     UDF1.XPlabel.Caption = LicenceArray[CurrentLicence]
     https.destroy()
-    --XPUnlock(AccountXP)
    end
    
    --EconomyModule
