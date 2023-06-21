@@ -27,7 +27,7 @@
     REG_url_new = "https://hook.eu1.make.com/pssfjrcdrbr5ddth9jfvnyjss82nhz4f"
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
     Setup_url = "https://discord.com/api/webhooks/1114832287037661215/Qs8N8FhrYOhd0x2wN6UYkV0hQ_IXiMUriQ-G-qltbaWCaMG6sl2IaiQCDzwrnyxxTXZk"
-    --Setup_values_url = ""
+    Setup_values_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/SetupValues.lua"
     --Slipstream_bodytype_values_url = ""
   end
   
@@ -99,7 +99,7 @@
     FuelSet = http.getURL(Fuel_url)
     HWID_res = http.getURL(HWID_url)
     Version_res = http.getURL(version_url)
-    --SetupValues = http.getURL(Setup_values_url)
+    SetupValues = http.getURL(Setup_values_url)
     --Slipstream_bodytype_values = http.getURL(Slipstream_bodytype_values_url)
     http.destroy()
   end
@@ -595,7 +595,7 @@
     end
     GetDefaults()
     DisplayInfo()
-    --InitClassSpecificSetupValues()
+    InitClassSpecificSetupValues()
     if GT3array[CarNameCurrent]  then
       if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
       UDF1.gt3Value.Enabled = true
@@ -1196,14 +1196,14 @@
     UDF1.EasySus1.Caption = 'SOFT'
     UDF1.FrontWingLabel.Caption = 'FRONT FLAP:'
     UDF1.RearWingLabel1.Caption = 'REAR FLAP:'
-    UDF1.BrakeSizeValue.Caption = 'OPEN'
-    UDF1.BrakeSizeLabel.Caption = 'BRAKE DUCT'
+    UDF1.BrakeSizeValue.Caption = 'Open'
+    UDF1.BrakeSizeLabel.Caption = 'BRAKE DUCT:'
   end
 
   function DisplayInfo()
    UDF1.FrontWingValue.Caption = '5'
    UDF1.RearWingValue.Caption = '5'
-   UDF1.GearsValue.Caption = 'STANDARD'
+   UDF1.GearsValue.Caption = 'Standard'
    UDF1.SteeringLockValue.Caption = SteeringLockDELTA
    UDF1.SuspensionForceValue.Caption = (SuspensionForceCurrent*100)//1
    UDF1.DumperValue.Caption = SuspensionDumpDELTA
@@ -1216,8 +1216,8 @@
    UDF1.RearCamberValue.Caption = (((CamberRearCurrent*55.5)*10)//1)/10
    UDF1.CarNameLabel.Caption = CarNameCurrent
    UDF1.HeadlightValue.Caption = 'OFF'
-   UDF1.XenonColorValue.Caption = 'DEFAULT'
-   UDF1.BrakeSizeValue.Caption = 'LARGE'
+   UDF1.XenonColorValue.Caption = 'Default'
+   UDF1.BrakeSizeValue.Caption = 'Open'
    UDF1.AeroPackageValue.Caption = 'Standard'
    UDF1.BrakeBiasValue.Caption = ((((BrakeBiasFrontCurrent+0.001)*100/2)*100)//1)/100
    UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
@@ -2390,10 +2390,10 @@
        DragCurrent = DragCurrent + 0.000030 --brakeSizeDragVAL
        BrakesSizeDELTA = BrakesSizeDELTA + 1
        if BrakesSizeDELTA == 3 then
-          UDF1.BrakeSizeValue.Caption = 'OPEN'
+          UDF1.BrakeSizeValue.Caption = 'Open'
        end
        if BrakesSizeDELTA == 2 then
-          UDF1.BrakeSizeValue.Caption = 'CLOSED 70%'
+          UDF1.BrakeSizeValue.Caption = 'Closed 70%'
        end
        writeFloat(DragADR,DragCurrent)
        writeFloat(BrakeForceADR,BrakeForceCurrent)
@@ -2407,10 +2407,10 @@
        DragCurrent = DragCurrent - 0.000030 --brakeSizeDragVAL
        BrakesSizeDELTA = BrakesSizeDELTA - 1
        if BrakesSizeDELTA == 2 then
-          UDF1.BrakeSizeValue.Caption = 'CLOSED 35%'
+          UDF1.BrakeSizeValue.Caption = 'Closed 35%'
        end
        if BrakesSizeDELTA == 1 then
-          UDF1.BrakeSizeValue.Caption = 'CLOSED 70%'
+          UDF1.BrakeSizeValue.Caption = 'Closed 70%'
        end
        writeFloat(DragADR,DragCurrent)
        writeFloat(BrakeForceADR,BrakeForceCurrent)
@@ -2468,7 +2468,7 @@
        if XenonColorDELTA == 1 then
           XenonCurrent = 1
           XenonColorCurrent = -1
-          UDF1.XenonColorValue.Caption = 'XENON'
+          UDF1.XenonColorValue.Caption = 'Xenon'
        end
        if XenonColorDELTA == 2 then
           XenonCurrent = 1
@@ -2478,7 +2478,7 @@
        if XenonColorDELTA == 3 then
           XenonCurrent = 1
           XenonColorCurrent = 2
-          UDF1.XenonColorValue.Caption = 'PROTOTYPE'
+          UDF1.XenonColorValue.Caption = 'HS'
        end
        XenonColorDELTA = XenonColorDELTA + 1
        writeBytes(XenonColorADR,XenonColorCurrent)
@@ -2490,12 +2490,12 @@
        if XenonColorDELTA == 2 then
           XenonCurrent = XenonDefault
           XenonColorCurrent = XenonColorDefault
-          UDF1.XenonColorValue.Caption = 'DEFAULT'
+          UDF1.XenonColorValue.Caption = 'Default'
        end
        if XenonColorDELTA == 3 then
           XenonCurrent = 1
           XenonColorCurrent = -1
-          UDF1.XenonColorValue.Caption = 'XENON'
+          UDF1.XenonColorValue.Caption = 'Xenon'
        end
        if XenonColorDELTA == 4 then
           XenonCurrent = 1
@@ -2562,10 +2562,10 @@
       InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent + 6 --gearsInitMaxFlatVAL
       GearsDELTA = GearsDELTA + 1
       if GearsDELTA==2 then
-        UDF1.GearsValue.Caption = 'LONG'
+        UDF1.GearsValue.Caption = 'Long'
       end
       if GearsDELTA==3 then
-        UDF1.GearsValue.Caption = 'LE MANS'
+        UDF1.GearsValue.Caption = 'Blaine'
       end
       WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
       --WriteFloat(UpShiftADR,UpShiftCurrent)
@@ -2585,10 +2585,10 @@
         InitialMaxFlatVelCurrent = InitialMaxFlatVelCurrent - 6 --gearsInitMaxFlatVAL
        GearsDELTA = GearsDELTA - 1
       if GearsDELTA == 1 then
-        UDF1.GearsValue.Caption = 'STANDART'
+        UDF1.GearsValue.Caption = 'Standard'
       end
       if GearsDELTA == 2 then
-        UDF1.GearsValue.Caption = 'LONG'
+        UDF1.GearsValue.Caption = 'Long'
       end
        WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
        --WriteFloat(UpShiftADR,UpShiftCurrent)
