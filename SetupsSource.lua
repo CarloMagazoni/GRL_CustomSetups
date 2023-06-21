@@ -431,12 +431,11 @@
     oPositionZ = 0x58
     -- CNetworkPlayerMgr
     pCNetPlayerInfo = 0xA0
-    pCNetPed = 0x248
-    oNumPlayers = 0x170
+    pCNetPed = 0x240
+    oNumPlayers = 0x188
     -- CPlayerInfo Offsets
-    oName = 0x104 
-    oRid =0x30
-    oWanted = 0x8E8 
+    oName = 0xFC 
+    oRid =0xE8
   end
 
   function InitSlipstreamFeature()
