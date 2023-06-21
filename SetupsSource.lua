@@ -1570,7 +1570,7 @@
 
     --AeroPackage
     function AeroPackageIncrease()
-     if AeroPackageDELTA ~= 3  then
+     if AeroPackageDELTA ~= 3 and CarNameCurrent == 'OPENWHEEL1'  then
        DragCurrent = DragCurrent + 0.0003375 --aeroPackageDragVAL
        FrontGripCurrent = FrontGripCurrent + 0.125 --aeroPackageFrontGripVAL
        RearGripCurrent = RearGripCurrent + 0.15 --aeroPackageRearGripVAL
@@ -1591,7 +1591,7 @@
     end
 
     function AeroPackageDecrease()
-     if AeroPackageDELTA ~= 1  then
+     if AeroPackageDELTA ~= 1 and CarNameCurrent == 'OPENWHEEL1'  then
       DragCurrent = DragCurrent - 0.0003375 --aeroPackageDragVAL
       FrontGripCurrent = FrontGripCurrent - 0.125 --aeroPackageFrontGripVAL
       RearGripCurrent = RearGripCurrent - 0.15 --aeroPackageRearGripVAL
