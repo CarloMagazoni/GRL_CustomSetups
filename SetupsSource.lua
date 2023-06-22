@@ -4080,7 +4080,7 @@
               UDF1.EngineHP.Font.Color=219
               --UDF1.CarStatusCheck.Visible=true
            elseif (Engine < 0 or Engine == 0) and NotAnnoyKilledEngine == false then
-                  local randomkillswear = math.random(1,4)
+                  local randomkillswear = math.random(1,5)
                   local soundname="EngineGone"..randomkillswear..".wav"
                   PlaySound(findTableFile("BeepStart.wav"), true)
                   playSound(findTableFile(soundname), true)
