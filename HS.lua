@@ -66,8 +66,8 @@ elseif CarNameCurrent=='VISIONE' then
 	local RWD = 0
 	local UpShift = 0
 	local DownShift = 0
-	local Drive = 0.31
-	local MaxFlat = 6.3
+	local Drive = 0.315
+	local MaxFlat = 6.8
 	local InitMaxFlat = 9
 	local Brake = -0.1
 	local Steering = 0.1
@@ -81,7 +81,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local Eng = 5
 	local DF = 0
 	local Flag = 0
-	local Front = 0.03
+	local Front = 0.04
 	local Rear = 0.15
 	local Inertia = 0
 	local Model = 0
@@ -95,8 +95,8 @@ elseif CarNameCurrent=='EMERUS' then
 	local RWD = 0
 	local UpShift = -4
 	local DownShift = -4
-	local Drive = 0.45
-	local MaxFlat = 5.8
+	local Drive = 0.42
+	local MaxFlat = 5.4
 	local InitMaxFlat = 9
 	local Brake = -0.29
 	local Steering = 0
@@ -110,7 +110,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local Eng = 5
 	local DF = 0
 	local Flag = 0
-	local Front = -0.055
+	local Front = -0.0575
 	local Rear = 0.09
 	local Inertia = -0.35
 	local Model = 0
@@ -156,7 +156,7 @@ elseif CarNameCurrent=='krieger' then
 	local Drive = 0.25
 	local MaxFlat = 7
 	local InitMaxFlat = 9
-	local Brake = -0.575
+	local Brake = -0.505
 	local Steering = 0
 	local CurveMax = 0.01
 	local CurveMaxR = 0
