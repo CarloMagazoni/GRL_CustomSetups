@@ -421,7 +421,7 @@
   end
 
   function InitSlipstreamFeature()
-    EnableSlipStream=true
+    EnableSlipStream=false
   end
 
   function Set (list)
