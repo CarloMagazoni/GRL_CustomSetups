@@ -15,14 +15,14 @@ if CarNameCurrent=='VAGNER' then
 	local CurveMaxR = 0
 	local CurveMin = 0.1
 	local CurveMinR = 0
-	local CurveLat = 0.08
+	local CurveLat = 0.01
 	local CurveLatR = 0
 	local Coll = 2
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
 	local Front = 0
-	local Rear = 0
+	local Rear = 0.035
 	local Inertia = 0
 	local Model = 0
 	local ADV = 4194304
@@ -66,7 +66,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local RWD = 0
 	local UpShift = 0
 	local DownShift = 0
-	local Drive = 0.315
+	local Drive = 0.285
 	local MaxFlat = 6.8
 	local InitMaxFlat = 9
 	local Brake = -0.1
@@ -93,7 +93,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local Drag = 0.000099
 	local FWD = 0
 	local RWD = 0
-	local UpShift = -5
+	local UpShift = -6
 	local DownShift = -5
 	local Drive = 0.69
 	local MaxFlat = 4
@@ -112,7 +112,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local Flag = 0
 	local Front = -0.0605
 	local Rear = 0.09
-	local Inertia = -0.35
+	local Inertia = -0.55
 	local Model = 0
 	local ADV = 4194304
 	local Lift = 0
@@ -170,7 +170,7 @@ elseif CarNameCurrent=='krieger' then
 	local Flag = 0
 	local Front = 0.025
 	local Rear = -0.015
-	local Inertia = -0.5
+	local Inertia = -0.45
 	local Model = 0
 	local ADV = 4194304
 	local Lift = 0.03
