@@ -597,7 +597,7 @@
     DisplayInfo()
     InitClassSpecificSetupValues()
     if GT3array[CarNameCurrent]  then
-      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
+      switchHeadlights(false, true)
       UDF1.gt3Value.Enabled = true
       UDF1.gt3Label.Enabled = true
       UDF1.gt3DEC.Enabled = true
@@ -610,7 +610,7 @@
       CurrentCarMaxFuel = GT3Tank
       MixCurrent = GT3mix
     elseif GTEarray[CarNameCurrent]  then
-      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
+      switchHeadlights(false, true)
       UDF1.gtevalue.Enabled = true
       UDF1.gtelabel.Enabled = true
       UDF1.gtedec.Enabled = true
@@ -623,7 +623,7 @@
       CurrentCarMaxFuel = GTETank
       MixCurrent = GTEmix
     elseif HSarray[CarNameCurrent] then 
-      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
+      switchHeadlights(false, true)
       UDF1.hsvalue.Enabled = true
       UDF1.hslabel.Enabled = true
       UDF1.hsdec.Enabled = true
@@ -633,10 +633,8 @@
       DisableF1Labels()
       DisableNascarLabels()
       DisableDriftLabels()
-      CurrentCarMaxFuel = HSTank
-      MixCurrent = HSmix
     elseif F1array[CarNameCurrent]  then
-      if UDF1.HeadlightTypelabel.Enabled == true then DisableHeadlights() end
+      switchHeadlights(true, false)
       UDF1.F1Label.Enabled = true
       UDF1.F1DEC.Enabled = true
       UDF1.F1INC.Enabled = true
@@ -650,7 +648,7 @@
       CurrentCarMaxFuel = F1Tank
       MixCurrent = F1mix
     elseif NASCARarray[CarNameCurrent]  then
-      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
+      switchHeadlights(false, true)
       UDF1.NascarLabel.Enabled = true
       UDF1.NDEC.Enabled = true
       UDF1.NINC.Enabled = true
@@ -663,7 +661,7 @@
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     elseif DRIFTarray[CarNameCurrent]  then
-      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
+      switchHeadlights(false, true)
       UDF1.DriftLabel.Enabled = true
       UDF1.DDEC.Enabled = true
       UDF1.DINC.Enabled = true
@@ -676,7 +674,7 @@
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     else
-      if UDF1.HeadlightTypelabel.Enabled == false then EnableHeadlights() end
+      switchHeadlights(false, true)
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
@@ -703,26 +701,17 @@
     load(SetupValues)()
   end
 
-  function DisableHeadlights ()
-    UDF1.Headlightlabel.Enabled = false
-    UDF1.HLENDINC.Enabled = false
-    UDF1.HLENDDEC.Enabled = false
-    UDF1.HeadlightValue.Enabled = false
-    UDF1.HeadlightTypelabel.Enabled = false
-    UDF1.XenonINC.Enabled = false
-    UDF1.XenonDEC.Enabled = false
-    UDF1.XenonColorValue.Enabled = false
-  end
-
-  function EnableHeadlights ()
-    UDF1.Headlightlabel.Enabled = true
-    UDF1.HLENDINC.Enabled = true
-    UDF1.HLENDDEC.Enabled = true
-    UDF1.HeadlightValue.Enabled = true
-    UDF1.HeadlightTypelabel.Enabled = true
-    UDF1.XenonINC.Enabled = true
-    UDF1.XenonDEC.Enabled = true
-    UDF1.XenonColorValue.Enabled = true
+  function switchHeadlights(state,bool)
+    if UDF1.HeadlightTypelabel.Enabled == state then
+      UDF1.Headlightlabel.Enabled = bool
+      UDF1.HLENDINC.Enabled = bool
+      UDF1.HLENDDEC.Enabled = bool
+      UDF1.HeadlightValue.Enabled = bool
+      UDF1.HeadlightTypelabel.Enabled = bool
+      UDF1.XenonINC.Enabled = bool
+      UDF1.XenonDEC.Enabled = bool
+      UDF1.XenonColorValue.Enabled = bool
+    end
   end
 
   function GetDefaults()
@@ -1289,7 +1278,7 @@
 
     --DUMP
     function SuspensionDumpIncrease()
-      if SuspensionDumpDELTA ~= 38  then
+      if SuspensionDumpDELTA ~= 38 and not HSarray[CarNameCurrent]  then
         SuspensionBumpCurrent = SuspensionBumpCurrent + susBumpVAL
         SuspensionDumpDELTA = SuspensionDumpDELTA + 1
         SuspensionReboundCurrent = SuspensionReboundCurrent + susReboundVAL
@@ -1301,7 +1290,7 @@
     end
 
     function SuspensionDumpDecrease()
-      if SuspensionDumpDELTA ~= 1  then
+      if SuspensionDumpDELTA ~= 1 and not HSarray[CarNameCurrent]  then
         SuspensionBumpCurrent = SuspensionBumpCurrent - susBumpVAL
         SuspensionDumpDELTA = SuspensionDumpDELTA - 1
         SuspensionReboundCurrent = SuspensionReboundCurrent - susReboundVAL
@@ -1314,7 +1303,7 @@
 
     --BUMP
     function SuspensionBumpIncrease()
-      if SuspensionBumpDELTA ~= 38  then
+      if SuspensionBumpDELTA ~= 38 and not HSarray[CarNameCurrent]  then
         SuspensionBumpCurrent = SuspensionBumpCurrent + susBumpVAL
         SuspensionBumpDELTA = SuspensionBumpDELTA + 1
         UDF1.BumperValue.Caption = SuspensionBumpDELTA
@@ -1324,7 +1313,7 @@
     end
 
     function SuspensionBumpDecrease()
-      if SuspensionBumpDELTA ~= 1  then
+      if SuspensionBumpDELTA ~= 1 and not HSarray[CarNameCurrent]  then
         SuspensionBumpCurrent = SuspensionBumpCurrent - susBumpVAL
         SuspensionBumpDELTA = SuspensionBumpDELTA - 1
         UDF1.BumperValue.Caption = SuspensionBumpDELTA
@@ -1358,7 +1347,7 @@
 
      --FrontSpring
     function FrontSpringIncrease()
-      if FrontSpringDELTA ~= 18  then
+      if FrontSpringDELTA ~= 18 and not HSarray[CarNameCurrent]  then
         FrontSpringCurrent = FrontSpringCurrent + susFrontSpringVAL
         FrontSpringDELTA = FrontSpringDELTA + 1
         UDF1.FrontSpringValue.Caption = FrontSpringDELTA
@@ -1368,7 +1357,7 @@
     end
 
     function FrontSpringDecrease()
-      if FrontSpringDELTA ~= 1  then
+      if FrontSpringDELTA ~= 1 and not HSarray[CarNameCurrent]  then
         FrontSpringCurrent = FrontSpringCurrent - susFrontSpringVAL
         FrontSpringDELTA = FrontSpringDELTA - 1
         UDF1.FrontSpringValue.Caption = FrontSpringDELTA
@@ -1404,7 +1393,7 @@
 
      --CamberFront
     function CamberFrontIncrease()
-      if CamberFrontDELTA ~= 50 then
+      if CamberFrontDELTA ~= 50 and not HSarray[CarNameCurrent] then
         CamberFrontCurrent = CamberFrontCurrent + 0.002
         UDF1.FrontCamberValue.Caption = (((CamberFrontCurrent*55.5)*10)//1)/10
         CamberFrontDELTA = CamberFrontDELTA + 1
@@ -1414,7 +1403,7 @@
     end
 
     function CamberFrontDecrease()
-      if CamberFrontDELTA ~= 1 then
+      if CamberFrontDELTA ~= 1 and not HSarray[CarNameCurrent] then
         CamberFrontCurrent = CamberFrontCurrent - 0.002
         UDF1.FrontCamberValue.Caption = (((CamberFrontCurrent*55.5)*10)//1)/10
         CamberFrontDELTA = CamberFrontDELTA - 1
@@ -1425,7 +1414,7 @@
 
      --RearSpring
     function RearSpringIncrease()
-      if RearSpringDELTA ~= 18  then
+      if RearSpringDELTA ~= 18 and not HSarray[CarNameCurrent]  then
         RearSpringCurrent = RearSpringCurrent + susRearSpringVAL
         RearSpringDELTA = RearSpringDELTA + 1
         UDF1.RearSpringValue.Caption = RearSpringDELTA
@@ -1435,7 +1424,7 @@
     end
 
     function RearSpringDecrease()
-      if RearSpringDELTA ~= 1  then
+      if RearSpringDELTA ~= 1 and not HSarray[CarNameCurrent]  then
         RearSpringCurrent = RearSpringCurrent - susRearSpringVAL
         RearSpringDELTA = RearSpringDELTA - 1
         UDF1.RearSpringValue.Caption = RearSpringDELTA
@@ -1471,7 +1460,7 @@
 
      --CamberRear
     function CamberRearIncrease()
-      if CamberRearDELTA ~= 50 then
+      if CamberRearDELTA ~= 50 and not HSarray[CarNameCurrent] then
         CamberRearCurrent = CamberRearCurrent + 0.002
         UDF1.RearCamberValue.Caption = (((CamberRearCurrent*55.5)*10)//1)/10
         CamberRearDELTA = CamberRearDELTA + 1
@@ -1481,7 +1470,7 @@
     end
 
     function CamberRearDecrease()
-      if CamberRearDELTA ~= 1 then
+      if CamberRearDELTA ~= 1 and not HSarray[CarNameCurrent] then
         CamberRearCurrent = CamberRearCurrent - 0.002
         UDF1.RearCamberValue.Caption = (((CamberRearCurrent*55.5)*10)//1)/10
         CamberRearDELTA = CamberRearDELTA - 1
@@ -2385,7 +2374,7 @@
   function LoadAdvancedSettings()
     --BrakesSize
     function BrakesSizeIncrease()
-     if BrakesSizeDELTA ~= 3 and CarNameCurrent ~= 'OPENWHEEL1'  then
+     if BrakesSizeDELTA ~= 3 and CarNameCurrent ~= 'OPENWHEEL1' and not HSarray[CarNameCurrent]  then
        BrakeForceCurrent = BrakeForceCurrent - brakeSizeBrakeForceVAL
        DragCurrent = DragCurrent + brakeSizeDragVAL
        BrakesSizeDELTA = BrakesSizeDELTA + 1
@@ -2402,7 +2391,7 @@
     end
 
     function BrakesSizeDecrease()
-     if BrakesSizeDELTA ~= 1 and CarNameCurrent ~= 'OPENWHEEL1'  then
+     if BrakesSizeDELTA ~= 1 and CarNameCurrent ~= 'OPENWHEEL1' and not HSarray[CarNameCurrent]  then
        BrakeForceCurrent = BrakeForceCurrent - brakeSizeBrakeForceVAL
        DragCurrent = DragCurrent - brakeSizeDragVAL
        BrakesSizeDELTA = BrakesSizeDELTA - 1
@@ -2565,7 +2554,7 @@
         UDF1.GearsValue.Caption = 'Long'
       end
       if GearsDELTA==3 then
-        UDF1.GearsValue.Caption = 'Blaine'
+        UDF1.GearsValue.Caption = 'Extra long'
       end
       WriteFloat(DriveInertiaADR,DriveInertiaCurrent)
       --WriteFloat(UpShiftADR,UpShiftCurrent)
