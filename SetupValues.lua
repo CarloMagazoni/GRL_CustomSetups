@@ -1,9 +1,9 @@
 if CarNameCurrent=='VISIONE' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000225
+    rearWingDragVAL = 0.0000305
     rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.00003
+    frontWingDragVAL = 0.0000375
     frontWingGripVAL = 0.0175
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
@@ -34,9 +34,9 @@ if CarNameCurrent=='VISIONE' then
 elseif CarNameCurrent=='EMERUS' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000225
+    rearWingDragVAL = 0.0000305
     rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.00003
+    frontWingDragVAL = 0.0000375
     frontWingGripVAL = 0.0175
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
@@ -67,9 +67,9 @@ elseif CarNameCurrent=='EMERUS' then
 elseif CarNameCurrent=='VAGNER' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000225
+    rearWingDragVAL = 0.0000305
     rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.00003
+    frontWingDragVAL = 0.0000375
     frontWingGripVAL = 0.0175
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
@@ -166,9 +166,9 @@ elseif CarNameCurrent=='TIGON' then
 elseif CarNameCurrent=='krieger' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000225
+    rearWingDragVAL = 0.0000305
     rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.00003
+    frontWingDragVAL = 0.0000375
     frontWingGripVAL = 0.0175
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
