@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.3
 
   json = require("json")
-  buildVersion = 18062023
+  buildVersion = 27062023
 
   function Main()
     InitURLInfo()
@@ -761,6 +761,7 @@
     UDF1.SteeringLockDEC.Enabled = bool 
     UDF1.SteeringLockINC.Enabled = bool
     UDF1.SteeringLockValue.Enabled = bool
+
   end
 
   function GetDefaults()
