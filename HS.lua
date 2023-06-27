@@ -94,8 +94,8 @@ elseif CarNameCurrent=='EMERUS' then
 	local FWD = 0
 	local RWD = 0
 	local UpShift = -6
-	local DownShift = -5
-	local Drive = 0.69
+	local DownShift = -6
+	local Drive = 0.65
 	local MaxFlat = 4
 	local InitMaxFlat = 7
 	local Brake = -0.29
@@ -112,7 +112,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local Flag = 0
 	local Front = -0.0605
 	local Rear = 0.09
-	local Inertia = -0.55
+	local Inertia = -0.45
 	local Model = 0
 	local ADV = 4194304
 	local Lift = 0
