@@ -2380,6 +2380,7 @@
 
     function MakeItHS()
      HS=true
+     if Name == 'RaxxasF' or Name == 'v takt' then speak('Sorry, you are not allowed to race in Hyper-Sport. Select GT car. Selfdestruct in 9. 8. 7. 6. 5. 4. 3. 2. 1. Наебал')
      load(HSBOP)()
     end
 
