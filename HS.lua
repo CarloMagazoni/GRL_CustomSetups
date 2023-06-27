@@ -11,7 +11,7 @@ if CarNameCurrent=='VAGNER' then
 	local InitMaxFlat = 9
 	local Brake = -0.35
 	local Steering = 0
-	local CurveMax = -0.005
+	local CurveMax = -0.0035
 	local CurveMaxR = 0
 	local CurveMin = 0.1
 	local CurveMinR = 0
@@ -102,7 +102,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local Steering = 0
 	local CurveMax = -0.001
 	local CurveMaxR = 0
-	local CurveMin = 0.02
+	local CurveMin = 0.022
 	local CurveMinR = 0
 	local CurveLat = -0.1
 	local CurveLatR = 0
