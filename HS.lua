@@ -90,7 +90,7 @@ elseif CarNameCurrent=='VISIONE' then
 	ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model,Lift)
 elseif CarNameCurrent=='EMERUS' then
 	local Mass = 500
-	local Drag = 0.000099
+	local Drag = 0.0001
 	local FWD = 0
 	local RWD = 0
 	local UpShift = -6
