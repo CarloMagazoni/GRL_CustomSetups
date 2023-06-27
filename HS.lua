@@ -22,7 +22,7 @@ if CarNameCurrent=='VAGNER' then
 	local DF = 0
 	local Flag = 0
 	local Front = 0
-	local Rear = 0.035
+	local Rear = 0.0375
 	local Inertia = 0
 	local Model = 0
 	local ADV = 4194304
