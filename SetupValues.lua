@@ -46,9 +46,9 @@ elseif CarNameCurrent=='EMERUS' then
     brakeSizeDragVAL = 0.000015
     bbfrontVAL = 0.055
     bbrearVAL = 0.055
-    gearsInertiaVAL = 0.35
-    gearsMaxFlatVAL = 7
-    gearsInitMaxFlatVAL = 7
+    gearsInertiaVAL = 0.25
+    gearsMaxFlatVAL = 6
+    gearsInitMaxFlatVAL = 6
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
     susForceVAL = 0.05
@@ -178,9 +178,9 @@ elseif CarNameCurrent=='krieger' then
     brakeSizeDragVAL = 0.000015
     bbfrontVAL = 0.055
     bbrearVAL = 0.055
-    gearsInertiaVAL = 0.35
-    gearsMaxFlatVAL = 7
-    gearsInitMaxFlatVAL = 7
+    gearsInertiaVAL = 0.25
+    gearsMaxFlatVAL = 6
+    gearsInitMaxFlatVAL = 6
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
     susForceVAL = 0.05

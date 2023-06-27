@@ -607,6 +607,7 @@
       DisableF1Labels()
       DisableNascarLabels()
       DisableDriftLabels()
+      switchSettings(true)
       CurrentCarMaxFuel = GT3Tank
       MixCurrent = GT3mix
     elseif GTEarray[CarNameCurrent]  then
@@ -620,6 +621,7 @@
       DisableF1Labels()
       DisableNascarLabels()
       DisableDriftLabels()
+      switchSettings(true)
       CurrentCarMaxFuel = GTETank
       MixCurrent = GTEmix
     elseif HSarray[CarNameCurrent] then 
@@ -633,6 +635,7 @@
       DisableF1Labels()
       DisableNascarLabels()
       DisableDriftLabels()
+      switchSettings(false)
     elseif F1array[CarNameCurrent]  then
       switchHeadlights(true, false)
       UDF1.F1Label.Enabled = true
@@ -645,6 +648,7 @@
       DisableHSLabels()
       DisableNascarLabels()
       DisableDriftLabels()
+      switchSettings(true)
       CurrentCarMaxFuel = F1Tank
       MixCurrent = F1mix
     elseif NASCARarray[CarNameCurrent]  then
@@ -658,6 +662,7 @@
       DisableHSLabels()
       DisableF1Labels()
       DisableDriftLabels()
+      switchSettings(true)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     elseif DRIFTarray[CarNameCurrent]  then
@@ -671,6 +676,7 @@
       DisableHSLabels()
       DisableF1Labels()
       DisableNascarLabels()
+      switchSettings(true)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     else
@@ -681,6 +687,7 @@
       DisableF1Labels()
       DisableNascarLabels()
       DisableDriftLabels()
+      switchSettings(true)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     end
@@ -712,6 +719,48 @@
       UDF1.XenonDEC.Enabled = bool
       UDF1.XenonColorValue.Enabled = bool
     end
+  end
+
+  function switchSettings(bool)
+    UDF1.SuspensionRaiseLabel.Enabled = bool
+    UDF1.SuspensionRaiseDEC.Enabled = bool 
+    UDF1.SuspensionRaiseINC.Enabled = bool
+    UDF1.SuspensionRaiseValue.Enabled = bool
+
+    UDF1.DumperLabel.Enabled = bool
+    UDF1.DumperDEC.Enabled = bool 
+    UDF1.DumperINC.Enabled = bool
+    UDF1.DumperValue.Enabled = bool
+
+    UDF1.SuspensionTravelLabel.Enabled = bool
+    UDF1.SuspensionTravelDEC.Enabled = bool 
+    UDF1.SuspensionTravelINC.Enabled = bool
+    UDF1.SuspensionTravelValue.Enabled = bool
+
+    UDF1.FrontSpringLabel.Enabled = bool
+    UDF1.FrontSpringDEC.Enabled = bool 
+    UDF1.FrontSpringINC.Enabled = bool
+    UDF1.FrontSpringValue.Enabled = bool
+
+    UDF1.FrontCamberLabel.Enabled = bool
+    UDF1.FrontCamberDEC.Enabled = bool 
+    UDF1.FrontCamberINC.Enabled = bool
+    UDF1.FrontCamberValue.Enabled = bool
+
+    UDF1.RearSpringLabel.Enabled = bool
+    UDF1.RearSpringDEC.Enabled = bool 
+    UDF1.RearSpringINC.Enabled = bool
+    UDF1.RearSpringValue.Enabled = bool
+
+    UDF1.RearCamberLabel.Enabled = bool
+    UDF1.RearCamberDEC.Enabled = bool 
+    UDF1.RearCamberINC.Enabled = bool
+    UDF1.RearCamberValue.Enabled = bool
+
+    UDF1.SteeringLockLabel.Enabled = bool
+    UDF1.SteeringLockDEC.Enabled = bool 
+    UDF1.SteeringLockINC.Enabled = bool
+    UDF1.SteeringLockValue.Enabled = bool
   end
 
   function GetDefaults()
@@ -1257,7 +1306,7 @@
 
     --SUSPENSION RAISE
     function SuspensionRaiseIncrease()
-      if SuspensionRaiseDELTA ~= 18  then
+      if SuspensionRaiseDELTA ~= 18 and not HSarray[CarNameCurrent] then
         SuspensionRaiseCurrent = SuspensionRaiseCurrent + susRaiseVAL
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA + 1
@@ -1267,7 +1316,7 @@
     end
 
     function SuspensionRaiseDecrease()
-      if SuspensionRaiseDELTA ~= 1  then
+      if SuspensionRaiseDELTA ~= 1 and not HSarray[CarNameCurrent] then
         SuspensionRaiseCurrent = SuspensionRaiseCurrent - susRaiseVAL
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA - 1
@@ -1326,7 +1375,7 @@
 
     --Travel
     function SuspensionTravelIncrease()
-      if SuspensionTravelDELTA ~= 18  then
+      if SuspensionTravelDELTA ~= 18 and not HSarray[CarNameCurrent] then
         SuspensionTravelCurrent = SuspensionTravelCurrent - susTravelVAL
         SuspensionTravelDELTA = SuspensionTravelDELTA + 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
@@ -1336,7 +1385,7 @@
     end
 
     function SuspensionTravelDecrease()
-      if SuspensionTravelDELTA ~= 1  then
+      if SuspensionTravelDELTA ~= 1 and not HSarray[CarNameCurrent] then
         SuspensionTravelCurrent = SuspensionTravelCurrent + susTravelVAL
         SuspensionTravelDELTA = SuspensionTravelDELTA - 1
         UDF1.SuspensionTravelValue.Caption=SuspensionTravelDELTA
@@ -1485,7 +1534,7 @@
 
     --Steering Lock
     function SteeringLockIncrease()
-     if SteeringLockDELTA ~= 9  then
+     if SteeringLockDELTA ~= 9 and not HSarray[CarNameCurrent] then
        SteeringLockCurrent = SteeringLockCurrent + steeringLockVAL
        SteeringLockRatioCurrent = SteeringLockRatioCurrent + steeringLockRatioVAL
        SteeringLockDELTA = SteeringLockDELTA + 1
@@ -1497,7 +1546,7 @@
     end
 
     function SteeringLockDecrease()
-     if SteeringLockDELTA ~= 1  then
+     if SteeringLockDELTA ~= 1 and not HSarray[CarNameCurrent] then
       SteeringLockCurrent = SteeringLockCurrent - steeringLockVAL
       SteeringLockRatioCurrent = SteeringLockRatioCurrent - steeringLockRatioVAL
        SteeringLockDELTA = SteeringLockDELTA - 1
