@@ -742,7 +742,7 @@
     UDF1.FrontSpringINC.Enabled = bool
     UDF1.FrontSpringValue.Enabled = bool
 
-    UDF1.FrontCamberLabel.Enabled = bool
+    UDF1.FrontCamber.Enabled = bool
     UDF1.FrontCamberDEC.Enabled = bool 
     UDF1.FrontCamberINC.Enabled = bool
     UDF1.FrontCamberValue.Enabled = bool
@@ -752,7 +752,7 @@
     UDF1.RearSpringINC.Enabled = bool
     UDF1.RearSpringValue.Enabled = bool
 
-    UDF1.RearCamberLabel.Enabled = bool
+    UDF1.FrontCamber1.Enabled = bool
     UDF1.RearCamberDEC.Enabled = bool 
     UDF1.RearCamberINC.Enabled = bool
     UDF1.RearCamberValue.Enabled = bool
