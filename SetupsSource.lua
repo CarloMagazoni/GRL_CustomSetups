@@ -642,7 +642,7 @@
       UDF1.F1DEC.Enabled = true
       UDF1.F1INC.Enabled = true
       UDF1.F1Value.Enabled = true
-      if CarNameCurrent == 'OPENWHEEL1' then DisableF1Labels() end
+      --if CarNameCurrent == 'OPENWHEEL1' then DisableF1Labels() end
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
