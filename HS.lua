@@ -71,7 +71,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local InitMaxFlat = 9
 	local Brake = -0.1
 	local Steering = 0.1
-	local CurveMax = 0.105
+	local CurveMax = 0.085
 	local CurveMaxR = 0
 	local CurveMin = 0.095
 	local CurveMinR = 0
@@ -81,8 +81,8 @@ elseif CarNameCurrent=='VISIONE' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0.045
-	local Rear = 0.155
+	local Front = 0.05
+	local Rear = 0.16
 	local Inertia = 0
 	local Model = 0
 	local ADV = 4194304
