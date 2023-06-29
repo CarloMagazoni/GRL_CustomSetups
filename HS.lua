@@ -11,7 +11,7 @@ if CarNameCurrent=='VAGNER' then
 	local InitMaxFlat = 9
 	local Brake = -0.35
 	local Steering = 0
-	local CurveMax = -0.0005
+	local CurveMax = -0.0001
 	local CurveMaxR = 0
 	local CurveMin = 0.155
 	local CurveMinR = 0
@@ -21,8 +21,8 @@ if CarNameCurrent=='VAGNER' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0
-	local Rear = 0.0405
+	local Front = 0.02
+	local Rear = 0.0605
 	local Inertia = 0
 	local Model = 0
 	local ADV = 4194304
@@ -72,7 +72,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local Brake = -0.1
 	local Steering = 0.1
 	local CurveMax = 0.225
-	local CurveMaxR = 0.01
+	local CurveMaxR = 0
 	local CurveMin = 0.095
 	local CurveMinR = 0
 	local CurveLat = 0
@@ -81,8 +81,8 @@ elseif CarNameCurrent=='VISIONE' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0.00
-	local Rear = 0.11
+	local Front = 0.04
+	local Rear = 0.15
 	local Inertia = 0
 	local Model = 0
 	local ADV = 4194304
