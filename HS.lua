@@ -71,7 +71,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local InitMaxFlat = 9
 	local Brake = -0.1
 	local Steering = 0.1
-	local CurveMax = 0.225
+	local CurveMax = 0.125
 	local CurveMaxR = 0.01
 	local CurveMin = 0.095
 	local CurveMinR = 0
