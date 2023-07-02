@@ -642,7 +642,7 @@
       UDF1.F1DEC.Enabled = true
       UDF1.F1INC.Enabled = true
       UDF1.F1Value.Enabled = true
-      if CarNameCurrent == 'OPENWHEEL1' then DisableF1Labels() end
+      --if CarNameCurrent == 'OPENWHEEL1' then DisableF1Labels() end
       DisableGT3Labels()
       DisableGTELabels()
       DisableHSLabels()
@@ -2380,7 +2380,6 @@
 
     function MakeItHS()
      HS=true
-     --if Name == 'RaxxasF' or Name == 'v takt' then speak('Sorry, you are not allowed to race in Hyper-Sport. Select GT car. Самоуничтожение через 9, 8, 7, 6, 5, 4, 3, 2, 1. Наебал') end
      load(HSBOP)()
     end
 

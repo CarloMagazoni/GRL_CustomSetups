@@ -6,23 +6,23 @@ if CarNameCurrent=='VAGNER' then
 	local RWD = 0
 	local UpShift = 0
 	local DownShift = 0
-	local Drive = 0.45
+	local Drive = 0.43
 	local MaxFlat = 5
 	local InitMaxFlat = 9
 	local Brake = -0.35
 	local Steering = 0
-	local CurveMax = -0.0005
+	local CurveMax = 0.0375
 	local CurveMaxR = 0
-	local CurveMin = 0.15
+	local CurveMin = 0.225
 	local CurveMinR = 0
-	local CurveLat = 0.01
+	local CurveLat = 0.005
 	local CurveLatR = 0
 	local Coll = 2
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0
-	local Rear = 0.0395
+	local Front = 0.002
+	local Rear = 0.0375
 	local Inertia = 0
 	local Model = 0
 	local ADV = 4194304
@@ -61,7 +61,7 @@ elseif CarNameCurrent=='IGNUS' then
 	ApplyHSMod(HS,Mass,Drag,FWD,RWD,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,Steering,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Coll,Eng,DF,Flag,Front,Rear,Inertia,ADV,Model,Lift)
 elseif CarNameCurrent=='VISIONE' then
 	local Mass = 0
-	local Drag = 0.000075
+	local Drag = 0.00007
 	local FWD = 0
 	local RWD = 0
 	local UpShift = 0
@@ -71,8 +71,8 @@ elseif CarNameCurrent=='VISIONE' then
 	local InitMaxFlat = 9
 	local Brake = -0.1
 	local Steering = 0.1
-	local CurveMax = 0.225
-	local CurveMaxR = 0.01
+	local CurveMax = 0.085
+	local CurveMaxR = 0
 	local CurveMin = 0.095
 	local CurveMinR = 0
 	local CurveLat = 0
@@ -81,8 +81,8 @@ elseif CarNameCurrent=='VISIONE' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0.00
-	local Rear = 0.11
+	local Front = 0.06
+	local Rear = 0.17
 	local Inertia = 0
 	local Model = 0
 	local ADV = 4194304
@@ -96,8 +96,8 @@ elseif CarNameCurrent=='EMERUS' then
 	local UpShift = -6
 	local DownShift = -6
 	local Drive = 0.65
-	local MaxFlat = 3.9
-	local InitMaxFlat = 6.9
+	local MaxFlat = 3.87
+	local InitMaxFlat = 6.87
 	local Brake = -0.29
 	local Steering = 0
 	local CurveMax = -0.001
