@@ -158,7 +158,7 @@ elseif CarNameCurrent=='krieger' then
 	local InitMaxFlat = 9
 	local Brake = -0.535
 	local Steering = 0
-	local CurveMax = 0.0135
+	local CurveMax = 0.0185
 	local CurveMaxR = 0
 	local CurveMin = -0.015
 	local CurveMinR = 0
