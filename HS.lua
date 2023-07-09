@@ -66,11 +66,11 @@ elseif CarNameCurrent=='VISIONE' then
 	local RWD = 0
 	local UpShift = 0
 	local DownShift = 0
-	local Drive = 0.2855
+	local Drive = 0.29
 	local MaxFlat = 6.95
 	local InitMaxFlat = 9.5
 	local Brake = -0.1
-	local Steering = 0.125
+	local Steering = 0.155
 	local CurveMax = 0.125
 	local CurveMaxR = 0
 	local CurveMin = 0.105
@@ -81,7 +81,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0.07
+	local Front = 0.13
 	local Rear = 0.18
 	local Inertia = 0
 	local Model = 0
@@ -95,7 +95,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local RWD = 0
 	local UpShift = -6
 	local DownShift = -6
-	local Drive = 0.65
+	local Drive = 0.62
 	local MaxFlat = 3.87
 	local InitMaxFlat = 6.87
 	local Brake = -0.29
@@ -110,7 +110,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = -0.0605
+	local Front = -0.0675
 	local Rear = 0.09
 	local Inertia = -0.45
 	local Model = 0
