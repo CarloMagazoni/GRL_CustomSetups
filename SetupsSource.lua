@@ -624,6 +624,13 @@
       switchSettings(true)
       CurrentCarMaxFuel = GTETank
       MixCurrent = GTEmix
+      if DRIFTarray[CarNameCurrent]  then
+        --switchHeadlights(false, true)
+        UDF1.DriftLabel.Enabled = true
+        UDF1.DDEC.Enabled = true
+        UDF1.DINC.Enabled = true
+        UDF1.Driftvalue.Enabled = true
+      end
     elseif HSarray[CarNameCurrent] then 
       switchHeadlights(false, true)
       UDF1.hsvalue.Enabled = true
