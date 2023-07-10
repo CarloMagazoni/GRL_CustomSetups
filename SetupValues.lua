@@ -221,10 +221,10 @@ elseif CarNameCurrent=='OPENWHEEL1' then
     susBumpVAL = 0.0095
     susReboundVAL = 0.0095
     susTravelVAL = 0.01
-    susFrontSpringVAL = 0.2
+    susFrontSpringVAL = 0.1
     susFrontARBVAL = 0.175
     susFrontRoloVAL = 0.025
-    susRearSpringVAL = 0.2
+    susRearSpringVAL = 0.1
     susRearARBVAL = 0.175
     susRearRoloVAL = 0.025
 else

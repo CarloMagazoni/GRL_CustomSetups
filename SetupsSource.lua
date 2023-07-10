@@ -2149,7 +2149,7 @@
         end
     end
 
-    function ApplyF1Mod(IntoF1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF)
+    function ApplyF1Mod(IntoF1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF,Steering)
         if IntoF1==false then
            Mass=Mass*(-1)
            Drag=Drag*(-1)
@@ -2176,6 +2176,7 @@
            RS=RS*(-1)
            ARB=ARB*(-1)
            Rolo=Rolo*(-1)
+           Steering=Steering*(-1)
         end
         if Mass~=0 then
            MassCurrent=MassCurrent + Mass
@@ -2278,6 +2279,10 @@
            RoloRearCurrent=RoloRearCurrent + Rolo
            writeFloat(RoloRearADR,RoloRearCurrent)
         end
+        if Steering~=0 then
+          SteeringLockRatioCurrent=SteeringLockRatioCurrent + Steering
+          WriteFloat(SteeringLockRatioADR,SteeringLockRatioCurrent)
+       end
     end
 
     function ApplyNASCARMod(IntoNASCAR,Drive,MaxFlat,Brake,CurveMax,CurveMin,Front,Rear)
