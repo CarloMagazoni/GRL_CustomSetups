@@ -32,16 +32,16 @@ elseif CarNameCurrent=='OPENWHEEL1' then
 	 local UpShift = 0
 	 local DownShift = 0
 	 local Drive = 0
-	 local MaxFlat = 0 --30
+	 local MaxFlat = 0 
 	 local InitMaxFlat = 0
-	 local Brake = -0.66 --0.9
+	 local Brake = -0.78 
 	 local CurveMax = 0
 	 local CurveMaxR = 0
 	 local CurveMin = 0
 	 local CurveMinR = 0
 	 local CurveLat = 0
 	 local CurveLatR = 0
-	 local DF = 0
+	 local DF = -4
 	 local Front = 0
 	 local Rear = 0
 	 local SuspensionLift = 0
@@ -52,5 +52,6 @@ elseif CarNameCurrent=='OPENWHEEL1' then
 	 local RS = 0
 	 local Travel = 0
 	 local Rolo = 0
-     ApplyF1Mod(F1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF)
+	 local Steering = -6
+     ApplyF1Mod(F1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF,Steering)
 end
