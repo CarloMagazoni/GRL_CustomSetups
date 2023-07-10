@@ -32,9 +32,9 @@ elseif CarNameCurrent=='OPENWHEEL1' then
 	 local UpShift = 0
 	 local DownShift = 0
 	 local Drive = 0
-	 local MaxFlat = 0 
-	 local InitMaxFlat = 0
-	 local Brake = -0.66 
+	 local MaxFlat = 2 
+	 local InitMaxFlat = 2
+	 local Brake = -0.88 
 	 local CurveMax = 0
 	 local CurveMaxR = 0
 	 local CurveMin = 0
