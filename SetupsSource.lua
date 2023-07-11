@@ -28,7 +28,7 @@
     DEBUG_URL = "https://discord.com/api/webhooks/906971411778785310/ZVD-xBKV8IQGFwNcxUmF4BRf7Q7GMUkshGdpw7NoxLiUw92cA1Yn1f04hCwc7PBuOFv4"
     Setup_url = "https://discord.com/api/webhooks/1114832287037661215/Qs8N8FhrYOhd0x2wN6UYkV0hQ_IXiMUriQ-G-qltbaWCaMG6sl2IaiQCDzwrnyxxTXZk"
     Setup_values_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/SetupValues.lua"
-    --Slipstream_bodytype_values_url = ""
+    Slipstream_bodytype_values_url = "https://raw.githubusercontent.com/CarloMagazoni/GRL_CustomSetups/main/SlipstreamBodytype.lua"
   end
   
   function CodeLogUrl()
@@ -100,7 +100,7 @@
     HWID_res = http.getURL(HWID_url)
     Version_res = http.getURL(version_url)
     SetupValues = http.getURL(Setup_values_url)
-    --Slipstream_bodytype_values = http.getURL(Slipstream_bodytype_values_url)
+    Slipstream_bodytype_values = http.getURL(Slipstream_bodytype_values_url)
     http.destroy()
   end
 
@@ -209,7 +209,6 @@
     local url = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/"..col..row.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
     return url
   end
-
 
   function InitHWID()
     NewUser=true
@@ -595,6 +594,7 @@
     end
     GetDefaults()
     DisplayInfo()
+    slipBodyTypeForce = 0
     InitClassSpecificSetupValues()
     if GT3array[CarNameCurrent]  then
       switchHeadlights(false, true)
@@ -706,6 +706,7 @@
 
   function InitClassSpecificSetupValues()
     load(SetupValues)()
+    load(Slipstream_bodytype_values)()
   end
 
   function switchHeadlights(state,bool)
@@ -3882,7 +3883,7 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/50))*0.5 --
+        local ApplyForce = (1 - (Distance/50))*slipBodyTypeForce --
         return ApplyForce
       end
 
@@ -3899,23 +3900,16 @@
         if (Side < 1.5 and Side > -1.5) and (FrontSide > 3 and FrontSide < 50) then
           if Lenght < 50 then
             local CurrentForce = RWDSetted
-            --local CurrentTractionlLoss = FrontGripSetted
             local AdditionalForce = CalculateSlipForce(Lenght)
-            --local TractionLoss = CalculateSlipTractionLoss(Lenght)
-            --SendPack("IN SLIPSTREAM with AF="..AdditionalForce.." WITH STOCK="..CurrentForce.." PlayerID="..MyIDNumber.." FromID="..target,1,1)
             CurrentForce = CurrentForce + AdditionalForce
-            --CurrentTractionlLoss = CurrentTractionlLoss - TractionLoss
             writeFloat(RWDADR,CurrentForce)
             wasInSlip = true
             slipTarget = target
-            --writeFloat(FrontGripADR,CurrentTractionlLoss)
           end
         else
           if wasInSlip == true then writeFloat(RWDADR,RWDSetted) end
           wasInSlip = false
           slipTarget = nil
-          --writeFloat(FrontGripADR,FrontGripSetted)
-
         end
       end
 
