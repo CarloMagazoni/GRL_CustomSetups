@@ -153,9 +153,9 @@ elseif CarNameCurrent=='krieger' then
 	local RWD = 0
 	local UpShift = 0.5
 	local DownShift = 2.5
-	local Drive = 0.25
-	local MaxFlat = 7
-	local InitMaxFlat = 9
+	local Drive = 0.255
+	local MaxFlat = 7.2
+	local InitMaxFlat = 9.2
 	local Brake = -0.535
 	local Steering = 0
 	local CurveMax = 0.0185
@@ -168,8 +168,8 @@ elseif CarNameCurrent=='krieger' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0.025
-	local Rear = -0.015
+	local Front = 0.0275
+	local Rear = -0.0125
 	local Inertia = -0.45
 	local Model = 0
 	local ADV = 4194304
