@@ -436,7 +436,7 @@
     HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON','krieger'}
     F1array = Set {'FORMULA','OPENWHEEL1'}
     NASCARarray = Set {'HOTRING'}
-    DRIFTarray = Set {'ELEGY','CYPHER'}
+    DRIFTarray = Set {'ELEGY'}
   end
 
   function DefineCustomClassesLabels()
@@ -607,7 +607,7 @@
       DisableF1Labels()
       DisableNascarLabels()
       DisableDriftLabels()
-      switchSettings(true)
+      switchSettings(true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false)
       CurrentCarMaxFuel = GT3Tank
       MixCurrent = GT3mix
     elseif GTEarray[CarNameCurrent]  then
@@ -621,16 +621,9 @@
       DisableF1Labels()
       DisableNascarLabels()
       DisableDriftLabels()
-      switchSettings(true)
+      switchSettings(true,false,false,false,false,false,false,false,false,false,true,false,false,true,true,false,false)
       CurrentCarMaxFuel = GTETank
       MixCurrent = GTEmix
-      if DRIFTarray[CarNameCurrent]  then
-        --switchHeadlights(false, true)
-        UDF1.DriftLabel.Enabled = true
-        UDF1.DDEC.Enabled = true
-        UDF1.DINC.Enabled = true
-        UDF1.Driftvalue.Enabled = true
-      end
     elseif HSarray[CarNameCurrent] then 
       switchHeadlights(false, true)
       UDF1.hsvalue.Enabled = true
@@ -642,7 +635,7 @@
       DisableF1Labels()
       DisableNascarLabels()
       DisableDriftLabels()
-      switchSettings(false)
+      switchSettings(true,false,false,false,false,true,false,false,true,false,false,false,true,true,true,false,true)
     elseif F1array[CarNameCurrent]  then
       switchHeadlights(true, false)
       UDF1.F1Label.Enabled = true
@@ -655,7 +648,7 @@
       DisableHSLabels()
       DisableNascarLabels()
       DisableDriftLabels()
-      switchSettings(true)
+      switchSettings(true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false,false)
       CurrentCarMaxFuel = F1Tank
       MixCurrent = F1mix
     elseif NASCARarray[CarNameCurrent]  then
@@ -669,7 +662,7 @@
       DisableHSLabels()
       DisableF1Labels()
       DisableDriftLabels()
-      switchSettings(true)
+      switchSettings(true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     elseif DRIFTarray[CarNameCurrent]  then
@@ -683,7 +676,7 @@
       DisableHSLabels()
       DisableF1Labels()
       DisableNascarLabels()
-      switchSettings(true)
+      switchSettings(true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     else
@@ -694,7 +687,7 @@
       DisableF1Labels()
       DisableNascarLabels()
       DisableDriftLabels()
-      switchSettings(true)
+      switchSettings(true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     end
@@ -728,46 +721,91 @@
     end
   end
 
-  function switchSettings(bool)
-    UDF1.SuspensionRaiseLabel.Enabled = bool
-    UDF1.SuspensionRaiseDEC.Enabled = bool 
-    UDF1.SuspensionRaiseINC.Enabled = bool
-    UDF1.SuspensionRaiseValue.Enabled = bool
+  function switchSettings(suspensionForceBool,suspensionRaiseBool,dumperBool,suspensionTravelBool,frontSpringBool,frontARBBool,frontCamberBool,rearSpringBool,rearARBBool,rearCamberBool,steeringLockBool,apBool,fwBool,rwBool,bbBool,brakeDuctBool,gearsBool)
+    UDF1.SusForceLabel.Enabled = suspensionForceBool
+    UDF1.SuspensionForceDEC.Enabled = suspensionForceBool 
+    UDF1.SuspensionForceINC.Enabled = suspensionForceBool
+    UDF1.SuspensionForceValue.Enabled = suspensionForceBool
 
-    UDF1.DumperLabel.Enabled = bool
-    UDF1.DumperDEC.Enabled = bool 
-    UDF1.DumperINC.Enabled = bool
-    UDF1.DumperValue.Enabled = bool
+    UDF1.SuspensionRaiseLabel.Enabled = suspensionRaiseBool
+    UDF1.SuspensionRaiseDEC.Enabled = suspensionRaiseBool 
+    UDF1.SuspensionRaiseINC.Enabled = suspensionRaiseBool
+    UDF1.SuspensionRaiseValue.Enabled = suspensionRaiseBool
 
-    UDF1.SuspensionTravelLabel.Enabled = bool
-    UDF1.SuspensionTravelDEC.Enabled = bool 
-    UDF1.SuspensionTravelINC.Enabled = bool
-    UDF1.SuspensionTravelValue.Enabled = bool
+    UDF1.DumperLabel.Enabled = dumperBool
+    UDF1.DumperDEC.Enabled = dumperBool 
+    UDF1.DumperINC.Enabled = dumperBool
+    UDF1.DumperValue.Enabled = dumperBool
 
-    UDF1.FrontSpringLabel.Enabled = bool
-    UDF1.FrontSpringDEC.Enabled = bool 
-    UDF1.FrontSpringINC.Enabled = bool
-    UDF1.FrontSpringValue.Enabled = bool
+    UDF1.SuspensionTravelLabel.Enabled = suspensionTravelBool
+    UDF1.SuspensionTravelDEC.Enabled = suspensionTravelBool 
+    UDF1.SuspensionTravelINC.Enabled = suspensionTravelBool
+    UDF1.SuspensionTravelValue.Enabled = suspensionTravelBool
 
-    UDF1.FrontCamber.Enabled = bool
-    UDF1.FrontCamberDEC.Enabled = bool 
-    UDF1.FrontCamberINC.Enabled = bool
-    UDF1.FrontCamberValue.Enabled = bool
+    UDF1.FrontSpringLabel.Enabled = frontSpringBool
+    UDF1.FrontSpringDEC.Enabled = frontSpringBool 
+    UDF1.FrontSpringINC.Enabled = frontSpringBool
+    UDF1.FrontSpringValue.Enabled = frontSpringBool
 
-    UDF1.RearSpringLabel.Enabled = bool
-    UDF1.RearSpringDEC.Enabled = bool 
-    UDF1.RearSpringINC.Enabled = bool
-    UDF1.RearSpringValue.Enabled = bool
+    UDF1.FrontARBLabel.Enabled = frontARBBool
+    UDF1.FrontARBDEC.Enabled = frontARBBool 
+    UDF1.FrontARBINC.Enabled = frontARBBool
+    UDF1.FrontARBValue.Enabled = frontARBBool
 
-    UDF1.FrontCamber1.Enabled = bool
-    UDF1.RearCamberDEC.Enabled = bool 
-    UDF1.RearCamberINC.Enabled = bool
-    UDF1.RearCamberValue.Enabled = bool
+    UDF1.FrontCamber.Enabled = frontCamberBool
+    UDF1.FrontCamberDEC.Enabled = frontCamberBool 
+    UDF1.FrontCamberINC.Enabled = frontCamberBool
+    UDF1.FrontCamberValue.Enabled = frontCamberBool
 
-    UDF1.SteeringLockLabel.Enabled = bool
-    UDF1.SteeringLockDEC.Enabled = bool 
-    UDF1.SteeringLockINC.Enabled = bool
-    UDF1.SteeringLockValue.Enabled = bool
+    UDF1.RearSpringLabel.Enabled = rearSpringBool
+    UDF1.RearSpringDEC.Enabled = rearSpringBool 
+    UDF1.RearSpringINC.Enabled = rearSpringBool
+    UDF1.RearSpringValue.Enabled = rearSpringBool
+
+    UDF1.RearARBLabel.Enabled = rearARBBool
+    UDF1.RearARBDEC.Enabled = rearARBBool 
+    UDF1.RearARBINC.Enabled = rearARBBool
+    UDF1.RearARBValue.Enabled = rearARBBool
+
+    UDF1.FrontCamber1.Enabled = rearCamberBool
+    UDF1.RearCamberDEC.Enabled = rearCamberBool 
+    UDF1.RearCamberINC.Enabled = rearCamberBool
+    UDF1.RearCamberValue.Enabled = rearCamberBool
+
+    UDF1.SteeringLockLabel.Enabled = steeringLockBool
+    UDF1.SteeringLockDEC.Enabled = steeringLockBool 
+    UDF1.SteeringLockINC.Enabled = steeringLockBool
+    UDF1.SteeringLockValue.Enabled = steeringLockBool
+
+    UDF1.AeroPackageLabel.Enabled = apBool
+    UDF1.APDEC.Enabled = apBool 
+    UDF1.APINC.Enabled = apBool
+    UDF1.AeroPackageValue.Enabled = apBool
+
+    UDF1.FrontWingLabel.Enabled = fwBool
+    UDF1.ARBForceDEC1.Enabled = fwBool 
+    UDF1.ARBForceINC1.Enabled = fwBool
+    UDF1.FrontWingValue.Enabled = fwBool
+
+    UDF1.RearWingLabel1.Enabled = rwBool
+    UDF1.ARBForceDEC2.Enabled = rwBool 
+    UDF1.ARBForceINC2.Enabled = rwBool
+    UDF1.RearWingValue.Enabled = rwBool
+
+    UDF1.BumpLabel1.Enabled = bbBool
+    UDF1.BrakeBiasDEC.Enabled = bbBool 
+    UDF1.BrakeBiasINC.Enabled = bbBool
+    UDF1.BrakeBiasValue.Enabled = bbBool
+
+    UDF1.BrakeSizeLabel.Enabled = brakeDuctBool
+    UDF1.BrakeSizeDEC.Enabled = brakeDuctBool 
+    UDF1.BrakeSizeINC.Enabled = brakeDuctBool
+    UDF1.BrakeSizeValue.Enabled = brakeDuctBool
+
+    UDF1.GearsLabel.Enabled = gearsBool
+    UDF1.GearsDEC.Enabled = gearsBool 
+    UDF1.GearsINC.Enabled = gearsBool
+    UDF1.GearsValue.Enabled = gearsBool
 
   end
 
