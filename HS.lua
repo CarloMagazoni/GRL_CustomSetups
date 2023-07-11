@@ -67,8 +67,8 @@ elseif CarNameCurrent=='VISIONE' then
 	local UpShift = 0
 	local DownShift = 0
 	local Drive = 0.29
-	local MaxFlat = 6.95
-	local InitMaxFlat = 9.5
+	local MaxFlat = 6.90
+	local InitMaxFlat = 9.45
 	local Brake = -0.1
 	local Steering = 0.155
 	local CurveMax = 0.125
