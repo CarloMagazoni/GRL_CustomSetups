@@ -66,7 +66,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local RWD = 0
 	local UpShift = 0
 	local DownShift = 0
-	local Drive = 0.29
+	local Drive = 0.285
 	local MaxFlat = 6.90
 	local InitMaxFlat = 9.45
 	local Brake = -0.1
@@ -81,8 +81,8 @@ elseif CarNameCurrent=='VISIONE' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0.13
-	local Rear = 0.18
+	local Front = 0.129
+	local Rear = 0.179
 	local Inertia = 0
 	local Model = 0
 	local ADV = 4194304
