@@ -110,7 +110,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = -0.0675
+	local Front = -0.064
 	local Rear = 0.09
 	local Inertia = -0.45
 	local Model = 0
