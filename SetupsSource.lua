@@ -1706,6 +1706,7 @@
           UDF1.ClassValue.Caption = "GT3"
           UDF1.ClassValue.Font.Color = 14389050
           SendPack("GT3 mode ON",0,1)
+          ChangedSetup=true
      end
     end
 
@@ -1717,6 +1718,7 @@
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
         SendPack("GT3 mode OFF",0,1)
+        ChangedSetup=true
      end
     end
 
@@ -1729,6 +1731,7 @@
           UDF1.ClassValue.Caption = "GTE"
           UDF1.ClassValue.Font.Color = 47160
           SendPack("GTE mode ON",0,1)
+          ChangedSetup=true
      end
     end
 
@@ -1740,6 +1743,7 @@
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
         SendPack("GTE mode OFF",0,1)
+        ChangedSetup=true
      end
     end
 
@@ -1752,6 +1756,7 @@
           UDF1.ClassValue.Caption = "F1"
           UDF1.ClassValue.Font.Color = clDefault
           SendPack("F1 mode ON",0,1)
+          ChangedSetup=true
      end
     end
 
@@ -1763,6 +1768,7 @@
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
         SendPack("F1 mode OFF",0,1)
+        ChangedSetup=true
      end
     end
 
@@ -1775,6 +1781,7 @@
           UDF1.ClassValue.Caption = "HS"
           UDF1.ClassValue.Font.Color = 219
           SendPack("HS mode ON",0,1)
+          ChangedSetup=true
      end
     end
 
@@ -1786,6 +1793,7 @@
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
         SendPack("HS mode OFF",0,1)
+        ChangedSetup=true
      end
     end
 
