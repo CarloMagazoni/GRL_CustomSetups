@@ -4333,8 +4333,7 @@
     end
 
     function GoInDev()
-      SendPack("DEVMODE OPENED",0,1)
-      print(' ')
+      print(buildVersion)
     end
   --MISC
 
