@@ -41,7 +41,7 @@ elseif CarNameCurrent=='OPENWHEEL1' then
 	 local CurveMinR = 0
 	 local CurveLat = 0
 	 local CurveLatR = 0
-	 local DF = -2
+	 local DF = -1
 	 local Front = 0
 	 local Rear = 0
 	 local SuspensionLift = 0
