@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.3
 
   json = require("json")
-  buildVersion = 13072023
+  buildVersion = 13072023_1
 
   function Main()
     InitURLInfo()
@@ -3781,8 +3781,8 @@
             timer_setEnabled(WeatherUpdate, true)
         end
       else
-          NotAnnoySevere = true
-          NotAnnoyKilledEngine = true
+          NotAnnoySevere = false
+          NotAnnoyKilledEngine = false
       end
       if EnableSlipStream == true then
         CheckSlipStreamTimer = createTimer(nil, false)
@@ -4160,7 +4160,7 @@
                         PlaySound(findTableFile("BeepStart.wav"), true)
                         playSound(findTableFile("SevereEngine1.wav"), true)
                         PlaySound(findTableFile("BeepEnd.wav"))
-                     elseif random==3 then
+                     else
                          PlaySound(findTableFile("BeepStart.wav"), true)
                          playSound(findTableFile("SevereEngine2.wav"), true)
                          PlaySound(findTableFile("BeepEnd.wav"))
