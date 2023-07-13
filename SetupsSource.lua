@@ -4156,11 +4156,11 @@
            elseif Engine < 30 and Engine > 0 then
                   if CarStatus==true and NotAnnoySevere==false then
                      local random = math.random(1,4)
-                     if random==1 then
+                     if random==1 or random==2 then
                         PlaySound(findTableFile("BeepStart.wav"), true)
                         playSound(findTableFile("SevereEngine1.wav"), true)
                         PlaySound(findTableFile("BeepEnd.wav"))
-                     else
+                     elseif random==3 or random==4 then
                          PlaySound(findTableFile("BeepStart.wav"), true)
                          playSound(findTableFile("SevereEngine2.wav"), true)
                          PlaySound(findTableFile("BeepEnd.wav"))
