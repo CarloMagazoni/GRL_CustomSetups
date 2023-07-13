@@ -874,7 +874,7 @@
     EngineHealthADR = getAddress("[[PTR+8]+D10]+908")
     BodyHealthADR = getAddress("[[PTR+8]+D10]+844")
     CarNameADR = getAddress("[[[PTR+8]+D10]+20]+298")
-    HeadlightADR = getAddress("[[[PTR+8]+D10]+20]+9F4") --15
+    HeadlightADR = getAddress("[[PTR+8]+D10]+9F4") --15
     XenonADR = getAddress("[[[PTR+8]+D10]+48]+3E1") --1
     XenonColorADR = getAddress("[[[PTR+8]+D10]+48]+406") --2 Proto 5 GT
     RoloFrontADR = getAddress("[[[PTR+8]+D10]+918]+E8")
@@ -2606,7 +2606,7 @@
     end
 
     function ResetHeadlight()
-     HeadlightADR = getAddress("[[[PTR+8]+D10]+20]+9F4") --15
+     HeadlightADR = getAddress("[[PTR+8]+D10]+9F4") --15
      XenonADR = getAddress("[[[PTR+8]+D10]+48]+3E1") --1
      XenonColorADR = getAddress("[[[PTR+8]+D10]+48]+406") --2 Proto 6 GT
      writeFloat(HeadlightADR,HeadlightCurrent)
