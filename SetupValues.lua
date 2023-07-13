@@ -230,9 +230,9 @@ elseif CarNameCurrent=='OPENWHEEL1' then
 else
     steeringLockVAL = 0.005
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000695
+    rearWingDragVAL = 0.0000795
     rearWingGripVAL = 0.01575
-    frontWingDragVAL = 0.0000595
+    frontWingDragVAL = 0.0000695
     frontWingGripVAL = 0.01575
     aeroPackageDragVAL = 0.0001375
     aeroPackageFrontGripVAL = 0.05
