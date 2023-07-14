@@ -521,7 +521,6 @@
 
   function FoundMyCurrentID()
     local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
-    --if markMyRid == -1 then mark_MYRid() end
     mark_MYRid()
 
     for i=0,32,1 do
@@ -2544,7 +2543,7 @@
     --Endurance Headlight
     function HeadlightIncrease()
      if HeadlightDELTA ~= 2 then
-       HeadlightCurrent = 10
+       HeadlightCurrent = 8
        UDF1.HeadlightValue.Caption = 'ON'
        HeadlightDELTA = HeadlightDELTA + 1
        writeFloat(HeadlightADR,HeadlightCurrent)
