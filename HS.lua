@@ -162,14 +162,14 @@ elseif CarNameCurrent=='krieger' then
 	local CurveMaxR = 0
 	local CurveMin = -0.015
 	local CurveMinR = 0
-	local CurveLat = -0.03
+	local CurveLat = -0.02
 	local CurveLatR = 0
 	local Coll = 1
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0.0275
-	local Rear = -0.0125
+	local Front = 0.0335
+	local Rear = -0.0065
 	local Inertia = -0.45
 	local Model = 0
 	local ADV = 4194304
