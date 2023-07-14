@@ -2544,7 +2544,7 @@
     --Endurance Headlight
     function HeadlightIncrease()
      if HeadlightDELTA ~= 2 then
-       HeadlightCurrent = 8
+       HeadlightCurrent = 10
        UDF1.HeadlightValue.Caption = 'ON'
        HeadlightDELTA = HeadlightDELTA + 1
        writeFloat(HeadlightADR,HeadlightCurrent)
