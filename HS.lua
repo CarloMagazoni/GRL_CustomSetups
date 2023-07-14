@@ -66,7 +66,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local RWD = 0
 	local UpShift = 0
 	local DownShift = 0
-	local Drive = 0.285
+	local Drive = 0.275
 	local MaxFlat = 6.90
 	local InitMaxFlat = 9.45
 	local Brake = -0.1
@@ -110,7 +110,7 @@ elseif CarNameCurrent=='EMERUS' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = -0.064
+	local Front = -0.063
 	local Rear = 0.09
 	local Inertia = -0.45
 	local Model = 0
