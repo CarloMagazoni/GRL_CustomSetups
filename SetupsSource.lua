@@ -3924,27 +3924,29 @@
       local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
       if CNetworkPlayerMgr then
         for i=0,20,1 do
-          if i ~= MyIDNumber then
-            if wasInSlip == true then 
-              i = slipTarget
-            else 
-              i = i 
-            end
-            local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
-            if CNetGamePlayer then
-              local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
-              if CPlayerInfo then
-                local CPed = readPointer(CPlayerInfo + pCNetPed)
-                if CPed and CPed ~= 0 then
-                  local CNav = readPointer(CPed + pCNavigation)
-                  if CNav and CNav ~= 0 then
-                    local Px=readFloat("[[PTR+8]+30]+50")
-                    local Py=readFloat("[[PTR+8]+30]+54")
-                    local Hx=readFloat("[[PTR+8]+30]+20")
-                    local Hy=readFloat("[[PTR+8]+30]+24")
-                    local OppoX= readFloat(CNav + oPositionX)
-                    local OppoY= readFloat(CNav + oPositionY)
-                    DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
+          if readInteger("[PTR+8]+15D8") == 0 then
+            if i ~= MyIDNumber then
+              if wasInSlip == true then 
+                i = slipTarget
+              else 
+                i = i 
+              end
+              local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
+              if CNetGamePlayer then
+                local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
+                if CPlayerInfo then
+                  local CPed = readPointer(CPlayerInfo + pCNetPed)
+                  if CPed and CPed ~= 0 then
+                    local CNav = readPointer(CPed + pCNavigation)
+                    if CNav and CNav ~= 0 then
+                      local Px=readFloat("[[PTR+8]+30]+50")
+                      local Py=readFloat("[[PTR+8]+30]+54")
+                      local Hx=readFloat("[[PTR+8]+30]+20")
+                      local Hy=readFloat("[[PTR+8]+30]+24")
+                      local OppoX= readFloat(CNav + oPositionX)
+                      local OppoY= readFloat(CNav + oPositionY)
+                      DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
+                    end
                   end
                 end
               end
@@ -3965,10 +3967,8 @@
         local Side = OpponentX*HeadX + OpponentY*HeadY + R
         local Lenght = (((OpponentX-PlayerX)^(2)+(OpponentY-PlayerY)^(2))^(0.5))
         if Side > 2 and Lenght > 2 and Lenght < 6 then
-          --print("Bigger")
           OnYourRight=true
         elseif Side < -2 and Lenght > 2 and Lenght < 6 then
-          --print("Less")
           OnYourLeft=true
         end
       end
@@ -3998,10 +3998,7 @@
         local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
         OnYourRight=false
         OnYourLeft=false
-        local Px=readFloat("[[PTR+8]+30]+50")
-        local Py=readFloat("[[PTR+8]+30]+54")
-        local Hx=readFloat("[[PTR+8]+30]+20")
-        local Hy=readFloat("[[PTR+8]+30]+24")
+        
         for i=0,10,1 do
           if i ~= MyIDNumber then
             local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
@@ -4012,6 +4009,10 @@
                 if CPed and CPed ~= 0 then
                   local CNav = readPointer(CPed + pCNavigation)
                   if CNav and CNav ~= 0 then
+                    local Px=readFloat("[[PTR+8]+30]+50")
+                    local Py=readFloat("[[PTR+8]+30]+54")
+                    local Hx=readFloat("[[PTR+8]+30]+20")
+                    local Hy=readFloat("[[PTR+8]+30]+24")
                     OppoX= readFloat(CNav + oPositionX)
                     OppoY= readFloat(CNav + oPositionY)
                     if OnYourRight==false and OnYourLeft==false then
