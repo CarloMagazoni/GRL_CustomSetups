@@ -81,7 +81,7 @@ elseif CarNameCurrent=='VISIONE' then
 	local Eng = 3
 	local DF = 0
 	local Flag = 0
-	local Front = 0.129
+	local Front = 0.099
 	local Rear = 0.179
 	local Inertia = 0
 	local Model = 0
