@@ -25,7 +25,8 @@ if CarNameCurrent=='FORMULA' then
 	 local RS = 0
 	 local Travel = -0.01
 	 local Rolo = 0
-     ApplyF1Mod(F1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF)
+	 local Steering = 0
+     ApplyF1Mod(F1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF,Steering)
 elseif CarNameCurrent=='OPENWHEEL1' then
 	 local Mass = 0
 	 local Drag = 0

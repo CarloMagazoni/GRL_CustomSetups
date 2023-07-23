@@ -1,10 +1,10 @@
 if CarNameCurrent=='VISIONE' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000305
-    rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.0000375
-    frontWingGripVAL = 0.0175
+    rearWingDragVAL = 0.0000335
+    rearWingGripVAL = 0.0075
+    frontWingDragVAL = 0.0000405
+    frontWingGripVAL = 0.015
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
     aeroPackageRearGripVAL = 0.15
@@ -18,7 +18,7 @@ if CarNameCurrent=='VISIONE' then
     gearsInitMaxFlatVAL = 7
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
-    susForceVAL = 0.05
+    susForceVAL = 0.1
     susRaiseVAL = 0.005
     susBumpVAL = 0.01
     susReboundVAL = 0.01
@@ -34,10 +34,10 @@ if CarNameCurrent=='VISIONE' then
 elseif CarNameCurrent=='EMERUS' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000305
-    rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.0000375
-    frontWingGripVAL = 0.0175
+    rearWingDragVAL = 0.0000335
+    rearWingGripVAL = 0.0075
+    frontWingDragVAL = 0.0000405
+    frontWingGripVAL = 0.015
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
     aeroPackageRearGripVAL = 0.15
@@ -51,7 +51,7 @@ elseif CarNameCurrent=='EMERUS' then
     gearsInitMaxFlatVAL = 6
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
-    susForceVAL = 0.05
+    susForceVAL = 0.1
     susRaiseVAL = 0.005
     susBumpVAL = 0.01
     susReboundVAL = 0.01
@@ -67,10 +67,10 @@ elseif CarNameCurrent=='EMERUS' then
 elseif CarNameCurrent=='VAGNER' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000305
-    rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.0000375
-    frontWingGripVAL = 0.0175
+    rearWingDragVAL = 0.0000335
+    rearWingGripVAL = 0.0075
+    frontWingDragVAL = 0.0000405
+    frontWingGripVAL = 0.015
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
     aeroPackageRearGripVAL = 0.15
@@ -84,7 +84,7 @@ elseif CarNameCurrent=='VAGNER' then
     gearsInitMaxFlatVAL = 7
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
-    susForceVAL = 0.05
+    susForceVAL = 0.1
     susRaiseVAL = 0.005
     susBumpVAL = 0.01
     susReboundVAL = 0.01
@@ -100,10 +100,10 @@ elseif CarNameCurrent=='VAGNER' then
 elseif CarNameCurrent=='IGNUS' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000225
-    rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.00003
-    frontWingGripVAL = 0.0175
+    rearWingDragVAL = 0.0000335
+    rearWingGripVAL = 0.0075
+    frontWingDragVAL = 0.0000405
+    frontWingGripVAL = 0.015
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
     aeroPackageRearGripVAL = 0.15
@@ -117,7 +117,7 @@ elseif CarNameCurrent=='IGNUS' then
     gearsInitMaxFlatVAL = 7
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
-    susForceVAL = 0.05
+    susForceVAL = 0.1
     susRaiseVAL = 0.005
     susBumpVAL = 0.01
     susReboundVAL = 0.01
@@ -133,10 +133,10 @@ elseif CarNameCurrent=='IGNUS' then
 elseif CarNameCurrent=='TIGON' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000225
-    rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.00003
-    frontWingGripVAL = 0.0175
+    rearWingDragVAL = 0.0000335
+    rearWingGripVAL = 0.0075
+    frontWingDragVAL = 0.0000405
+    frontWingGripVAL = 0.015
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
     aeroPackageRearGripVAL = 0.15
@@ -150,7 +150,7 @@ elseif CarNameCurrent=='TIGON' then
     gearsInitMaxFlatVAL = 7
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
-    susForceVAL = 0.05
+    susForceVAL = 0.1
     susRaiseVAL = 0.005
     susBumpVAL = 0.01
     susReboundVAL = 0.01
@@ -166,10 +166,10 @@ elseif CarNameCurrent=='TIGON' then
 elseif CarNameCurrent=='krieger' then
     steeringLockVAL = 0.01
     steeringLockRatioVAL = 0.01
-    rearWingDragVAL = 0.0000305
-    rearWingGripVAL = 0.01
-    frontWingDragVAL = 0.0000375
-    frontWingGripVAL = 0.0175
+    rearWingDragVAL = 0.0000335
+    rearWingGripVAL = 0.0075
+    frontWingDragVAL = 0.0000405
+    frontWingGripVAL = 0.015
     aeroPackageDragVAL = 0.0003375
     aeroPackageFrontGripVAL = 0.125
     aeroPackageRearGripVAL = 0.15
@@ -183,7 +183,7 @@ elseif CarNameCurrent=='krieger' then
     gearsInitMaxFlatVAL = 5
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
-    susForceVAL = 0.05
+    susForceVAL = 0.1
     susRaiseVAL = 0.005
     susBumpVAL = 0.01
     susReboundVAL = 0.01
