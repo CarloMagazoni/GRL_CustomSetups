@@ -164,7 +164,11 @@
     local HWID = getMyHWID()
     Baseboard = getMyBaseboardVersion()
     for i=1,#playersTable.values,1 do
+      print(HWID)
+      print(playersTable.values[i][5])
       if (playersTable.values[i][5]) == HWID then
+        print(Baseboard)
+        print(playersTable.values[i][6])
         if (playersTable.values[i][6]) == Baseboard then
           local id = i
           return id
