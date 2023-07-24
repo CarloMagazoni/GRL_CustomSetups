@@ -164,8 +164,8 @@
     local HWID = getMyHWID()
     Baseboard = getMyBaseboardVersion()
     for i=1,#playersTable.values,1 do
-      print(HWID)
-      print(playersTable.values[i][5])
+      --print(HWID)
+      --print(playersTable.values[i][5])
       if (playersTable.values[i][5]) == HWID then
         print(Baseboard)
         print(playersTable.values[i][6])
