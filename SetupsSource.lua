@@ -2373,7 +2373,7 @@
         end
     end
 
-    function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering)
+    function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
         if IntoDRIFT==false then
            FWD=FWD*(-1)
            RWD=RWD*(-1)
@@ -2383,6 +2383,7 @@
            CurveMin=CurveMin*(-1)
            CurveLat=CurveLat*(-1)
            Steering=Steering*(-1)
+           CurveLatR=CurveLatR*(-1)
         end
         if FWD~=0 then
            FWDCurrent=FWDCurrent + FWD
@@ -2416,6 +2417,10 @@
            SteeringLockCurrent=SteeringLockCurrent + Steering
            WriteFloat(SteeringLockADR,SteeringLockCurrent)
         end
+        if CurveLatR~=0 then
+          CurveLateralCurrent=CurveLateralCurrent + CurveLatR 
+          WriteFloat(CurveLateralADR,CurveLateralCurrent)
+       end
     end
 
     function MakeItGT3()
