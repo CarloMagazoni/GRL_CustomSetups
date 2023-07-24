@@ -135,7 +135,7 @@
 
   function buildPlayersTable()
     local g = getInternet()
-    local url = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/A:E?key=AIzaSyBAd6k7IWM_0vHZKS8IxP9562j1md7duUE"
+    local url = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/A:F?key=AIzaSyBAd6k7IWM_0vHZKS8IxP9562j1md7duUE"
     playersTable = json.decode(g.getURL(url))
     g.destroy()
   end
