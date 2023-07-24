@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.5
 
   json = require("json")
-  buildVersion = 200720231
+  buildVersion = "195a"
 
   function Main()
     InitURLInfo()
@@ -110,12 +110,12 @@
   end
 
   function getInfoByHWID()
-    buildPlayersTable(70)
+    buildPlayersTable()
     local id = findMyIDFromHWIDArray()
     if id > 0 then
       getInfoByID(id)
       SendPack("Launched App",1 ,1)
-      SendPack(Baseboard,1,1)
+      --SendPack(Baseboard,1,1)
       NewUser=false
     end
   end
@@ -133,9 +133,9 @@
     Username ="User: "..HWID_Array[1]["NAME"]
   end
 
-  function buildPlayersTable(size)
+  function buildPlayersTable()
     local g = getInternet()
-    local url = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/A2:E"..size.."?key=AIzaSyBAd6k7IWM_0vHZKS8IxP9562j1md7duUE"
+    local url = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/A:E?key=AIzaSyBAd6k7IWM_0vHZKS8IxP9562j1md7duUE"
     playersTable = json.decode(g.getURL(url))
     g.destroy()
   end
@@ -165,8 +165,10 @@
     Baseboard = getMyBaseboardVersion()
     for i=1,#playersTable.values,1 do
       if (playersTable.values[i][5]) == HWID then
-        local id = i
-        return id
+        if (playersTable.values[i][6]) == Baseboard then
+          local id = i
+          return id
+        end
       end
     end
     return -1
