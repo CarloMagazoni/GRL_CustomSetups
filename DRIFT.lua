@@ -7,7 +7,7 @@ if CarNameCurrent=='ELEGY' then
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -1.0 --2.55
-	local CurveLat = 0 --0.3926
+	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
 elseif CarNameCurrent=='RT3000' then
@@ -18,7 +18,7 @@ elseif CarNameCurrent=='RT3000' then
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -1.0 --2.55
-	local CurveLat = 0 --0.3926
+	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
 elseif CarNameCurrent=='EUROS' then
@@ -29,7 +29,7 @@ elseif CarNameCurrent=='EUROS' then
 	local Steering = 0.3
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -0.6 --2.55
-	local CurveLat = 0 --0.3926
+	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
 end
