@@ -71,8 +71,8 @@ elseif CarNameCurrent=='COMET3' then
 	local Drive = 0.6
 	local MaxFlat = 0
 	local Steering = 0.25
-	local CurveMax = -1.9 --2.67
-	local CurveMin = -1.0 --2.55
+	local CurveMax = -1.8 --2.67
+	local CurveMin = -0.8 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.75
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
