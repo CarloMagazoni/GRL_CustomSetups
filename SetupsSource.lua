@@ -1775,19 +1775,19 @@
 
     --HS mode
     function TurnHSModeOn()
-     if HSmodeDELTA ~= 2 then
-          MakeItHS()
-          HSmodeDELTA = 2
-          UDF1.hsvalue.Caption = 'ON'
-          UDF1.ClassValue.Caption = "HS"
-          UDF1.ClassValue.Font.Color = 219
-          SendPack("HS mode ON",0,1)
-          ChangedSetup=true
-     end
+      if HSmodeDELTA ~= 2 then
+        MakeItHS()
+        HSmodeDELTA = 2
+        UDF1.hsvalue.Caption = 'ON'
+        UDF1.ClassValue.Caption = "HS"
+        UDF1.ClassValue.Font.Color = 219
+        SendPack("HS mode ON",0,1)
+        ChangedSetup=true
+      end
     end
 
     function TurnHSModeOff()
-     if HSmodeDELTA ~= 1 then
+      if HSmodeDELTA ~= 1 then
         MakeItDefaultHS()
         HSmodeDELTA = 1
         UDF1.hsvalue.Caption = 'OFF'
@@ -1795,7 +1795,7 @@
         UDF1.ClassValue.Font.Color = clDefault
         SendPack("HS mode OFF",0,1)
         ChangedSetup=true
-     end
+      end
     end
 
     --Nascar mode
@@ -1829,8 +1829,9 @@
           UDF1.Driftvalue.Caption = 'ON'
           UDF1.ClassValue.Caption = "DRIFT"
           UDF1.ClassValue.Font.Color = 7502699
-          sleep(5)
+          sleep(10)
           SendPack("Drift mode ON",0,1)
+          ChangedSetup=true
      end
     end
 
@@ -1841,8 +1842,9 @@
         UDF1.Driftvalue.Caption = 'OFF'
         UDF1.ClassValue.Caption = "-"
         UDF1.ClassValue.Font.Color = clDefault
-        sleep(5)
+        sleep(10)
         SendPack("Drift mode OFF",0,1)
+        ChangedSetup=true
      end
     end
 
