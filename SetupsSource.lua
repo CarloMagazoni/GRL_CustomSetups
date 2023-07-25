@@ -432,12 +432,12 @@
   end
 
   function SetCustomClassesArrays()
-    GT3array = Set {'PARAGON','SPECTER','ELEGY2','CARBONIZ','DRAFTER','COQUETTE','SCHLAGEN','GROWLER','VECTRE'}
+    GT3array = Set {'PARAGON','SPECTER','ELEGY2','CARBONIZ','DRAFTER','COQUETTE','SCHLAGEN','GROWLER'}
     GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','CYPHER','ITALIRSX'}
     HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON','krieger'}
     F1array = Set {'FORMULA','OPENWHEEL1'}
     NASCARarray = Set {'HOTRING'}
-    DRIFTarray = Set {'ELEGY'}
+    DRIFTarray = Set {'ELEGY','EUROS','RT3000','VECTRE'}
   end
 
   function DefineCustomClassesLabels()
@@ -677,7 +677,7 @@
       DisableHSLabels()
       DisableF1Labels()
       DisableNascarLabels()
-      switchSettings(true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false)
+      switchSettings(true,false,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     else
