@@ -437,7 +437,7 @@
     HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON','krieger'}
     F1array = Set {'FORMULA','OPENWHEEL1'}
     NASCARarray = Set {'HOTRING'}
-    DRIFTarray = Set {'ELEGY','EUROS','RT3000','VECTRE','JESTER4','SCHWARTZER','COMET3','DOMINATOR3'}
+    DRIFTarray = Set {'ELEGY','EUROS','RT3000','VECTRE','JESTER4','SCHWARTZER','COMET3','DOMINATOR3','VETO'}
   end
 
   function DefineCustomClassesLabels()
@@ -4410,7 +4410,7 @@
    end
 
    function AutoUpdate()
-    UpdateTimer = createTimer(nil,true)
+    UpdateTimer = createTimer(nil,false)
     timer_onTimer(UpdateTimer,UpdateInfo)
     timer_setInterval(UpdateTimer, 60000)
    end
