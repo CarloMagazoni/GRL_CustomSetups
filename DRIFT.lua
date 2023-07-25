@@ -90,11 +90,11 @@ elseif CarNameCurrent=='DOMINATOR3' then
 elseif CarNameCurrent=='VETO' then
 	local FWD = 0
 	local RWD = 0
-	local Drive = 1
+	local Drive = 3
 	local MaxFlat = 0
 	local Steering = 0.25
 	local CurveMax = -1.9 --2.67
-	local CurveMin = -0.3 --2.55
+	local CurveMin = -0.6 --2.55
 	local CurveLat = 1.5 --0.3926
 	local CurveLatR = -1
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
