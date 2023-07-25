@@ -95,7 +95,7 @@ elseif CarNameCurrent=='VETO' then
 	local Steering = 0.25
 	local CurveMax = -1.9 --2.67
 	local CurveMin = -0.6 --2.55
-	local CurveLat = 1.5 --0.3926
-	local CurveLatR = -1
+	local CurveLat = 1 --0.3926
+	local CurveLatR = -2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
 end
