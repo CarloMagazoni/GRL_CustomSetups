@@ -432,12 +432,12 @@
   end
 
   function SetCustomClassesArrays()
-    GT3array = Set {'PARAGON','SPECTER','ELEGY2','CARBONIZ','DRAFTER','COQUETTE','SCHLAGEN','GROWLER'}
+    GT3array = Set {'PARAGON','SPECTER','CARBONIZ','DRAFTER','COQUETTE','SCHLAGEN','GROWLER'}
     GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','CYPHER','ITALIRSX'}
     HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON','krieger'}
     F1array = Set {'FORMULA','OPENWHEEL1'}
     NASCARarray = Set {'HOTRING'}
-    DRIFTarray = Set {'ELEGY','EUROS','RT3000','VECTRE','JESTER4','SCHWARZE','COMET3','ZR350'}
+    DRIFTarray = Set {'ELEGY','EUROS','RT3000','VECTRE','JESTER4','SCHWARZE','COMET3','ZR350','ELEGY2'}
   end
 
   function DefineCustomClassesLabels()
