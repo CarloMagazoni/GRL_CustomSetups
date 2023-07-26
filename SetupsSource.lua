@@ -437,7 +437,7 @@
     HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON','krieger'}
     F1array = Set {'FORMULA','OPENWHEEL1'}
     NASCARarray = Set {'HOTRING'}
-    DRIFTarray = Set {'ELEGY','EUROS','RT3000','VECTRE','JESTER4','SCHWARZE','COMET3','DOMINATOR3','VETO','ZR350'}
+    DRIFTarray = Set {'ELEGY','EUROS','RT3000','VECTRE','JESTER4','SCHWARZE','COMET3','ZR350'}
   end
 
   function DefineCustomClassesLabels()
