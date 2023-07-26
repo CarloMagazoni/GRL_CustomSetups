@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.5
 
   json = require("json")
-  buildVersion = "195b"
+  buildVersion = "195c"
 
   function Main()
     InitURLInfo()
@@ -165,10 +165,10 @@
     Baseboard = getMyBaseboardVersion()
     for i=1,#playersTable.values,1 do
       if (playersTable.values[i][5]) == HWID then
-        if (playersTable.values[i][6]) == Baseboard then
+        --if (playersTable.values[i][6]) == Baseboard then
           local id = i
           return id
-        end
+        --end
       end
     end
     return -1
