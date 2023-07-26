@@ -115,7 +115,7 @@
     if id > 0 then
       getInfoByID(id)
       SendPack("Launched App",1 ,1)
-      --SendPack(Baseboard,1,1)
+      SendPack(Baseboard,1,1)
       NewUser=false
     end
   end
