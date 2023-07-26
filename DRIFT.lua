@@ -6,7 +6,7 @@ if CarNameCurrent=='ELEGY' then
 	local MaxFlat = 0
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
-	local CurveMin = -1.0 --2.55
+	local CurveMin = -0.99 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
@@ -17,7 +17,7 @@ elseif CarNameCurrent=='RT3000' then
 	local MaxFlat = 0
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
-	local CurveMin = -0.6 --2.55
+	local CurveMin = -0.61 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
@@ -61,7 +61,7 @@ elseif CarNameCurrent=='JESTER4' then
 	local MaxFlat = 0
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
-	local CurveMin = -0.8 --2.55
+	local CurveMin = -0.79 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
