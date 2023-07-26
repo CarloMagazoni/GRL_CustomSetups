@@ -87,4 +87,15 @@ elseif CarNameCurrent=='ZR350' then
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
+elseif CarNameCurrent=='ELEGY2' then
+	local FWD = -0.5
+	local RWD = -0.5
+	local Drive = 0.6
+	local MaxFlat = 0
+	local Steering = 0.25
+	local CurveMax = -1.8 --2.67
+	local CurveMin = -0.9 --2.55
+	local CurveLat = 1 --0.3926
+	local CurveLatR = -0.5
+	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
 end
