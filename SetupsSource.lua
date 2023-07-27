@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.5
 
   json = require("json")
-  buildVersion = "195c"
+  buildVersion = "195d"
 
   function Main()
     InitURLInfo()
@@ -2420,8 +2420,8 @@
            WriteFloat(SteeringLockADR,SteeringLockCurrent)
         end
         if CurveLatR~=0 then
-          CurveLateralCurrent=CurveLateralCurrent + CurveLatR 
-          WriteFloat(CurveLateralADR,CurveLateralCurrent)
+          CurveLateralRatioCurrent=CurveLateralRatioCurrent + CurveLatR 
+          WriteFloat(CurveLateralRatioADR,CurveLateralRatioCurrent)
        end
     end
 
