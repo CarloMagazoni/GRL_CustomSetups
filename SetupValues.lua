@@ -247,7 +247,7 @@ else
     gearsInitMaxFlatVAL = 3
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
-    susForceVAL = 0.03
+    susForceVAL = 0.1
     susRaiseVAL = 0.001
     susBumpVAL = 0.0025
     susReboundVAL = 0.0025
