@@ -33,8 +33,8 @@ elseif CarNameCurrent=='EUROS' then
 	local CurveLatR = -0.5
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
 elseif CarNameCurrent=='VECTRE' then
-	local FWD = 0
-	local RWD = 0
+	local FWD = -0.6
+	local RWD = -0.4
 	local Drive = 0.6
 	local MaxFlat = 0
 	local Steering = 0.25
