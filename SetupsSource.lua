@@ -2375,7 +2375,7 @@
         end
     end
 
-    function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed)
+    function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass)
         if IntoDRIFT==false then
            FWD=FWD*(-1)
            RWD=RWD*(-1)
