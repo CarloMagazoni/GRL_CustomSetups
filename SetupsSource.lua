@@ -2375,7 +2375,7 @@
         end
     end
 
-    function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR)
+    function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed)
         if IntoDRIFT==false then
            FWD=FWD*(-1)
            RWD=RWD*(-1)
@@ -2386,6 +2386,7 @@
            CurveLat=CurveLat*(-1)
            Steering=Steering*(-1)
            CurveLatR=CurveLatR*(-1)
+           LowSpeed=LowSpeed*(-1)
         end
         if FWD~=0 then
            FWDCurrent=FWDCurrent + FWD
@@ -2422,7 +2423,11 @@
         if CurveLatR~=0 then
           CurveLateralRatioCurrent=CurveLateralRatioCurrent + CurveLatR 
           WriteFloat(CurveLateralRatioADR,CurveLateralRatioCurrent)
-       end
+        end
+        if LowSpeed~=0 then
+          LowSpeedTractionCurrent=LowSpeedTractionCurrent + LowSpeed 
+          WriteFloat(LowSpeedTractionADR,LowSpeedTractionCurrent)
+        end
     end
 
     function MakeItGT3()
