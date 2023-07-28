@@ -2387,6 +2387,7 @@
            Steering=Steering*(-1)
            CurveLatR=CurveLatR*(-1)
            LowSpeed=LowSpeed*(-1)
+           Mass=Mass*(-1)
         end
         if FWD~=0 then
            FWDCurrent=FWDCurrent + FWD
@@ -2427,6 +2428,10 @@
         if LowSpeed~=0 then
           LowSpeedTractionCurrent=LowSpeedTractionCurrent + LowSpeed 
           WriteFloat(LowSpeedTractionADR,LowSpeedTractionCurrent)
+        end
+        if Mass~=0 then
+          MassCurrent=MassCurrent + Mass
+          WriteFloat(MassADR,MassCurrent)
         end
     end
 
