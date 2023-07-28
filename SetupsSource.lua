@@ -1824,27 +1824,27 @@
     --Drift mode
     function TurnDriftModeOn()
      if DRIFTmodeDELTA ~= 2 then
-          DriftmodeDELTA = 2
-          MakeItDRIFT()
-          UDF1.Driftvalue.Caption = 'ON'
-          UDF1.ClassValue.Caption = "DRIFT"
-          UDF1.ClassValue.Font.Color = 7502699
-          sleep(10)
-          SendPack("Drift mode ON",0,1)
-          ChangedSetup=true
+      DRIFTmodeDELTA = 2
+      MakeItDRIFT()
+      UDF1.Driftvalue.Caption = 'ON'
+      UDF1.ClassValue.Caption = "DRIFT"
+      UDF1.ClassValue.Font.Color = 7502699
+      sleep(10)
+      SendPack("Drift mode ON",0,1)
+      ChangedSetup=true
      end
     end
 
     function TurnDriftModeOff()
-     if DriftmodeDELTA ~= 1 then
-        DRIFTmodeDELTA = 1
-        MakeItDefaultDRIFT()
-        UDF1.Driftvalue.Caption = 'OFF'
-        UDF1.ClassValue.Caption = "-"
-        UDF1.ClassValue.Font.Color = clDefault
-        sleep(10)
-        SendPack("Drift mode OFF",0,1)
-        ChangedSetup=true
+     if DRIFTmodeDELTA ~= 1 then
+      DRIFTmodeDELTA = 1
+      MakeItDefaultDRIFT()
+      UDF1.Driftvalue.Caption = 'OFF'
+      UDF1.ClassValue.Caption = "-"
+      UDF1.ClassValue.Font.Color = clDefault
+      sleep(10)
+      SendPack("Drift mode OFF",0,1)
+      ChangedSetup=true
      end
     end
 
