@@ -2390,11 +2390,11 @@
            Mass=Mass*(-1)
         end
         if FWD~=0 then
-           FWDCurrent=FWDCurrent + FWD
+           FWDCurrent=0
            WriteFloat(FWDADR,FWDCurrent)
         end
         if RWD~= 0 then
-           RWDCurrent=RWDCurrent + RWD
+           RWDCurrent=1
            WriteFloat(RWDADR,RWDCurrent)
         end
         if Drive~=0 then
