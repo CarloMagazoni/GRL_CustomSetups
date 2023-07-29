@@ -128,4 +128,30 @@ elseif CarNameCurrent=='REMUS' then
 	local LowSpeed = -0.2
 	local Mass = 2000
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass)
+elseif CarNameCurrent=='NEON' then
+	local FWD = 1
+	local RWD = 1
+	local Drive = 0.55
+	local MaxFlat = 0
+	local Steering = 0.25
+	local CurveMax = -1.8 --2.67
+	local CurveMin = -1.0 --2.55
+	local CurveLat = 1 --0.3926
+	local CurveLatR = -0.5
+	local LowSpeed = -0.2
+	local Mass = 2000
+	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass)
+elseif CarNameCurrent=='TENF2' then
+	local FWD = 0
+	local RWD = 0
+	local Drive = 0.6
+	local MaxFlat = 0
+	local Steering = 0.25
+	local CurveMax = -1.8 --2.67
+	local CurveMin = -1.0 --2.55
+	local CurveLat = 1 --0.3926
+	local CurveLatR = -0.5
+	local LowSpeed = 0
+	local Mass = 2000
+	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass)
 end
