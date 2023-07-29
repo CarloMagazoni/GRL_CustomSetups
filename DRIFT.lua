@@ -103,12 +103,12 @@ elseif CarNameCurrent=='ZR350' then
 	local Mass = 2000
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass)
 elseif CarNameCurrent=='ELEGY2' then
-	local FWD = -0.589
-	local RWD = -0.4
+	local FWD = -0.6000000238
+	local RWD = -0.399999976
 	local Drive = 0.6
 	local MaxFlat = 0
 	local Steering = 0.45
-	local CurveMax = -1.85 --2.67
+	local CurveMax = -1.8 --2.67
 	local CurveMin = -1.0 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
