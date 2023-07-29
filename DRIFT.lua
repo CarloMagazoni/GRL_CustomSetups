@@ -134,7 +134,7 @@ elseif CarNameCurrent=='NEON' then
 	local Drive = 0.55
 	local MaxFlat = 0
 	local Steering = 0.25
-	local CurveMax = -1.2 --2.67
+	local CurveMax = -1.35 --2.67
 	local CurveMin = -0.7 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
