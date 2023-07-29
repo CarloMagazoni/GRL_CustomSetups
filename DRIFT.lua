@@ -22,7 +22,7 @@ elseif CarNameCurrent=='RT3000' then
 	local CurveMin = -0.61 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = 0
+	local LowSpeed = -0.3
 	local Mass = 2000
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass)
 elseif CarNameCurrent=='EUROS' then
