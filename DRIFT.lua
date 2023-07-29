@@ -134,11 +134,11 @@ elseif CarNameCurrent=='NEON' then
 	local Drive = 0.55
 	local MaxFlat = 0
 	local Steering = 0.25
-	local CurveMax = -1.8 --2.67
-	local CurveMin = -1.0 --2.55
+	local CurveMax = -1.2 --2.67
+	local CurveMin = -0.7 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = -0.2
+	local LowSpeed = 0.2
 	local Mass = 2000
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass)
 elseif CarNameCurrent=='TENF2' then
