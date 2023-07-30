@@ -4438,8 +4438,8 @@
     --local XPResp = json.decode(https.GetURL(XPURL))
     --local AccountCash = tonumber(CashResp["values"][1][1])
     --local CurrentLicence = tonumber(XPResp["values"][1][1])
-    UDF1.MoneyLabel.Caption = AccountCash.." $"
-    UDF1.XPlabel.Caption = LicenceArray[CurrentLicence]
+    --UDF1.MoneyLabel.Caption = AccountCash.." $"
+    --UDF1.XPlabel.Caption = LicenceArray[CurrentLicence]
     https.destroy()
    end
    
