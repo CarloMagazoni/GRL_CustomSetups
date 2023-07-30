@@ -3909,8 +3909,13 @@
     function RunCustomSlipStream()
 
       function CalculateSlipForce(Distance)
-        local ApplyForce = (1 - (Distance/50))*slipBodyTypeForce --
-        return ApplyForce
+        if DRIFT == true then
+          local ApplyForce = (Distance/50)*slipBodyTypeForce
+          return ApplyForce
+        else
+          local ApplyForce = (1 - (Distance/50))*slipBodyTypeForce --
+          return ApplyForce
+        end
       end
 
       function CalculateSlipTractionLoss(Distance)
