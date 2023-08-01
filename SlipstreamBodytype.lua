@@ -3,5 +3,5 @@ if CarNameCurrent=='VISIONE' or CarNameCurrent=='EMERUS' or CarNameCurrent=='kri
 elseif CarNameCurrent=='OPENWHEEL1' then
     slipBodyTypeForce = 0.35
 else 
-    slipBodyTypeForce = 0.1
+    slipBodyTypeForce = 0.15
 end

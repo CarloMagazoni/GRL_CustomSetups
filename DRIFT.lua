@@ -73,7 +73,7 @@ elseif CarNameCurrent=='JESTER4' then
 	local CurveMin = -0.79 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = 0
+	local LowSpeed = 0.1
 	local Mass = 2000
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass)
 elseif CarNameCurrent=='COMET3' then
@@ -131,7 +131,7 @@ elseif CarNameCurrent=='REMUS' then
 elseif CarNameCurrent=='NEON' then
 	local FWD = 1
 	local RWD = 1
-	local Drive = 0.55
+	local Drive = 0.5
 	local MaxFlat = 0
 	local Steering = 0.25
 	local CurveMax = -1.35 --2.67
