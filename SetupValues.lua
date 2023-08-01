@@ -228,7 +228,7 @@ elseif CarNameCurrent=='OPENWHEEL1' then
     susRearARBVAL = 0.175
     susRearRoloVAL = 0.025
 else
-    steeringLockVAL = 0.005
+    steeringLockVAL = 0.006
     steeringLockRatioVAL = 0.01
     rearWingDragVAL = 0.0000795
     rearWingGripVAL = 0.01575
