@@ -3287,7 +3287,27 @@
       GearsR = 1
       end
 
-      BackToDefault()
+      if GT3modeDELTA == 2 then 
+        BackToDefault()
+        TurnGT3ModeOn()
+      elseif GTEmodeDELTA == 2 then 
+        BackToDefault()
+        TurnGTEModeOn() 
+      elseif HSmodeDELTA == 2 then 
+        BackToDefault()
+        TurnHSModeOn() 
+      elseif F1modeDELTA == 2 then 
+        BackToDefault()
+        TurnF1ModeOn() 
+      elseif NascarmodeDELTA == 2 then 
+        BackToDefault()
+        TurnNASCARModeOn() 
+      elseif DRIFTmodeDELTA == 2 then 
+        BackToDefault()
+        TurnDriftModeOn()
+      else 
+        BackToDefault()
+      end
 
       --Suspension
       if SuspensionForceR-SuspensionForceDELTA > 0 then
