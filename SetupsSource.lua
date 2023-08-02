@@ -358,7 +358,7 @@
          elseif pic == 2 then UDF1.Pic4.Visible=true
         end
 
-        UDF1.Caption="Custom Setups | Online v1.9.5"
+        UDF1.Caption="Custom Setups | Online v1.9.6"
         --UDF1.UserNameLabel.Alignment = "taRightJustify"
         local SpaceBars = ""
         UDF1.UserNameLabel.Caption = Name..SpaceBars
