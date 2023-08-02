@@ -584,7 +584,6 @@
     FoundMyCurrentID()
 
     UDF1.SetGarageButton.Enabled = true
-    --if EasyMode == false then UDF1.FuelB.Enabled=true end
     UDF1.EnterBoxButton.Enabled = false
     if FuelSystemEnabled==true then
       EnableFuel()
@@ -597,101 +596,36 @@
     DisplayInfo()
     slipBodyTypeForce = 0
     InitClassSpecificSetupValues()
+
+    --CLASS SELECTION
     if GT3array[CarNameCurrent]  then
-      switchHeadlights(false, true)
-      UDF1.gt3Value.Enabled = true
-      UDF1.gt3Label.Enabled = true
-      UDF1.gt3DEC.Enabled = true
-      UDF1.gt3INC.Enabled = true
-      DisableGTELabels()
-      DisableHSLabels()
-      DisableF1Labels()
-      DisableNascarLabels()
-      DisableDriftLabels()
-      switchSettings(true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false)
+      switchSettings(true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,true,false,false,false,false,false)
       CurrentCarMaxFuel = GT3Tank
       MixCurrent = GT3mix
     elseif GTEarray[CarNameCurrent]  then
-      switchHeadlights(false, true)
-      UDF1.gtevalue.Enabled = true
-      UDF1.gtelabel.Enabled = true
-      UDF1.gtedec.Enabled = true
-      UDF1.gteinc.Enabled = true
-      DisableGT3Labels()
-      DisableHSLabels()
-      DisableF1Labels()
-      DisableNascarLabels()
-      DisableDriftLabels()
-      switchSettings(true,false,false,false,false,false,false,false,false,false,true,false,false,true,true,false,false)
+      switchSettings(true,false,false,false,false,false,false,false,false,false,true,false,false,true,true,false,false ,false,true,false,false,false,false)
       CurrentCarMaxFuel = GTETank
       MixCurrent = GTEmix
     elseif HSarray[CarNameCurrent] then 
-      switchHeadlights(false, true)
-      UDF1.hsvalue.Enabled = true
-      UDF1.hslabel.Enabled = true
-      UDF1.hsdec.Enabled = true
-      UDF1.hsinc.Enabled = true
-      DisableGT3Labels()
-      DisableGTELabels()
-      DisableF1Labels()
-      DisableNascarLabels()
-      DisableDriftLabels()
-      switchSettings(true,false,false,false,false,true,false,false,true,false,false,false,true,true,true,false,true)
+      switchSettings(true,false,false,false,false,true,false,false,true,false,false,false,true,true,true,false,true ,false,false,true,false,false,false)
     elseif F1array[CarNameCurrent]  then
-      switchHeadlights(true, false)
-      UDF1.F1Label.Enabled = true
-      UDF1.F1DEC.Enabled = true
-      UDF1.F1INC.Enabled = true
-      UDF1.F1Value.Enabled = true
-      --if CarNameCurrent == 'OPENWHEEL1' then DisableF1Labels() end
-      DisableGT3Labels()
-      DisableGTELabels()
-      DisableHSLabels()
-      DisableNascarLabels()
-      DisableDriftLabels()
-      switchSettings(true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false,false)
+      switchSettings(true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,false,false ,false,false,false,true,false,false)
       CurrentCarMaxFuel = F1Tank
       MixCurrent = F1mix
     elseif NASCARarray[CarNameCurrent]  then
-      switchHeadlights(false, true)
-      UDF1.NascarLabel.Enabled = true
-      UDF1.NDEC.Enabled = true
-      UDF1.NINC.Enabled = true
-      UDF1.Nascarvalue.Enabled = true
-      DisableGT3Labels()
-      DisableGTELabels()
-      DisableHSLabels()
-      DisableF1Labels()
-      DisableDriftLabels()
-      switchSettings(true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false)
+      switchSettings(true,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false ,false,false,false,false,true,false)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     elseif DRIFTarray[CarNameCurrent]  then
-      switchHeadlights(false, true)
-      UDF1.DriftLabel.Enabled = true
-      UDF1.DDEC.Enabled = true
-      UDF1.DINC.Enabled = true
-      UDF1.Driftvalue.Enabled = true
-      DisableGT3Labels()
-      DisableGTELabels()
-      DisableHSLabels()
-      DisableF1Labels()
-      DisableNascarLabels()
-      switchSettings(true,false,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false)
+      switchSettings(true,false,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false ,false,false,false,false,false,true)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     else
-      switchHeadlights(false, true)
-      DisableGT3Labels()
-      DisableGTELabels()
-      DisableHSLabels()
-      DisableF1Labels()
-      DisableNascarLabels()
-      DisableDriftLabels()
-      switchSettings(true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true)
+      switchSettings(true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true ,false,false,false,false,false,false)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     end
+
     HaveBox = false
     InThePit = true
     SpecialMode = false
@@ -708,6 +642,7 @@
   function InitClassSpecificSetupValues()
     load(SetupValues)()
     load(Slipstream_bodytype_values)()
+    --load(SetupValuesDisplay)()
   end
 
   function switchHeadlights(state,bool)
@@ -723,11 +658,11 @@
     end
   end
 
-  function switchSettings(suspensionForceBool,suspensionRaiseBool,dumperBool,suspensionTravelBool,frontSpringBool,frontARBBool,frontCamberBool,rearSpringBool,rearARBBool,rearCamberBool,steeringLockBool,apBool,fwBool,rwBool,bbBool,brakeDuctBool,gearsBool)
-    UDF1.SusForceLabel.Enabled = suspensionForceBool
-    UDF1.SuspensionForceDEC.Enabled = suspensionForceBool 
-    UDF1.SuspensionForceINC.Enabled = suspensionForceBool
-    UDF1.SuspensionForceValue.Enabled = suspensionForceBool
+  function switchSettings(susForceBool,suspensionRaiseBool,dumperBool,suspensionTravelBool,frontSpringBool,frontARBBool,frontCamberBool,rearSpringBool,rearARBBool,rearCamberBool,steeringLockBool,apBool,fwBool,rwBool,bbBool,brakeDuctBool,gearsBool,gt3bool,gtebool,hsbool,f1bool,nascarbool,driftbool)
+    UDF1.SusForceLabel.Enabled = susForceBool
+    UDF1.SuspensionForceDEC.Enabled = susForceBool 
+    UDF1.SuspensionForceINC.Enabled = susForceBool
+    UDF1.SuspensionForceValue.Enabled = susForceBool
 
     UDF1.SuspensionRaiseLabel.Enabled = suspensionRaiseBool
     UDF1.SuspensionRaiseDEC.Enabled = suspensionRaiseBool 
@@ -809,6 +744,35 @@
     UDF1.GearsINC.Enabled = gearsBool
     UDF1.GearsValue.Enabled = gearsBool
 
+    UDF1.gt3Value.Enabled = gt3bool
+    UDF1.gt3Label.Enabled = gt3bool
+    UDF1.gt3DEC.Enabled = gt3bool
+    UDF1.gt3INC.Enabled = gt3bool
+
+    UDF1.gtevalue.Enabled = gtebool
+    UDF1.gtelabel.Enabled = gtebool
+    UDF1.gtedec.Enabled = gtebool
+    UDF1.gteinc.Enabled = gtebool
+
+    UDF1.hsvalue.Enabled = hsbool
+    UDF1.hslabel.Enabled = hsbool
+    UDF1.hsdec.Enabled = hsbool
+    UDF1.hsinc.Enabled = hsbool
+  
+    UDF1.F1Label.Enabled = f1bool
+    UDF1.F1DEC.Enabled = f1bool
+    UDF1.F1INC.Enabled = f1bool
+    UDF1.F1Value.Enabled = f1bool
+
+    UDF1.NascarLabel.Enabled = nascarbool
+    UDF1.NDEC.Enabled = nascarbool
+    UDF1.NINC.Enabled = nascarbool
+    UDF1.Nascarvalue.Enabled = nascarbool
+
+    UDF1.DriftLabel.Enabled = driftbool
+    UDF1.DDEC.Enabled = driftbool
+    UDF1.DINC.Enabled = driftbool
+    UDF1.Driftvalue.Enabled = driftbool
   end
 
   function GetDefaults()
@@ -3511,27 +3475,6 @@
       end
       end
 
-      --[[if HeadlightR-HeadlightDELTA > 0 then
-      for i=1,(HeadlightR-HeadlightDELTA) do
-      HeadlightIncrease()
-      end
-      elseif HeadlightR-HeadlightDELTA < 0 then
-      for i=1,((HeadlightR-HeadlightDELTA)*(-1)) do
-      HeadlightDecrease()
-      end
-      end
-
-      if XenonColorR-XenonColorDELTA > 0 then
-      for i=1,(XenonColorR-XenonColorDELTA) do
-      XenonColorIncrease()
-      end
-      elseif XenonColorR-XenonColorDELTA < 0 then
-      for i=1,((XenonColorR-XenonColorDELTA)*(-1)) do
-      XenonColorDecrease()
-      end
-      end]]
-      --Advanced
-
       --Engine
       if GearsR-GearsDELTA > 0 then
       for i=1,(GearsR-GearsDELTA) do
@@ -3578,24 +3521,15 @@
         file:write("FrontWingR = "..FrontWingDELTA,"\n")
         file:write("RearWingR = "..RearWingDELTA,"\n")
         file:write("SteeringLockR = "..SteeringLockDELTA,"\n")
-        --file:write("CastorR = "..CastorDELTA,"\n")
-        --file:write("WeightDistR = "..WeightDistDELTA,"\n")
 
         --Advanced
         file:write("BrakesSizeR = "..BrakesSizeDELTA,"\n")
-        --file:write("BrakePressureR = "..BrakePressureDELTA,"\n")
         file:write("BrakeBiasR = "..BrakeBiasDELTA,"\n")
-        --file:write("TPR = "..TPDELTA,"\n")
-        --file:write("TCR = "..TCDELTA,"\n")
-        --file:write("HeadlightR = "..HeadlightDELTA,"\n")
-        --file:write("XenonColorR = "..XenonColorDELTA,"\n")
 
         --Drivetrain
         file:write("GearsR = "..GearsDELTA,"\n")
-        --file:write("PreloadR = "..PreloadDELTA,"\n")
 
         SendPack("SETUP-S",0,0)
-        --LOG_History=LOG_History.."SETUP-S"..(os.date("%X")).."\n"
         file:close()
      end
    end
@@ -3652,7 +3586,8 @@
       timer_setEnabled(Status, false)
       InThePit=true
 
-      if EasyMode == true then
+      ToogleSettings(true)
+      --[[if EasyMode == true then
         UDF1.EnginePageButton.Enabled = false
         UDF1.ChassisPageButton.Enabled = false
         UDF1.SuspensionPageButton.Enabled = false
@@ -3668,23 +3603,9 @@
         UDF1.EasyPageButton.Enabled  = false
         UDF1.SaveSetupButton.Enabled = true
         UDF1.LoadSetupButton.Enabled = true
-      end
-
-      UDF1.HintBox.Visible=false
-
-      UDF1.SetDefault.Enabled = true
-      UDF1.RaceButton.Enabled = true
-
-      UDF1.RepairEngButton.Enabled = false
-      UDF1.FireEngButton.Enabled = false
-      UDF1.CEButton2.Enabled = false
-
-      UDF1.InitCar.Enabled = false
-      UDF1.SetGarageButton.Enabled = false
-      UDF1.EnterBoxButton.Enabled = false
+      end]]
 
       ChangedSetup=false
-      --if TimeOnTrack then TimeOnTrack = TimeOnTrack + os.difftime(os.time(),RaceTimerStart) elseif RaceTimerStart then TimeOnTrack = os.difftime(os.time(),RaceTimerStart) end
       if PitMenu == 0 then
         SelectEasy()
       end
@@ -3716,53 +3637,56 @@
       end
     end
 
+    function ToogleSettings(bool)
+      UDF1.EnginePageButton.Enabled = bool
+      UDF1.ChassisPageButton.Enabled = bool
+      UDF1.SuspensionPageButton.Enabled = bool
+      UDF1.AdvancedPageButton.Enabled = bool
+      UDF1.EasyPageButton.Enabled = bool
+
+      UDF1.RaceButton.Enabled = bool
+      UDF1.SetDefault.Enabled = bool
+      UDF1.SaveSetupButton.Enabled = bool
+      UDF1.LoadSetupButton.Enabled = bool
+
+      UDF1.EasySetupPanel.Enabled=bool
+      UDF1.EasySetupPanel.Visible=bool
+
+      UDF1.SuspensionPanel.Visible=bool
+      UDF1.SuspensionPanel.Enabled=bool
+
+      UDF1.EnginePanel.Enabled=bool
+      UDF1.EnginePanel.Visible=bool
+
+      UDF1.AdvancedPanel.Visible=bool
+      UDF1.AdvancedPanel.Enabled=bool
+
+      UDF1.ChassisPanel.Visible=bool
+      UDF1.ChassisPanel.Enabled=bool
+      UDF1.HintBox.Visible= not bool
+      UDF1.SaveSetupButton.Enabled = bool
+      UDF1.LoadSetupButton.Enabled = bool
+      UDF1.CEButton2.Enabled = not bool
+
+      UDF1.InitCar.Enabled = not bool
+      UDF1.SetGarageButton.Enabled = not bool
+    end
+
     function GoOnTrack()
       FormStatus()
       InThePit=false
       UDF1.MixValueDisp.Caption = MixDELTA
-      UDF1.EnginePageButton.Enabled = false
-      UDF1.ChassisPageButton.Enabled = false
-      UDF1.SuspensionPageButton.Enabled = false
-      UDF1.AdvancedPageButton.Enabled = false
-      UDF1.EasyPageButton.Enabled = false
-
-      UDF1.RaceButton.Enabled = false
-      UDF1.SetDefault.Enabled = false
-      UDF1.SaveSetupButton.Enabled = false
-      UDF1.LoadSetupButton.Enabled = false
-
-      UDF1.EasySetupPanel.Enabled=false
-      UDF1.EasySetupPanel.Visible=false
-
-      UDF1.SuspensionPanel.Visible=false
-      UDF1.SuspensionPanel.Enabled=false
-
-      UDF1.EnginePanel.Enabled=false
-      UDF1.EnginePanel.Visible=false
-
-      UDF1.AdvancedPanel.Visible=false
-      UDF1.AdvancedPanel.Enabled=false
-
-      UDF1.ChassisPanel.Visible=false
-      UDF1.ChassisPanel.Enabled=false
-      UDF1.HintBox.Visible=true
-      UDF1.SaveSetupButton.Enabled = false
-      UDF1.LoadSetupButton.Enabled = false
-      UDF1.CEButton2.Enabled = true
-
-      UDF1.InitCar.Enabled = true
-      UDF1.SetGarageButton.Enabled = true
+      ToogleSettings(false)
 
       FoundMyCurrentID()
       timer_setEnabled(PositionChecker,true)
-      SendPack("GOING ON TRACK",0,1)
       StealSetup()
       CheckLobbyParticipants()
       if ChangedSetup==true then
-        SendPack("SETUP HAS BEEN CHANGED",0,0)
-        --if SetupsWork then SetupsWork = SetupsWork + 1 else SetupsWork = 1 end
+        SendPack("GOING ON TRACK WITH SETUP CHANGES",0,1)
+      else 
+        SendPack("GOING ON TRACK",0,1)
       end
-      --RaceTimerStart = os.time()
       if FuelSystemEnabled==true then
          if FuelEatLoop then
            timer_setEnabled(FuelEatLoop, true)
@@ -3817,7 +3741,6 @@
       EnableFireSuppressionSystem(true)
       sleep(100)
       if ChangedSetup == true then 
-        --writeFloat("[[PTR+8]+D10]+824", -400)
         writeFloat("[[PTR+8]+D10]+8E8", -4000)
       end
     end
@@ -3939,44 +3862,44 @@
         end
       end
 
-    function CheckOppoPositionSlip()
-      local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
-      if CNetworkPlayerMgr then
-        for i=0,20,1 do
-          if readInteger("[PTR+8]+15D8") == 0 then
-            if i ~= MyIDNumber then
-              if wasInSlip == true then 
-                i = slipTarget
-              else 
-                i = i 
-              end
-              local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
-              if CNetGamePlayer then
-                local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
-                if CPlayerInfo then
-                  local CPed = readPointer(CPlayerInfo + pCNetPed)
-                  if CPed and CPed ~= 0 then
-                    local CNav = readPointer(CPed + pCNavigation)
-                    if CNav and CNav ~= 0 then
-                      local Px=readFloat("[[PTR+8]+30]+50")
-                      local Py=readFloat("[[PTR+8]+30]+54")
-                      local Hx=readFloat("[[PTR+8]+30]+20")
-                      local Hy=readFloat("[[PTR+8]+30]+24")
-                      local OppoX= readFloat(CNav + oPositionX)
-                      local OppoY= readFloat(CNav + oPositionY)
-                      DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
+      function CheckOppoPositionSlip()
+        local CNetworkPlayerMgr=readPointer("PlayerCountPTR")
+        if CNetworkPlayerMgr then
+          for i=0,20,1 do
+            if readInteger("[PTR+8]+15D8") == 0 then
+              if i ~= MyIDNumber then
+                if wasInSlip == true then 
+                  i = slipTarget
+                else 
+                  i = i 
+                end
+                local CNetGamePlayer = readPointer(CNetworkPlayerMgr + oNumPlayers + (i*8))
+                if CNetGamePlayer then
+                  local CPlayerInfo = readPointer(CNetGamePlayer + pCNetPlayerInfo)
+                  if CPlayerInfo then
+                    local CPed = readPointer(CPlayerInfo + pCNetPed)
+                    if CPed and CPed ~= 0 then
+                      local CNav = readPointer(CPed + pCNavigation)
+                      if CNav and CNav ~= 0 then
+                        local Px=readFloat("[[PTR+8]+30]+50")
+                        local Py=readFloat("[[PTR+8]+30]+54")
+                        local Hx=readFloat("[[PTR+8]+30]+20")
+                        local Hy=readFloat("[[PTR+8]+30]+24")
+                        local OppoX= readFloat(CNav + oPositionX)
+                        local OppoY= readFloat(CNav + oPositionY)
+                        DoSlipstream(Hx,Hy,Px,Py,OppoX,OppoY,i)
+                      end
                     end
                   end
                 end
               end
             end
           end
+        else
+          Exit()
         end
-      else
-        Exit()
       end
     end
-  end
   --SLIPSTREAM
 
   --SPOTTER
@@ -4370,99 +4293,101 @@
   --Menumodule
 
   --EconomyModule
-  function RequireIncomingTransaction(Amount, Reason)
-    local https = GetInternet()
-    local TransactionURL = Bank_url
-    details = {
-      content= "Incoming transaction",
-      embeds= {
-              {title= Name,
-              description= Amount,
-              color= 4718336}
-              },
-      }
-    local data = json.encode(details)
-    https.postURL(TransactionURL,"payload_json="..data.."&Content-Type=".."application/json")
-    https.destroy()
-  end
+    function RequireIncomingTransaction(Amount, Reason)
+      local https = GetInternet()
+      local TransactionURL = Bank_url
+      details = {
+        content= "Incoming transaction",
+        embeds= {
+                {title= Name,
+                description= Amount,
+                color= 4718336}
+                },
+        }
+      local data = json.encode(details)
+      https.postURL(TransactionURL,"payload_json="..data.."&Content-Type=".."application/json")
+      https.destroy()
+    end
 
-  function RequireOutcomingTransaction(Amount, Reason)
-    local https = GetInternet()
-    local TransactionURL = Bank_url
-    details = {
-      content= "Outcoming transaction",
-      embeds= {
-              {title= Name,
-              description= Amount,
-              color= 13243921}
-              },
-      }
-    local data = json.encode(details)
-    https.postURL(TransactionURL,"payload_json="..data.."&Content-Type=".."application/json")
-    https.destroy()
-  end
+    function RequireOutcomingTransaction(Amount, Reason)
+      local https = GetInternet()
+      local TransactionURL = Bank_url
+      details = {
+        content= "Outcoming transaction",
+        embeds= {
+                {title= Name,
+                description= Amount,
+                color= 13243921}
+                },
+        }
+      local data = json.encode(details)
+      https.postURL(TransactionURL,"payload_json="..data.."&Content-Type=".."application/json")
+      https.destroy()
+    end
 
-  --TODO Economy. New tables new structure
-  function InitProfileCashAndXP()
-    UDF1.UserNameLabel.Caption = Name
-    local LicenceArray = {"ROOKIE","BRONZE","SILVER","GOLD","ENGINEER"}
-    local https = GetInternet()
-    local S = ""
-    --local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/C"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
-    --local XPURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/D"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
-    --local CashResp = json.decode(https.GetURL(CashURL))
-    --local XPResp = json.decode(https.GetURL(XPURL))
-    --local AccountCash = tonumber(CashResp["values"][1][1])
-    --local CurrentLicence = tonumber(XPResp["values"][1][1])
-    --UDF1.MoneyLabel.Caption = AccountCash.." $"
-    CurrentLicence = 2
-    if CurrentLicence == 1 then EasyMode = true else EasyMode = false end
-    UDF1.XPlabel.Caption = LicenceArray[CurrentLicence]
-    https.destroy()
-    AutoUpdate()
-   end
+    --TODO Economy. New tables new structure
+    function InitProfileCashAndXP()
+      UDF1.UserNameLabel.Caption = Name
+      local LicenceArray = {"ROOKIE","BRONZE","SILVER","GOLD","ENGINEER"}
+      local https = GetInternet()
+      local S = ""
+      --local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/C"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+      --local XPURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/D"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+      --local CashResp = json.decode(https.GetURL(CashURL))
+      --local XPResp = json.decode(https.GetURL(XPURL))
+      --local AccountCash = tonumber(CashResp["values"][1][1])
+      --local CurrentLicence = tonumber(XPResp["values"][1][1])
+      --UDF1.MoneyLabel.Caption = AccountCash.." $"
+      CurrentLicence = 2
+      if CurrentLicence == 1 then EasyMode = true else EasyMode = false end
+      UDF1.XPlabel.Caption = LicenceArray[CurrentLicence]
+      https.destroy()
+      AutoUpdate()
+    end
 
-   function AutoUpdate()
-    UpdateTimer = createTimer(nil,false)
-    timer_onTimer(UpdateTimer,UpdateInfo)
-    timer_setInterval(UpdateTimer, 60000)
-   end
+    function AutoUpdate()
+      UpdateTimer = createTimer(nil,false)
+      timer_onTimer(UpdateTimer,UpdateInfo)
+      timer_setInterval(UpdateTimer, 60000)
+    end
 
-   function UpdateInfo()
-    local LicenceArray = {"ROOKIE","BRONZE","SILVER","GOLD","ENGINEER"}
-    local https = GetInternet()
-    local S = ""
-    --local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/C"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
-    --local XPURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/D"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
-    --local CashResp = json.decode(https.GetURL(CashURL))
-    --local XPResp = json.decode(https.GetURL(XPURL))
-    --local AccountCash = tonumber(CashResp["values"][1][1])
-    --local CurrentLicence = tonumber(XPResp["values"][1][1])
-    --UDF1.MoneyLabel.Caption = AccountCash.." $"
-    --UDF1.XPlabel.Caption = LicenceArray[CurrentLicence]
-    https.destroy()
-   end
-   
-   --EconomyModule
+    function UpdateInfo()
+      local LicenceArray = {"ROOKIE","BRONZE","SILVER","GOLD","ENGINEER"}
+      local https = GetInternet()
+      local S = ""
+      --local CashURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/C"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+      --local XPURL = "https://sheets.googleapis.com/v4/spreadsheets/1pA9fSLG1ayg8ir_96qytc-2BzjPwq3VxXSWpCuXOnqU/values/D"..DBID.."?key=AIzaSyBAd6k7IWM"..S.."_0vHZKS8IxP9562j1md7duUE"
+      --local CashResp = json.decode(https.GetURL(CashURL))
+      --local XPResp = json.decode(https.GetURL(XPURL))
+      --local AccountCash = tonumber(CashResp["values"][1][1])
+      --local CurrentLicence = tonumber(XPResp["values"][1][1])
+      --UDF1.MoneyLabel.Caption = AccountCash.." $"
+      --UDF1.XPlabel.Caption = LicenceArray[CurrentLicence]
+      https.destroy()
+    end
+    
+  --EconomyModule
 
   --Exit and calculate
-  function Exit()
-    if SingleExit == true then
-      SingleExit = false
-      if FuelSystemEnabled==true then
-        EnableFuel()
+    function Exit()
+      if SingleExit == true then
+        SingleExit = false
+        if FuelSystemEnabled==true then
+          EnableFuel()
+        end
+        ReturnDefaultsToPreviousCar()
+        if ChangedSetup == true then 
+          writeFloat("[[PTR+8]+D10]+8E8", -4000)
+        end
+        form_hide(UDF1)
+        SendPack("Closed app",1,1)
+        LogSender.destroy()
+        closeCE()
+        return caFree
       end
-      ReturnDefaultsToPreviousCar()
-      if ChangedSetup == true then 
-        writeFloat("[[PTR+8]+D10]+8E8", -4000)
-      end
-      form_hide(UDF1)
-      SendPack("Closed app",1,1)
-      LogSender.destroy()
-      closeCE()
-      return caFree
     end
-  end
+  --Exit and calculate
 
   --RUN
-  Main()
+    Main()
+  --RUN
