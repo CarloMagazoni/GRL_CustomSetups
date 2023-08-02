@@ -2757,435 +2757,123 @@
     end
   end
 
-  -- EASY EASY EASY
-  function LoadEasySettings()
-    --DF presets
-    function DFpreset3()
-     if DFstate ~= 3  then
-        UDF1.EasyDF3.Caption = '-> HIGH <-'
-        UDF1.EasyDF2.Caption = 'STANDARD'
-        UDF1.EasyDF1.Caption = 'LOW'
-        local FWTarget = 8
-        local RWTarget = 8
-        local AeroPackageTarget = 2
-        
-        local current
-        if (AeroPackageDELTA < AeroPackageTarget) then AeroPackageIncrease() end
-
-        if (FrontWingDELTA < FWTarget) then
-          current = FrontWingDELTA
-          for i = 0, (FWTarget - current)-1, 1 do
-            FrontWingIncrease()
-          end
-        else
-          current = FrontWingDELTA
-          for i = 0, (current - FWTarget)-1, 1 do
-            FrontWingDecrease()
-          end
-        end
-
-        if (RearWingDELTA < RWTarget) then
-          current = RearWingDELTA
-          for i = 0, (RWTarget - current)-1, 1 do
-            RearWingIncrease()
-          end
-        else
-          current = RearWingDELTA
-          for i = 0, (current - RWTarget)-1, 1 do
-            RearWingDecrease()
-          end
-        end
-
-        DFstate = 3
-        ChangedSetup=true
-     end
-    end
-
-    function DFpreset2()
-      if DFstate ~= 2  then
-        UDF1.EasyDF3.Caption = 'HIGH'
-        UDF1.EasyDF2.Caption = '-> STANDARD <-'
-        UDF1.EasyDF1.Caption = 'LOW'
-        local FWTarget = 5
-        local RWTarget = 5
-        local AeroPackageTarget = 2
-        
-        local current
-        if (AeroPackageDELTA < AeroPackageTarget) then AeroPackageIncrease() end
-
-        if (FrontWingDELTA < FWTarget) then
-          current = FrontWingDELTA
-          for i = 0, (FWTarget - current)-1, 1 do
-            FrontWingIncrease()
-          end
-        else
-          current = FrontWingDELTA
-          for i = 0, (current - FWTarget)-1, 1 do
-            FrontWingDecrease()
-          end
-        end
-
-        if (RearWingDELTA < RWTarget) then
-          current = RearWingDELTA
-          for i = 0, (RWTarget - current)-1, 1 do
-            RearWingIncrease()
-          end
-        else
-          current = RearWingDELTA
-          for i = 0, (current - RWTarget)-1, 1 do
-            RearWingDecrease()
-          end
-        end
-
-        DFstate = 2
-        ChangedSetup=true
-      end
-    end
-
-    function DFpreset1()
-      if DFstate ~= 1  then
-        UDF1.EasyDF3.Caption = 'HIGH'
-        UDF1.EasyDF2.Caption = 'STANDARD'
-        UDF1.EasyDF1.Caption = '-> LOW <-'
-        local FWTarget = 4
-        local RWTarget = 6
-        local AeroPackageTarget = 1
-        
-        local current
-        if (AeroPackageDELTA > AeroPackageTarget) then AeroPackageDecrease() end
-
-        if (FrontWingDELTA < FWTarget) then
-          current = FrontWingDELTA
-          for i = 0, (FWTarget - current)-1, 1 do
-            FrontWingIncrease()
-          end
-        else
-          current = FrontWingDELTA
-          for i = 0, (current - FWTarget)-1, 1 do
-            FrontWingDecrease()
-          end
-        end
-
-        if (RearWingDELTA < RWTarget) then
-          current = RearWingDELTA
-          for i = 0, (RWTarget - current)-1, 1 do
-            RearWingIncrease()
-          end
-        else
-          current = RearWingDELTA
-          for i = 0, (current - RWTarget)-1, 1 do
-            RearWingDecrease()
-          end
-        end
- 
-        DFstate = 1
-        ChangedSetup=true
-      end
-    end
-
-    function susPreset3()
-      if SusState ~= 3  then
-        UDF1.EasySus3.Caption = '-> STIFF <-'
-        UDF1.EasySus2.Caption = 'STANDARD'
-        UDF1.EasySus1.Caption = 'SOFT'
-        local DumpTarget = 30
-        local StiffnessTarget = 12
-        local RideHightTarget = 2
-        local FrontARBTarget = 12
-        local RearARBTarget = 11
-        
-        local current
-        if SuspensionDumpDELTA < DumpTarget then
-          current = SuspensionDumpDELTA
-          for i = 0, (DumpTarget - current)-1, 1 do
-            SuspensionDumpIncrease()
-          end
-          current = SuspensionForceDELTA
-          for i = 0, (StiffnessTarget - current)-1, 1 do
-            SuspensionForceIncrease()
-          end
-          current = SuspensionRaiseDELTA
-          for i = 0, (RideHightTarget - current)-1, 1 do
-            SuspensionRaiseIncrease()
-          end
-          current = FrontARBDELTA
-          for i = 0, (FrontARBTarget - current)-1, 1 do
-            FrontARBIncrease()
-          end
-          current = RearARBDELTA
-          for i = 0, (RearARBTarget - current)-1, 1 do
-            RearARBIncrease()
-          end
-        else
-          current = SuspensionDumpDELTA
-          for i = 0, (current - DumpTarget)-1, 1 do
-            SuspensionDumpDecrease()
-          end
-          current = SuspensionForceDELTA
-          for i = 0, (current - StiffnessTarget)-1, 1 do
-            SuspensionForceDecrease()
-          end
-          current = SuspensionRaiseDELTA
-          for i = 0, (current - RideHightTarget)-1, 1 do
-            SuspensionRaiseDecrease()
-          end
-          current = FrontARBDELTA
-          for i = 0, (current - FrontARBTarget), 1 do
-            FrontARBDecrease()
-          end
-          current = RearARBDELTA
-          for i = 0, (current - RearARBTarget)-1, 1 do
-            RearARBDecrease()
-          end
-        end
- 
-        SusState = 3
-        ChangedSetup=true
-      end
-    end
-
-    function susPreset2()
-      if SusState ~= 2  then
-        UDF1.EasySus3.Caption = 'STIFF'
-        UDF1.EasySus2.Caption = '-> STANDARD <-'
-        UDF1.EasySus1.Caption = 'SOFT'
-        local DumpTarget = 19
-        local StiffnessTarget = 9
-        local RideHightTarget = 3
-        local FrontARBTarget = 9
-        local RearARBTarget = 9
-        
-        local current
-        if SuspensionDumpDELTA < DumpTarget then
-          current = SuspensionDumpDELTA
-          for i = 0, (DumpTarget - current)-1, 1 do
-            SuspensionDumpIncrease()
-          end
-          current = SuspensionForceDELTA
-          for i = 0, (StiffnessTarget - current)-1, 1 do
-            SuspensionForceIncrease()
-          end
-          current = SuspensionRaiseDELTA
-          for i = 0, (RideHightTarget - current)-1, 1 do
-            SuspensionRaiseIncrease()
-          end
-          current = FrontARBDELTA
-          for i = 0, (FrontARBTarget - current)-1, 1 do
-            FrontARBIncrease()
-          end
-          current = RearARBDELTA
-          for i = 0, (RearARBTarget - current)-1, 1 do
-            RearARBIncrease()
-          end
-        else
-          current = SuspensionDumpDELTA
-          for i = 0, (current - DumpTarget)-1, 1 do
-            SuspensionDumpDecrease()
-          end
-          current = SuspensionForceDELTA
-          for i = 0, (current - StiffnessTarget)-1, 1 do
-            SuspensionForceDecrease()
-          end
-          current = SuspensionRaiseDELTA
-          for i = 0, (current - RideHightTarget)-1, 1 do
-            SuspensionRaiseDecrease()
-          end
-          current = FrontARBDELTA
-          for i = 0, (current - FrontARBTarget), 1 do
-            FrontARBDecrease()
-          end
-          current = RearARBDELTA
-          for i = 0, (current - RearARBTarget)-1, 1 do
-            RearARBDecrease()
-          end
-        end
- 
-        SusState = 2
-        ChangedSetup=true
-      end
-    end
-
-    function susPreset1()
-      if SusState ~= 1  then
-        UDF1.EasySus3.Caption = 'STIFF'
-        UDF1.EasySus2.Caption = 'STANDARD'
-        UDF1.EasySus1.Caption = '-> SOFT <-'
-        local DumpTarget = 14
-        local StiffnessTarget = 7
-        local RideHightTarget = 4
-        local FrontARBTarget = 7
-        local RearARBTarget = 6
-        
-        local current
-        if SuspensionDumpDELTA < DumpTarget then
-          current = SuspensionDumpDELTA
-          for i = 0, (DumpTarget - current), 1 do
-            SuspensionDumpIncrease()
-          end
-          current = SuspensionForceDELTA
-          for i = 0, (StiffnessTarget - current), 1 do
-            SuspensionForceIncrease()
-          end
-          current = SuspensionRaiseDELTA
-          for i = 0, (RideHightTarget - current), 1 do
-            SuspensionRaiseIncrease()
-          end
-          current = FrontARBDELTA
-          for i = 0, (FrontARBTarget - current), 1 do
-            FrontARBIncrease()
-          end
-          current = RearARBDELTA
-          for i = 0, (RearARBTarget - current), 1 do
-            RearARBIncrease()
-          end
-        else
-          current = SuspensionDumpDELTA
-          for i = 0, (current - DumpTarget), 1 do
-            SuspensionDumpDecrease()
-          end
-          current = SuspensionForceDELTA
-          for i = 0, (current - StiffnessTarget), 1 do
-            SuspensionForceDecrease()
-          end
-          current = SuspensionRaiseDELTA
-          for i = 0, (current - RideHightTarget), 1 do
-            SuspensionRaiseDecrease()
-          end
-          current = FrontARBDELTA
-          for i = 0, (current - FrontARBTarget), 1 do
-            FrontARBDecrease()
-          end
-          current = RearARBDELTA
-          for i = 0, (current - RearARBTarget), 1 do
-            RearARBDecrease()
-          end
-        end
- 
-        SusState = 1
-        ChangedSetup=true
-      end
-    end   
-  end
-
   --CONTROL PAGES
-
-  function LoadPagesControl()
-    function SelectChassis()
-     UDF1.SuspensionPageButton.Caption='SUSPENSION'
-     UDF1.SuspensionPanel.Enabled=false
-     UDF1.SuspensionPanel.Visible=false
-
-     UDF1.EnginePageButton.Caption='DRIVETRAIN'
-     UDF1.EnginePanel.Enabled=false
-     UDF1.EnginePanel.Visible=false
-
-     UDF1.AdvancedPageButton.Caption='ADVANCED'
-     UDF1.AdvancedPanel.Visible=false
-     UDF1.AdvancedPanel.Enabled=false
-
-     UDF1.ChassisPageButton.Caption='-> CHASSIS <-'
-     UDF1.ChassisPanel.Enabled=true
-     UDF1.ChassisPanel.Visible=true
-     PitMenu = 2
-
-     UDF1.EasyPageButton.Caption='EASY SETUP'
-      UDF1.EasySetupPanel.Visible=false
-      UDF1.EasySetupPanel.Enabled=false
-    end
-
-    function SelectSuspension()
-     UDF1.SuspensionPageButton.Caption='-> SUSPENSION <-'
-     UDF1.SuspensionPanel.Visible=true
-     UDF1.SuspensionPanel.Enabled=true
-     PitMenu = 3
-
-     UDF1.EnginePageButton.Caption='DRIVETRAIN'
-     UDF1.EnginePanel.Enabled=false
-     UDF1.EnginePanel.Visible=false
-
-     UDF1.AdvancedPageButton.Caption='ADVANCED'
-     UDF1.AdvancedPanel.Visible=false
-     UDF1.AdvancedPanel.Enabled=false
-
-     UDF1.ChassisPageButton.Caption='CHASSIS'
-     UDF1.ChassisPanel.Visible=false
-     UDF1.ChassisPanel.Enabled=false
-
-     UDF1.EasyPageButton.Caption='EASY SETUP'
-     UDF1.EasySetupPanel.Visible=false
-      UDF1.EasySetupPanel.Enabled=false
-    end
-
-    function SelectEngine()
-     UDF1.SuspensionPageButton.Caption='SUSPENSION'
-     UDF1.SuspensionPanel.Visible=false
-     UDF1.SuspensionPanel.Enabled=false
-
-     UDF1.EnginePageButton.Caption='-> DRIVETRAIN <-'
-     UDF1.EnginePanel.Enabled=true
-     UDF1.EnginePanel.Visible=true
-     PitMenu = 1
-
-     UDF1.AdvancedPageButton.Caption='ADVANCED'
-     UDF1.AdvancedPanel.Visible=false
-     UDF1.AdvancedPanel.Enabled=false
-
-     UDF1.ChassisPageButton.Caption='CHASSIS'
-     UDF1.ChassisPanel.Visible=false
-     UDF1.ChassisPanel.Enabled=false
-
-      UDF1.EasyPageButton.Caption='EASY SETUP'
-      UDF1.EasySetupPanel.Visible=false
-      UDF1.EasySetupPanel.Enabled=false
-    end
-
-    function SelectAdvanced()
+    function LoadPagesControl()
+      function SelectChassis()
       UDF1.SuspensionPageButton.Caption='SUSPENSION'
-      UDF1.SuspensionPanel.Visible=false
       UDF1.SuspensionPanel.Enabled=false
+      UDF1.SuspensionPanel.Visible=false
 
       UDF1.EnginePageButton.Caption='DRIVETRAIN'
       UDF1.EnginePanel.Enabled=false
       UDF1.EnginePanel.Visible=false
 
-      UDF1.AdvancedPageButton.Caption='-> ADVANCED <-'
-      UDF1.AdvancedPanel.Visible=true
-      UDF1.AdvancedPanel.Enabled=true
-      PitMenu = 4
-
-      UDF1.ChassisPageButton.Caption='CHASSIS'
-      UDF1.ChassisPanel.Visible=false
-      UDF1.ChassisPanel.Enabled=false
-
-      UDF1.EasyPageButton.Caption='EASY SETUP'
-      UDF1.EasySetupPanel.Visible=false
-      UDF1.EasySetupPanel.Enabled=false
-    end
-
-    function SelectEasy()
-      UDF1.EasyPageButton.Caption='-> EASY SETUP <-'
-      UDF1.EasySetupPanel.Visible=true
-      UDF1.EasySetupPanel.Enabled=true
-      PitMenu = 0
-
-      UDF1.SuspensionPageButton.Caption='SUSPENSION'
-      UDF1.SuspensionPanel.Visible=false
-      UDF1.SuspensionPanel.Enabled=false
- 
-      UDF1.EnginePageButton.Caption='DRIVETRAIN'
-      UDF1.EnginePanel.Enabled=false
-      UDF1.EnginePanel.Visible=false
- 
       UDF1.AdvancedPageButton.Caption='ADVANCED'
       UDF1.AdvancedPanel.Visible=false
       UDF1.AdvancedPanel.Enabled=false
- 
+
+      UDF1.ChassisPageButton.Caption='-> CHASSIS <-'
+      UDF1.ChassisPanel.Enabled=true
+      UDF1.ChassisPanel.Visible=true
+      PitMenu = 2
+
+      UDF1.EasyPageButton.Caption='EASY SETUP'
+        UDF1.EasySetupPanel.Visible=false
+        UDF1.EasySetupPanel.Enabled=false
+      end
+
+      function SelectSuspension()
+      UDF1.SuspensionPageButton.Caption='-> SUSPENSION <-'
+      UDF1.SuspensionPanel.Visible=true
+      UDF1.SuspensionPanel.Enabled=true
+      PitMenu = 3
+
+      UDF1.EnginePageButton.Caption='DRIVETRAIN'
+      UDF1.EnginePanel.Enabled=false
+      UDF1.EnginePanel.Visible=false
+
+      UDF1.AdvancedPageButton.Caption='ADVANCED'
+      UDF1.AdvancedPanel.Visible=false
+      UDF1.AdvancedPanel.Enabled=false
+
       UDF1.ChassisPageButton.Caption='CHASSIS'
       UDF1.ChassisPanel.Visible=false
       UDF1.ChassisPanel.Enabled=false
-     end
-  end
 
+      UDF1.EasyPageButton.Caption='EASY SETUP'
+      UDF1.EasySetupPanel.Visible=false
+        UDF1.EasySetupPanel.Enabled=false
+      end
+
+      function SelectEngine()
+      UDF1.SuspensionPageButton.Caption='SUSPENSION'
+      UDF1.SuspensionPanel.Visible=false
+      UDF1.SuspensionPanel.Enabled=false
+
+      UDF1.EnginePageButton.Caption='-> DRIVETRAIN <-'
+      UDF1.EnginePanel.Enabled=true
+      UDF1.EnginePanel.Visible=true
+      PitMenu = 1
+
+      UDF1.AdvancedPageButton.Caption='ADVANCED'
+      UDF1.AdvancedPanel.Visible=false
+      UDF1.AdvancedPanel.Enabled=false
+
+      UDF1.ChassisPageButton.Caption='CHASSIS'
+      UDF1.ChassisPanel.Visible=false
+      UDF1.ChassisPanel.Enabled=false
+
+        UDF1.EasyPageButton.Caption='EASY SETUP'
+        UDF1.EasySetupPanel.Visible=false
+        UDF1.EasySetupPanel.Enabled=false
+      end
+
+      function SelectAdvanced()
+        UDF1.SuspensionPageButton.Caption='SUSPENSION'
+        UDF1.SuspensionPanel.Visible=false
+        UDF1.SuspensionPanel.Enabled=false
+
+        UDF1.EnginePageButton.Caption='DRIVETRAIN'
+        UDF1.EnginePanel.Enabled=false
+        UDF1.EnginePanel.Visible=false
+
+        UDF1.AdvancedPageButton.Caption='-> ADVANCED <-'
+        UDF1.AdvancedPanel.Visible=true
+        UDF1.AdvancedPanel.Enabled=true
+        PitMenu = 4
+
+        UDF1.ChassisPageButton.Caption='CHASSIS'
+        UDF1.ChassisPanel.Visible=false
+        UDF1.ChassisPanel.Enabled=false
+
+        UDF1.EasyPageButton.Caption='EASY SETUP'
+        UDF1.EasySetupPanel.Visible=false
+        UDF1.EasySetupPanel.Enabled=false
+      end
+
+      function SelectEasy()
+        UDF1.EasyPageButton.Caption='-> EASY SETUP <-'
+        UDF1.EasySetupPanel.Visible=true
+        UDF1.EasySetupPanel.Enabled=true
+        PitMenu = 0
+
+        UDF1.SuspensionPageButton.Caption='SUSPENSION'
+        UDF1.SuspensionPanel.Visible=false
+        UDF1.SuspensionPanel.Enabled=false
+  
+        UDF1.EnginePageButton.Caption='DRIVETRAIN'
+        UDF1.EnginePanel.Enabled=false
+        UDF1.EnginePanel.Visible=false
+  
+        UDF1.AdvancedPageButton.Caption='ADVANCED'
+        UDF1.AdvancedPanel.Visible=false
+        UDF1.AdvancedPanel.Enabled=false
+  
+        UDF1.ChassisPageButton.Caption='CHASSIS'
+        UDF1.ChassisPanel.Visible=false
+        UDF1.ChassisPanel.Enabled=false
+      end
+    end
   --CONTROL PAGES
 
   function InitSettings()
@@ -4388,7 +4076,7 @@
     
   --EconomyModule
 
-  --Exit and calculate
+  --Exit
     function Exit()
       if SingleExit == true then
         SingleExit = false
@@ -4406,7 +4094,7 @@
         return caFree
       end
     end
-  --Exit and calculate
+  --Exit
 
   --RUN
     Main()
