@@ -517,7 +517,7 @@
       end
     end
     if count >= 2 then
-      SendPack("In the lobby with: "PlayerList, 0, 0)
+      SendPack("In the lobby with: "..PlayerList, 0, 0)
     end
   end
 
