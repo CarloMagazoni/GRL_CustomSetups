@@ -799,6 +799,7 @@
     BrakeForceADR = getAddress("[[[PTR+8]+D10]+918]+6C")
     BrakeBiasFrontADR = getAddress("[[[PTR+8]+D10]+918]+74")
     BrakeBiasRearADR = getAddress("[[[PTR+8]+D10]+918]+78")
+    HandbrakeADR = getAddress("[[[PTR+8]+D10]+918]+7C")
     SteeringLockADR = getAddress("[[[PTR+8]+D10]+918]+80")
     SteeringLockRatioADR = getAddress("[[[PTR+8]+D10]+918]+84")
     CurveMaxADR = getAddress("[[[PTR+8]+D10]+918]+88")
@@ -862,6 +863,7 @@
     BrakeForceDefault = readFloat(BrakeForceADR)
     BrakeBiasFrontDefault = readFloat(BrakeBiasFrontADR)
     BrakeBiasRearDefault = readFloat(BrakeBiasRearADR)
+    HandbrakeDefault = readFloat(HandbrakeADR)
     SteeringLockDefault = readFloat(SteeringLockADR)
     SteeringLockRatioDefault = readFloat(SteeringLockRatioADR)
     CurveMaxDefault = readFloat(CurveMaxADR)
@@ -927,6 +929,7 @@
     BrakeForceCurrent =  BrakeForceDefault
     BrakeBiasFrontCurrent =  BrakeBiasFrontDefault
     BrakeBiasRearCurrent =  BrakeBiasRearDefault
+    HandbrakeCurrent = HandbrakeDefault
     SteeringLockCurrent =  SteeringLockDefault
     SteeringLockRatioCurrent =  SteeringLockRatioDefault
     CurveMaxCurrent =  CurveMaxDefault
@@ -988,6 +991,7 @@
     writeFloat(BrakeForceADR,BrakeForceCurrent)
     writeFloat(BrakeBiasFrontADR,BrakeBiasFrontCurrent)
     writeFloat(BrakeBiasRearADR,BrakeBiasRearCurrent)
+    writeFloat(HandbrakeADR,HandbrakeCurrent)
     writeFloat(SteeringLockADR,SteeringLockCurrent)
     writeFloat(SteeringLockRatioADR,SteeringLockRatioCurrent)
     writeFloat(CurveMaxADR,CurveMaxCurrent)
@@ -1077,6 +1081,7 @@
     if readFloat(BrakeForceADR)~=BrakeForceDefault or BrakeForceCurrent~=BrakeForceDefault then writeFloat(BrakeForceADR,BrakeForceDefault) end
     if BrakeBiasFrontCurrent~=BrakeBiasFrontDefault then writeFloat(BrakeBiasFrontADR,BrakeBiasFrontDefault) end
     if BrakeBiasRearCurrent~=BrakeBiasRearDefault then writeFloat(BrakeBiasRearADR,BrakeBiasRearDefault) end
+    if HandbrakeCurrent~=HandbrakeDefault then writeFloat(HandbrakeADR,HandbrakeDefault) end
     if SteeringLockCurrent~=SteeringLockDefault then writeFloat(SteeringLockADR,SteeringLockDefault) end
     if SteeringLockRatioCurrent~=SteeringLockRatioDefault then writeFloat(SteeringLockRatioADR,SteeringLockRatioDefault) end
     if readFloat(CurveMaxADR)~=CurveMaxDefault or CurveMaxCurrent~=CurveMaxDefault then writeFloat(CurveMaxADR,CurveMaxDefault) end
@@ -2352,6 +2357,7 @@
            CurveLatR=CurveLatR*(-1)
            LowSpeed=LowSpeed*(-1)
            Mass=Mass*(-1)
+           Handbrake = Handbrake*(-1)
         end
         if FWD~=0 then
            FWDCurrent=0
@@ -2396,6 +2402,10 @@
         if Mass~=0 then
           MassCurrent=MassCurrent + Mass
           WriteFloat(MassADR,MassCurrent)
+        end
+        if Handbrake~=0 then
+          HandbrakeCurrent=HandbrakeCurrent + Handbrake
+          WriteFloat(HandbrakeADR,HandbrakeCurrent)
         end
     end
 
