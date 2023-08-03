@@ -235,6 +235,8 @@
        Username ="User: "..HWID_Array[i]["USERNAME"]
        --StartTimer = os.time()
        SendPack("Launched App",1 ,1)
+       local nameToPronounce = tosrting(Username)
+       speakEnglish(nameToPronounce)
        NewUser=false
        break
      end
