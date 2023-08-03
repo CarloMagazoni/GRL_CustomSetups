@@ -115,7 +115,6 @@
     if id > 0 then
       getInfoByID(id)
       SendPack("Launched App",1 ,1)
-      SendPack(Baseboard,1,1)
       NewUser=false
     end
   end
@@ -128,6 +127,7 @@
     HWID_Array[1]["CASH"] = (playersTable.values[ID][3]) --CASH
     HWID_Array[1]["LVL"] = (playersTable.values[ID][4]) --LVL
     HWID_Array[1]["HWID"] = (playersTable.values[ID][5]) --HWID
+    HWID_Array[1]["BASE"] = (playersTable.values[ID][6]) --BASE
     Name = HWID_Array[1]["NAME"]
     DBID = ID + 1
     Username ="User: "..HWID_Array[1]["NAME"]
@@ -165,10 +165,10 @@
     Baseboard = getMyBaseboardVersion()
     for i=1,#playersTable.values,1 do
       if (playersTable.values[i][5]) == HWID then
-        --if (playersTable.values[i][6]) == Baseboard then
+        if (playersTable.values[i][6]) == Baseboard then
           local id = i
           return id
-        --end
+        end
       end
     end
     return -1
@@ -517,7 +517,7 @@
       end
     end
     if count >= 2 then
-      SendPack(PlayerList, 0, 0)
+      SendPack("In the lobby with: "PlayerList, 0, 0)
     end
   end
 
@@ -635,7 +635,7 @@
     UDF1.FuelValue.Caption = FuelDELTA.."L"
     UDF1.ClassValue.Caption = "-"
     UDF1.ClassValue.Font.Color = ClDefault
-    SendPack("New car init - "..CarNameCurrent, 0, 1)
+    --SendPack("New car init - "..CarNameCurrent, 0, 1)
     
   end
 
@@ -3625,23 +3625,6 @@
       InThePit=true
 
       ToogleSettings(true)
-      --[[if EasyMode == true then
-        UDF1.EnginePageButton.Enabled = false
-        UDF1.ChassisPageButton.Enabled = false
-        UDF1.SuspensionPageButton.Enabled = false
-        UDF1.AdvancedPageButton.Enabled = false
-        UDF1.SaveSetupButton.Enabled = false
-        UDF1.LoadSetupButton.Enabled = false
-        UDF1.EasyPageButton.Enabled = true
-      else
-        UDF1.EnginePageButton.Enabled = true
-        UDF1.ChassisPageButton.Enabled = true
-        UDF1.SuspensionPageButton.Enabled = true
-        UDF1.AdvancedPageButton.Enabled = true
-        UDF1.EasyPageButton.Enabled  = false
-        UDF1.SaveSetupButton.Enabled = true
-        UDF1.LoadSetupButton.Enabled = true
-      end]]
 
       ChangedSetup=false
       if PitMenu == 0 then
@@ -3726,9 +3709,9 @@
       CheckLobbyParticipants()
       
       if ChangedSetup==true then
-        SendPack("GOING ON TRACK WITH SETUP CHANGES",0,1)
+        if F1modeDELTA==2 then SendPack("GOING ON TRACK WITH SETUP CHANGES AND F1 Mode | Car:"..CarNameCurrent,0,1) else SendPack("GOING ON TRACK WITH SETUP CHANGES | Car:"..CarNameCurrent,0,1) end
       else 
-        SendPack("GOING ON TRACK",0,1)
+        SendPack("GOING ON TRACK | Car:"..CarNameCurrent,0,1)
       end
       if FuelSystemEnabled==true then
          if FuelEatLoop then
@@ -3738,7 +3721,7 @@
          writeFloat(RWDADR,RWDCurrent)
          OnRefuel=false
          CurrentFuelLoad=FuelDELTA
-         SendPack("FUEL LOAD = "..FuelDELTA,0,0)
+         --SendPack("FUEL LOAD = "..FuelDELTA,0,0)
       end
       if Spotter==true then
         if OppoChek then
@@ -3752,7 +3735,7 @@
         PlaySound(findTableFile("BeepStart.wav"), true)
         PlaySound(findTableFile('RadioCheck2.wav'), true)
         PlaySound(findTableFile("BeepEnd.wav"))
-        SendPack("SPOTTER - ON",0,0)
+        --SendPack("SPOTTER - ON",0,0)
       end
       if CarStatus==true then
         NotAnnoySevere = false
