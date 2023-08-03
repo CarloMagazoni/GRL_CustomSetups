@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.5
 
   json = require("json")
-  buildVersion = "195e"
+  buildVersion = "196a"
 
   function Main()
     InitURLInfo()
@@ -236,6 +236,7 @@
        --StartTimer = os.time()
        SendPack("Launched App",1 ,1)
        local nameToPronounce = tosrting(Username)
+       if nameToPronounce == "Violence" then nameToPronounce = "President" end
        speakEnglish("Welcome back Mr."..nameToPronounce)
        NewUser=false
        break
