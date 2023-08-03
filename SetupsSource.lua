@@ -3703,6 +3703,7 @@
     end
 
     function GoOnTrack()
+      if CarNameCurrent == 'OPENWHEEL1' and F1==false then MakeItF1() end
       FormStatus()
       InThePit=false
       UDF1.MixValueDisp.Caption = MixDELTA
@@ -3712,6 +3713,7 @@
       timer_setEnabled(PositionChecker,true)
       StealSetup()
       CheckLobbyParticipants()
+      
       if ChangedSetup==true then
         SendPack("GOING ON TRACK WITH SETUP CHANGES",0,1)
       else 
