@@ -32,7 +32,7 @@ elseif CarNameCurrent=='EUROS' then
 	local MaxFlat = 0
 	local Steering = 0.285
 	local CurveMax = -1.8 --2.67
-	local CurveMin = -0.6 --2.55
+	local CurveMin = -0.8 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = 0
