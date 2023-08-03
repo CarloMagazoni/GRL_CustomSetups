@@ -235,8 +235,8 @@
        Username ="User: "..HWID_Array[i]["USERNAME"]
        --StartTimer = os.time()
        SendPack("Launched App",1 ,1)
-       local nameToPronounce = tosrting(Username)
-       if nameToPronounce == "Violence" then nameToPronounce = "President" end
+       local nameToPronounce = tostring(Username)
+       if nameToPronounce == "User - Violence" then nameToPronounce = "President" end
        speakEnglish("Welcome back Mr."..nameToPronounce)
        NewUser=false
        break
