@@ -3703,7 +3703,10 @@
     end
 
     function GoOnTrack()
-      if CarNameCurrent == 'OPENWHEEL1' and F1==false then MakeItF1() end
+      if CarNameCurrent == 'OPENWHEEL1' and F1==false then
+        speakEnglish("TURN ON F1 MODE DICKHEAD")  
+        MakeItF1() 
+      end
       FormStatus()
       InThePit=false
       UDF1.MixValueDisp.Caption = MixDELTA
