@@ -3703,7 +3703,7 @@
     end
 
     function GoOnTrack()
-      if CarNameCurrent == 'OPENWHEEL1' and F1==false then
+      if CarNameCurrent == 'OPENWHEEL1' and (F1==false or F1modeDELTA==1) then
         speakEnglish("TURN ON F1 MODE DICKHEAD")  
         TurnF1ModeOn() 
       end
