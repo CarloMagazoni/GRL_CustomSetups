@@ -3705,7 +3705,7 @@
     function GoOnTrack()
       if CarNameCurrent == 'OPENWHEEL1' and F1==false then
         speakEnglish("TURN ON F1 MODE DICKHEAD")  
-        MakeItF1() 
+        TurnF1ModeOn() 
       end
       FormStatus()
       InThePit=false
