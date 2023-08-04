@@ -163,7 +163,7 @@ elseif CarNameCurrent=='TENF2' then
 	local CurveLatR = -0.5
 	local LowSpeed = 0
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='R300' then
 	local FWD = 0
@@ -177,6 +177,6 @@ elseif CarNameCurrent=='R300' then
 	local CurveLatR = -0.5
 	local LowSpeed = -0.1
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 end
