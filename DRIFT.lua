@@ -11,7 +11,7 @@ if CarNameCurrent=='ELEGY' then
 	local CurveLatR = -0.5
 	local LowSpeed = 0
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='RT3000' then
 	local FWD = 0
@@ -25,7 +25,7 @@ elseif CarNameCurrent=='RT3000' then
 	local CurveLatR = -0.5
 	local LowSpeed = -0.3
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='EUROS' then
 	local FWD = 0
@@ -39,7 +39,7 @@ elseif CarNameCurrent=='EUROS' then
 	local CurveLatR = -0.5
 	local LowSpeed = -0.1
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='VECTRE' then
 	local FWD = -0.6
@@ -52,7 +52,7 @@ elseif CarNameCurrent=='VECTRE' then
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = 0
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='SCHWARZE' then
 	local FWD = 0
@@ -66,7 +66,7 @@ elseif CarNameCurrent=='SCHWARZE' then
 	local CurveLatR = -0.5
 	local LowSpeed = 0
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='JESTER4' then
 	local FWD = 0
@@ -80,7 +80,7 @@ elseif CarNameCurrent=='JESTER4' then
 	local CurveLatR = -0.5
 	local LowSpeed = 0.1
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='COMET3' then
 	local FWD = 0
@@ -94,7 +94,7 @@ elseif CarNameCurrent=='COMET3' then
 	local CurveLatR = -0.45
 	local LowSpeed = 0
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='ZR350' then
 	local FWD = 0
@@ -108,7 +108,7 @@ elseif CarNameCurrent=='ZR350' then
 	local CurveLatR = -0.5
 	local LowSpeed = 0
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='ELEGY2' then
 	local FWD = -0.598
@@ -122,7 +122,7 @@ elseif CarNameCurrent=='ELEGY2' then
 	local CurveLatR = -0.5
 	local LowSpeed = -0.8
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='REMUS' then
 	local FWD = 0
@@ -136,6 +136,7 @@ elseif CarNameCurrent=='REMUS' then
 	local CurveLatR = -0.5
 	local LowSpeed = -0.3
 	local Mass = 2000
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='NEON' then
 	local FWD = 1
@@ -149,7 +150,7 @@ elseif CarNameCurrent=='NEON' then
 	local CurveLatR = -0.5
 	local LowSpeed = 0.2
 	local Mass = 2000
-	local Handbrake = 0.5
+	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 elseif CarNameCurrent=='TENF2' then
 	local FWD = 0
