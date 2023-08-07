@@ -181,4 +181,18 @@ elseif CarNameCurrent=='R300' then
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
+elseif CarNameCurrent=='TAMPA2' then
+	local FWD = 0
+	local RWD = 0
+	local Drive = 0.6
+	local MaxFlat = 0
+	local Steering = 0.275
+	local CurveMax = -1.65 --2.67
+	local CurveMin = -0.75 --2.55
+	local CurveLat = 1 --0.3926
+	local CurveLatR = -0.5
+	local LowSpeed = -0.1
+	local Mass = 2000
+	local Handbrake = 0.2
+	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
 end
