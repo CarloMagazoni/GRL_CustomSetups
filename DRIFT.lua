@@ -9,7 +9,7 @@ if CarNameCurrent=='ELEGY' then
 	local CurveMin = -0.99 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = 0
+	local LowSpeed = -0.2
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -37,7 +37,7 @@ elseif CarNameCurrent=='EUROS' then
 	local CurveMin = -0.8 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = -0.1
+	local LowSpeed = -0.2
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -51,7 +51,7 @@ elseif CarNameCurrent=='VECTRE' then
 	local CurveMin = -0.8 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = 0
+	local LowSpeed = -0.1
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -65,7 +65,7 @@ elseif CarNameCurrent=='SCHWARZE' then
 	local CurveMin = -0.5 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = 0
+	local LowSpeed = -0.2
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -93,7 +93,7 @@ elseif CarNameCurrent=='COMET3' then
 	local CurveMin = -0.8 --2.55
 	local CurveLat = 0.95 --0.3926
 	local CurveLatR = -0.45
-	local LowSpeed = 0
+	local LowSpeed = -0.2
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -107,7 +107,7 @@ elseif CarNameCurrent=='ZR350' then
 	local CurveMin = -0.8 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = 0
+	local LowSpeed = -0.2
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -121,7 +121,7 @@ elseif CarNameCurrent=='ELEGY2' then
 	local CurveMin = -1.0 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = -0.8
+	local LowSpeed = -0.9
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -135,7 +135,7 @@ elseif CarNameCurrent=='REMUS' then
 	local CurveMin = -1.0 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = -0.3
+	local LowSpeed = -0.4
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -149,7 +149,7 @@ elseif CarNameCurrent=='NEON' then
 	local CurveMin = -0.7 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = 0.2
+	local LowSpeed = 0.1
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -163,7 +163,7 @@ elseif CarNameCurrent=='TENF2' then
 	local CurveMin = -1.0 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = 0
+	local LowSpeed = -0.2
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -177,7 +177,7 @@ elseif CarNameCurrent=='R300' then
 	local CurveMin = -0.75 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = -0.1
+	local LowSpeed = -0.3
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
@@ -191,7 +191,7 @@ elseif CarNameCurrent=='TAMPA2' then
 	local CurveMin = -0.75 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
-	local LowSpeed = -0.1
+	local LowSpeed = -0.3
 	local Mass = 2000
 	local Handbrake = 0.2
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
