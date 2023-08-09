@@ -617,7 +617,7 @@
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     elseif DRIFTarray[CarNameCurrent]  then
-      switchSettings(true,false,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false ,false,false,false,false,false,true)
+      switchSettings(true,true,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false ,false,false,false,false,false,true)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     else
