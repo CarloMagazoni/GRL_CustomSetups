@@ -194,4 +194,34 @@ elseif CarNameCurrent=='TAMPA2' then
 	local Handbrake = 0.2
 	local UpShift = 4
 	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake,UpShift)
+elseif CarNameCurrent=='BANSHEE' then
+	local FWD = 0
+	local RWD = 0
+	local Drive = 0.6
+	local MaxFlat = 0
+	local Steering = 0.25
+	local CurveMax = -1.8 --2.67
+	local CurveMin = -0.61 --2.55
+	local CurveLat = 1 --0.3926
+	local CurveLatR = -0.5
+	local LowSpeed = -0.3
+	local Mass = 6000
+	local Handbrake = 0.2
+	local UpShift = 4
+	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake,UpShift)
+elseif CarNameCurrent=='CYPHER' then
+	local FWD = 0
+	local RWD = 0
+	local Drive = 0.6
+	local MaxFlat = 0
+	local Steering = 0.25
+	local CurveMax = -1.8 --2.67
+	local CurveMin = -0.9 --2.55
+	local CurveLat = 1 --0.3926
+	local CurveLatR = -0.5
+	local LowSpeed = -0.3
+	local Mass = 6000
+	local Handbrake = 0.2
+	local UpShift = 4
+	ApplyDRIFTMod(DRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake,UpShift)
 end
