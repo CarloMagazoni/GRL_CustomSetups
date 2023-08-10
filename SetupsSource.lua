@@ -1798,7 +1798,7 @@
           UDF1.Driftvalue.Caption = 'ON'
           UDF1.ClassValue.Caption = "DRIFT"
           UDF1.ClassValue.Font.Color = 7502699
-          sleep(10)
+          sleep(100)
           SendPack("Drift mode ON",0,1)
           ChangedSetup=true
         end
@@ -1811,7 +1811,7 @@
           UDF1.Driftvalue.Caption = 'OFF'
           UDF1.ClassValue.Caption = "-"
           UDF1.ClassValue.Font.Color = clDefault
-          sleep(10)
+          sleep(100)
           SendPack("Drift mode OFF",0,1)
           ChangedSetup=true
         end
@@ -2344,7 +2344,7 @@
             end
         end
 
-        function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
+        function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake,UpShift)
             if IntoDRIFT==false then
               FWD=FWD*(-1)
               RWD=RWD*(-1)
@@ -2358,6 +2358,7 @@
               LowSpeed=LowSpeed*(-1)
               Mass=Mass*(-1)
               Handbrake = Handbrake*(-1)
+              UpShift = UpShift*(-1)
             end
             if FWD~=0 then
               FWDCurrent=0
@@ -2406,6 +2407,9 @@
             if Handbrake~=0 then
               HandbrakeCurrent=HandbrakeCurrent + Handbrake
               WriteFloat(HandbrakeADR,HandbrakeCurrent)
+            end
+            if UpShift~=0 then
+              UpShiftCurrent=UpShiftCurrent + UpShift
             end
         end
 
