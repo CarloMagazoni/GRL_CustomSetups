@@ -200,8 +200,8 @@ elseif CarNameCurrent=='BANSHEE' then
 	local Drive = 0.6
 	local MaxFlat = 0
 	local Steering = 0.25
-	local CurveMax = -1.8 --2.67
-	local CurveMin = -0.8 --2.55
+	local CurveMax = -1.5 --2.67
+	local CurveMin = -0.85 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.3
