@@ -110,7 +110,7 @@ elseif CarNameCurrent=='ZR350' then
 	local Drive = 0.6
 	local MaxFlat = 0
 	local Steering = 0.25
-	local CurveMax = -1.6 --2.67
+	local CurveMax = -1.7 --2.67
 	local CurveMin = -0.8 --2.55
 	local CurveLat = 1 --0.3926
 	local CurveLatR = -0.5
