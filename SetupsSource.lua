@@ -1307,7 +1307,7 @@
         UDF1.SuspensionForceValue.Caption = (SuspensionForceCurrent*100)//1
         SuspensionForceDELTA = SuspensionForceDELTA + 1
         WriteFloat(SuspensionForceADR,SuspensionForceCurrent)
-        --ChangedSetup=true
+        ChangedSetup=true
       end
     end
 
@@ -1317,7 +1317,7 @@
         UDF1.SuspensionForceValue.Caption = (SuspensionForceCurrent*100)//1
         SuspensionForceDELTA = SuspensionForceDELTA - 1
         WriteFloat(SuspensionForceADR,SuspensionForceCurrent)
-        --ChangedSetup=true
+        ChangedSetup=true
       end
     end
 
@@ -1328,7 +1328,7 @@
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA + 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
-        --ChangedSetup=true
+        ChangedSetup=true
       end
     end
 
@@ -1338,7 +1338,7 @@
         UDF1.SuspensionRaiseValue.Caption = (((SuspensionRaiseCurrent*1000)//1)/10)+9
         SuspensionRaiseDELTA = SuspensionRaiseDELTA - 1
         WriteFloat(SuspensionRaiseADR,SuspensionRaiseCurrent)
-        --ChangedSetup=true
+        ChangedSetup=true
       end
     end
 
