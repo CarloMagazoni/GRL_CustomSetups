@@ -2397,7 +2397,8 @@
               WriteFloat(CurveLateralRatioADR,CurveLateralRatioCurrent)
             end
             if LowSpeed~=0 then
-              LowSpeedTractionCurrent=LowSpeedTractionCurrent + LowSpeed 
+              LowSpeedTractionCurrent=0
+              --LowSpeedTractionCurrent=LowSpeedTractionCurrent + LowSpeed 
               WriteFloat(LowSpeedTractionADR,LowSpeedTractionCurrent)
             end
             if Mass~=0 then
