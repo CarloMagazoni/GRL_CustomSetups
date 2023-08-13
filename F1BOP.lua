@@ -27,7 +27,7 @@ if CarNameCurrent=='FORMULA' then
 	local Rolo = 0
 	local Steering = 0
 	ApplyF1Mod(F1,Mass,Drag,UpShift,DownShift,Drive,MaxFlat,InitMaxFlat,Brake,CurveMax,CurveMaxR,CurveMin,CurveMinR,CurveLat,CurveLatR,Front,Rear,Force,Bump,Travel,SuspensionLift,FS,RS,ARB,Rolo,DF,Steering)
-elseif CarNameCurrent=='OPENWHEEL1' and Username = 'User: v takt' then
+elseif CarNameCurrent=='OPENWHEEL1' and Username = 'User: v takt ' then
 	local Mass = 0
 	local Drag = 0
 	local UpShift = 0
