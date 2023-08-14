@@ -7,7 +7,7 @@ if CarNameCurrent=='ELEGY' then
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -0.99 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.2
 	local Mass = 6000
@@ -22,7 +22,7 @@ elseif CarNameCurrent=='RT3000' then
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -0.61 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.3
 	local Mass = 6000
@@ -37,7 +37,7 @@ elseif CarNameCurrent=='EUROS' then
 	local Steering = 0.285
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -0.8 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.2
 	local Mass = 6000
@@ -52,7 +52,7 @@ elseif CarNameCurrent=='VECTRE' then
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -0.8 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.1
 	local Mass = 6000
@@ -67,7 +67,7 @@ elseif CarNameCurrent=='SCHWARZE' then
 	local Steering = 0.275
 	local CurveMax = -1.6 --2.67
 	local CurveMin = -0.5 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.2
 	local Mass = 6000
@@ -82,7 +82,7 @@ elseif CarNameCurrent=='JESTER4' then
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -0.79 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = 0.1
 	local Mass = 6000
@@ -97,7 +97,7 @@ elseif CarNameCurrent=='COMET3' then
 	local Steering = 0.25
 	local CurveMax = -1.6 --2.67
 	local CurveMin = -0.8 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.45
 	local LowSpeed = -0.2
 	local Mass = 6000
@@ -112,7 +112,7 @@ elseif CarNameCurrent=='ZR350' then
 	local Steering = 0.25
 	local CurveMax = -1.7 --2.67
 	local CurveMin = -0.8 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.2
 	local Mass = 6000
@@ -127,7 +127,7 @@ elseif CarNameCurrent=='ELEGY2' then
 	local Steering = 0.45
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -1.0 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.9
 	local Mass = 6000
@@ -142,7 +142,7 @@ elseif CarNameCurrent=='REMUS' then
 	local Steering = 0.25
 	local CurveMax = -1.8 --2.67
 	local CurveMin = -1.0 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.4
 	local Mass = 6000
@@ -157,7 +157,7 @@ elseif CarNameCurrent=='NEON' then
 	local Steering = 0.25
 	local CurveMax = -1.35 --2.67
 	local CurveMin = -0.7 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = 0.1
 	local Mass = 6000
@@ -172,7 +172,7 @@ elseif CarNameCurrent=='R300' then
 	local Steering = 0.275
 	local CurveMax = -1.65 --2.67
 	local CurveMin = -0.75 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.3
 	local Mass = 6000
@@ -187,7 +187,7 @@ elseif CarNameCurrent=='TAMPA2' then
 	local Steering = 0.275
 	local CurveMax = -1.65 --2.67
 	local CurveMin = -0.75 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.3
 	local Mass = 6000
@@ -202,7 +202,7 @@ elseif CarNameCurrent=='BANSHEE' then
 	local Steering = 0.25
 	local CurveMax = -1.5 --2.67
 	local CurveMin = -0.85 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.3
 	local Mass = 6000
@@ -217,7 +217,7 @@ elseif CarNameCurrent=='CYPHER' then
 	local Steering = 0.3
 	local CurveMax = -1.7 --2.67
 	local CurveMin = -0.9 --2.55
-	local CurveLat = 20 --0.3926
+	local CurveLat = 10 --0.3926
 	local CurveLatR = -0.5
 	local LowSpeed = -0.3
 	local Mass = 6000
