@@ -1,7 +1,7 @@
 --CUSTOM SETUPS v1.9.5
 
   json = require("json")
-  buildVersion = "196B"
+  buildVersion = "196D"
 
   function Main()
     InitURLInfo()
@@ -433,11 +433,11 @@
 
   function SetCustomClassesArrays()
     GT3array = Set {'PARAGON','SPECTER','CARBONIZ','DRAFTER','COQUETTE','SCHLAGEN','GROWLER'}
-    GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','CYPHER','ITALIRSX'}
+    GTEarray = Set {'COQUETTE4','SPECTER2','COMET6','ITALIRSX'}
     HSarray = Set {'VAGNER','IGNUS','VISIONE','EMERUS','TIGON','krieger'}
     F1array = Set {'FORMULA','OPENWHEEL1'}
     NASCARarray = Set {'HOTRING'}
-    DRIFTarray = Set {'ELEGY','EUROS','RT3000','VECTRE','JESTER4','SCHWARZE','COMET3','ZR350','ELEGY2','REMUS','NEON','TENF2','R300'}
+    DRIFTarray = Set {'ELEGY','EUROS','RT3000','VECTRE','JESTER4','SCHWARZE','COMET3','ZR350','ELEGY2','REMUS','NEON','R300','TAMPA2','CYPHER','BANSHEE'}
   end
 
   function DefineCustomClassesLabels()
@@ -617,7 +617,7 @@
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     elseif DRIFTarray[CarNameCurrent]  then
-      switchSettings(true,false,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false ,false,false,false,false,false,true)
+      switchSettings(true,true,false,false,false,false,false,false,false,false,true,false,false,false,true,false,false ,false,false,false,false,false,true)
       CurrentCarMaxFuel = UnclassedCarTank
       MixCurrent = UnclassedCarMix
     else
@@ -1798,7 +1798,7 @@
           UDF1.Driftvalue.Caption = 'ON'
           UDF1.ClassValue.Caption = "DRIFT"
           UDF1.ClassValue.Font.Color = 7502699
-          sleep(10)
+          sleep(100)
           SendPack("Drift mode ON",0,1)
           ChangedSetup=true
         end
@@ -1811,7 +1811,7 @@
           UDF1.Driftvalue.Caption = 'OFF'
           UDF1.ClassValue.Caption = "-"
           UDF1.ClassValue.Font.Color = clDefault
-          sleep(10)
+          sleep(100)
           SendPack("Drift mode OFF",0,1)
           ChangedSetup=true
         end
@@ -2344,7 +2344,7 @@
             end
         end
 
-        function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake)
+        function ApplyDRIFTMod(IntoDRIFT,FWD,RWD,Drive,MaxFlat,CurveMax,CurveMin,CurveLat,Steering,CurveLatR,LowSpeed,Mass,Handbrake,UpShift)
             if IntoDRIFT==false then
               FWD=FWD*(-1)
               RWD=RWD*(-1)
@@ -2358,6 +2358,7 @@
               LowSpeed=LowSpeed*(-1)
               Mass=Mass*(-1)
               Handbrake = Handbrake*(-1)
+              UpShift = UpShift*(-1)
             end
             if FWD~=0 then
               FWDCurrent=0
@@ -2396,7 +2397,8 @@
               WriteFloat(CurveLateralRatioADR,CurveLateralRatioCurrent)
             end
             if LowSpeed~=0 then
-              LowSpeedTractionCurrent=LowSpeedTractionCurrent + LowSpeed 
+              LowSpeedTractionCurrent=0
+              --LowSpeedTractionCurrent=LowSpeedTractionCurrent + LowSpeed 
               WriteFloat(LowSpeedTractionADR,LowSpeedTractionCurrent)
             end
             if Mass~=0 then
@@ -2406,6 +2408,9 @@
             if Handbrake~=0 then
               HandbrakeCurrent=HandbrakeCurrent + Handbrake
               WriteFloat(HandbrakeADR,HandbrakeCurrent)
+            end
+            if UpShift~=0 then
+              UpShiftCurrent=UpShiftCurrent + UpShift
             end
         end
 
