@@ -248,7 +248,7 @@ else
     mixRWDVAL = 0.00000045
     mixMixtureVAL = 0.06
     susForceVAL = 0.15
-    susRaiseVAL = 0.035
+    susRaiseVAL = 0.020
     susBumpVAL = 0.0025
     susReboundVAL = 0.0025
     susTravelVAL = 0.01
