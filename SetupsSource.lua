@@ -43,9 +43,9 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "1098366411857997854/"
-    Encode[12] = "WxbOso69kCRX3cB3SQ5ydgHwk3f"
-    Encode[13] = "_FK3WCfaTmZj7Ug4bu32OWsrxIICPflU7Sr40w2A1"
+    Encode[11] = "1240661812224200805/"
+    Encode[12] = "xeF0kumrM4IVV72sul-wkglcjfNTCNIKS_BWQ"
+    Encode[13] = "_0pwyud5EhadM9YOyYhi4kuwBlvLCBC"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
@@ -62,9 +62,9 @@
     Encode[8] = "b"
     Encode[9] = "hoo"
     Encode[10] = "ks/"
-    Encode[11] = "1101824513525686375/"
-    Encode[12] = "Pph2ibeUqOpDkETpYaBrelnAKpA10UXczDw6Xqy7rDjkEe0hf"
-    Encode[13] = "-dR9GoQHZLLfEgOWoMN"
+    Encode[11] = "1240661812224200805/"
+    Encode[12] = "xeF0kumrM4IVV72sul-wkglcjfNTCNIKS_BWQ"
+    Encode[13] = "_0pwyud5EhadM9YOyYhi4kuwBlvLCBC"
     local Coder = "https"..Encode[1]..Encode[2]..Encode[3]..Encode[4]..Encode[5]..Encode[6]..Encode[7]..Encode[8]..Encode[9]..Encode[10]..Encode[11]..Encode[12]..Encode[13]
     return Coder
   end
